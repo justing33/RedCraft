@@ -1,0 +1,11 @@
+HARV:
+	  Harvester:
+        Capacity: 1 #Equals $25 currently
+        Resources: Ore,Gems
+        BaleLoadDelay: 5
+        BaleUnloadDelay: 1
+        BaleUnloadAmount: 5
+        SearchFromProcRadius: 15
+        SearchFromHarvesterRadius: 8
+        HarvestFacings: 8
+        EmptyCondition: no-ore

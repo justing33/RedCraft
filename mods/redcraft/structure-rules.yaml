@@ -1,0 +1,197 @@
+#Construction Yard
+FACT:
+	Tooltip:
+		Name: Command Center
+	Refinery:
+		DockAngle: 256
+		DockOffset: 1,2
+	StoresResources:
+		Capacity: 2000
+	FreeActor:
+		Actor: HARV
+		SpawnOffset: 1,2
+		Facing: 256
+	WithResourceStoragePipsDecoration:
+		Position: BottomLeft
+		Margin: 4, 3
+		RequiresSelection: true
+		PipCount: 17
+		FullSequence: pip-yellow
+
+#Ore Refinery
+PROC:
+	Tooltip:
+		Name: Oil Refinery
+
+#Allied Barracks
+TENT:
+	Tooltip:
+		Name: Barracks
+
+#Pillbox
+PBOX:
+	Tooltip:
+		Name: Bunker
+
+#Soviet Airfield
+AFLD:
+	Tooltip:
+		Name: Starport
+
+#Ukraine Airfield
+AFLD.Ukraine:
+	Inherits: AFLD
+	Buildable:
+		Prerequisites: dome, ~techlevel.medium, ~structures.ukraine
+		Description: Produces and reloads aircraft.\n  Special Ability: Spy Plane\n  Special Ability: Paratroopers\n  Special Ability: Parabombs
+	RenderSprites:
+		Image: afld
+
+#Sam Site
+SAM:
+	Tooltip:
+		Name: Missile Turret
+
+#Allied Tech Center
+ATEK:
+	Tooltip:
+		Name: Ghost Academy
+
+#Advanced Power Plant
+APWR:
+	Tooltip:
+		Name: Engineering Bay
+
+#War Factory
+WEAP:
+	Tooltip:
+		Name: Factory
+
+#Missile Silo
+MSLO:
+	Tooltip:
+		Name: Missile Silo
+
+#Gap Generator
+GAP:
+	Tooltip:
+		Name: Sensor Tower
+
+################################
+# Common Structure Definitions #
+################################
+
+BARRACKS:
+	AlwaysVisible:
+	Interactable:
+	Tooltip:
+		Name: Infantry Production
+
+TECHCENTER:
+	AlwaysVisible:
+	Interactable:
+	Tooltip:
+		Name: Tech Center
+
+ANYPOWER:
+	AlwaysVisible:
+	Interactable:
+	Tooltip:
+		Name: Any Power Generation
+
+#######################
+# Disabled Structures #
+#######################
+
+POWR:
+	Tooltip:
+		Name: Power Plant
+
+BARR:
+	Tooltip:
+		Name: Soviet Barracks
+
+HPAD:
+	Tooltip:
+		Name: Helipad
+
+#Soviet Tech Center
+STEK:
+	Tooltip:
+		Name: Soviet Tech Center
+
+SPEN:
+	Tooltip:
+		Name: Sub Pen
+
+SYRD:
+	Tooltip:
+		Name: Naval Yard
+
+IRON:
+	Tooltip:
+		Name: Iron Curtain
+
+PDOX:
+	Tooltip:
+		Name: Chronosphere
+
+TSLA:
+	Tooltip:
+		Name: Tesla Coil
+
+AGUN:
+	Tooltip:
+		Name: AA Gun
+
+DOME:
+	Tooltip:
+		Name: Radar Dome
+
+HBOX:
+	Tooltip:
+		Name: Camo Pillbox
+
+GUN:
+	Tooltip:
+		Name: Turret
+
+FTUR:
+	Tooltip:
+		Name: Flame Tower
+
+SILO:
+	Tooltip:
+		Name: Silo
+
+KENN:
+	Tooltip:
+		Name: Kennel
+
+FIX:
+	Tooltip:
+		Name: Service Depot
+
+SBAG:
+	Tooltip:
+		Name: Sandbag Wall
+
+FENC:
+	Tooltip:
+		Name: Wire Fence
+
+BRIK:
+	Tooltip:
+		Name: Concrete Wall
+
+CYCL:
+	Tooltip:
+		Name: Chain-Link Barrier
+
+BARB:
+	Tooltip:
+		Name: Barbed-Wire Fence
+
+WOOD:
+	Tooltip:
+		Name: Wooden Fence

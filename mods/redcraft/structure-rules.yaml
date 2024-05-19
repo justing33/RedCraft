@@ -2,6 +2,8 @@
 FACT:
 	Tooltip:
 		Name: Command Center
+	ProvidesPrerequisite:
+		Prerequisite: command-center
 	Refinery:
 		DockAngle: 256
 		DockOffset: 1,3
@@ -9,29 +11,29 @@ FACT:
 		Capacity: 2000
 	#Spawn 6 Harvesters when MCV is deployed
 	FreeActor:
-		Actor: HARV
+		Actor: E6
 		SpawnOffset: 0,5
 		Facing: 256
 	FreeActor@2:
-		Actor: HARV
+		Actor: E6
 		SpawnOffset: 2,4
 		Facing: 256
-	FreeActor@3:
-		Actor: HARV
-		SpawnOffset: 4,3
-		Facing: 256
-	FreeActor@4:
-		Actor: HARV
-		SpawnOffset: 6,2
-		Facing: 256
-	FreeActor@5:
-		Actor: HARV
-		SpawnOffset: 8,1
-		Facing: 256
-	FreeActor@6:
-		Actor: HARV
-		SpawnOffset: 10,0
-		Facing: 256
+	# FreeActor@3:
+	# 	Actor: E6
+	# 	SpawnOffset: 4,3
+	# 	Facing: 256
+	# FreeActor@4:
+	# 	Actor: E6
+	# 	SpawnOffset: 6,2
+	# 	Facing: 256
+	# FreeActor@5:
+	# 	Actor: E6
+	# 	SpawnOffset: 8,1
+	# 	Facing: 256
+	# FreeActor@6:
+	# 	Actor: E6
+	# 	SpawnOffset: 10,0
+	# 	Facing: 256
 	WithResourceStoragePipsDecoration:
 		Position: BottomLeft
 		Margin: 4, 3

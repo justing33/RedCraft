@@ -1,0 +1,57 @@
+#Engineer / SCV
+E6:
+    Inherits: ^Soldier
+    #Inherits@selection: ^SelectableSupportUnit
+    Inherits@selection: ^SelectableEconomicUnit
+    # TODO: Change where this unit is built at
+    Buildable:
+        Queue: Infantry
+        BuildAtProductionType: Soldier
+        BuildPaletteOrder: 60
+        Prerequisites: ~command-center, ~techlevel.infonly
+        Description: Infiltrates and captures\nenemy structures.\n  Unarmed
+    Valued:
+        Cost: 50
+    Tooltip:
+        Name: Engineer
+    Harvester:
+        Capacity: 1 #Equals $25 currently
+        Resources: Ore,Gems
+        BaleLoadDelay: 5
+        BaleUnloadDelay: 1
+        BaleUnloadAmount: 5
+        SearchFromProcRadius: 15
+        SearchFromHarvesterRadius: 8
+        #HarvestFacings: 8
+        EmptyCondition: no-ore
+    WithHarvesterPipsDecoration:
+        Position: BottomLeft
+        Margin: 4, 3
+        RequiresSelection: false
+        PipCount: 7
+        ResourceSequences:
+          Ore: pip-yellow
+          Gems: pip-red
+    #TODO: May need to adjust in future to allow 'muling' TBD
+    WithInfantryBody:
+        RequiresCondition: !parachute
+    WithInfantryBody@PARACHUTE:
+        StandSequences: parachute
+        RequiresCondition: parachute
+        Palette: player-noshadow
+        IsPlayerPalette: true
+    #Turn off instant repairs
+    -InstantlyRepairs:
+    #Turn off repairing of bridges
+    -RepairsBridges:
+    #TODO: What is this?
+    -CaptureManager:
+    #TODO: What is this?
+    GrantConditionOnPrerequisite@GLOBALREUSABLEENGINEER:
+        Condition: global-reusable-engineers
+        Prerequisites: global-reusable-engineers
+    #Prevent Engineers from capturing
+    -Captures:
+    -Captures@REUSABLE:
+    #TODO: Allow engineers to melee attack 
+    #-AttackFrontal:

@@ -32,6 +32,8 @@ E6:
         ResourceSequences:
           Ore: pip-yellow
           Gems: pip-red
+	Mobile:
+		Speed: 72
     #TODO: May need to adjust in future to allow 'muling' TBD
     WithInfantryBody:
         RequiresCondition: !parachute

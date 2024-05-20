@@ -1,23 +1,22 @@
 #Construction Yard
 FACT:
+	Inherits: ^Building
 	Tooltip:
 		Name: Command Center
-	ProvidesPrerequisite:
-		Prerequisite: command-center
 	Refinery:
 		DockAngle: 256
 		DockOffset: 1,3
 	StoresResources:
 		Capacity: 2000
-	#Spawn 6 Harvesters when MCV is deployed
+	#Spawn 6 Engineers when MCV is deployed
 	FreeActor:
 		Actor: E6
 		SpawnOffset: 0,5
 		Facing: 256
-	FreeActor@2:
-		Actor: E6
-		SpawnOffset: 2,4
-		Facing: 256
+	# FreeActor@2:
+	# 	Actor: E6
+	# 	SpawnOffset: 2,4
+	# 	Facing: 256
 	# FreeActor@3:
 	# 	Actor: E6
 	# 	SpawnOffset: 4,3
@@ -40,6 +39,22 @@ FACT:
 		RequiresSelection: true
 		PipCount: 17
 		FullSequence: pip-yellow
+	Production:
+		Produces: Infantry, Soldier
+		# TODO: What is this for, it does not crash the game but it does not work also
+		SpawnOffset: 5,5
+	#TODO: Grants a condition to actors produced by this actor. - Do I need this?
+	#GrantExternalConditionToProduced:
+	#Condition: produced
+	ProductionBar:
+		ProductionType: Infantry
+	#Required for units to be able to exit CY
+	Exit@1:
+		RequiresCondition: !being-captured
+		SpawnOffset: 900,2000,0
+		ExitCell: 2,2
+	ProvidesPrerequisite@command-center:
+		Prerequisite: command-center
 
 #Ore Refinery
 PROC:

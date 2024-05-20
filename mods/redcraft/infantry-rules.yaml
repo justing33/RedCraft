@@ -6,10 +6,10 @@ E6:
     # TODO: Change where this unit is built at
     Buildable:
         Queue: Infantry
-        BuildAtProductionType: Soldier
+        BuildAtProductionType: Soldier #Allows infantry to be built once CY is deployed but no where to pop out at
         BuildPaletteOrder: 60
         Prerequisites: ~command-center, ~techlevel.infonly
-        Description: Infiltrates and captures\nenemy structures.\n  Unarmed
+        Description:  Harvests resources, constructs buildings and can repair all vehicles, units and buildings
     Valued:
         Cost: 50
     Tooltip:

@@ -3,7 +3,6 @@ E6:
     Inherits: ^Soldier
     #Inherits@selection: ^SelectableSupportUnit
     Inherits@selection: ^SelectableEconomicUnit
-    # TODO: Change where this unit is built at
     Buildable:
         Queue: Infantry
         BuildAtProductionType: Soldier #Allows infantry to be built once CY is deployed but no where to pop out at
@@ -15,11 +14,11 @@ E6:
     Tooltip:
         Name: Engineer
     Harvester:
-        Capacity: 1 #Equals $25 currently
+        Capacity: 20 #Equals $25 currently
         Resources: Ore,Gems
-        BaleLoadDelay: 5
+        #BaleLoadDelay: 5
         BaleUnloadDelay: 1
-        BaleUnloadAmount: 5
+        #BaleUnloadAmount: 1
         SearchFromProcRadius: 15
         SearchFromHarvesterRadius: 8
         #HarvestFacings: 8
@@ -30,10 +29,10 @@ E6:
         RequiresSelection: false
         PipCount: 7
         ResourceSequences:
-          Ore: pip-yellow
-          Gems: pip-red
+            Ore: pip-yellow
+            Gems: pip-red
 	Mobile:
-		Speed: 72
+		Speed: 150
     #TODO: May need to adjust in future to allow 'muling' TBD
     WithInfantryBody:
         RequiresCondition: !parachute
@@ -49,9 +48,7 @@ E6:
     #TODO: What is this?
     -CaptureManager:
     #TODO: What is this?
-    GrantConditionOnPrerequisite@GLOBALREUSABLEENGINEER:
-        Condition: global-reusable-engineers
-        Prerequisites: global-reusable-engineers
+    -GrantConditionOnPrerequisite@GLOBALREUSABLEENGINEER:
     #Prevent Engineers from capturing
     -Captures:
     -Captures@REUSABLE:

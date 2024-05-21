@@ -1,6 +1,12 @@
 #Construction Yard
 FACT:
 	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 60
+		Prerequisites: anypower, ~techlevel.infonly
+		# TODO Desc
+		Description: Refines Ore and Gems\ninto credits.
 	Tooltip:
 		Name: Command Center
 	Refinery:
@@ -41,7 +47,6 @@ FACT:
 		FullSequence: pip-yellow
 	Production:
 		Produces: Infantry, Soldier
-		# TODO: What is this for, it does not crash the game but it does not work also
 		SpawnOffset: 5,5
 	#TODO: Grants a condition to actors produced by this actor. - Do I need this?
 	#GrantExternalConditionToProduced:
@@ -60,6 +65,7 @@ FACT:
 PROC:
 	Tooltip:
 		Name: Oil Refinery
+	-FreeActor:
 
 #Allied Barracks
 TENT:

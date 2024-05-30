@@ -1,46 +1,8 @@
-# JEEP:
-#     Inherits: ^Vehicle
-#     # Inherits@CARGOPIPS: ^CargoPips
-#     Buildable:
-#         Queue: Vehicle
-#         BuildPaletteOrder: 130
-#         Prerequisites: ~vehicles.allies, ~techlevel.low
-#         Description: Fast scout & anti-infantry vehicle.\nCan carry one infantry.\n  Strong vs Infantry\n  Weak vs Vehicles, Aircraft
-#     Tooltip:
-#         Name: Hellion
-#     Armor:
-# 	    Type: Light
-#     Mobile:
-#         Speed: 200
-#         Locomotor: heavywheeled
-#     Turreted:
-#         TurnSpeed: 120
-#         Offset: 0,0,128
-#     Armament:
-#         Weapon: Flamer
-#         LocalOffset: 128,0,43
-#         FireDelay: 2
-#     Transforms:
-#         IntoActor: stnk
-#         Offset: -1,-1
-#         -Facing:
-#         TransformSounds: placbldg.aud, build5.aud
-#         NoTransformNotification: BuildingCannotPlaceAudio
-#         NoTransformTextNotification: Cannot deploy here.
-#     #GrantConditionOnPrerequisite@GLOBALHELLIONUNDEPLOY:
-#     #    Condition: hellionundeploy
-#     #    Prerequisites: global-hellionundeploy
-#     #This makes it able to turn into the hellbat? but then cant move around
-#     #this is giving it some kind of structure properties that I need to override to allow it to move
-#     #TransformsIntoMobile:
-#     #RequiresCondition: hellionundeploy
-#     #Locomotor: heavywheeled
-# 	#RequiresForceMove: false
-#     Cargo:
-#         -Types:
-#         -MaxWeight:
-#         -LoadingCondition:
+# JEEP is replaced by the light tank and not buildable
+JEEP:
+    -Buildable:
 
+# This is the Light Tank that has been overridden to be skinned as the JEEP
 1TNK:
 	Inherits: ^TrackedVehicle
 	Buildable:
@@ -52,75 +14,45 @@
 		Name: Hellion
 	Mobile:
 		Speed: 200
+    Armament:
+        Weapon: Flamer
+        LocalOffset: 192,0,176
+        FireDelay: 2
 	Selectable:
 		DecorationBounds: 1194, 1194
     Transforms:
         IntoActor: arty
-        Offset: -1,-1
+        Offset: 0,0
         -Facing:
         TransformSounds: placbldg.aud, build5.aud
         NoTransformNotification: BuildingCannotPlaceAudio
         NoTransformTextNotification: Cannot deploy here.
 
+# TODO: Make this the Hellbat
 ARTY:
 	Inherits: ^TrackedVehicle
 	Inherits@GAINSEXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Buildable:
-		Queue: Vehicle
-		BuildPaletteOrder: 230
-		Prerequisites: dome, ~vehicles.allies, ~techlevel.medium
-		Description: Long-range artillery.\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft
-	Valued:
-		Cost: 850
+	#Not buildable as a Hellbat
+    -Buildable:
 	Tooltip:
-		Name: Artillery
+		Name: Hellbat
 	Mobile:
 		TurnSpeed: 8
 		Speed: 72
 		Locomotor: lighttracked
-	Armament:
-		Weapon: 155mm
-		LocalOffset: 624,0,208
-		MuzzleSequence: muzzle
+    Armament:
+        Weapon: Flamer
+        LocalOffset: 192,0,176
+        FireDelay: 2
     Transforms:
         IntoActor: 1tnk
-        Offset: -1,-1
+        Offset: 0,0
         -Facing:
         TransformSounds: placbldg.aud, build5.aud
         -NoTransformNotification:
         -NoTransformTextNotification:
 
+#Phase Transport (not buildable)
 STNK:
-    #Needs to be a building to allow the hellion to transform to hellbat
-    Inherits: ^Vehicle
     -Buildable:
-    Tooltip:
-        Name: Hellbat
-    Mobile:
-        Speed: 200
-        Locomotor: heavywheeled
-        PauseOnCondition: notmobile || being-captured
-	  Turreted:
-	      TurnSpeed: 40
-    Armament:
-        Weapon: Flamer
-        LocalOffset: 192,0,176
-        FireDelay: 2
-    AttackTurreted:
-    WithSpriteTurret:
-    Cargo:
-  	    Types: Infantry
-  	    MaxWeight: 5
-  	    LoadingCondition: notmobile
-    -Cloak:
-    -GrantConditionOnDamageState@UNCLOAK:
-    Transforms:
-        IntoActor: 1tnk
-        Offset: -1,-1
-        -Facing:
-        TransformSounds: placbldg.aud, build5.aud
-        -NoTransformNotification:
-        -NoTransformTextNotification:
-    #TransformsIntoMobile:
-    #    Locomotor: heavywheeled

@@ -1,7 +1,3 @@
-# JEEP is replaced by the light tank and not buildable
-JEEP:
-    -Buildable:
-
 # This is the Light Tank that has been overridden to be skinned as the JEEP
 1TNK:
 	Inherits: ^TrackedVehicle
@@ -53,6 +49,67 @@ ARTY:
         -NoTransformNotification:
         -NoTransformTextNotification:
 
+# Heavy Tank
+3TNK:
+    Buildable:
+        Queue: Vehicle
+        BuildPaletteOrder: 220
+        Prerequisites: fix, ~vehicles.soviet, ~techlevel.medium
+        Description: Soviet Main Battle Tank, with dual cannons\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
+    Tooltip:
+        Name: Siege Tank
+        GenericName: Siege Tank
+    Mobile:
+        Speed: 60
+    Turreted:
+        TurnSpeed: 20
+    Armament:
+        Weapon: 105mm
+        Recoil: 128
+        RecoilRecovery: 38
+        LocalOffset: 768,85,90, 768,-85,90
+        MuzzleSequence: muzzle
+    Transforms:
+        IntoActor: 4tnk
+        Offset: 0,0
+        -Facing:
+
+# Mammoth Tank
+4TNK:
+    -Buildable:
+    Tooltip:
+        Name: Siege Tank (Sieged)
+        GenericName: Siege Tank (Sieged)
+    Mobile:
+        Speed: 0
+        Locomotor: heavytracked
+    Turreted:
+        TurnSpeed: 8
+    Armament@PRIMARY:
+        Weapon: 120mm
+        LocalOffset: 900,180,340, 900,-180,340
+        Recoil: 171
+        RecoilRecovery: 30
+        MuzzleSequence: muzzle
+    -Armament@SECONDARY:
+    Transforms:
+        IntoActor: 3tnk
+        Offset: 0,0
+        -Facing:
+
+# Jeep is replaced by the light tank and not buildable
+JEEP:
+    -Buildable:
+
+# Medium tank
+2TNK:
+	-Buildable:
+
 #Phase Transport (not buildable)
 STNK:
     -Buildable:
+
+#V2 Rocket
+V2RL:
+    -Buildable:
+

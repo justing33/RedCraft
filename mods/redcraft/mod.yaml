@@ -76,6 +76,7 @@ Sequences:
 	ra|sequences/aircraft.yaml
 	ra|sequences/misc.yaml
 	ra|sequences/decorations.yaml
+	redcraft|sequences/vehicle-sequences.yaml #trying to override this to get hellion to morph to hellbat and give it a make: sequence
 
 TileSets:
 	ra|tilesets/snow.yaml

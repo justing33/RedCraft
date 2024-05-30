@@ -1,0 +1,75 @@
+JEEP:
+    Inherits: ^Vehicle
+    Inherits@selection: ^SelectableSupportUnit
+    Buildable:
+        Queue: Vehicle
+        BuildPaletteOrder: 130
+        Prerequisites: ~vehicles.allies, ~techlevel.low
+        Description: Fast scout & anti-infantry vehicle.\nCan carry one infantry.\n  Strong vs Infantry\n  Weak vs Vehicles, Aircraft
+    Tooltip:
+        Name: Hellion
+    Selectable:
+        DecorationBounds: 1792, 1792
+    Armor:
+	    Type: Light
+    Mobile:
+        Speed: 200
+        Locomotor: heavywheeled
+        -PauseOnCondition:
+    Turreted:
+        TurnSpeed: 120
+        Offset: 0,0,128
+    Armament:
+        Weapon: Flamer
+        LocalOffset: 128,0,43
+        FireDelay: 2
+    Transforms:
+        IntoActor: stnk
+        Offset: -1,-1
+        -Facing:
+        TransformSounds: placbldg.aud, build5.aud
+        NoTransformNotification: BuildingCannotPlaceAudio
+        NoTransformTextNotification: Cannot deploy here.
+    TransformsIntoMobile:
+		-RequiresCondition:
+		Locomotor: heavywheeled
+		RequiresForceMove: true
+    Cargo:
+        Types:
+        MaxWeight: 0
+        -LoadingCondition:
+
+STNK:
+    Inherits: ^Building
+    -Buildable:
+    Building:
+        Footprint: xxX xxx XxX ===
+        Dimensions: 3,4
+        LocalCenterOffset: 0,-512,0
+    Tooltip:
+        Name: Hellbat
+    Mobile:
+        Speed: 200
+        Locomotor: heavywheeled
+        PauseOnCondition: notmobile || being-captured
+	  Turreted:
+	      TurnSpeed: 40
+    Armament:
+        Weapon: Flamer
+        LocalOffset: 192,0,176
+        FireDelay: 2
+    AttackTurreted:
+    WithSpriteTurret:
+    Cargo:
+  	    Types: Infantry
+  	    MaxWeight: 5
+  	    LoadingCondition: notmobile
+    -Cloak:
+    -GrantConditionOnDamageState@UNCLOAK:
+    # Transforms:
+    #     IntoActor: jeep
+    #     Offset: -1,-1
+    #     Facing: 384
+    #     TransformSounds: placbldg.aud, build5.aud
+    #     -NoTransformNotification:
+    #     -NoTransformTextNotification:

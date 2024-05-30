@@ -100,8 +100,6 @@ ARTY:
 
 # Mine Layer
 MNLY:
-	#Inherits: ^TrackedVehicle
-	#Inherits@selection: ^SelectableSupportUnit
     Buildable:
         Queue: Vehicle
         BuildPaletteOrder: 310
@@ -111,6 +109,14 @@ MNLY:
         Name: Widow Mine
     Mobile:
         Speed: 113
+    Armament:
+        Weapon: 155mm
+        LocalOffset: 624,0,208
+        MuzzleSequence: muzzle
+    AttackFrontal:
+        TargetFrozenActors: True
+        ForceFireIgnoresActors: True
+        FacingTolerance: 0
     -Minelayer:
     -AmmoPool:
     # TODO: Use for other detector units!!

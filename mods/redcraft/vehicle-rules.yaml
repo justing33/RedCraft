@@ -92,24 +92,69 @@ ARTY:
         RecoilRecovery: 30
         MuzzleSequence: muzzle
     -Armament@SECONDARY:
+    # TODO: Fix the bug where it wont transform back into a siege tank (non sieged) after move command is issued
     Transforms:
         IntoActor: 3tnk
         Offset: 0,0
         -Facing:
 
-# Jeep is replaced by the light tank and not buildable
+# Mobile Flak (similar to Jeep, maybe OpenRA unit only?)
+# TODO: Turn into Cyclone
+FTRK:
+    -Buildable:
+
+#######################
+# NON BUILDABLE UNITS #
+#######################
+
+# Jeep is replaced by the light tank
 JEEP:
     -Buildable:
 
 # Medium tank
 2TNK:
-	-Buildable:
+    -Buildable:
 
-#Phase Transport (not buildable)
+# Phase Transport
 STNK:
     -Buildable:
 
-#V2 Rocket
+# V2 Rocket
 V2RL:
     -Buildable:
 
+# APC
+APC:
+    -Buildable:
+
+# Mine Layer
+MNLY:
+    -Buildable:
+
+# Supply Truck
+TRUK:
+    -Buildable:
+
+# Mobile Gap Generator
+MGG:
+    -Buildable:
+
+# Mobile Radar Jammer
+MRJ:
+    -Buildable:
+
+# Tesla Tank
+TTNK:
+    -Buildable:
+
+# Demolition Truck
+DTRK:
+    -Buildable:
+
+# Chrono Tank
+CTNK:
+    -Buildable:
+
+# Mad Tank
+QTNK:
+    -Buildable:

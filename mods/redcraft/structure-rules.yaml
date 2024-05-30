@@ -1,4 +1,4 @@
-#Construction Yard
+# Construction Yard
 FACT:
 	Inherits: ^Building
 	Buildable:
@@ -14,45 +14,27 @@ FACT:
 		DockOffset: 1,3
 	StoresResources:
 		Capacity: 2000
-	#Spawn 6 Engineers when MCV is deployed
+	# TODO: Spawn 6 Engineers when MCV is deployed
 	FreeActor:
 		Actor: E6
 		SpawnOffset: 0,5
 		Facing: 256
-	# FreeActor@2:
-	# 	Actor: E6
-	# 	SpawnOffset: 2,4
-	# 	Facing: 256
-	# FreeActor@3:
-	# 	Actor: E6
-	# 	SpawnOffset: 4,3
-	# 	Facing: 256
-	# FreeActor@4:
-	# 	Actor: E6
-	# 	SpawnOffset: 6,2
-	# 	Facing: 256
-	# FreeActor@5:
-	# 	Actor: E6
-	# 	SpawnOffset: 8,1
-	# 	Facing: 256
-	# FreeActor@6:
-	# 	Actor: E6
-	# 	SpawnOffset: 10,0
-	# 	Facing: 256
 	WithResourceStoragePipsDecoration:
 		Position: BottomLeft
 		Margin: 4, 3
 		RequiresSelection: true
 		PipCount: 17
 		FullSequence: pip-yellow
-	Production:
-		Produces: Infantry, Soldier
-		SpawnOffset: 5,5
-	#TODO: Grants a condition to actors produced by this actor. - Do I need this?
-	#GrantExternalConditionToProduced:
-	#Condition: produced
-	ProductionBar:
-		ProductionType: Infantry
+		# Production:
+		# Produces: Infantry, Soldier
+		# Produces: Building, Defense
+		# SpawnOffset: 5,5
+		# ProductionBar:
+		#  ProductionType: Infantry
+	ProductionBar@Building:
+		ProductionType: Building
+	ProductionBar@Defense:
+		ProductionType: Defense
 	#Required for units to be able to exit CY
 	Exit@1:
 		RequiresCondition: !being-captured

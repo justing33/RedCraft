@@ -1,7 +1,6 @@
-#Engineer / SCV
+# Engineer
 E6:
     Inherits: ^Soldier
-    #Inherits@selection: ^SelectableSupportUnit
     Inherits@selection: ^SelectableEconomicUnit
     Buildable:
         Queue: Infantry
@@ -12,7 +11,7 @@ E6:
     Valued:
         Cost: 50
     Tooltip:
-        Name: Engineer
+        Name: SCV
     Harvester:
         Capacity: 20 #Equals $25 currently
         Resources: Ore,Gems
@@ -54,3 +53,185 @@ E6:
     -Captures@REUSABLE:
     #TODO: Allow engineers to melee attack 
     #-AttackFrontal:
+
+# Rifle Infantry
+E1:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 10
+		Prerequisites: ~barracks, ~techlevel.infonly
+		Description: General-purpose infantry.\n  Strong vs Infantry\n  Weak vs Vehicles, Aircraft
+	Tooltip:
+		Name: Marine
+	Armament@PRIMARY:
+		Weapon: M1Carbine
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: Vulcan
+		MuzzleSequence: garrison-muzzle
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+		RequiresCondition: !parachute
+	WithInfantryBody@PARACHUTE:
+		StandSequences: parachute
+		RequiresCondition: parachute
+		Palette: player-noshadow
+		IsPlayerPalette: true
+
+# Rocket Soldier
+E3:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 30
+		Prerequisites: ~barracks, ~techlevel.infonly
+		Description: Anti-tank/Anti-aircraft infantry.\n  Strong vs Vehicles, Aircraft\n  Weak vs Infantry
+	Selectable:
+		Class: E3
+	Tooltip:
+		Name: Marauder
+	Armament@PRIMARY:
+		Weapon: RedEye
+		LocalOffset: 0,0,555
+	-Armament@SECONDARY:
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: Dragon
+
+# Grenadier
+E2:
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 40
+		Prerequisites: ~barr, ~techlevel.infonly
+		Description: Infantry armed with grenades.\n  Strong vs Buildings, Infantry\n  Weak vs Vehicles, Aircraft
+	Tooltip:
+		Name: Reaper
+	Mobile:
+		Speed: 68
+	Armament@PRIMARY:
+		Weapon: Grenade
+		LocalOffset: 0,0,555
+		FireDelay: 15
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: Grenade
+		FireDelay: 15
+	-TakeCover:
+
+# Flamethrower
+E4:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 70
+		Prerequisites: ~barr, ftur, ~techlevel.low
+		Description: Advanced anti-structure unit.\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft
+	Tooltip:
+		Name: Firebat
+	Armament@PRIMARY:
+		Weapon: Flamer
+		LocalOffset: 700,0,500
+		FireDelay: 8
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: Flamer
+	-TakeCover:
+
+# Tanya
+E7:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 120
+		Prerequisites: ~tent, atek, ~techlevel.high
+		BuildLimit: 1
+		Description: Elite commando infantry. Armed with\ndual pistols and C4.\nMaximum 1 can be trained.\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft\n  Special Ability: Destroy Building with C4
+	Tooltip:
+		Name: Ghost
+	Mobile:
+		Speed: 68
+		Voice: Move
+	Guard:
+		Voice: Move
+	Demolition:
+		DetonationDelay: 45
+		Voice: Demolish
+	Armament@PRIMARY:
+		Weapon: Colt45
+		LocalOffset: 0,0,0, 0,0,0
+	-Armament@SECONDARY:
+
+# Medic
+MEDI:
+	Inherits: ^Soldier
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 40
+		Prerequisites: ~tent, ~techlevel.infonly
+		Description: Heals nearby infantry.\n  Unarmed
+	Tooltip:
+		Name: Medic
+	Mobile:
+		Speed: 49
+
+##########################
+# NON BUILDABLE INFANTRY #
+##########################
+
+# E1R1: ??
+# E3R1: ??
+
+# Attack Dog
+DOG:
+    -Buildable:
+
+# Shock Trooper
+SHOK:
+    -Buildable:
+
+# Spy
+SPY:
+    -Buildable:
+
+SPY.England:
+    -Buildable:
+
+# Mechanic
+MECH:
+    -Buildable:
+
+# Thief
+THF:
+    -Buildable:
+
+# Zombie
+Zombie:
+    -Buildable:
+
+# Ants
+Ant:
+    -Buildable:
+
+# Fire Ant
+FireAnt:
+    -Buildable:
+
+# Scout Ant
+ScoutAnt:
+    -Buildable:
+
+# Warrior Ant
+WarriorAnt:
+    -Buildable:

@@ -33,3 +33,20 @@ stnk:
 	make:
 		Filename: factmake.shp
 		Length: *
+
+1tnk:
+	Defaults: 
+		Filename: jeep.shp
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: jeepicon.shp

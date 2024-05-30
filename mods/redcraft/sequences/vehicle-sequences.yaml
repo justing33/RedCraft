@@ -1,0 +1,30 @@
+# Light tank skinned as a JEEP
+1tnk:
+    Defaults: 
+        Filename: jeep.shp
+    idle:
+        Facings: 32
+		    UseClassicFacings: True
+    turret:
+        Start: 32
+        Facings: 32
+        UseClassicFacings: True
+    muzzle:
+        Filename: minigun.shp
+        Length: 6
+        Facings: 8
+    icon:
+        Filename: jeepicon.shp
+
+# Artilery skinned as a Phase transport
+arty:
+    idle:
+        # Override
+        Filename: stnk.shp
+        Facings: 32
+        UseClassicFacings: True
+    muzzle:
+        Filename: gunfire2.shp
+        Length: 5
+    icon:
+        Filename: artyicon.shp

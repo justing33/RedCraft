@@ -28,3 +28,16 @@ arty:
         Length: 5
     icon:
         Filename: artyicon.shp
+
+# Mine Layer skinned as a 'Mine'
+mnly:
+    idle:
+        Filename: minv.shp
+        Facings: 1
+        groups:
+            Length: 1
+            Frames: 1
+        ZOffset: -512
+        UseClassicFacings: False
+    icon:
+        Filename: mnlyicon.shp

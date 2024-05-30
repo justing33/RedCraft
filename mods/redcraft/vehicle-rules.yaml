@@ -98,6 +98,29 @@ ARTY:
         Offset: 0,0
         -Facing:
 
+# Mine Layer
+MNLY:
+	#Inherits: ^TrackedVehicle
+	#Inherits@selection: ^SelectableSupportUnit
+    Buildable:
+        Queue: Vehicle
+        BuildPaletteOrder: 310
+        Prerequisites: fix, ~techlevel.medium
+        Description: Lays mines to destroy\nunwary enemy units.\nCan detect mines.\n  Unarmed
+    Tooltip:
+        Name: Widow Mine
+    Mobile:
+        Speed: 113
+    -Minelayer:
+    -AmmoPool:
+    # TODO: Use for other detector units!!
+    -DetectCloaked:
+    -RenderDetectionCircle:
+    RenderSprites:
+        Image: MNLY
+    -Rearmable:
+    -WithAmmoPipsDecoration:
+
 # Mobile Flak (similar to Jeep, maybe OpenRA unit only?)
 # TODO: Turn into Cyclone
 FTRK:
@@ -125,10 +148,6 @@ V2RL:
 
 # APC
 APC:
-    -Buildable:
-
-# Mine Layer
-MNLY:
     -Buildable:
 
 # Supply Truck

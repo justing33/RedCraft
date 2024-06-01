@@ -76,13 +76,15 @@ ARTY:
 
 # Mammoth Tank
 4TNK:
+    Inherits: ^Building
     -Buildable:
     Tooltip:
         Name: Siege Tank (Sieged)
         GenericName: Siege Tank (Sieged)
-    Mobile:
-        Speed: 0
-        Locomotor: heavytracked
+    -Mobile:
+    Immobile:
+        OccupiesSpace: true
+    -AttackMove:
     Turreted:
         TurnSpeed: 8
     Armament@PRIMARY:
@@ -92,11 +94,14 @@ ARTY:
         RecoilRecovery: 30
         MuzzleSequence: muzzle
     -Armament@SECONDARY:
-    # TODO: Fix the bug where it wont transform back into a siege tank (non sieged) after move command is issued
     Transforms:
         IntoActor: 3tnk
         Offset: 0,0
         -Facing:
+    HitShape:
+        Type: Rectangle
+            TopLeft: -1877, -1621
+            BottomRight: 1877, 1621
 
 # Mine Layer
 MNLY:

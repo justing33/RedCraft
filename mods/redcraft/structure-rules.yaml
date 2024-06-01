@@ -129,6 +129,8 @@ ANYPOWER:
 # Disabled Structures #
 #######################
 
+# TODO: Make these not buildable
+
 POWR:
 	Tooltip:
 		Name: Power Plant

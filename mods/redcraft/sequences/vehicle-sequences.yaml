@@ -41,3 +41,7 @@ mnly:
         UseClassicFacings: False
     icon:
         Filename: mnlyicon.shp
+
+# Mammoth Tank with empty make sequence/animation
+4tnk:
+    make:

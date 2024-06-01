@@ -13,10 +13,26 @@ FACT:
         UseStorage: False
     StoresResources:
         Capacity: 2000
-    # TODO: Spawn 6 Engineers when MCV is deployed
-    FreeActor:
+    #TODO: Make starting units -- Spawn 6 SCV when MCV is deployed
+    FreeActor@1:
         Actor: HARV
         SpawnOffset: 0,5
+        Facing: 256
+    FreeActor@2:
+        Actor: HARV
+        SpawnOffset: 1,6
+        Facing: 256
+    FreeActor@3:
+        Actor: HARV
+        SpawnOffset: 2,7
+        Facing: 256
+    FreeActor@4:
+        Actor: HARV
+        SpawnOffset: 3,8
+        Facing: 256
+    FreeActor@5:
+        Actor: HARV
+        SpawnOffset: 4,9
         Facing: 256
     WithResourceStoragePipsDecoration:
         Position: BottomLeft

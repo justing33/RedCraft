@@ -111,12 +111,23 @@ MNLY:
         Speed: 113
     Armament:
         Weapon: 155mm
-        LocalOffset: 624,0,208
+        LocalOffset: 624,-200,0
         MuzzleSequence: muzzle
     AttackFrontal:
         TargetFrozenActors: True
         ForceFireIgnoresActors: True
         FacingTolerance: 0
+    Cloak:
+        InitialDelay: 50
+        CloakDelay: 100
+        CloakSound: appear1.aud
+        UncloakSound: appear1.aud
+        IsPlayerPalette: true
+        UncloakOn: Move
+        PauseOnCondition: cloak-force-disabled
+    GrantConditionOnDamageState@UNCLOAK:
+        Condition: cloak-force-disabled
+        ValidDamageStates: Critical
     -Minelayer:
     -AmmoPool:
     # TODO: Use for other detector units!!

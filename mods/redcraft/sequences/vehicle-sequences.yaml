@@ -16,7 +16,7 @@ harv:
     dock-loop:
         Filename: harv.shp
         Start: 104
-        Length: 7
+        Length: 1
     icon:
         Filename: harvicon.shp
         Start: 0

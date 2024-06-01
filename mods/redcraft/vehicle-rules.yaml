@@ -98,6 +98,46 @@ ARTY:
         Offset: 0,0
         -Facing:
 
+# Mine Layer
+MNLY:
+    Buildable:
+        Queue: Vehicle
+        BuildPaletteOrder: 310
+        Prerequisites: fix, ~techlevel.medium
+        Description: Lays mines to destroy\nunwary enemy units.\nCan detect mines.\n  Unarmed
+    Tooltip:
+        Name: Widow Mine
+    Mobile:
+        Speed: 113
+    Armament:
+        Weapon: 155mm
+        LocalOffset: 624,-200,0
+        MuzzleSequence: muzzle
+    AttackFrontal:
+        TargetFrozenActors: True
+        ForceFireIgnoresActors: True
+        FacingTolerance: 0
+    Cloak:
+        InitialDelay: 50
+        CloakDelay: 100
+        CloakSound: appear1.aud
+        UncloakSound: appear1.aud
+        IsPlayerPalette: true
+        UncloakOn: Move
+        PauseOnCondition: cloak-force-disabled
+    GrantConditionOnDamageState@UNCLOAK:
+        Condition: cloak-force-disabled
+        ValidDamageStates: Critical
+    -Minelayer:
+    -AmmoPool:
+    # TODO: Use for other detector units!!
+    -DetectCloaked:
+    -RenderDetectionCircle:
+    RenderSprites:
+        Image: MNLY
+    -Rearmable:
+    -WithAmmoPipsDecoration:
+
 # Mobile Flak (similar to Jeep, maybe OpenRA unit only?)
 # TODO: Turn into Cyclone
 FTRK:
@@ -125,10 +165,6 @@ V2RL:
 
 # APC
 APC:
-    -Buildable:
-
-# Mine Layer
-MNLY:
     -Buildable:
 
 # Supply Truck

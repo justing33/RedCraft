@@ -1,42 +1,69 @@
-# This is the Light Tank that has been overridden to be skinned as the JEEP
+# Ore Truck
+HARV:
+    Inherits: ^Vehicle
+    Inherits@selection: ^SelectableEconomicUnit
+    Selectable:
+        DecorationBounds: 800, 1000, 0, -300
+    Buildable:
+        Queue: Infantry
+        BuildPaletteOrder: 110
+        -Prerequisites:
+        Description: Collects Ore and Gems for processing.\n  Unarmed
+    Tooltip:
+        Name: SCV
+        GenericName: SCV
+    Mobile:
+        Speed: 150
+    Harvester:
+        Capacity: 20
+        Resources: Ore,Gems
+        BaleUnloadDelay: 0
+        BaleUnloadAmount: 7
+        SearchFromProcRadius: 15
+        SearchFromHarvesterRadius: 8
+        HarvestFacings: 8
+        EmptyCondition: no-ore
+    -ChangesHealth:
+
+# Light Tank
 1TNK:
-	Inherits: ^TrackedVehicle
-	Buildable:
-		Queue: Vehicle
-		BuildPaletteOrder: 220
-		Prerequisites: fix, ~vehicles.allies, ~techlevel.medium
-		Description: Allied Main Battle Tank.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
-	Tooltip:
-		Name: Hellion
-	Mobile:
-		Speed: 200
+    Inherits: ^TrackedVehicle
+    Buildable:
+        Queue: Vehicle
+        BuildPaletteOrder: 220
+        Prerequisites: fix, ~vehicles.allies, ~techlevel.medium
+        Description: Allied Main Battle Tank.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
+    Tooltip:
+        Name: Hellion
+    Mobile:
+        Speed: 200
     Armament:
         Weapon: Flamer
         LocalOffset: 192,0,176
         FireDelay: 2
-	Selectable:
-		DecorationBounds: 1194, 1194
+    Selectable:
+        DecorationBounds: 1194, 1194
     Transforms:
         IntoActor: arty
         Offset: 0,0
-        -Facing:
+        #-Facing:
         TransformSounds: placbldg.aud, build5.aud
         NoTransformNotification: BuildingCannotPlaceAudio
         NoTransformTextNotification: Cannot deploy here.
 
-# TODO: Make this the Hellbat
+# Artillery
 ARTY:
-	Inherits: ^TrackedVehicle
-	Inherits@GAINSEXPERIENCE: ^GainsExperience
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	#Not buildable as a Hellbat
+    Inherits: ^TrackedVehicle
+    Inherits@GAINSEXPERIENCE: ^GainsExperience
+    Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+    #Not buildable as a Hellbat
     -Buildable:
-	Tooltip:
-		Name: Hellbat
-	Mobile:
-		TurnSpeed: 8
-		Speed: 72
-		Locomotor: lighttracked
+    Tooltip:
+        Name: Hellbat
+    Mobile:
+        TurnSpeed: 8
+        Speed: 72
+        Locomotor: lighttracked
     Armament:
         Weapon: Flamer
         LocalOffset: 192,0,176
@@ -117,7 +144,7 @@ MNLY:
     AttackFrontal:
         TargetFrozenActors: True
         ForceFireIgnoresActors: True
-        FacingTolerance: 0
+        FacingTolerance: 512
     Cloak:
         InitialDelay: 50
         CloakDelay: 100

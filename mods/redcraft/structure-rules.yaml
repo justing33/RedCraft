@@ -1,129 +1,144 @@
 # Construction Yard
 FACT:
-	Inherits: ^Building
-	Buildable:
-		Queue: Building
-		BuildPaletteOrder: 60
-		Prerequisites: anypower, ~techlevel.infonly
-		# TODO Desc
-		Description: Refines Ore and Gems\ninto credits.
-	Tooltip:
-		Name: Command Center
-	Refinery:
-		DockAngle: 256
-		DockOffset: 1,3
-	StoresResources:
-		Capacity: 2000
-	# TODO: Spawn 6 Engineers when MCV is deployed
-	FreeActor:
-		Actor: E6
-		SpawnOffset: 0,5
-		Facing: 256
-	WithResourceStoragePipsDecoration:
-		Position: BottomLeft
-		Margin: 4, 3
-		RequiresSelection: true
-		PipCount: 17
-		FullSequence: pip-yellow
-		# Production:
-		# Produces: Infantry, Soldier
-		# Produces: Building, Defense
-		# SpawnOffset: 5,5
-		# ProductionBar:
-		#  ProductionType: Infantry
-	ProductionBar@Building:
-		ProductionType: Building
-	ProductionBar@Defense:
-		ProductionType: Defense
-	#Required for units to be able to exit CY
-	Exit@1:
-		RequiresCondition: !being-captured
-		SpawnOffset: 900,2000,0
-		ExitCell: 2,2
-	ProvidesPrerequisite@command-center:
-		Prerequisite: command-center
+    Inherits: ^Building
+    Buildable:
+        Queue: Building
+        BuildPaletteOrder: 60
+        Prerequisites: anypower, ~techlevel.infonly
+        Description: Refines Ore and Gems\ninto credits.
+    Tooltip:
+        Name: Command Center
+    Refinery:
+        DockOffset: 1,3
+        UseStorage: False
+    StoresResources:
+        Capacity: 2000
+    #TODO: Make starting units -- Spawn 6 SCV when MCV is deployed
+    FreeActor@1:
+        Actor: HARV
+        SpawnOffset: 0,5
+        Facing: 256
+    FreeActor@2:
+        Actor: HARV
+        SpawnOffset: 1,6
+        Facing: 256
+    FreeActor@3:
+        Actor: HARV
+        SpawnOffset: 2,7
+        Facing: 256
+    FreeActor@4:
+        Actor: HARV
+        SpawnOffset: 3,8
+        Facing: 256
+    FreeActor@5:
+        Actor: HARV
+        SpawnOffset: 4,9
+        Facing: 256
+    WithResourceStoragePipsDecoration:
+        Position: BottomLeft
+        Margin: 4, 3
+        RequiresSelection: true
+        PipCount: 17
+        FullSequence: pip-yellow
+        # Production:
+        # Produces: Infantry, Soldier
+        # Produces: Building, Defense
+        # SpawnOffset: 5,5
+        # ProductionBar:
+        #  ProductionType: Infantry
+    ProductionBar@Building:
+        ProductionType: Building
+    ProductionBar@Defense:
+        ProductionType: Defense
+    #Required for units to be able to exit CY
+    Exit@1:
+        RequiresCondition: !being-captured
+        SpawnOffset: 900,2000,0
+        ExitCell: 2,2
+    ProvidesPrerequisite@command-center:
+        Prerequisite: command-center
 
 #Ore Refinery
 PROC:
-	Tooltip:
-		Name: Oil Refinery
-	-FreeActor:
+    Tooltip:
+        Name: Oil Refinery
+    -FreeActor:
 
 #Allied Barracks
 TENT:
-	Tooltip:
-		Name: Barracks
+    Tooltip:
+        Name: Barracks
 
 #Pillbox
 PBOX:
-	Tooltip:
-		Name: Bunker
+    Tooltip:
+        Name: Bunker
 
 #Soviet Airfield
 AFLD:
-	Tooltip:
-		Name: Starport
+    Tooltip:
+        Name: Starport
 
 #Ukraine Airfield
 AFLD.Ukraine:
-	Inherits: AFLD
-	Buildable:
-		Prerequisites: dome, ~techlevel.medium, ~structures.ukraine
-		Description: Produces and reloads aircraft.\n  Special Ability: Spy Plane\n  Special Ability: Paratroopers\n  Special Ability: Parabombs
-	RenderSprites:
-		Image: afld
+    Inherits: AFLD
+    Buildable:
+        Prerequisites: dome, ~techlevel.medium, ~structures.ukraine
+        Description: Produces and reloads aircraft.\n  Special Ability: Spy Plane\n  Special Ability: Paratroopers\n  Special Ability: Parabombs
+    RenderSprites:
+        Image: afld
 
 #Sam Site
 SAM:
-	Tooltip:
-		Name: Missile Turret
+    Tooltip:
+        Name: Missile Turret
 
 #Allied Tech Center
 ATEK:
-	Tooltip:
-		Name: Ghost Academy
+    Tooltip:
+        Name: Ghost Academy
 
 #Advanced Power Plant
 APWR:
-	Tooltip:
-		Name: Engineering Bay
+    Tooltip:
+        Name: Engineering Bay
 
 #War Factory
 WEAP:
-	Tooltip:
-		Name: Factory
+    Tooltip:
+        Name: Factory
 
 #Missile Silo
 MSLO:
-	Tooltip:
-		Name: Missile Silo
+    Tooltip:
+        Name: Missile Silo
 
 #Gap Generator
 GAP:
-	Tooltip:
-		Name: Sensor Tower
+    Tooltip:
+        Name: Sensor Tower
 
 ################################
 # Common Structure Definitions #
 ################################
 
 BARRACKS:
-	AlwaysVisible:
-	Interactable:
-	Tooltip:
-		Name: Infantry Production
+    AlwaysVisible:
+    Interactable:
+    Tooltip:
+        Name: Infantry Production
 
 TECHCENTER:
-	AlwaysVisible:
-	Interactable:
-	Tooltip:
-		Name: Tech Center
+    AlwaysVisible:
+    Interactable:
+    Tooltip:
+        Name: Tech Center
 
 ANYPOWER:
-	AlwaysVisible:
-	Interactable:
-	Tooltip:
-		Name: Any Power Generation
+    AlwaysVisible:
+    Interactable:
+    Tooltip:
+        Name: Any Power Generation
 
 #######################
 # Disabled Structures #
@@ -132,94 +147,94 @@ ANYPOWER:
 # TODO: Make these not buildable
 
 POWR:
-	Tooltip:
-		Name: Power Plant
+    Tooltip:
+        Name: Power Plant
 
 BARR:
-	Tooltip:
-		Name: Soviet Barracks
+    Tooltip:
+        Name: Soviet Barracks
 
 HPAD:
-	Tooltip:
-		Name: Helipad
+    Tooltip:
+        Name: Helipad
 
 #Soviet Tech Center
 STEK:
-	Tooltip:
-		Name: Soviet Tech Center
+    Tooltip:
+        Name: Soviet Tech Center
 
 SPEN:
-	Tooltip:
-		Name: Sub Pen
+    Tooltip:
+        Name: Sub Pen
 
 SYRD:
-	Tooltip:
-		Name: Naval Yard
+    Tooltip:
+        Name: Naval Yard
 
 IRON:
-	Tooltip:
-		Name: Iron Curtain
+    Tooltip:
+        Name: Iron Curtain
 
 PDOX:
-	Tooltip:
-		Name: Chronosphere
+    Tooltip:
+        Name: Chronosphere
 
 TSLA:
-	Tooltip:
-		Name: Tesla Coil
+    Tooltip:
+        Name: Tesla Coil
 
 AGUN:
-	Tooltip:
-		Name: AA Gun
+    Tooltip:
+        Name: AA Gun
 
 DOME:
-	Tooltip:
-		Name: Radar Dome
+    Tooltip:
+        Name: Radar Dome
 
 HBOX:
-	Tooltip:
-		Name: Camo Pillbox
+    Tooltip:
+        Name: Camo Pillbox
 
 GUN:
-	Tooltip:
-		Name: Turret
+    Tooltip:
+        Name: Turret
 
 FTUR:
-	Tooltip:
-		Name: Flame Tower
+    Tooltip:
+        Name: Flame Tower
 
 SILO:
-	Tooltip:
-		Name: Silo
+    Tooltip:
+        Name: Silo
 
 KENN:
-	Tooltip:
-		Name: Kennel
+    Tooltip:
+        Name: Kennel
 
 FIX:
-	Tooltip:
-		Name: Service Depot
+    Tooltip:
+        Name: Service Depot
 
 SBAG:
-	Tooltip:
-		Name: Sandbag Wall
+    Tooltip:
+        Name: Sandbag Wall
 
 FENC:
-	Tooltip:
-		Name: Wire Fence
+    Tooltip:
+        Name: Wire Fence
 
 BRIK:
-	Tooltip:
-		Name: Concrete Wall
+    Tooltip:
+        Name: Concrete Wall
 
 CYCL:
-	Tooltip:
-		Name: Chain-Link Barrier
+    Tooltip:
+        Name: Chain-Link Barrier
 
-BARB:
-	Tooltip:
-		Name: Barbed-Wire Fence
+  BARB:
+    Tooltip:
+        Name: Barbed-Wire Fence
 
-WOOD:
-	Tooltip:
-		Name: Wooden Fence
+  WOOD:
+    Tooltip:
+        Name: Wooden Fence

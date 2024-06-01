@@ -1,3 +1,28 @@
+# Ore Truck skinned as Engineer
+harv:
+    Defaults:
+        Filename: e6.shp
+    idle:
+        Filename: e6.shp
+        Facings: 32
+        UseClassicFacings: True
+    harvest:
+        Filename: e6.shp
+        Start: 32
+        Length: 8
+        Facings: 8
+    dock:
+        Filename: e6.shp
+        Start: 96
+        Length: 1
+    dock-loop:
+        Filename: e6.shp
+        Start: 104
+        Length: 1
+    icon:
+        Filename: harvicon.shp
+        Start: 0
+
 # Light tank skinned as a JEEP
 1tnk:
     Defaults: 

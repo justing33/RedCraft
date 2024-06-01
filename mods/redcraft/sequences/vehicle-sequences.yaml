@@ -1,20 +1,22 @@
 # Ore Truck skinned as Engineer
 harv:
     Defaults:
-        Filename: harv.shp
+        Filename: e6.shp
     idle:
+        Filename: e6.shp
         Facings: 32
         UseClassicFacings: True
     harvest:
+        Filename: e6.shp
         Start: 32
         Length: 8
         Facings: 8
     dock:
-        Filename: harv.shp
+        Filename: e6.shp
         Start: 96
         Length: 1
     dock-loop:
-        Filename: harv.shp
+        Filename: e6.shp
         Start: 104
         Length: 1
     icon:

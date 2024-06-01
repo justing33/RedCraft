@@ -2,6 +2,8 @@
 HARV:
     Inherits: ^Vehicle
     Inherits@selection: ^SelectableEconomicUnit
+    Selectable:
+        DecorationBounds: 800, 1000, 0, -300
     Buildable:
         Queue: Infantry
         BuildPaletteOrder: 110
@@ -21,6 +23,7 @@ HARV:
         SearchFromHarvesterRadius: 8
         HarvestFacings: 8
         EmptyCondition: no-ore
+    -ChangesHealth:
 
 # Light Tank
 1TNK:
@@ -141,7 +144,7 @@ MNLY:
     AttackFrontal:
         TargetFrozenActors: True
         ForceFireIgnoresActors: True
-        FacingTolerance: 0
+        FacingTolerance: 512
     Cloak:
         InitialDelay: 50
         CloakDelay: 100

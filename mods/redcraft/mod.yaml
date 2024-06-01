@@ -67,6 +67,7 @@ Rules:
 	redcraft|infantry-rules.yaml
 	redcraft|vehicle-rules.yaml
 	redcraft|weapon-rules.yaml
+	redcraft|weapons/ballistics.yaml
 
 Sequences:
 	ra|sequences/ships.yaml

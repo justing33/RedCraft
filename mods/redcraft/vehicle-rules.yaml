@@ -1,3 +1,27 @@
+# Ore Truck
+HARV:
+    Inherits: ^Vehicle
+    Inherits@selection: ^SelectableEconomicUnit
+    Buildable:
+        Queue: Infantry
+        BuildPaletteOrder: 110
+        -Prerequisites:
+        Description: Collects Ore and Gems for processing.\n  Unarmed
+    Tooltip:
+        Name: SCV
+        GenericName: SCV
+    Mobile:
+        Speed: 150
+    Harvester:
+        Capacity: 20
+        Resources: Ore,Gems
+        BaleUnloadDelay: 0
+        BaleUnloadAmount: 7
+        SearchFromProcRadius: 15
+        SearchFromHarvesterRadius: 8
+        HarvestFacings: 8
+        EmptyCondition: no-ore
+
 # This is the Light Tank that has been overridden to be skinned as the JEEP
 1TNK:
 	Inherits: ^TrackedVehicle

@@ -16,7 +16,7 @@ FACT:
 		Capacity: 2000
 	# TODO: Spawn 6 Engineers when MCV is deployed
 	FreeActor:
-		Actor: E6
+		Actor: HARV
 		SpawnOffset: 0,5
 		Facing: 256
 	WithResourceStoragePipsDecoration:

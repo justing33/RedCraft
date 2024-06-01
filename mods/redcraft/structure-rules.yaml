@@ -58,28 +58,34 @@ FACT:
     ProvidesPrerequisite@command-center:
         Prerequisite: command-center
 
-#Ore Refinery
+# Ore Refinery
 PROC:
     Tooltip:
         Name: Oil Refinery
     -FreeActor:
 
-#Allied Barracks
-TENT:
+# Soviet Barracks
+BARR:
     Tooltip:
         Name: Barracks
 
-#Pillbox
+# Supply Depot
+# TODO: Implement this, but this also means that we are adding a new constraint/feature to the engine
+SILO:
+    Tooltip:
+        Name: Supply Depot
+
+# Pillbox
 PBOX:
     Tooltip:
         Name: Bunker
 
-#Soviet Airfield
+# Soviet Airfield
 AFLD:
     Tooltip:
         Name: Starport
 
-#Ukraine Airfield
+# Ukraine Airfield
 AFLD.Ukraine:
     Inherits: AFLD
     Buildable:
@@ -93,27 +99,27 @@ SAM:
     Tooltip:
         Name: Missile Turret
 
-#Allied Tech Center
+# Allied Tech Center
 ATEK:
     Tooltip:
         Name: Ghost Academy
 
-#Advanced Power Plant
-APWR:
+# Soviet Tech Center
+STEK:
     Tooltip:
         Name: Engineering Bay
 
-#War Factory
+# War Factory
 WEAP:
     Tooltip:
         Name: Factory
 
-#Missile Silo
+# Missile Silo
 MSLO:
     Tooltip:
         Name: Missile Silo
 
-#Gap Generator
+# Gap Generator
 GAP:
     Tooltip:
         Name: Sensor Tower
@@ -144,97 +150,198 @@ ANYPOWER:
 # Disabled Structures #
 #######################
 
-# TODO: Make these not buildable
-
+# Power Plant
 POWR:
+    -Buildable:
     Tooltip:
         Name: Power Plant
 
-BARR:
+# Advanced Power Plant
+APWR:
+    -Buildable:
     Tooltip:
-        Name: Soviet Barracks
+        Name: Advanced Power Plant
 
+# Allied Barracks
+TENT:
+    -Buildable:
+    Tooltip:
+        Name: Barracks
+
+# Helipad
 HPAD:
+    -Buildable:
     Tooltip:
         Name: Helipad
 
-#Soviet Tech Center
-STEK:
-    Tooltip:
-        Name: Soviet Tech Center
-
+# Sub Pen
 SPEN:
+    -Buildable:
     Tooltip:
         Name: Sub Pen
 
+# Naval Yard
 SYRD:
+    -Buildable:
     Tooltip:
         Name: Naval Yard
 
+# Iron Curtain
 IRON:
+    -Buildable:
     Tooltip:
         Name: Iron Curtain
 
+# Chronosphere
 PDOX:
+    -Buildable:
     Tooltip:
         Name: Chronosphere
 
+# Tesla Coil
 TSLA:
+    -Buildable:
     Tooltip:
         Name: Tesla Coil
 
+# AA GUN
 AGUN:
+    -Buildable:
     Tooltip:
         Name: AA Gun
 
+# Radar Dome
 DOME:
+    -Buildable:
     Tooltip:
         Name: Radar Dome
 
+# Camo Pillbox
 HBOX:
+    -Buildable:
     Tooltip:
         Name: Camo Pillbox
 
+# Turret
 GUN:
+    -Buildable:
     Tooltip:
         Name: Turret
 
+# Flame Tower
 FTUR:
+    -Buildable:
     Tooltip:
         Name: Flame Tower
 
-SILO:
-    Tooltip:
-        Name: Silo
-
+# Kennel
 KENN:
+    -Buildable:
     Tooltip:
         Name: Kennel
 
+# Service Depot
 FIX:
+    -Buildable:
     Tooltip:
         Name: Service Depot
 
+# Sandbag
 SBAG:
+    -Buildable:
     Tooltip:
         Name: Sandbag Wall
 
+# Wire Fence
 FENC:
+    -Buildable:
     Tooltip:
         Name: Wire Fence
 
+# Concrete Wall
 BRIK:
+    -Buildable:
     Tooltip:
         Name: Concrete Wall
 
+# Chain Link Barrier
 CYCL:
+    #-Buildable:
     Tooltip:
         Name: Chain-Link Barrier
 
-  BARB:
+# Barbed Wire Fence
+BARB:
+    #-Buildable:
     Tooltip:
         Name: Barbed-Wire Fence
 
-  WOOD:
+# Wooden Fence
+WOOD:
+    #-Buildable:
     Tooltip:
         Name: Wooden Fence
+
+###########################
+# FAKE BUILDINGS DISABLED #
+###########################
+
+FPWR:
+    -Buildable:
+    Tooltip:
+        Name: Fake Power Plant
+
+TENF:
+    -Buildable:
+    Tooltip:
+        Name: Fake Allied Barracks
+
+SYRF:
+    -Buildable:
+    Tooltip:
+        Name: Fake Naval Yard
+
+SPEF:
+    -Buildable:
+    Tooltip:
+        Name: Fake Sub Pen
+
+WEAF:
+    -Buildable:
+    Tooltip:
+        Name: Fake War Factory
+
+DOMF:
+    -Buildable:
+    Tooltip:
+        Name: Fake Radar Dome
+
+FIXF:
+    -Buildable:
+    Tooltip:
+        Name: Fake Service Depot
+
+FAPW:
+    -Buildable:
+    Tooltip:
+        Name: Fake Advanced Power Plant
+
+ATEF:
+    -Buildable:
+    Tooltip:
+        Name: Fake Allied Tech Center
+
+PDOF:
+    -Buildable:
+    Tooltip:
+        Name: Fake Chronosphere
+
+MSLF:
+    -Buildable:
+    Tooltip:
+        Name: Fake Missile Silo
+
+FACF:
+    -Buildable:
+    Tooltip:
+        Name: Fake Construction Yard

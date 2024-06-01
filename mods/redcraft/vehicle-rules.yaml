@@ -86,7 +86,7 @@ ARTY:
         OccupiesSpace: true
     -AttackMove:
     Turreted:
-        TurnSpeed: 8
+        TurnSpeed: 100
     Armament@PRIMARY:
         Weapon: 120mm
         LocalOffset: 900,180,340, 900,-180,340
@@ -98,10 +98,6 @@ ARTY:
         IntoActor: 3tnk
         Offset: 0,0
         -Facing:
-    HitShape:
-        Type: Rectangle
-            TopLeft: -1877, -1621
-            BottomRight: 1877, 1621
 
 # Mine Layer
 MNLY:

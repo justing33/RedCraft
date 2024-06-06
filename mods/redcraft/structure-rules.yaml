@@ -75,24 +75,40 @@ SILO:
     Tooltip:
         Name: Supply Depot
 
-# Pillbox
-PBOX:
+# War Factory
+WEAP:
     Tooltip:
-        Name: Bunker
+        Name: Factory
+
+PBOX:
+    Inherits@AUTOTARGET: ^AutoTargetAll
+    Inherits@CARGOPIPS: ^CargoPips
+    Tooltip:
+        Name: Pillbox
+    Building:
+    Buildable:
+        Queue: Defense
+        BuildPaletteOrder: 40
+        Prerequisites: tent, ~structures.allies, ~techlevel.low
+        Description: Static defense with a fireport for\na garrisoned soldier.\nCan detect cloaked units.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
+    Turreted:
+        TurnSpeed: 512
+    Cargo:
+        Types: Infantry
+        MaxWeight: 1
+        InitialUnits: e1
+    AttackGarrisoned:
+        PauseOnCondition: build-incomplete
+        Armaments: garrisoned
+        PortOffsets: 384,0,128, 224,-341,128, -224,-341,128, -384,0,128, -224,341,128, 224,341,128
+        PortYaws: 0, 176, 341, 512, 682, 853
+        PortCones: 88, 88, 88, 88, 88, 88
 
 # Soviet Airfield
+# Has Paratroopers, Spy Plane, and Parabombs
 AFLD:
     Tooltip:
         Name: Starport
-
-# Ukraine Airfield
-AFLD.Ukraine:
-    Inherits: AFLD
-    Buildable:
-        Prerequisites: dome, ~techlevel.medium, ~structures.ukraine
-        Description: Produces and reloads aircraft.\n  Special Ability: Spy Plane\n  Special Ability: Paratroopers\n  Special Ability: Parabombs
-    RenderSprites:
-        Image: afld
 
 #Sam Site
 SAM:
@@ -108,11 +124,6 @@ ATEK:
 STEK:
     Tooltip:
         Name: Engineering Bay
-
-# War Factory
-WEAP:
-    Tooltip:
-        Name: Factory
 
 # Missile Silo
 MSLO:
@@ -167,6 +178,13 @@ TENT:
     -Buildable:
     Tooltip:
         Name: Barracks
+
+# Ukraine Airfield
+# TODO: See if Migs/Vikings are an issue later?
+AFLD.Ukraine:
+    -Buildable:
+    Tooltip:
+        Name: Ukraine Airfield
 
 # Helipad
 HPAD:

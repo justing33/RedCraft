@@ -94,7 +94,7 @@ E2:
 		FireDelay: 15
 	-TakeCover:
 
-# # Flamethrower
+# Flamethrower
 E4:
 	Inherits: ^Soldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
@@ -115,7 +115,7 @@ E4:
 		Weapon: Flamer
 	-TakeCover:
 
-# # Tanya
+# Tanya
 E7:
 	Inherits: ^Soldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
@@ -141,7 +141,7 @@ E7:
 		LocalOffset: 0,0,0, 0,0,0
 	-Armament@SECONDARY:
 
-# # Medic
+# Medic
 MEDI:
 	Inherits: ^Soldier
 	Buildable:

@@ -66,6 +66,7 @@ Rules:
 	redcraft|structure-rules.yaml
 	redcraft|infantry-rules.yaml
 	redcraft|vehicle-rules.yaml
+	redcraft|aircraft-rules.yaml
 
 Sequences:
 	ra|sequences/ships.yaml
@@ -75,6 +76,7 @@ Sequences:
 	ra|sequences/aircraft.yaml
 	ra|sequences/misc.yaml
 	ra|sequences/decorations.yaml
+	# Custom Overrides
 	redcraft|sequences/infantry-sequences.yaml
 	redcraft|sequences/vehicle-sequences.yaml
 	redcraft|sequences/structure-sequences.yaml
@@ -162,8 +164,9 @@ Weapons:
 	ra|weapons/other.yaml
 	ra|weapons/smallcaliber.yaml
 	ra|weapons/superweapons.yaml
-	# This tells the game what file to load your custom rule overrides from
-	redcraft|smallcaliber-rules.yaml
+	# Custom overrides
+	redcraft|weapons/smallcaliber-rules.yaml
+	redcraft|weapons/missiles-rules.yaml
 
 Voices:
 	ra|audio/voices.yaml

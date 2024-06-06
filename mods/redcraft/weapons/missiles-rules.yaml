@@ -1,0 +1,21 @@
+Maverick:
+    Inherits: ^AntiGroundMissile
+    ReloadDelay: 50
+    Range: 9c0
+    MinRange: 2c0
+    Report: missile7.aud
+    Burst: 2
+    BurstDelays: 7
+    Projectile: Missile
+        Speed: 256
+        Inaccuracy: 316
+        CruiseAltitude: 2c0
+        RangeLimit: 14c410
+    Warhead@1Dam: SpreadDamage
+        Damage: 7000
+        Versus:
+            None: 30
+            Wood: 90
+            Light: 90
+            Heavy: 115
+            Concrete: 100

@@ -76,3 +76,8 @@ MIG:
     WithProductionIconOverlay:
         Types: Veterancy
         Prerequisites: aircraft.upgraded
+    # Transforms into a Chrono Tank (Landed Viking)
+    Transforms:
+        IntoActor: ctnk
+        Offset: 0,0
+        -Facing:

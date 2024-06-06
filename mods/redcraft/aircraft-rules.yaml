@@ -28,7 +28,7 @@ MIG:
         LocalOffset: 0,-640,0, 0,640,0
         LocalYaw: -40, 24
         PauseOnCondition: !ammo
-        # TODO: Testing
+        # Infinite Ammo
         AmmoUsage: 0
     AttackAircraft:
         FacingTolerance: 80
@@ -69,6 +69,7 @@ MIG:
         Prerequisites: aircraft.upgraded
     Rearmable:
         RearmActors: afld, afld.ukraine
+    # Hiding the infinite ammo pips decoration
     -WithAmmoPipsDecoration:
     GrantConditionOnDamageState@SmokeTrail:
         Condition: enable-smoke

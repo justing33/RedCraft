@@ -1,29 +1,29 @@
 # Rifle Infantry
 E1:
-	Inherits: ^Soldier
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Buildable:
-		Queue: Infantry
-		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 10
-		Prerequisites: ~barracks, ~techlevel.infonly
-		Description: General-purpose infantry.\n  Strong vs Infantry\n  Weak vs Vehicles, Aircraft
-	Tooltip:
-		Name: Marine
-	Armament@PRIMARY:
-		Weapon: M1Carbine
-	Armament@GARRISONED:
-		Name: garrisoned
-		Weapon: Vulcan
-		MuzzleSequence: garrison-muzzle
-	WithInfantryBody:
-		DefaultAttackSequence: shoot
-		RequiresCondition: !parachute
-	WithInfantryBody@PARACHUTE:
-		StandSequences: parachute
-		RequiresCondition: parachute
-		Palette: player-noshadow
-		IsPlayerPalette: true
+    Inherits: ^Soldier
+    Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+    Buildable:
+        Queue: Infantry
+        BuildAtProductionType: Soldier
+        BuildPaletteOrder: 10
+        Prerequisites: ~barracks, ~techlevel.infonly
+        Description: General-purpose infantry.\n  Strong vs Infantry\n  Weak vs Vehicles, Aircraft
+    Tooltip:
+        Name: Marine
+    Armament@PRIMARY:
+        Weapon: M1Carbine
+    Armament@GARRISONED:
+        Name: garrisoned
+        Weapon: M1Carbine
+        MuzzleSequence: garrison-muzzle
+    WithInfantryBody:
+        DefaultAttackSequence: shoot
+        RequiresCondition: !parachute
+    WithInfantryBody@PARACHUTE:
+        StandSequences: parachute
+        RequiresCondition: parachute
+        Palette: player-noshadow
+        IsPlayerPalette: true
 
 # Rocket Soldier
 E3:
@@ -37,15 +37,40 @@ E3:
 		Description: Anti-tank/Anti-aircraft infantry.\n  Strong vs Vehicles, Aircraft\n  Weak vs Infantry
 	Selectable:
 		Class: E3
+	Valued:
+		Cost: 300
 	Tooltip:
 		Name: Marauder
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 4500
 	Armament@PRIMARY:
 		Weapon: RedEye
 		LocalOffset: 0,0,555
-	-Armament@SECONDARY:
+	Armament@SECONDARY:
+		Name: secondary
+		Weapon: Dragon
+		LocalOffset: 0,0,555
 	Armament@GARRISONED:
 		Name: garrisoned
 		Weapon: Dragon
+	-TakeCover:
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+		RequiresCondition: !parachute
+	WithInfantryBody@PARACHUTE:
+		StandSequences: parachute
+		RequiresCondition: parachute
+		Palette: player-noshadow
+		IsPlayerPalette: true
+	ProducibleWithLevel:
+		Prerequisites: barracks.upgraded
+	AutoTarget:
+		ScanRadius: 5
+	WithProductionIconOverlay:
+		Types: Veterancy
+		Prerequisites: barracks.upgraded
 
 # Grenadier
 E2:

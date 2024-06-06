@@ -75,24 +75,69 @@ SILO:
     Tooltip:
         Name: Supply Depot
 
-# Pillbox
-PBOX:
+# War Factory
+WEAP:
+    Tooltip:
+        Name: Factory
+
+# Custom Bunker structure as Pillbox wouldn't let me override InitialUnits
+BUNK:
+    Inherits: ^Defense
+    Inherits@AUTOTARGET: ^AutoTargetAll
+    Inherits@CARGOPIPS: ^CargoPips
     Tooltip:
         Name: Bunker
+    Building:
+    Buildable:
+        Queue: Defense
+        BuildPaletteOrder: 40
+        Prerequisites: tent, ~structures.allies, ~techlevel.low
+        Description: Static defense with a fireport for\na garrisoned soldier.\nCan detect cloaked units.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
+    Valued:
+        Cost: 600
+    CustomSellValue:
+        Value: 400
+    Health:
+        HP: 40000
+    Armor:
+        Type: Heavy
+    RevealsShroud:
+        MinRange: 5c0
+        Range: 6c0
+        RevealGeneratedShroud: False
+    RevealsShroud@GAPGEN:
+        Range: 5c0
+    WithBuildingBib:
+        HasMinibib: true
+    Turreted:
+        TurnSpeed: 512
+    BodyOrientation:
+        QuantizedFacings: 8
+    InstantlyRepairable:
+        RequiresCondition: damaged
+    GrantConditionOnDamageState@DAMAGED:
+        Condition: damaged
+        ValidDamageStates: Light, Medium, Heavy, Critical
+    Cargo:
+        Types: Infantry
+        MaxWeight: 4
+        -InitialUnits:
+    AttackGarrisoned:
+        PauseOnCondition: build-incomplete
+        Armaments: garrisoned
+        PortOffsets: 384,0,128, 224,-341,128, -224,-341,128, -384,0,128, -224,341,128, 224,341,128
+        PortYaws: 0, 176, 341, 512, 682, 853
+        PortCones: 88, 88, 88, 88, 88, 88
+    RenderRangeCircle:
+        FallbackRange: 6c0
+    Power:
+        Amount: -20
 
 # Soviet Airfield
+# Has Paratroopers, Spy Plane, and Parabombs
 AFLD:
     Tooltip:
         Name: Starport
-
-# Ukraine Airfield
-AFLD.Ukraine:
-    Inherits: AFLD
-    Buildable:
-        Prerequisites: dome, ~techlevel.medium, ~structures.ukraine
-        Description: Produces and reloads aircraft.\n  Special Ability: Spy Plane\n  Special Ability: Paratroopers\n  Special Ability: Parabombs
-    RenderSprites:
-        Image: afld
 
 #Sam Site
 SAM:
@@ -108,11 +153,6 @@ ATEK:
 STEK:
     Tooltip:
         Name: Engineering Bay
-
-# War Factory
-WEAP:
-    Tooltip:
-        Name: Factory
 
 # Missile Silo
 MSLO:
@@ -167,6 +207,19 @@ TENT:
     -Buildable:
     Tooltip:
         Name: Barracks
+
+# Pillbox
+PBOX:
+    -Buildable:
+    Tooltip:
+        Name: Pillbox
+
+# Ukraine Airfield
+# TODO: See if Migs/Vikings are an issue later?
+AFLD.Ukraine:
+    -Buildable:
+    Tooltip:
+        Name: Ukraine Airfield
 
 # Helipad
 HPAD:

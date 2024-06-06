@@ -1,0 +1,74 @@
+^HeavyMG:
+    ReloadDelay: 35
+    Range: 6c0
+    Report: gun13.aud
+    ValidTargets: Ground, Water, GroundActor, WaterActor, AirborneActor, Air
+    Projectile: InstantHit
+        Blockable: true
+    Warhead@1Dam: SpreadDamage
+        Spread: 128
+        Damage: 2500
+        ValidTargets: GroundActor, WaterActor, AirborneActor, Air
+        Versus:
+            None: 120
+            Wood: 60
+            Light: 72
+            Heavy: 28
+            Concrete: 28
+        DamageTypes: Prone50Percent, TriggerProne, BulletDeath
+    Warhead@2Eff: CreateEffect
+        Explosions: piffs
+        ValidTargets: Ground, GroundActor, Air, AirborneActor, WaterActor, Trees
+    Warhead@3EffWater: CreateEffect
+        Explosions: water_piffs
+        ValidTargets: Water, Underwater
+        InvalidTargets: Bridge
+
+^LightMG:
+    Inherits: ^HeavyMG
+    Warhead@1Dam: SpreadDamage
+        Damage: 1000
+        Versus:
+            None: 150
+            Wood: 10
+            Light: 40
+            Heavy: 10
+            Concrete: 10
+        DamageTypes: Prone50Percent, TriggerProne, DefaultDeath
+    Warhead@2Eff: CreateEffect
+        Explosions: piff
+        Inaccuracy: 171
+    Warhead@3EffWater: CreateEffect
+        Explosions: water_piff
+        Inaccuracy: 171
+
+M1Carbine:
+    Inherits: ^LightMG
+    ReloadDelay: 20
+    Range: 5c0
+    Report: gun11.aud
+    Warhead@1Dam: SpreadDamage
+        Versus:
+            Wood: 30
+    Warhead@2Eff2: CreateEffect
+        Delay: 2
+        Explosions: piff
+        ValidTargets: Ground, GroundActor, Air, AirborneActor, WaterActor, Trees
+        Inaccuracy: 171
+    Warhead@3EffWater2: CreateEffect
+        Delay: 2
+        ValidTargets: Water, Underwater
+        InvalidTargets: Bridge
+        Explosions: water_piff
+        Inaccuracy: 171
+    Warhead@2Eff3: CreateEffect
+        Delay: 4
+        Explosions: piff
+        ValidTargets: Ground, GroundActor, Air, AirborneActor, WaterActor, Trees
+        Inaccuracy: 171
+    Warhead@3EffWater3: CreateEffect
+        Delay: 4
+        ValidTargets: Water, Underwater
+        InvalidTargets: Bridge
+        Explosions: water_piff
+        Inaccuracy: 171

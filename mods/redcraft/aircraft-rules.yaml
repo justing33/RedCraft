@@ -164,16 +164,20 @@ MH60:
         Range: 8c0
         Type: GroundPosition
     Armament@PRIMARY:
-        Weapon: ChainGun
+        Weapon: Dragon
         LocalOffset: 85,-213,-85, 85,213,-85
         MuzzleSequence: muzzle
         PauseOnCondition: !ammo
+        # Infinite Ammo
+        AmmoUsage: 0
     Armament@SECONDARY:
         Name: secondary
-        Weapon: ChainGun
+        Weapon: Dragon
         LocalOffset: 85,213,-85, 85,-213,-85
         MuzzleSequence: muzzle
         PauseOnCondition: !ammo
+        # Infinite Ammo
+        AmmoUsage: 0
     AttackAircraft:
         FacingTolerance: 80
         PersistentTargeting: false
@@ -212,11 +216,8 @@ MH60:
         DecorationBounds: 1621, 1365
     Rearmable:
         RearmActors: hpad
-    WithAmmoPipsDecoration:
-        Position: BottomLeft
-        Margin: 4, 3
-        RequiresSelection: true
-        PipCount: 6
+    # Hiding the infinite ammo pips decoration
+    -WithAmmoPipsDecoration:
     GrantConditionOnDamageState@SmokeTrail:
         Condition: enable-smoke
     WithProductionIconOverlay:

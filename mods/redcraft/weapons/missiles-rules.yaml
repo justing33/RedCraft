@@ -6,6 +6,7 @@ Maverick:
     Report: missile7.aud
     Burst: 2
     BurstDelays: 7
+    ValidTargets: Air, AirborneActor
     Projectile: Missile
         Speed: 256
         Inaccuracy: 316
@@ -19,3 +20,4 @@ Maverick:
             Light: 90
             Heavy: 115
             Concrete: 100
+        ValidTargets: Air, AirborneActor

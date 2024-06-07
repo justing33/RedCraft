@@ -7,7 +7,7 @@ HARV:
     Buildable:
         Queue: Infantry
         BuildPaletteOrder: 110
-        -Prerequisites:
+        Prerequisites: command-center
         Description: Collects Ore and Gems for processing.\n  Unarmed
     Tooltip:
         Name: SCV

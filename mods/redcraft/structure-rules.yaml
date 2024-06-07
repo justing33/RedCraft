@@ -40,12 +40,14 @@ FACT:
         RequiresSelection: true
         PipCount: 17
         FullSequence: pip-yellow
-        # Production:
-        # Produces: Infantry, Soldier
+    Production:
+        Produces: Infantry, Soldier
         # Produces: Building, Defense
-        # SpawnOffset: 5,5
-        # ProductionBar:
-        #  ProductionType: Infantry
+        SpawnOffset: 5,5
+    GrantExternalConditionToProduced:
+        Condition: produced
+    ProductionBar:
+        ProductionType: Infantry
     ProductionBar@Building:
         ProductionType: Building
     ProductionBar@Defense:

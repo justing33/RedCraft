@@ -11,6 +11,7 @@ FACT:
     Refinery:
         DockOffset: 1,3
         UseStorage: False
+        DiscardExcessResources: False
     StoresResources:
         Capacity: 2000
     #TODO: Make starting units -- Spawn 6 SCV when MCV is deployed
@@ -34,12 +35,6 @@ FACT:
         Actor: HARV
         SpawnOffset: 4,9
         Facing: 256
-    WithResourceStoragePipsDecoration:
-        Position: BottomLeft
-        Margin: 4, 3
-        RequiresSelection: true
-        PipCount: 17
-        FullSequence: pip-yellow
     Production:
         Produces: Infantry, Soldier
         # Produces: Building, Defense

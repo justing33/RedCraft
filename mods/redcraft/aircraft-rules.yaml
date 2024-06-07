@@ -81,3 +81,209 @@ MIG:
         IntoActor: ctnk
         Offset: 0,0
         -Facing:
+
+# Chinook
+TRAN:
+    Inherits: ^Helicopter
+    Inherits@CARGOPIPS: ^CargoPips
+    Buildable:
+        Queue: Aircraft
+        BuildAtProductionType: Helicopter
+        BuildPaletteOrder: 10
+        Prerequisites: ~hpad, ~techlevel.medium
+        Description: Fast Infantry Transport Helicopter.\n  Unarmed
+    Valued:
+        Cost: 900
+    Tooltip:
+        Name: Chinook
+    UpdatesPlayerStatistics:
+        AddToArmyValue: true
+    Health:
+        HP: 14000
+    RevealsShroud:
+        MinRange: 6c0
+        Range: 8c0
+        Type: GroundPosition
+        RevealGeneratedShroud: False
+    RevealsShroud@GAPGEN:
+        Range: 6c0
+        Type: GroundPosition
+    Aircraft:
+        TurnSpeed: 20
+        Speed: 128
+        AltitudeVelocity: 0c58
+    WithIdleOverlay@ROTOR1AIR:
+        Offset: 597,0,213
+        Sequence: rotor
+        RequiresCondition: airborne
+    WithIdleOverlay@ROTOR1GROUND:
+        Offset: 597,0,213
+        Sequence: slow-rotor
+        RequiresCondition: !airborne
+    WithIdleOverlay@ROTOR2AIR:
+        Offset: -597,0,341
+        Sequence: rotor2
+        RequiresCondition: airborne
+    WithIdleOverlay@ROTOR2GROUND:
+        Offset: -597,0,341
+        Sequence: slow-rotor2
+        RequiresCondition: !airborne
+    Cargo:
+        Types: Infantry
+        MaxWeight: 8
+        AfterUnloadDelay: 40
+    SpawnActorOnDeath:
+        Actor: TRAN.Husk
+    Selectable:
+        DecorationBounds: 1706, 1536
+
+# Black Hawk
+MH60:
+    Inherits: ^Helicopter
+    Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+    Buildable:
+        Queue: Aircraft
+        BuildAtProductionType: Helicopter
+        BuildPaletteOrder: 20
+        Prerequisites: ~hpad, ~techlevel.medium
+        Description: Helicopter gunship armed\nwith dual chainguns.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
+    Valued:
+        Cost: 1500
+    Tooltip:
+        Name: Banshee
+    UpdatesPlayerStatistics:
+        AddToArmyValue: true
+    Health:
+        HP: 10000
+    RevealsShroud:
+        MinRange: 8c0
+        Range: 10c0
+        Type: GroundPosition
+        RevealGeneratedShroud: False
+    RevealsShroud@GAPGEN:
+        Range: 8c0
+        Type: GroundPosition
+    Armament@PRIMARY:
+        Weapon: Dragon
+        LocalOffset: 85,-213,-85, 85,213,-85
+        MuzzleSequence: muzzle
+        PauseOnCondition: !ammo
+        # Infinite Ammo
+        AmmoUsage: 0
+    Armament@SECONDARY:
+        Name: secondary
+        Weapon: Dragon
+        LocalOffset: 85,213,-85, 85,-213,-85
+        MuzzleSequence: muzzle
+        PauseOnCondition: !ammo
+        # Infinite Ammo
+        AmmoUsage: 0
+    AttackAircraft:
+        FacingTolerance: 80
+        PersistentTargeting: false
+        AttackType: Hover
+    Aircraft:
+        TurnSpeed: 16
+        Speed: 112
+    AutoTarget:
+        InitialStance: HoldFire
+        InitialStanceAI: HoldFire
+    WithIdleOverlay@ROTORAIR:
+        Sequence: rotor
+        RequiresCondition: airborne
+    WithIdleOverlay@ROTORGROUND:
+        Sequence: slow-rotor
+        RequiresCondition: !airborne
+    AmmoPool:
+        Ammo: 24
+        ReloadDelay: 8
+        AmmoCondition: ammo
+    WithMuzzleOverlay:
+    SpawnActorOnDeath:
+        Actor: MH60.Husk
+    LeavesTrails:
+        Offsets: -427,0,0
+        Image: smokey
+        MovingInterval: 3
+        SpawnAtLastPosition: False
+        Type: CenterPosition
+        RequiresCondition: enable-smoke
+        TrailWhileStationary: True
+        StationaryInterval: 3
+    ProducibleWithLevel:
+        Prerequisites: aircraft.upgraded
+    Selectable:
+        DecorationBounds: 1621, 1365
+    Rearmable:
+        RearmActors: hpad
+    # Hiding the infinite ammo pips decoration
+    -WithAmmoPipsDecoration:
+    GrantConditionOnDamageState@SmokeTrail:
+        Condition: enable-smoke
+    WithProductionIconOverlay:
+        Types: Veterancy
+        Prerequisites: aircraft.upgraded
+    Cloak:
+        InitialDelay: 0
+        CloakDelay: 50
+        CloakSound: appear1.aud
+        UncloakSound: appear1.aud
+        IsPlayerPalette: true
+        UncloakOn: Move
+        PauseOnCondition: cloak-force-disabled
+
+##########################
+# Non-Buildable Aircraft #
+##########################
+
+U2:
+    Inherits: ^NeutralPlane
+    Health:
+        HP: 200000
+    Tooltip:
+        Name: Spy Plane
+    Aircraft:
+        CruiseAltitude: 2560
+        TurnSpeed: 28
+        Speed: 373
+        Repulsable: False
+        MaximumPitch: 56
+    AttackBomber:
+        FacingTolerance: 8
+    Contrail@1:
+        Offset: -725,683,0
+        StartColorAlpha: 128
+    Contrail@2:
+        Offset: -725,-683,0
+        StartColorAlpha: 128
+    SpawnActorOnDeath:
+        Actor: U2.Husk
+    LeavesTrails:
+        Offsets: -1c43,0,0
+        MovingInterval: 2
+        Image: smokey
+        SpawnAtLastPosition: False
+        Type: CenterPosition
+        RequiresCondition: enable-smoke
+    RejectsOrders:
+    Interactable:
+    GrantConditionOnDamageState@SmokeTrail:
+        Condition: enable-smoke
+
+# Hind
+HIND:
+    -Buildable:
+    Tooltip:
+        Name: Hind
+
+# Longbow
+HELI:
+    -Buildable:
+    Tooltip:
+        Name: Longbow
+
+# Yak Attack Plane
+YAK:
+    -Buildable:
+    Tooltip:
+        Name: Yak Attack Plane

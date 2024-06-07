@@ -223,6 +223,14 @@ MH60:
     WithProductionIconOverlay:
         Types: Veterancy
         Prerequisites: aircraft.upgraded
+    Cloak:
+        InitialDelay: 0
+        CloakDelay: 50
+        CloakSound: appear1.aud
+        UncloakSound: appear1.aud
+        IsPlayerPalette: true
+        UncloakOn: Move
+        PauseOnCondition: cloak-force-disabled
 
 ##########################
 # Non-Buildable Aircraft #

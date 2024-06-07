@@ -1,6 +1,7 @@
 # Construction Yard
 FACT:
     Inherits: ^Building
+    Inherits@CARGOPIPS: ^CargoPips
     Buildable:
         Queue: Building
         BuildPaletteOrder: 60
@@ -36,8 +37,7 @@ FACT:
         SpawnOffset: 4,9
         Facing: 256
     Production:
-        Produces: Infantry, Soldier
-        # Produces: Building, Defense
+        Produces: Infantry, Soldier, Building, Defense # TODO: Remove Building, Defense - temp allowing for testing purposes..
         SpawnOffset: 5,5
     GrantExternalConditionToProduced:
         Condition: produced
@@ -54,6 +54,80 @@ FACT:
         ExitCell: 2,2
     ProvidesPrerequisite@command-center:
         Prerequisite: command-center
+    Cargo:
+        # TODO: Testing
+        Types: Vehicle
+        # TODO: Consider future upgrade to 10 capacity
+        MaxWeight: 5
+        # Instant unload and movement
+        BeforeUnloadDelay: 0
+        AfterUnloadDelay: 0
+    -SpawnActorsOnSell:
+    Transforms:
+        #RequiresCondition: factundeploy
+        PauseOnCondition: chrono-vortex || being-captured || being-demolished || build-incomplete
+        IntoActor: fact-air
+        Offset: 1,1
+        Facing: 384
+    TransformsIntoAircraft:
+        DockActors: #fact-air
+    -TransformsIntoMobile:
+    -TransformsIntoPassenger:
+    -TransformsIntoRepairable:
+    -TransformsIntoTransforms:
+    -Sellable:
+
+# Lifted Off Command Center
+# Based on Chinook
+FACT-AIR:
+    Inherits: ^Helicopter
+    Inherits@CARGOPIPS: ^CargoPips
+    Tooltip:
+        Name: Command Center (Lifted off)
+    UpdatesPlayerStatistics:
+        AddToArmyValue: true
+    Health:
+        HP: 14000
+    RevealsShroud:
+        MinRange: 6c0
+        Range: 8c0
+        Type: GroundPosition
+        RevealGeneratedShroud: False
+    RevealsShroud@GAPGEN:
+        Range: 6c0
+        Type: GroundPosition
+    Aircraft:
+        TurnSpeed: 20
+        Speed: 128
+        AltitudeVelocity: 0c58
+    WithIdleOverlay@ROTOR1AIR:
+        Offset: 597,0,213
+        Sequence: rotor
+        RequiresCondition: airborne
+    WithIdleOverlay@ROTOR1GROUND:
+        Offset: 597,0,213
+        Sequence: slow-rotor
+        RequiresCondition: !airborne
+    WithIdleOverlay@ROTOR2AIR:
+        Offset: -597,0,341
+        Sequence: rotor2
+        RequiresCondition: airborne
+    WithIdleOverlay@ROTOR2GROUND:
+        Offset: -597,0,341
+        Sequence: slow-rotor2
+        RequiresCondition: !airborne
+    Cargo:
+        # TODO: Testing
+        Types: Vehicle
+        # TODO: Consider future upgrade to 10 capacity
+        MaxWeight: 5
+        # Instant unload and movement
+        BeforeUnloadDelay: 0
+        AfterUnloadDelay: 0
+    SpawnActorOnDeath:
+        Actor: TRAN.Husk
+    Selectable:
+        DecorationBounds: 1706, 1536
 
 # Ore Refinery
 PROC:

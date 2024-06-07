@@ -1,3 +1,5 @@
+# Bunker
+# Based on Pill Box
 bunk:
     Defaults:
         Filename: pbox.shp
@@ -21,3 +23,73 @@ bunk:
         Offset: 0,-2
     icon:
         Filename: pboxicon.shp
+
+# Command Center (Lifted Off)
+# Sequences based on Construction Yard sequences
+fact-air:
+    # Defaults:
+    #     Filename: fact.shp
+    idle:
+        Filename: fact.shp
+        Facings: 1
+        UseClassicFacings: False
+    # make:
+    #     Filename: factmake.shp
+    #     Length: *
+    # build:
+    #     Start: 1
+    #     Length: 25
+    # pdox:
+    #     Filename: factpdox.shp
+    #     Length: 80
+    # damaged-idle:
+    #     Start: 26
+    # damaged-build:
+    #     Start: 27
+    #     Length: 25
+    # damaged-pdox:
+    #     Filename: factpdox.shp
+    #     Start: 80
+    #     Length: 80
+    # dead:
+    #     Filename: factdead.shp
+    #     Tick: 800
+    # bib:
+    #     Filename: bib2.tem
+    #     TilesetFilenames:
+    #         SNOW: bib2.sno
+    #         DESERT: bib2.des
+    #     Length: *
+    icon:
+        Filename: facticon.shp
+    # fake-icon:
+    #     Filename: facficon.shp
+    # Chinook Sequences added below
+    rotor:
+        # Filename: lrotor.shp
+        Filename: fact.shp
+        #Length: 1
+    rotor2:
+        # Filename: rrotor.shp
+        Filename: kenn.shp
+        #Length: 1
+    slow-rotor:
+        # Filename: lrotor.shp
+        Filename: powr.shp
+        # Start: 4
+        #Length: 1
+    slow-rotor2:
+        # Filename: rrotor.shp
+        Filename: barr.shp
+        # Start: 4
+        #Length: 1
+    open:
+        # Filename: tran2.shp
+        Filename: dome.shp
+        # Start: 32
+        #Length: 1
+    unload:
+        # Filename: tran2.shp
+        Filename: dome.shp
+        # Start: 35
+        #Length: 1

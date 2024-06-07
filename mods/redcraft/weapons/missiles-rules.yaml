@@ -1,3 +1,4 @@
+# Vikings
 Maverick:
     Inherits: ^AntiGroundMissile
     ReloadDelay: 50
@@ -21,3 +22,14 @@ Maverick:
             Heavy: 115
             Concrete: 100
         ValidTargets: Air, AirborneActor
+
+# Marauders
+RedEye:
+    Inherits: ^AntiGroundMissile
+    ReloadDelay: 50
+    Projectile: Missile
+        Inaccuracy: 0
+        HorizontalRateOfTurn: 80
+        Speed: 298
+    Warhead@1Dam: SpreadDamage
+        Damage: 2400

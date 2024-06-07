@@ -55,6 +55,29 @@ FACT:
     -TransformsIntoRepairable:
     -TransformsIntoTransforms:
     -Sellable:
+    AirstrikePower@spyplane:
+        OrderName: SovietSpyPlane
+        Prerequisites: aircraft.soviet
+        Icon: spyplane
+        ChargeInterval: 3750
+        Name: Scanner Sweep
+        Description: Reveals an area of the map.
+        SelectTargetSpeechNotification: SelectTarget
+        EndChargeSpeechNotification: SpyPlaneReady
+        SelectTargetTextNotification: Select target.
+        EndChargeTextNotification: Spy plane ready.
+        CameraActor: camera.spyplane
+        CameraRemoveDelay: 150
+        UnitType: u2
+        QuantizedFacings: 8
+        DisplayBeacon: true
+        BeaconPoster: camicon
+        ArrowSequence: arrow
+        ClockSequence: clock
+        CircleSequence: circles
+        UseDirectionalTarget: True
+        DirectionArrowAnimation: paradirection
+        SupportPowerPaletteOrder: 60
 
 # Lifted Off Command Center
 # Based on Chinook

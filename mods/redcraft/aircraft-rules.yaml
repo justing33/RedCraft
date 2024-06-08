@@ -137,7 +137,7 @@ TRAN:
     Selectable:
         DecorationBounds: 1706, 1536
     Armament:
-        Weapon: Heal
+        Weapon: MedivacHeal
         Cursor: heal
         OutsideRangeCursor: heal
         TargetRelationships: Ally

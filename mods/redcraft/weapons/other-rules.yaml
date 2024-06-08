@@ -1,0 +1,15 @@
+MedivacHeal:
+    ReloadDelay: 80
+    Range: 6c0
+    Report: heal2.aud
+    ValidTargets: Heal
+    Projectile: LaserZap
+        Speed: 1c682
+        # Green beam color
+        Color: 14D000
+    Warhead@1Dam: SpreadDamage
+        Spread: 213
+        Damage: -5000
+        ValidRelationships: Ally
+        ValidTargets: Heal
+        DebugOverlayColor: 00FF00

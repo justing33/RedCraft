@@ -136,6 +136,19 @@ TRAN:
         Actor: TRAN.Husk
     Selectable:
         DecorationBounds: 1706, 1536
+    Armament:
+        Weapon: Heal
+        Cursor: heal
+        OutsideRangeCursor: heal
+        TargetRelationships: Ally
+        ForceTargetRelationships: None
+    Voiced:
+        VoiceSet: MedicVoice
+    AutoTarget:
+    AutoTargetPriority@DEFAULT:
+        ValidTargets: Infantry
+    AttackFrontal:
+        FacingTolerance: 0
 
 # Black Hawk
 MH60:

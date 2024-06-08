@@ -84,6 +84,7 @@ MIG:
 
 # Chinook
 TRAN:
+    # Inherits: ^NonLandableHelicopter
     Inherits: ^Helicopter
     Inherits@CARGOPIPS: ^CargoPips
     Buildable:
@@ -131,7 +132,10 @@ TRAN:
     Cargo:
         Types: Infantry, Vehicle
         MaxWeight: 8
-        AfterUnloadDelay: 40
+        # Fast loads and unloads
+        AfterLoadDelay: 0
+        BeforeUnloadDelay: 0
+        AfterUnloadDelay: 0
     SpawnActorOnDeath:
         Actor: TRAN.Husk
     Selectable:

@@ -84,6 +84,7 @@ MIG:
 
 # Chinook
 TRAN:
+    # Inherits: ^NonLandableHelicopter
     Inherits: ^Helicopter
     Inherits@CARGOPIPS: ^CargoPips
     Buildable:
@@ -95,7 +96,7 @@ TRAN:
     Valued:
         Cost: 900
     Tooltip:
-        Name: Chinook
+        Name: Medivac
     UpdatesPlayerStatistics:
         AddToArmyValue: true
     Health:
@@ -129,13 +130,29 @@ TRAN:
         Sequence: slow-rotor2
         RequiresCondition: !airborne
     Cargo:
-        Types: Infantry
+        Types: Infantry, Vehicle
         MaxWeight: 8
-        AfterUnloadDelay: 40
+        # Fast loads and unloads
+        AfterLoadDelay: 0
+        BeforeUnloadDelay: 0
+        AfterUnloadDelay: 0
     SpawnActorOnDeath:
         Actor: TRAN.Husk
     Selectable:
         DecorationBounds: 1706, 1536
+    Armament:
+        Weapon: MedivacHeal
+        Cursor: heal
+        OutsideRangeCursor: heal
+        TargetRelationships: Ally
+        ForceTargetRelationships: None
+    Voiced:
+        VoiceSet: MedicVoice
+    AutoTarget:
+    AutoTargetPriority@DEFAULT:
+        ValidTargets: Infantry
+    AttackFrontal:
+        FacingTolerance: 0
 
 # Black Hawk
 MH60:

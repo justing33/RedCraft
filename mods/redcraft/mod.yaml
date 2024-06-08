@@ -168,6 +168,7 @@ Weapons:
 	# Custom overrides
 	redcraft|weapons/smallcaliber-rules.yaml
 	redcraft|weapons/missiles-rules.yaml
+	redcraft|weapons/other-rules.yaml
 
 Voices:
 	ra|audio/voices.yaml

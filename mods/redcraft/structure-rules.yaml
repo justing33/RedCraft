@@ -1,7 +1,8 @@
 # Construction Yard
 FACT:
     Inherits: ^Building
-    Inherits@CARGOPIPS: ^CargoPips
+    # TODO: Fix bug
+    # Inherits@CARGOPIPS: ^CargoPips
     Buildable:
         Queue: Building
         BuildPaletteOrder: 60
@@ -33,14 +34,15 @@ FACT:
         ExitCell: 2,2
     ProvidesPrerequisite@command-center:
         Prerequisite: command-center
-    Cargo:
-        # TODO: Testing
-        Types: Vehicle
-        # TODO: Consider future upgrade to 10 capacity
-        MaxWeight: 5
-        # Instant unload and movement
-        BeforeUnloadDelay: 0
-        AfterUnloadDelay: 0
+    # TODO: Fix bug
+    # Cargo:
+    #     # TODO: Testing
+    #     Types: Vehicle
+    #     # TODO: Consider future upgrade to 10 capacity
+    #     MaxWeight: 5
+    #     # Instant unload and movement
+    #     BeforeUnloadDelay: 0
+    #     AfterUnloadDelay: 0
     -SpawnActorsOnSell:
     Transforms:
         #RequiresCondition: factundeploy
@@ -83,7 +85,8 @@ FACT:
 # Based on Chinook
 FACT-AIR:
     Inherits: ^Helicopter
-    Inherits@CARGOPIPS: ^CargoPips
+    # TODO: Fix bug
+    # Inherits@CARGOPIPS: ^CargoPips
     Tooltip:
         Name: Command Center (Lifted off)
     UpdatesPlayerStatistics:
@@ -102,17 +105,18 @@ FACT-AIR:
         TurnSpeed: 20
         Speed: 128
         AltitudeVelocity: 0c58
-    Cargo:
-        # TODO: Testing
-        Types: Vehicle
-        # TODO: Consider future upgrade to 10 capacity
-        MaxWeight: 5
-        # Instant unload and movement
-        BeforeUnloadDelay: 0
-        AfterUnloadDelay: 0
-        # TODO: Would be nice to show appropriate cursor between cargo loading and landing
-        # UnloadCursor: repair
-        # UnloadBlockedCursor: repair-blocked
+    # TODO: Fix bug where game crashes when landing a command center with scv inside
+    # Cargo:
+    #     # TODO: Testing
+    #     Types: Vehicle
+    #     # TODO: Consider future upgrade to 10 capacity
+    #     MaxWeight: 5
+    #     # Instant unload and movement
+    #     BeforeUnloadDelay: 0
+    #     AfterUnloadDelay: 0
+    #     # TODO: Would be nice to show appropriate cursor between cargo loading and landing
+    #     # UnloadCursor: repair
+    #     # UnloadBlockedCursor: repair-blocked
     SpawnActorOnDeath:
         Actor: TRAN.Husk
     Selectable:

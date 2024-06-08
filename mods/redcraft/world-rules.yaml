@@ -1,0 +1,8 @@
+World:
+    # Start with command center (deployed mcv) and 5 scv
+    StartingUnits@mcvonly:
+        Class: none
+        ClassName: options-starting-units.mcv-only
+        Factions: allies, england, france, germany, soviet, russia, ukraine
+        BaseActor: fact
+        SupportActors: harv, harv, harv, harv, harv

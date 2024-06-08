@@ -1,3 +1,5 @@
+# Bunker
+# Based on Pill Box
 bunk:
     Defaults:
         Filename: pbox.shp
@@ -21,3 +23,12 @@ bunk:
         Offset: 0,-2
     icon:
         Filename: pboxicon.shp
+
+# Command Center (Lifted Off)
+fact-air:
+    idle:
+        Filename: fact.shp
+        Facings: 1
+        UseClassicFacings: False
+    icon:
+        Filename: facticon.shp

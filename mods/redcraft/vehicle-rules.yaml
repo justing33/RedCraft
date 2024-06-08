@@ -7,7 +7,7 @@ HARV:
     Buildable:
         Queue: Infantry
         BuildPaletteOrder: 110
-        -Prerequisites:
+        Prerequisites: command-center
         Description: Collects Ore and Gems for processing.\n  Unarmed
     Tooltip:
         Name: SCV
@@ -24,6 +24,10 @@ HARV:
         HarvestFacings: 8
         EmptyCondition: no-ore
     -ChangesHealth:
+    # Allow to be loaded into lifted off Command Center
+    Passenger:
+        CargoType: Vehicle
+        CargoCondition: disable-experience
 
 # Light Tank
 1TNK:

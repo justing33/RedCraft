@@ -20,7 +20,7 @@ harv:
         Start: 104
         Length: 1
     icon:
-        Filename: harvicon.shp
+        Filename: e6icon.shp
         Start: 0
 
 # Light tank skinned as a JEEP

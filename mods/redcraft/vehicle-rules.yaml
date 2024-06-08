@@ -28,6 +28,7 @@ HARV:
     Passenger:
         CargoType: Vehicle
         CargoCondition: disable-experience
+        Weight: 1
 
 # Light Tank
 1TNK:
@@ -54,6 +55,8 @@ HARV:
         TransformSounds: placbldg.aud, build5.aud
         NoTransformNotification: BuildingCannotPlaceAudio
         NoTransformTextNotification: Cannot deploy here.
+    Passenger:
+        Weight: 2
 
 # Artillery
 ARTY:
@@ -79,6 +82,8 @@ ARTY:
         TransformSounds: placbldg.aud, build5.aud
         -NoTransformNotification:
         -NoTransformTextNotification:
+    Passenger:
+        Weight: 4
 
 # Heavy Tank
 3TNK:
@@ -104,6 +109,8 @@ ARTY:
         IntoActor: 4tnk
         Offset: 0,0
         -Facing:
+    Passenger:
+        Weight: 4
 
 # Mammoth Tank
 4TNK:
@@ -169,6 +176,8 @@ MNLY:
         Image: MNLY
     -Rearmable:
     -WithAmmoPipsDecoration:
+    Passenger:
+        Weight: 2
 
 # Chrono Tank
 # Landed Viking - Non buildable
@@ -221,6 +230,8 @@ CTNK:
         IntoActor: mig
         Offset: 0,0
         -Facing:
+    Passenger:
+        Weight: 4
 
 # Mobile Flak (similar to Jeep, maybe OpenRA unit only?)
 # TODO: Turn into Cyclone
@@ -230,6 +241,12 @@ FTRK:
 #######################
 # NON BUILDABLE UNITS #
 #######################
+
+# MCV
+MCV:
+    -Buildable:
+    Tooltip:
+        Name: Mobile Construction Vehicle
 
 # Jeep is replaced by the light tank
 JEEP:

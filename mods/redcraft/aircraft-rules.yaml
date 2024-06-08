@@ -95,7 +95,7 @@ TRAN:
     Valued:
         Cost: 900
     Tooltip:
-        Name: Chinook
+        Name: Medivac
     UpdatesPlayerStatistics:
         AddToArmyValue: true
     Health:
@@ -129,7 +129,7 @@ TRAN:
         Sequence: slow-rotor2
         RequiresCondition: !airborne
     Cargo:
-        Types: Infantry
+        Types: Infantry, Vehicle
         MaxWeight: 8
         AfterUnloadDelay: 40
     SpawnActorOnDeath:

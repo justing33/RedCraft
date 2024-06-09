@@ -142,23 +142,31 @@ FACT-PLAN:
     -Buildable:
     Tooltip:
         Name: Planetary Fortress
-    Turreted:
-        TurnSpeed: 48
-        InitialFacing: 192
-        RealignDelay: -1
-        RequiresCondition: !build-incomplete
+    Turreted@PRIMARY:
+        Turret: primary
+        Offset: 0,750,900
+        TurnSpeed: 12
     WithSpriteTurret:
         RequiresCondition: !build-incomplete
         Recoils: false
-    WithTurretAttackAnimation:
-        Sequence: recoil
-    Armament:
-        Weapon: TurretGun
-        LocalOffset: 512,0,112
+    Armament@PRIMARY:
+        Turret: primary
+        Weapon: 8Inch
+        LocalOffset: 480,-100,40, 480,100,40
+        Recoil: 171
+        RecoilRecovery: 34
         MuzzleSequence: muzzle
     AttackTurreted:
-        PauseOnCondition: build-incomplete
+        Turrets: primary
+        TargetFrozenActors: True
+        ForceFireIgnoresActors: True
     WithMuzzleOverlay:
+    WithSpriteTurret@PRIMARY:
+        Turret: primary
+    # Don't transform once made into a Planetary Fortress
+    -Transforms:
+    -TransformsIntoAircraft:
+    -TransferTimedExternalConditionOnTransform:
 
 # Ore Refinery
 # Oil Refinery

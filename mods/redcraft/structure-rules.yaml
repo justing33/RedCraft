@@ -17,17 +17,29 @@ FACT:
         DiscardExcessResources: False
     StoresResources:
         Capacity: 2000
-    Production:
+    Production@TempBuildings:
         Produces: Infantry, Soldier, Building, Defense # TODO: Remove Building, Defense - temp allowing for testing purposes..
         SpawnOffset: 5,5
-    GrantExternalConditionToProduced:
-        Condition: produced
+    Production:
+        Produces: PlanetaryFortressUpgrade
+        RequiresCondition: !planetaryfortressupgraded
     ProductionBar:
-        ProductionType: Infantry
+        ProductionType: PlanetaryFortressUpgrade
+    ProductionQueue:
+        Type: PlanetaryFortressUpgrade
+        DisplayOrder: 0
+        Group: Addon
+        QueueLimit: 1
+        ItemLimit: 1
+    GrantConditionOnProduction@PlanetaryFortress:
+        Condition: planetaryfortressupgraded
+        Actors: FACT-PLAN
     ProductionBar@Building:
         ProductionType: Building
     ProductionBar@Defense:
         ProductionType: Defense
+    GrantExternalConditionToProduced:
+        Condition: produced
     #Required for units to be able to exit CY
     Exit@1:
         RequiresCondition: !being-captured
@@ -35,6 +47,33 @@ FACT:
         ExitCell: 2,2
     ProvidesPrerequisite@command-center:
         Prerequisite: command-center
+    # PLANETARY FORTRESS UPGRADE
+    Turreted@PRIMARY:
+        Turret: primary
+        Offset: 0,750,900
+        TurnSpeed: 12
+        RequiresCondition: planetaryfortressupgraded
+    WithSpriteTurret:
+        Recoils: false
+        RequiresCondition: planetaryfortressupgraded && !build-incomplete
+    Armament@PRIMARY:
+        Turret: primary
+        Weapon: 8Inch
+        LocalOffset: 480,-100,40, 480,100,40
+        Recoil: 171
+        RecoilRecovery: 34
+        MuzzleSequence: muzzle
+        RequiresCondition: planetaryfortressupgraded
+    AttackTurreted:
+        Turrets: primary
+        TargetFrozenActors: True
+        ForceFireIgnoresActors: True
+        RequiresCondition: planetaryfortressupgraded
+    WithMuzzleOverlay:
+        RequiresCondition: planetaryfortressupgraded
+    WithSpriteTurret@PRIMARY:
+        Turret: primary
+        RequiresCondition: planetaryfortressupgraded
     # TODO: Fix bug
     # Cargo:
     #     # TODO: Testing
@@ -46,11 +85,11 @@ FACT:
     #     AfterUnloadDelay: 0
     -SpawnActorsOnSell:
     Transforms:
-        #RequiresCondition: factundeploy
         PauseOnCondition: chrono-vortex || being-captured || being-demolished || build-incomplete
         IntoActor: fact-air
         Offset: 1,1
         Facing: 384
+        RequiresCondition: !planetaryfortressupgraded
     TransformsIntoAircraft:
         DockActors: #fact-air
     -TransformsIntoMobile:
@@ -138,35 +177,21 @@ FACT-AIR:
 # Construction Yard
 # Planetary Fortress
 FACT-PLAN:
-    Inherits: FACT
-    -Buildable:
+    Buildable:
+        BuildPaletteOrder: 1
+        -Prerequisites:
+        Queue: PlanetaryFortressUpgrade
+        BuildDuration: 1
+        BuildDurationModifier: 1
+        Description: TBD
+    Interactable:
+    AlwaysVisible:
+    RenderSprites:
+        Scale: 1.0
     Tooltip:
         Name: Planetary Fortress
-    Turreted@PRIMARY:
-        Turret: primary
-        Offset: 0,750,900
-        TurnSpeed: 12
-    WithSpriteTurret:
-        RequiresCondition: !build-incomplete
-        Recoils: false
-    Armament@PRIMARY:
-        Turret: primary
-        Weapon: 8Inch
-        LocalOffset: 480,-100,40, 480,100,40
-        Recoil: 171
-        RecoilRecovery: 34
-        MuzzleSequence: muzzle
-    AttackTurreted:
-        Turrets: primary
-        TargetFrozenActors: True
-        ForceFireIgnoresActors: True
-    WithMuzzleOverlay:
-    WithSpriteTurret@PRIMARY:
-        Turret: primary
-    # Don't transform once made into a Planetary Fortress
-    -Transforms:
-    -TransformsIntoAircraft:
-    -TransferTimedExternalConditionOnTransform:
+    KillsSelf:
+        RemoveInstead: true
 
 # Ore Refinery
 # Oil Refinery

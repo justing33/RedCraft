@@ -85,6 +85,7 @@ FACT:
 # Chinook
 # Command Center (Lifted Off)
 FACT-AIR:
+    # Cannot inherit FACT as a ^Building and ^Helicopter also
     Inherits: ^Helicopter
     # TODO: Fix bug
     # Inherits@CARGOPIPS: ^CargoPips
@@ -131,6 +132,33 @@ FACT-AIR:
         # DeployCursor: deploy
         # DeployBlockedCursor: deploy-blocked
     BaseBuilding:
+    SpawnActorOnDeath:
+        Actor:
+
+# Construction Yard
+# Planetary Fortress
+FACT-PLAN:
+    Inherits: FACT
+    -Buildable:
+    Tooltip:
+        Name: Planetary Fortress
+    Turreted:
+        TurnSpeed: 48
+        InitialFacing: 192
+        RealignDelay: -1
+        RequiresCondition: !build-incomplete
+    WithSpriteTurret:
+        RequiresCondition: !build-incomplete
+        Recoils: false
+    WithTurretAttackAnimation:
+        Sequence: recoil
+    Armament:
+        Weapon: TurretGun
+        LocalOffset: 512,0,112
+        MuzzleSequence: muzzle
+    AttackTurreted:
+        PauseOnCondition: build-incomplete
+    WithMuzzleOverlay:
 
 # Ore Refinery
 # Oil Refinery

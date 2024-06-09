@@ -32,3 +32,45 @@ fact-air:
         UseClassicFacings: False
     icon:
         Filename: facticon.shp
+
+# Planetary Fortress
+fact-plan:
+    Defaults:
+        Filename: fact.shp
+    idle:
+        Filename: fact.shp
+        Facings: 1
+        UseClassicFacings: False
+    icon:
+        Filename: facticon.shp
+    build:
+        Start: 1
+        Length: 25
+    bib:
+        Filename: bib2.tem
+        TilesetFilenames:
+            SNOW: bib2.sno
+            DESERT: bib2.des
+        Length: *
+    turret:
+        Filename: gun.shp
+        Facings: 32
+        UseClassicFacings: True
+    recoil:
+        Filename: gun.shp
+        Start: 32
+        Facings: 32
+        UseClassicFacings: True
+    damaged-turret:
+        Filename: gun.shp
+        Start: 64
+        Facings: 32
+        UseClassicFacings: True
+    damaged-recoil:
+        Filename: gun.shp
+        Start: 96
+        Facings: 32
+        UseClassicFacings: True
+    muzzle:
+        Filename: gunfire2.shp
+        Length: 5

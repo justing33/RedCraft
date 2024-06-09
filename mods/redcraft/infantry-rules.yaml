@@ -148,17 +148,47 @@ E7:
 
 # Medic
 MEDI:
-	Inherits: ^Soldier
-	Buildable:
-		Queue: Infantry
-		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 40
-		Prerequisites: ~tent, ~techlevel.infonly
-		Description: Heals nearby infantry.\n  Unarmed
-	Tooltip:
-		Name: Medic
-	Mobile:
-		Speed: 49
+    Inherits: ^Soldier
+    Buildable:
+        Queue: Infantry
+        BuildAtProductionType: Soldier
+        BuildPaletteOrder: 40
+        Prerequisites: ~tent, ~techlevel.infonly
+        Description: Heals nearby infantry.\n  Unarmed
+    Valued:
+        Cost: 200
+    Tooltip:
+        Name: Medic
+    UpdatesPlayerStatistics:
+        AddToArmyValue: true
+    Health:
+        HP: 6000
+    Mobile:
+        Speed: 49
+    RevealsShroud:
+        Range: 3c0
+    Passenger:
+        CustomPipType: blue
+    Armament:
+        Weapon: MedivacHeal
+        Cursor: heal
+        OutsideRangeCursor: heal
+        TargetRelationships: Ally
+        ForceTargetRelationships: None
+    WithInfantryBody:
+        IdleSequences: idle
+        StandSequences: stand
+        DefaultAttackSequence: heal
+        RequiresCondition: !parachute
+    WithInfantryBody@PARACHUTE:
+        RequiresCondition: parachute
+        Palette: player-noshadow
+        IsPlayerPalette: true
+    Voiced:
+        VoiceSet: MedicVoice
+    AutoTarget:
+    AutoTargetPriority@DEFAULT:
+        ValidTargets: Infantry
 
 ##########################
 # NON BUILDABLE INFANTRY #

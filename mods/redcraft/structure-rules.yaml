@@ -1,4 +1,5 @@
 # Construction Yard
+# Command Center
 FACT:
     Inherits: ^Building
     # TODO: Fix bug
@@ -81,8 +82,8 @@ FACT:
         DirectionArrowAnimation: paradirection
         SupportPowerPaletteOrder: 60
 
-# Lifted Off Command Center
-# Based on Chinook
+# Chinook
+# Command Center (Lifted Off)
 FACT-AIR:
     Inherits: ^Helicopter
     # TODO: Fix bug
@@ -132,16 +133,19 @@ FACT-AIR:
     BaseBuilding:
 
 # Ore Refinery
+# Oil Refinery
 PROC:
     Tooltip:
         Name: Oil Refinery
     -FreeActor:
 
 # Soviet Barracks
+# Barracks
 BARR:
     Tooltip:
         Name: Barracks
 
+# Silo
 # Supply Depot
 # TODO: Implement this, but this also means that we are adding a new constraint/feature to the engine
 SILO:
@@ -149,11 +153,13 @@ SILO:
         Name: Supply Depot
 
 # War Factory
+# Factory
 WEAP:
     Tooltip:
         Name: Factory
 
-# Custom Bunker structure as Pillbox wouldn't let me override InitialUnits
+# Pillbox
+# Bunker - custom structure as Pillbox wouldn't let me override InitialUnits
 BUNK:
     Inherits: ^Defense
     Inherits@AUTOTARGET: ^AutoTargetAll
@@ -207,30 +213,29 @@ BUNK:
         Amount: -20
 
 # Soviet Airfield
+# Starport
 # Has Paratroopers, Spy Plane, and Parabombs
 AFLD:
     Tooltip:
         Name: Starport
 
 #Sam Site
+# Missile Turret
 SAM:
     Tooltip:
         Name: Missile Turret
 
 # Allied Tech Center
+# Ghost Academy
 ATEK:
     Tooltip:
         Name: Ghost Academy
 
 # Soviet Tech Center
+# Engineering Bay
 STEK:
     Tooltip:
         Name: Engineering Bay
-
-# Missile Silo
-MSLO:
-    Tooltip:
-        Name: Missile Silo
 
 # Gap Generator
 GAP:
@@ -311,6 +316,12 @@ SYRD:
     -Buildable:
     Tooltip:
         Name: Naval Yard
+
+# Missile Silo
+MSLO:
+    -Buildable:
+    Tooltip:
+        Name: Missile Silo
 
 # Iron Curtain
 IRON:

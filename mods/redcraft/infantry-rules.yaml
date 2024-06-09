@@ -1,4 +1,5 @@
 # Rifle Infantry
+# Marine
 E1:
     Inherits: ^Soldier
     Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
@@ -26,6 +27,7 @@ E1:
         IsPlayerPalette: true
 
 # Rocket Soldier
+# Marauder
 E3:
 	Inherits: ^Soldier
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
@@ -73,6 +75,7 @@ E3:
 		Prerequisites: barracks.upgraded
 
 # Grenadier
+# Reaper
 E2:
 	Buildable:
 		Queue: Infantry
@@ -95,6 +98,7 @@ E2:
 	-TakeCover:
 
 # Flamethrower
+# Firebat
 E4:
 	Inherits: ^Soldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
@@ -116,6 +120,7 @@ E4:
 	-TakeCover:
 
 # Tanya
+# Ghost
 E7:
 	Inherits: ^Soldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove

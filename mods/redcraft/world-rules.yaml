@@ -4,5 +4,5 @@ World:
         Class: none
         ClassName: options-starting-units.mcv-only
         Factions: allies, england, france, germany, soviet, russia, ukraine
-        BaseActor: fact
-        SupportActors: harv, harv, harv, harv, harv
+        BaseActor: comc
+        SupportActors: harv, harv, harv, harv, harv, mcv

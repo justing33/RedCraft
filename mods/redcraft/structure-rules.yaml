@@ -129,7 +129,11 @@ COMC:
     Health:
         HP: 150000
     Tooltip:
-        Name: Command Center NEW COMC
+        Name: Command Center
+        RequiresCondition: !orbitalcommandupgraded
+    Tooltip@ORBITALUPGRADED:
+        Name: Orbital Command
+        RequiresCondition: orbitalcommandupgraded
     Refinery:
         DockOffset: 1,3
         UseStorage: False
@@ -232,7 +236,7 @@ COMC:
         Sequence: fact-orb
         RequiresCondition: orbitalcommandupgraded && !build-incomplete && !planetaryfortressupgraded
     RenderSprites:
-        #Image: fact
+        #Image: comc
     Transforms:
         PauseOnCondition: chrono-vortex || being-captured || being-demolished || build-incomplete
         IntoActor: fact-air

@@ -1,118 +1,5 @@
 # Construction Yard
 # Command Center
-# COMC:
-#     Inherits: ^Building
-#     # TODO: Fix bug
-#     # Inherits@CARGOPIPS: ^CargoPips
-#     Buildable:
-#         Queue: Building
-#         BuildPaletteOrder: 60
-#         Prerequisites: anypower, ~techlevel.infonly
-#         Description: Refines Ore and Gems\ninto credits.
-#     Health:
-#         HP: 150000
-#     Tooltip:
-#         Name: Command Center
-#     Refinery:
-#         DockOffset: 1,3
-#         UseStorage: False
-#         DiscardExcessResources: False
-#     StoresResources:
-#         Capacity: 2000
-#     # Production@TempBuildings:
-#     #     Produces: Infantry, Soldier, Building, Defense # TODO: Remove Building, Defense - temp allowing for testing purposes..
-#     #     SpawnOffset: 5,5
-#     Production:
-#         Produces: CommandCenterUpgrade
-#         RequiresCondition: !planetaryfortressupgraded && !orbitalcommandupgraded
-#     ProductionBar:
-#         ProductionType: CommandCenterUpgrade
-#     ProductionQueue:
-#         Type: CommandCenterUpgrade
-#         DisplayOrder: 0
-#         # Group: Addon
-#         QueueLimit: 1
-#         ItemLimit: 1
-#     GrantConditionOnProduction@PlanetaryFortress:
-#         Condition: planetaryfortressupgraded
-#         Actors: FACT-PLAN
-#     GrantConditionOnProduction@OrbitalCommand:
-#         Condition: orbitalcommandupgraded
-#         Actors: FACT-ORB
-#     ProductionBar@Building:
-#         ProductionType: Building
-#     ProductionBar@Defense:
-#         ProductionType: Defense
-#     GrantExternalConditionToProduced:
-#         Condition: produced
-#     #Required for units to be able to exit CY
-#     Exit@1:
-#         RequiresCondition: !being-captured
-#         SpawnOffset: 900,2000,0
-#         ExitCell: 2,2
-#     ProvidesPrerequisite@command-center:
-#         Prerequisite: command-center
-#     # PLANETARY FORTRESS UPGRADE
-#     Turreted@PRIMARY:
-#         Turret: primary
-#         Offset: 0,750,900
-#         TurnSpeed: 12
-#         RequiresCondition: planetaryfortressupgraded
-#     WithSpriteTurret:
-#         Recoils: false
-#         RequiresCondition: planetaryfortressupgraded && !build-incomplete
-#     Armament@PRIMARY:
-#         Turret: primary
-#         Weapon: 8Inch
-#         LocalOffset: 480,-100,40, 480,100,40
-#         Recoil: 171
-#         RecoilRecovery: 34
-#         MuzzleSequence: muzzle
-#         RequiresCondition: planetaryfortressupgraded
-#     AttackTurreted:
-#         Turrets: primary
-#         TargetFrozenActors: True
-#         ForceFireIgnoresActors: True
-#         RequiresCondition: planetaryfortressupgraded
-#     WithMuzzleOverlay:
-#         RequiresCondition: planetaryfortressupgraded
-#     WithSpriteTurret@PRIMARY:
-#         Turret: primary
-#         RequiresCondition: planetaryfortressupgraded
-#     # TODO: Fix bug
-#     # Cargo:
-#     #     # TODO: Testing
-#     #     Types: Vehicle
-#     #     # TODO: Consider future upgrade to 10 capacity
-#     #     MaxWeight: 5
-#     #     # Instant unload and movement
-#     #     BeforeUnloadDelay: 0
-#     #     AfterUnloadDelay: 0
-#     # Show as an Orbital Command sprite when upgrade is built
-#     # WithIdleOverlay@ORBITAL:
-#     #     RequiresCondition: orbitalcommandupgraded && !build-incomplete && !planetaryfortressupgraded
-#     #     Sequence: fact-orb
-#     # WithSpriteBody@PRIMARY:
-#     #     Sequence: fact
-#     #     RequiresCondition: !orbitalcommandupgraded && !build-incomplete && !planetaryfortressupgraded
-#     # WithBuildingPlacedAnimation:
-#     #     RequiresCondition: !orbitalcommandupgraded && !build-incomplete && !planetaryfortressupgraded
-#     WithSpriteBody@ORBITAL:
-#         StartSequence: fact-orb
-#         Sequence: fact-orb
-#         RequiresCondition: !orbitalcommandupgraded && !build-incomplete && !planetaryfortressupgraded
-#     RenderSprites:
-#         Image: fact
-#     Transforms:
-#         PauseOnCondition: chrono-vortex || being-captured || being-demolished || build-incomplete
-#         IntoActor: fact-air
-#         Offset: 1,1
-#         Facing: 384
-#         RequiresCondition: !planetaryfortressupgraded
-#     TransformsIntoAircraft:
-#         DockActors: #fact-air
-
-# New COMC with missing FACT traits
 COMC:
     Inherits: ^Building
     Selectable:
@@ -156,7 +43,6 @@ COMC:
     ProductionQueue:
         Type: CommandCenterUpgrade
         DisplayOrder: 0
-        # Group: Addon
         QueueLimit: 1
         ItemLimit: 1
     GrantConditionOnProduction@PlanetaryFortress:
@@ -179,7 +65,17 @@ COMC:
         ExitCell: 2,2
     ProvidesPrerequisite@command-center:
         Prerequisite: command-center
-    # PLANETARY FORTRESS UPGRADE
+    # TODO: Fix bug
+    # Cargo:
+    #     # TODO: Testing
+    #     Types: Vehicle
+    #     # TODO: Consider future upgrade to 10 capacity
+    #     MaxWeight: 5
+    #     # Instant unload and movement
+    #     BeforeUnloadDelay: 0
+    #     AfterUnloadDelay: 0
+    # Show as an Orbital Command sprite when upgrade is built
+    # PLANETARY FORTRESS UPGRADED
     Turreted@PRIMARY:
         Turret: primary
         Offset: 0,750,900
@@ -206,37 +102,15 @@ COMC:
     WithSpriteTurret@PRIMARY:
         Turret: primary
         RequiresCondition: planetaryfortressupgraded
-    # TODO: Fix bug
-    # Cargo:
-    #     # TODO: Testing
-    #     Types: Vehicle
-    #     # TODO: Consider future upgrade to 10 capacity
-    #     MaxWeight: 5
-    #     # Instant unload and movement
-    #     BeforeUnloadDelay: 0
-    #     AfterUnloadDelay: 0
-    # Show as an Orbital Command sprite when upgrade is built
-    # WithIdleOverlay@ORBITAL:
-    #     RequiresCondition: orbitalcommandupgraded && !build-incomplete && !planetaryfortressupgraded
-    #     Sequence: fact-orb
-    # WithSpriteBody@PRIMARY:
-    #     Sequence: fact
-    #     RequiresCondition: !orbitalcommandupgraded && !build-incomplete && !planetaryfortressupgraded
-    # WithBuildingPlacedAnimation:
-    #     RequiresCondition: !orbitalcommandupgraded && !build-incomplete && !planetaryfortressupgraded
+    WithIdleOverlay@ORBITAL:
+        RequiresCondition: orbitalcommandupgraded && !build-incomplete && !planetaryfortressupgraded
+        Sequence: fact-orb
+        Offset: 2000,200,0 #Testing
     BaseProvider:
         PauseOnCondition: being-captured
         Range: 16c0
     WithBuildingBib:
-    # WithBuildingPlacedAnimation:
-    #     RequiresCondition: !build-incomplete && !chrono-vortex
-    WithSpriteBody@ORBITAL:
-        #Name: fact-orb
-        #StartSequence: fact-orb
-        Sequence: fact-orb
-        RequiresCondition: orbitalcommandupgraded && !build-incomplete && !planetaryfortressupgraded
     RenderSprites:
-        #Image: comc
     Transforms:
         PauseOnCondition: chrono-vortex || being-captured || being-demolished || build-incomplete
         IntoActor: fact-air
@@ -244,7 +118,7 @@ COMC:
         Facing: 384
         RequiresCondition: !planetaryfortressupgraded
     TransformsIntoAircraft:
-        DockActors: #fact-air
+        DockActors:
     WithDeathAnimation:
         DeathSequence: dead
         UseDeathTypeSuffix: false
@@ -322,7 +196,6 @@ FACT-PLAN:
     Interactable:
     AlwaysVisible:
     RenderSprites:
-        Scale: 1.0
     Tooltip:
         Name: Planetary Fortress
     KillsSelf:
@@ -340,7 +213,6 @@ FACT-ORB:
     Interactable:
     AlwaysVisible:
     RenderSprites:
-        # Scale: 1.0
     Tooltip:
         Name: Orbital Command
     KillsSelf:

@@ -33,6 +33,7 @@ fact-air:
     icon:
         Filename: facticon.shp
 
+# Command Center
 comc:
     Defaults:
         Filename: fact.shp
@@ -66,8 +67,6 @@ comc:
         Length: *
     icon:
         Filename: facticon.shp
-    # fake-icon:
-    #   Filename: facficon.shp
     turret:
         Filename: turr.shp
         Facings: 32
@@ -75,50 +74,32 @@ comc:
         Filename: gunfire2.shp
         Length: 5
     fact-orb:
-        Filename: dome.shp
-        # Defaults:
-        #     Filename: dome.shp
-        # idle:
-        #     Offset: 0,-4
-        # damaged-idle:
-        #     Start: 1
-        #     Offset: 0,-4
-        # make:
-        #     Filename: domemake.shp
-        #     Length: *
-        #     Offset: 0,-4
-        # bib:
-        #     Filename: bib3.tem
-        #     TilesetFilenames:
-        #         SNOW: bib3.sno
-        #         DESERT: bib3.des
-        #     Length: *
-        # icon:
-        #     Filename: domeicon.shp
+        # Uses this to draw the orbital upgrade building extension
+        Filename: carr.shp
+        idle:
+            Offset: 0,-4
+        damaged-idle:
+            Start: 1
+            Offset: 0,-4
+        make:
+            Filename: domemake.shp
+            Length: *
+            Offset: 0,-4
+        bib:
+            Filename: bib3.tem
+            TilesetFilenames:
+                SNOW: bib3.sno
+                DESERT: bib3.des
+            Length: *
+        icon:
+            Filename: domeicon.shp
 
 # Planetary Fortress
 fact-plan:
     icon:
-        Filename: facticon.shp
+        Filename: gunicon.shp
 
 # Orbital Command
 fact-orb:
-    Defaults:
-        Filename: dome.shp
-    idle:
-        Offset: 0,-4
-    damaged-idle:
-        Start: 1
-        Offset: 0,-4
-    make:
-        Filename: domemake.shp
-        Length: *
-        Offset: 0,-4
-    bib:
-        Filename: bib3.tem
-        TilesetFilenames:
-            SNOW: bib3.sno
-            DESERT: bib3.des
-        Length: *
     icon:
-        Filename: domeicon.shp
+        Filename: gpssicon.shp

@@ -108,7 +108,8 @@ COMC:
     WithIdleOverlay@ORBITAL:
         RequiresCondition: orbitalcommandupgraded && !build-incomplete && !planetaryfortressupgraded
         Sequence: fact-orb
-        Offset: -1000,1500,0
+        # Forward, Right, Up
+        Offset: 0,1500,-450
     AirstrikePower@spyplane:
         OrderName: SovietSpyPlane
         Icon: scannersweep

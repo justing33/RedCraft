@@ -69,3 +69,51 @@ comc-plan:
 comc-orb:
     icon:
         Filename: gpssicon.shp
+
+barracks_:
+    Defaults:
+        Filename: barr.shp
+    idle:
+        Length: 10
+        Offset: 0,-6
+    damaged-idle:
+        Start: 10
+        Length: 10
+        Offset: 0,-6
+    make:
+        Filename: barrmake.shp
+        Length: *
+        Offset: 0,-6
+    bib:
+        Filename: bib3.tem
+        TilesetFilenames:
+            SNOW: bib3.sno
+            DESERT: bib3.des
+        Length: *
+    icon:
+        Filename: barricon.shp
+
+# Barracks (Lifted Off)
+barracks-air:
+    # Defaults:
+    #     Filename: barr.shp
+    idle:
+        Filename: barr.shp
+        Length: 10
+        Offset: 0,-6
+    # damaged-idle:
+    #     Start: 10
+    #     Length: 10
+    #     Offset: 0,-6
+    # make:
+    #     Filename: barrmake.shp
+    #     Length: *
+    #     Offset: 0,-6
+    # bib:
+    #     Filename: bib3.tem
+    #     TilesetFilenames:
+    #         SNOW: bib3.sno
+    #         DESERT: bib3.des
+    #     Length: *
+    # icon:
+    #     Filename: barricon.shp

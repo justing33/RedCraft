@@ -35,7 +35,10 @@ COMC:
         RevealGeneratedShroud: False
     RevealsShroud@GAPGEN:
         Range: 4c0
-    Production:
+    # TODO: 
+    Production@TempBuildings:
+        Produces: Infantry, Soldier, Building, Defense
+    Production@CCUPGRADES:
         Produces: CommandCenterUpgrade
         RequiresCondition: !planetaryfortressupgraded && !orbitalcommandupgraded
     ProductionBar:

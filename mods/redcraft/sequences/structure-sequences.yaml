@@ -70,6 +70,7 @@ comc-orb:
     icon:
         Filename: gpssicon.shp
 
+# Barracks
 barracks_:
     Defaults:
         Filename: barr.shp
@@ -99,8 +100,8 @@ barracks-air:
     #     Filename: barr.shp
     idle:
         Filename: barr.shp
-        Length: 10
-        Offset: 0,-6
+    # Length: 10
+    # Offset: 0,-6
     # damaged-idle:
     #     Start: 10
     #     Length: 10

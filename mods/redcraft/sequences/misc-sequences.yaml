@@ -1,0 +1,9 @@
+icon:
+	scannersweep:
+		Filename: sonricon.shp
+
+beacon:
+	scannersweep-small:
+		Filename: lores|sonricon.shp
+		Length: *
+		Offset: 0,-42

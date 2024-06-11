@@ -50,10 +50,10 @@ COMC:
         ItemLimit: 1
     GrantConditionOnProduction@PlanetaryFortress:
         Condition: planetaryfortressupgraded
-        Actors: FACT-PLAN
+        Actors: COMC-PLAN
     GrantConditionOnProduction@OrbitalCommand:
         Condition: orbitalcommandupgraded
-        Actors: FACT-ORB
+        Actors: COMC-ORB
     ProductionBar@Building:
         ProductionType: Building
     ProductionBar@Defense:
@@ -107,7 +107,7 @@ COMC:
     # ORBITAL COMMAND UPGRADED
     WithIdleOverlay@ORBITAL:
         RequiresCondition: orbitalcommandupgraded && !build-incomplete && !planetaryfortressupgraded
-        Sequence: fact-orb
+        Sequence: comc-orb
         # Forward, Right, Up
         Offset: 0,1500,-450
     AirstrikePower@spyplane:
@@ -140,7 +140,7 @@ COMC:
     RenderSprites:
     Transforms:
         PauseOnCondition: chrono-vortex || being-captured || being-demolished || build-incomplete
-        IntoActor: fact-air
+        IntoActor: comc-air
         Offset: 1,1
         Facing: 384
         RequiresCondition: !planetaryfortressupgraded && !orbitalcommandupgraded
@@ -160,8 +160,7 @@ COMC:
 
 # Chinook
 # Command Center (Lifted Off)
-FACT-AIR:
-    # Cannot inherit FACT as a ^Building and ^Helicopter also
+COMC-AIR:
     Inherits: ^Helicopter
     # TODO: Fix bug
     # Inherits@CARGOPIPS: ^CargoPips
@@ -213,7 +212,7 @@ FACT-AIR:
         Actor:
 
 # Planetary Fortress
-FACT-PLAN:
+COMC-PLAN:
     Buildable:
         BuildPaletteOrder: 2
         -Prerequisites:
@@ -230,7 +229,7 @@ FACT-PLAN:
         RemoveInstead: true
 
 # Orbital Command
-FACT-ORB:
+COMC-ORB:
     Buildable:
         BuildPaletteOrder: 1
         -Prerequisites:

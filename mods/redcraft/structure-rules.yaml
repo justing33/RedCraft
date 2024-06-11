@@ -77,7 +77,6 @@ COMC:
     #     # Instant unload and movement
     #     BeforeUnloadDelay: 0
     #     AfterUnloadDelay: 0
-    # Show as an Orbital Command sprite when upgrade is built
     # PLANETARY FORTRESS UPGRADED
     Turreted@PRIMARY:
         Turret: primary
@@ -105,10 +104,34 @@ COMC:
     WithSpriteTurret@PRIMARY:
         Turret: primary
         RequiresCondition: planetaryfortressupgraded
+    # ORBITAL COMMAND UPGRADED
     WithIdleOverlay@ORBITAL:
         RequiresCondition: orbitalcommandupgraded && !build-incomplete && !planetaryfortressupgraded
         Sequence: fact-orb
         Offset: -1000,1500,0
+    AirstrikePower@spyplane:
+        OrderName: SovietSpyPlane
+        Icon: scannersweep
+        ChargeInterval: 3750
+        Name: Scanner Sweep
+        Description: Reveals an area of the map.
+        SelectTargetSpeechNotification: SelectTarget
+        EndChargeSpeechNotification: SpyPlaneReady
+        SelectTargetTextNotification: Select target.
+        EndChargeTextNotification: Spy plane ready.
+        CameraActor: camera.spyplane
+        CameraRemoveDelay: 150
+        UnitType: u2
+        QuantizedFacings: 8
+        DisplayBeacon: true
+        BeaconPoster: scannersweep-small
+        ArrowSequence: arrow
+        ClockSequence: clock
+        CircleSequence: circles
+        UseDirectionalTarget: True
+        DirectionArrowAnimation: paradirection
+        SupportPowerPaletteOrder: 60
+        RequiresCondition: orbitalcommandupgraded
     BaseProvider:
         PauseOnCondition: being-captured
         Range: 16c0

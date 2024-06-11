@@ -27,38 +27,38 @@ bunk:
 # Command Center (Lifted Off)
 fact-air:
     idle:
-        Filename: fact.shp
-        Facings: 1
-        UseClassicFacings: False
-    icon:
-        Filename: facticon.shp
+        # Offset: 0,-4
+        Filename: dome.shp
+        # Facings: 1
+        # UseClassicFacings: False
+    # icon:
+    #     Filename: facticon.shp
 
 # Command Center
 comc:
     Defaults:
-        Filename: fact.shp
+        Filename: dome.shp
     idle:
-    make:
-        Filename: factmake.shp
-        Length: *
-    build:
-        Start: 1
-        Length: 25
-    pdox:
-        Filename: factpdox.shp
-        Length: 80
+        #Offset: 0,-4
     damaged-idle:
-        Start: 26
-    damaged-build:
-        Start: 27
-        Length: 25
-    damaged-pdox:
-        Filename: factpdox.shp
-        Start: 80
-        Length: 80
-    dead:
-        Filename: factdead.shp
-        Tick: 800
+        Start: 1
+        Offset: 0,-4
+    make:
+    # Filename: domemake.shp
+    # Length: *
+    # build:
+    #     Start: 1
+    #     Length: 25
+    # damaged-build:
+    #     Start: 27
+    #     Length: 25
+    # damaged-pdox:
+    #     Filename: factpdox.shp
+    #     Start: 80
+    #     Length: 80
+    # dead:
+    #     Filename: factdead.shp
+    #     Tick: 800
     bib:
         Filename: bib2.tem
         TilesetFilenames:
@@ -68,7 +68,7 @@ comc:
     icon:
         Filename: facticon.shp
     turret:
-        Filename: turr.shp
+        Filename: gun.shp
         Facings: 32
     muzzle:
         Filename: gunfire2.shp
@@ -76,23 +76,23 @@ comc:
     fact-orb:
         # Uses this to draw the orbital upgrade building extension
         Filename: carr.shp
-        idle:
-            Offset: 0,-4
-        damaged-idle:
-            Start: 1
-            Offset: 0,-4
-        make:
-            Filename: domemake.shp
-            Length: *
-            Offset: 0,-4
-        bib:
-            Filename: bib3.tem
-            TilesetFilenames:
-                SNOW: bib3.sno
-                DESERT: bib3.des
-            Length: *
-        icon:
-            Filename: domeicon.shp
+        # idle:
+        #     Offset: 0,-4
+        # damaged-idle:
+        #     Start: 1
+        #     Offset: 0,-4
+        # make:
+        #     Filename: domemake.shp
+        #     Length: *
+        #     Offset: 0,-4
+        # bib:
+        #     Filename: bib3.tem
+        #     TilesetFilenames:
+        #         SNOW: bib3.sno
+        #         DESERT: bib3.des
+        #     Length: *
+        # icon:
+        #     Filename: domeicon.shp
 
 # Planetary Fortress
 fact-plan:

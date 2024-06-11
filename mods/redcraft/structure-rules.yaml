@@ -78,7 +78,7 @@ COMC:
     # PLANETARY FORTRESS UPGRADED
     Turreted@PRIMARY:
         Turret: primary
-        Offset: 0,750,900
+        Offset: 0,-64,700
         TurnSpeed: 12
         RequiresCondition: planetaryfortressupgraded
     WithSpriteTurret:
@@ -105,7 +105,7 @@ COMC:
     WithIdleOverlay@ORBITAL:
         RequiresCondition: orbitalcommandupgraded && !build-incomplete && !planetaryfortressupgraded
         Sequence: fact-orb
-        Offset: 2000,200,0 #Testing
+        Offset: -1000,1500,0
     BaseProvider:
         PauseOnCondition: being-captured
         Range: 16c0
@@ -116,7 +116,7 @@ COMC:
         IntoActor: fact-air
         Offset: 1,1
         Facing: 384
-        RequiresCondition: !planetaryfortressupgraded
+        RequiresCondition: !planetaryfortressupgraded && !orbitalcommandupgraded
     TransformsIntoAircraft:
         DockActors:
     WithDeathAnimation:
@@ -173,7 +173,8 @@ FACT-AIR:
     Selectable:
         DecorationBounds: 1706, 1536
     Transforms:
-        IntoActor: fact
+        # TODO: Fix landing offset
+        IntoActor: comc
         TransformSounds: placbldg.aud, build5.aud
         NoTransformNotification: BuildingCannotPlaceAudio
         NoTransformTextNotification: Cannot deploy here.

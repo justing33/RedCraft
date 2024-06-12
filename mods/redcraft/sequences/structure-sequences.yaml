@@ -24,16 +24,6 @@ bunk:
     icon:
         Filename: pboxicon.shp
 
-# Command Center (Lifted Off)
-fact-air:
-    idle:
-        # Offset: 0,-4
-        Filename: dome.shp
-        # Facings: 1
-        # UseClassicFacings: False
-    # icon:
-    #     Filename: facticon.shp
-
 # Command Center
 comc:
     Defaults:
@@ -61,16 +51,131 @@ comc:
     muzzle:
         Filename: gunfire2.shp
         Length: 5
-    fact-orb:
+    comc-orb:
         # Uses this to draw the orbital upgrade building extension
         Filename: carr.shp
 
+# Command Center (Lifted Off)
+comc-air:
+    idle:
+        Filename: dome.shp
+
 # Planetary Fortress
-fact-plan:
+comc-plan:
     icon:
         Filename: gunicon.shp
 
 # Orbital Command
-fact-orb:
+comc-orb:
     icon:
         Filename: gpssicon.shp
+
+# Barracks
+barracks_:
+    Defaults:
+        Filename: barr.shp
+    idle:
+        Length: 10
+        Offset: 0,-6
+    damaged-idle:
+        Start: 10
+        Length: 10
+        Offset: 0,-6
+    make:
+        Filename: barrmake.shp
+        Length: *
+        Offset: 0,-6
+    bib:
+        Filename: bib3.tem
+        TilesetFilenames:
+            SNOW: bib3.sno
+            DESERT: bib3.des
+        Length: *
+    icon:
+        Filename: barricon.shp
+
+# Barracks (Lifted Off)
+barracks-air:
+    idle:
+        Filename: barr.shp
+
+# Factory
+warf:
+    Defaults:
+        Filename: weap.shp
+    idle:
+    damaged-idle:
+        Start: 1
+    place:
+        Filename: weapmake.shp
+        Start: 14
+    make:
+        Filename: weapmake.shp
+        Length: *
+    build-top:
+        Filename: weap3.shp
+        Length: 10
+    damaged-build-top:
+        Filename: weap2.shp
+        Start: 4
+        Length: 4
+    bib:
+        Filename: bib2.tem
+        TilesetFilenames:
+            SNOW: bib2.sno
+            DESERT: bib2.des
+        Length: *
+    icon:
+        Filename: weapicon.shp
+
+# Factory (Lifted Off)
+warf-air:
+    idle:
+        Filename: weap.shp
+    build-top:
+        Filename: weap3.shp
+        Length: 1
+
+# Starport
+star:
+    Defaults:
+        Filename: afld.shp
+    idle:
+        Filename: afldidle.shp
+        Length: 8
+        Tick: 160
+        ZOffset: -1023
+        Offset: 0,-4
+    damaged-idle:
+        Filename: afldidle.shp
+        Start: 8
+        Length: 8
+        Tick: 160
+        ZOffset: -1023
+        Offset: 0,-4
+    active:
+        Length: 8
+        Tick: 160
+        ZOffset: -1023
+        Offset: 0,-4
+    damaged-active:
+        Start: 8
+        Length: 8
+        Tick: 160
+        ZOffset: -1023
+        Offset: 0,-4
+    make:
+        Filename: afldmake.shp
+        Length: *
+        Offset: 0,-4
+    icon:
+        Filename: afldicon.shp
+
+# Starport (Lifted Off)
+star-air:
+    idle:
+        Filename: afldidle.shp
+        Length: 8
+        Tick: 160
+        ZOffset: -1023
+        Offset: 0,-4

@@ -7,10 +7,8 @@ MARINE:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 10
-		# Prerequisites: ~barracks, ~techlevel.infonly
+		Prerequisites: barracks_
 		Description: General-purpose infantry.\n  Strong vs Infantry\n  Weak vs Vehicles, Aircraft
-	# Selectable:
-	# 	Class: E1
 	Valued:
 		Cost: 100
 	Tooltip:
@@ -28,11 +26,6 @@ MARINE:
 	WithInfantryBody:
 		DefaultAttackSequence: shoot
 		RequiresCondition: !parachute
-	# WithInfantryBody@PARACHUTE:
-	# 	StandSequences: parachute
-	# 	RequiresCondition: parachute
-	# 	Palette: player-noshadow
-	# 	IsPlayerPalette: true
 	ProducibleWithLevel:
 		Prerequisites: barracks.upgraded
 	WithProductionIconOverlay:
@@ -208,12 +201,15 @@ MEDI:
 # NON BUILDABLE INFANTRY #
 ##########################
 
-# E1R1: ??
+E1R1:
+    -RenderSprites:
+    -ProducibleWithLevel:
+    -UpdatesPlayerStatistics:
+    -WithProductionIconOverlay:
 # E3R1: ??
 
 # Rifle Infantry
 E1:
-    #-Buildable:
 
 # Engineer
 E6:

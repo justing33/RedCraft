@@ -33,8 +33,18 @@ SCV:
     RevealsShroud:
         Range: 4c0
     GpsDot:
-        # ??
         String: Harvester
+    # PRODUCTION #
+    Production@BUILDINGS:
+        Produces: Building, Defense
+    ProductionQueue@BUILDINGS:
+        Type: Building
+        QueueLimit: 1
+        ItemLimit: 1
+    GrantExternalConditionToProduced:
+        Condition: produced
+    ProvidesPrerequisite@SCV:
+        Prerequisite: scv
     SpawnActorOnDeath:
         Actor: HARV.EmptyHusk
     Explodes:

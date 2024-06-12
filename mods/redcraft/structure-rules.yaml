@@ -265,7 +265,7 @@ BARRACKS_:
     Buildable:
         Queue: Building
         BuildPaletteOrder: 30
-        Prerequisites: anypower, ~structures.soviet, ~techlevel.infonly
+        Prerequisites: scv
         Description: Trains infantry.
     Valued:
         Cost: 500
@@ -302,12 +302,14 @@ BARRACKS_:
         ProductionTypes: Soldier, Infantry
     Production:
         Produces: Infantry, Soldier
-    GrantExternalConditionToProduced:
-        Condition: produced
+    ProductionQueue:
+        Type: Infantry
     ProductionBar:
         ProductionType: Infantry
+    GrantExternalConditionToProduced:
+        Condition: produced
     ProvidesPrerequisite:
-        Prerequisite: barracks
+        Prerequisite: barracks_
     Power:
         Amount: -20
     ProvidesPrerequisite@buildingname:

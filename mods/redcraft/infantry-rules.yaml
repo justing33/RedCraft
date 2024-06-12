@@ -35,14 +35,14 @@ MARINE:
 
 # Rocket Soldier
 # Marauder
-E3:
+MARAUDER:
 	Inherits: ^Soldier
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 30
-		Prerequisites: ~barracks, ~techlevel.infonly
+		Prerequisites: barracks_
 		Description: Anti-tank/Anti-aircraft infantry.\n  Strong vs Vehicles, Aircraft\n  Weak vs Infantry
 	Selectable:
 		Class: E3
@@ -68,11 +68,6 @@ E3:
 	WithInfantryBody:
 		DefaultAttackSequence: shoot
 		RequiresCondition: !parachute
-	WithInfantryBody@PARACHUTE:
-		StandSequences: parachute
-		RequiresCondition: parachute
-		Palette: player-noshadow
-		IsPlayerPalette: true
 	ProducibleWithLevel:
 		Prerequisites: barracks.upgraded
 	AutoTarget:
@@ -206,10 +201,18 @@ E1R1:
     -ProducibleWithLevel:
     -UpdatesPlayerStatistics:
     -WithProductionIconOverlay:
-# E3R1: ??
+
+E3R1:
+    -RenderSprites:
+    -ProducibleWithLevel:
+    -UpdatesPlayerStatistics:
+    -WithProductionIconOverlay:
 
 # Rifle Infantry
 E1:
+
+# Rocket Soldier
+E3:
 
 # Engineer
 E6:

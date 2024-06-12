@@ -1,30 +1,44 @@
 # Rifle Infantry
 # Marine
-E1:
-    Inherits: ^Soldier
-    Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-    Buildable:
-        Queue: Infantry
-        BuildAtProductionType: Soldier
-        BuildPaletteOrder: 10
-        Prerequisites: ~barracks, ~techlevel.infonly
-        Description: General-purpose infantry.\n  Strong vs Infantry\n  Weak vs Vehicles, Aircraft
-    Tooltip:
-        Name: Marine
-    Armament@PRIMARY:
-        Weapon: M1Carbine
-    Armament@GARRISONED:
-        Name: garrisoned
-        Weapon: M1Carbine
-        MuzzleSequence: garrison-muzzle
-    WithInfantryBody:
-        DefaultAttackSequence: shoot
-        RequiresCondition: !parachute
-    WithInfantryBody@PARACHUTE:
-        StandSequences: parachute
-        RequiresCondition: parachute
-        Palette: player-noshadow
-        IsPlayerPalette: true
+MARINE:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 10
+		# Prerequisites: ~barracks, ~techlevel.infonly
+		Description: General-purpose infantry.\n  Strong vs Infantry\n  Weak vs Vehicles, Aircraft
+	# Selectable:
+	# 	Class: E1
+	Valued:
+		Cost: 100
+	Tooltip:
+		Name: Marine
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 5000
+	Armament@PRIMARY:
+		Weapon: M1Carbine
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: M1Carbine
+		MuzzleSequence: garrison-muzzle
+	WithInfantryBody:
+		DefaultAttackSequence: shoot
+		RequiresCondition: !parachute
+	# WithInfantryBody@PARACHUTE:
+	# 	StandSequences: parachute
+	# 	RequiresCondition: parachute
+	# 	Palette: player-noshadow
+	# 	IsPlayerPalette: true
+	ProducibleWithLevel:
+		Prerequisites: barracks.upgraded
+	WithProductionIconOverlay:
+		Types: Veterancy
+		Prerequisites: barracks.upgraded
+
 
 # Rocket Soldier
 # Marauder
@@ -196,6 +210,10 @@ MEDI:
 
 # E1R1: ??
 # E3R1: ??
+
+# Rifle Infantry
+E1:
+    #-Buildable:
 
 # Engineer
 E6:

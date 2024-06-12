@@ -35,17 +35,19 @@ COMC:
         RevealGeneratedShroud: False
     RevealsShroud@GAPGEN:
         Range: 4c0
-    # TODO: 
-    Production@TempBuildings:
-        Produces: Infantry, Soldier, Building, Defense
-    Production@CCUPGRADES:
-        Produces: CommandCenterUpgrade
-        RequiresCondition: !planetaryfortressupgraded && !orbitalcommandupgraded
-    ProductionBar:
-        ProductionType: CommandCenterUpgrade
+    # Want to flip flop between the two production capabilities upon condition
+    # WE CAN FLIP FLOP IF THE OTHER SIDE I.E> INFANTRY DONT REQUIRE THE PREREQ!!!!!!!!!!!
+    Production@A:
+        Produces: CommandCenterUpgrades
+        RequiresCondition: !orbitalcommandupgraded && !planetaryfortressupgraded
+    Production@B:
+        # What is stopping this shit from producing it when I use the cheat code?
+        Produces: Infantry
+        RequiresCondition: orbitalcommandupgraded || planetaryfortressupgraded
+    # ProductionQueue@UNITS:
+    #     Type: Infantry
     ProductionQueue:
-        Type: CommandCenterUpgrade
-        DisplayOrder: 0
+        Type: CommandCenterUpgrades
         QueueLimit: 1
         ItemLimit: 1
     GrantConditionOnProduction@PlanetaryFortress:
@@ -54,10 +56,6 @@ COMC:
     GrantConditionOnProduction@OrbitalCommand:
         Condition: orbitalcommandupgraded
         Actors: COMC-ORB
-    ProductionBar@Building:
-        ProductionType: Building
-    ProductionBar@Defense:
-        ProductionType: Defense
     GrantExternalConditionToProduced:
         Condition: produced
     BaseBuilding:
@@ -65,7 +63,8 @@ COMC:
     Exit@1:
         RequiresCondition: !being-captured
         SpawnOffset: 900,2000,0
-        ExitCell: 2,2
+        ExitCell: 3,3
+    # TODO: This is important for some reason regarding building the upgrades
     ProvidesPrerequisite@command-center:
         Prerequisite: command-center
     # TODO: Fix bug
@@ -149,14 +148,11 @@ COMC:
     WithDeathAnimation:
         DeathSequence: dead
         UseDeathTypeSuffix: false
-    ProvidesPrerequisite@buildingname:
     HitShape:
         TargetableOffsets: 1273,939,0, -980,-640,0, -980,640,0
         Type: Rectangle
             TopLeft: -1536, -1536
             BottomRight: 1536, 1536
-    TransferTimedExternalConditionOnTransform:
-        Condition: invulnerability
 
 # Chinook
 # Command Center (Lifted Off)
@@ -213,14 +209,29 @@ COMC-AIR:
     SpawnActorOnDeath:
         Actor:
 
+# Custom SCV Unit 
+SCV:
+    # TODO: Add harv trait
+    Inherits: ^Vehicle
+    Inherits: ^SelectableEconomicUnit
+    Health:
+        HP: 150000
+    Buildable:
+        Queue: CommandCenterUnits
+        BuildDuration: 150
+    Tooltip:
+        Name: NEW SCV
+    Mobile:
+        Speed: 150  
+
 # Planetary Fortress
 COMC-PLAN:
     Buildable:
         BuildPaletteOrder: 2
         -Prerequisites:
-        Queue: CommandCenterUpgrade
-        BuildDuration: 1
-        BuildDurationModifier: 1
+        Queue: CommandCenterUpgrades
+        BuildDuration: 300
+        #BuildDurationModifier: 1
         Description: TBD
     Interactable:
     AlwaysVisible:
@@ -235,9 +246,9 @@ COMC-ORB:
     Buildable:
         BuildPaletteOrder: 1
         -Prerequisites:
-        Queue: CommandCenterUpgrade
-        BuildDuration: 1
-        BuildDurationModifier: 1
+        Queue: CommandCenterUpgrades
+        BuildDuration: 250
+        #BuildDurationModifier: 1
         Description: TBD
     Interactable:
     AlwaysVisible:

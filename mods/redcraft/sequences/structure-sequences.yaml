@@ -24,6 +24,30 @@ bunk:
     icon:
         Filename: pboxicon.shp
 
+scv:
+    Defaults:
+        Filename: e6.shp
+    idle:
+        Filename: e6.shp
+        Facings: 32
+        UseClassicFacings: True
+    harvest:
+        Filename: e6.shp
+        Start: 32
+        Length: 8
+        Facings: 8
+    dock:
+        Filename: e6.shp
+        Start: 96
+        Length: 1
+    dock-loop:
+        Filename: e6.shp
+        Start: 104
+        Length: 1
+    icon:
+        Filename: e6icon.shp
+        Start: 0
+
 # Command Center
 comc:
     Defaults:
@@ -179,3 +203,24 @@ star-air:
         Tick: 160
         ZOffset: -1023
         Offset: 0,-4
+
+##############################
+# UNUSED STRUCTURE SEQUENCES #
+##############################
+
+barr:
+    Defaults:
+    idle:
+    damaged-idle:
+    make:
+    bib:
+    icon:
+
+tent:
+    Defaults:
+    idle:
+    damaged-idle:
+    make:
+    bib:
+    icon:
+    fake-icon:

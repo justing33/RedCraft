@@ -1,0 +1,25 @@
+Container@PLAYER_WIDGETS:
+    Children:
+        Container@SIDEBAR_PRODUCTION:
+            Children:
+                Container@PRODUCTION_TYPES:
+                    Children:
+                        ProductionTypeButton@NAVAL:
+                            Logic: AddFactionSuffixLogic
+                            Y: 155
+                            Width: 28
+                            Height: 28
+                            VisualHeight: 0
+                            Background: sidebar-button
+                            # Override
+                            TooltipText: Upgrades
+                            TooltipContainer: TOOLTIP_CONTAINER
+                            # Override
+                            # ProductionGroup: Ship
+                            ProductionGroup: Upgrades
+                            Key: ProductionTypeNaval
+                            Children:
+                                Image@ICON:
+                                    X: 6
+                                    Y: 6
+                                    ImageCollection: production-icons

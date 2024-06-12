@@ -35,29 +35,27 @@ COMC:
         RevealGeneratedShroud: False
     RevealsShroud@GAPGEN:
         Range: 4c0
-    # TODO: 
-    Production@TempBuildings:
-        Produces: Infantry, Soldier, Building, Defense
-    Production@CCUPGRADES:
-        Produces: CommandCenterUpgrade
-        RequiresCondition: !planetaryfortressupgraded && !orbitalcommandupgraded
-    ProductionBar:
-        ProductionType: CommandCenterUpgrade
-    ProductionQueue:
-        Type: CommandCenterUpgrade
-        DisplayOrder: 0
+    # Want to flip flop between the two production capabilities upon condition
+    # WE CAN FLIP FLOP IF THE OTHER SIDE I.E> INFANTRY DONT REQUIRE THE PREREQ!!!!!!!!!!!
+    Production@UPGRADES:
+        # Temp queue name
+        Produces: Ship
+        RequiresCondition: !orbitalcommandupgraded && !planetaryfortressupgraded
+    Production@SCV:
+        Produces: Vehicle
+    ProductionQueue@UPGRADES:
+        # Temp until I can change the production tab on sidebar in chrome.yaml
+        Type: Ship
         QueueLimit: 1
         ItemLimit: 1
+    ProductionQueue@SCV:
+        Type: Infantry
     GrantConditionOnProduction@PlanetaryFortress:
         Condition: planetaryfortressupgraded
         Actors: COMC-PLAN
     GrantConditionOnProduction@OrbitalCommand:
         Condition: orbitalcommandupgraded
         Actors: COMC-ORB
-    ProductionBar@Building:
-        ProductionType: Building
-    ProductionBar@Defense:
-        ProductionType: Defense
     GrantExternalConditionToProduced:
         Condition: produced
     BaseBuilding:
@@ -65,7 +63,8 @@ COMC:
     Exit@1:
         RequiresCondition: !being-captured
         SpawnOffset: 900,2000,0
-        ExitCell: 2,2
+        ExitCell: 3,3
+    # TODO: This is important for some reason regarding building the upgrades
     ProvidesPrerequisite@command-center:
         Prerequisite: command-center
     # TODO: Fix bug
@@ -149,14 +148,11 @@ COMC:
     WithDeathAnimation:
         DeathSequence: dead
         UseDeathTypeSuffix: false
-    ProvidesPrerequisite@buildingname:
     HitShape:
         TargetableOffsets: 1273,939,0, -980,-640,0, -980,640,0
         Type: Rectangle
             TopLeft: -1536, -1536
             BottomRight: 1536, 1536
-    TransferTimedExternalConditionOnTransform:
-        Condition: invulnerability
 
 # Chinook
 # Command Center (Lifted Off)
@@ -218,9 +214,10 @@ COMC-PLAN:
     Buildable:
         BuildPaletteOrder: 2
         -Prerequisites:
-        Queue: CommandCenterUpgrade
-        BuildDuration: 1
-        BuildDurationModifier: 1
+        # TODO: Temp name
+        Queue: Ship
+        BuildDuration: 300
+        #BuildDurationModifier: 1
         Description: TBD
     Interactable:
     AlwaysVisible:
@@ -235,9 +232,10 @@ COMC-ORB:
     Buildable:
         BuildPaletteOrder: 1
         -Prerequisites:
-        Queue: CommandCenterUpgrade
-        BuildDuration: 1
-        BuildDurationModifier: 1
+        # TODO: Temp name
+        Queue: Ship
+        BuildDuration: 250
+        #BuildDurationModifier: 1
         Description: TBD
     Interactable:
     AlwaysVisible:
@@ -267,7 +265,7 @@ BARRACKS_:
     Buildable:
         Queue: Building
         BuildPaletteOrder: 30
-        Prerequisites: anypower, ~structures.soviet, ~techlevel.infonly
+        Prerequisites: scv
         Description: Trains infantry.
     Valued:
         Cost: 500
@@ -304,12 +302,14 @@ BARRACKS_:
         ProductionTypes: Soldier, Infantry
     Production:
         Produces: Infantry, Soldier
-    GrantExternalConditionToProduced:
-        Condition: produced
+    ProductionQueue:
+        Type: Infantry
     ProductionBar:
         ProductionType: Infantry
+    GrantExternalConditionToProduced:
+        Condition: produced
     ProvidesPrerequisite:
-        Prerequisite: barracks
+        Prerequisite: barracks_
     Power:
         Amount: -20
     ProvidesPrerequisite@buildingname:

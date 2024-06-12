@@ -1,0 +1,5 @@
+production-icons:
+	Regions:
+		upgrades: 187, 68, 16, 16
+		upgrades-disabled: 187, 85, 16, 16
+		upgrades-alert: 187, 102, 16, 16

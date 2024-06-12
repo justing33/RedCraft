@@ -6,5 +6,4 @@ World:
         Factions: allies, england, france, germany, soviet, russia, ukraine
         BaseActor: comc
         # TODO: Fix me
-        # SupportActors: harv, harv, harv, harv, harv, mcv
-        SupportActors: mcv
+        SupportActors: scv, mcv

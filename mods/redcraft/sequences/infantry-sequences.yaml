@@ -204,3 +204,84 @@ marauder:
         Facings: 8
     icon:
         Filename: e3icon.shp
+
+reaper:
+    Defaults:
+        Filename: e2.shp
+    stand:
+        Facings: 8
+    stand2:
+        Start: 8
+        Facings: 8
+    run:
+        Start: 16
+        Length: 6
+        Facings: 8
+        Tick: 80
+    throw:
+        Start: 64
+        Length: 20
+        Facings: 8
+    parachute:
+        Start: 505
+    idle1:
+        Start: 384
+        Length: 14
+        Tick: 120
+    idle2:
+        Start: 399
+        Length: 16
+        Tick: 120
+    die1:
+        Start: 416
+        Length: 8
+        Tick: 80
+    die2:
+        Start: 424
+        Length: 8
+        Tick: 80
+    die3:
+        Start: 432
+        Length: 8
+        Tick: 80
+    die4:
+        Start: 440
+        Length: 12
+        Tick: 80
+    die5:
+        Start: 452
+        Length: 18
+        Tick: 80
+    die6:
+        Filename: electro.tem
+        TilesetFilenames:
+            SNOW: electro.sno
+        Frames: 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+        Length: *
+        Tick: 80
+    die-crushed:
+        Filename: corpse1.tem
+        TilesetFilenames:
+            SNOW: corpse1.sno
+        Length: 6
+        Tick: 1600
+        ZOffset: -511
+    prone-stand:
+        Start: 240
+        Stride: 4
+        Facings: 8
+    prone-stand2:
+        Start: 240
+        Stride: 4
+        Facings: 8
+    prone-run:
+        Start: 240
+        Length: 4
+        Facings: 8
+        Tick: 80
+    prone-throw:
+        Start: 288
+        Length: 12
+        Facings: 8
+    icon:
+        Filename: e2icon.shp

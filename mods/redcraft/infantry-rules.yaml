@@ -78,26 +78,45 @@ MARAUDER:
 
 # Grenadier
 # Reaper
-E2:
-	Buildable:
-		Queue: Infantry
-		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 40
-		Prerequisites: ~barr, ~techlevel.infonly
-		Description: Infantry armed with grenades.\n  Strong vs Buildings, Infantry\n  Weak vs Vehicles, Aircraft
-	Tooltip:
-		Name: Reaper
-	Mobile:
-		Speed: 68
-	Armament@PRIMARY:
-		Weapon: Grenade
-		LocalOffset: 0,0,555
-		FireDelay: 15
-	Armament@GARRISONED:
-		Name: garrisoned
-		Weapon: Grenade
-		FireDelay: 15
-	-TakeCover:
+REAPER:
+    Inherits: ^Soldier
+    Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+    Buildable:
+        Queue: Infantry
+        BuildAtProductionType: Soldier
+        BuildPaletteOrder: 40
+        Prerequisites: barracks_
+        Description: Infantry armed with grenades.\n  Strong vs Buildings, Infantry\n  Weak vs Vehicles, Aircraft
+    Valued:
+        Cost: 160
+    Tooltip:
+        Name: Reaper
+    UpdatesPlayerStatistics:
+        AddToArmyValue: true
+    Health:
+        HP: 5000
+    Mobile:
+        Speed: 68
+    Armament@PRIMARY:
+        Weapon: Grenade
+        LocalOffset: 0,0,555
+        FireDelay: 15
+    Armament@GARRISONED:
+        Name: garrisoned
+        Weapon: Grenade
+        FireDelay: 15
+    WithInfantryBody:
+        DefaultAttackSequence: throw
+        RequiresCondition: !parachute
+    Explodes:
+        Weapon: UnitExplodeSmall
+        EmptyWeapon: UnitExplodeSmall
+        DamageSource: Killer
+    ProducibleWithLevel:
+        Prerequisites: barracks.upgraded
+    WithProductionIconOverlay:
+        Types: Veterancy
+        Prerequisites: barracks.upgraded
 
 # Flamethrower
 # Firebat
@@ -210,6 +229,10 @@ E3R1:
 
 # Rifle Infantry
 E1:
+
+# Grenadier
+E2:
+    -Buildable:
 
 # Rocket Soldier
 E3:

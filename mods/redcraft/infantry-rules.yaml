@@ -8,7 +8,7 @@ MARINE:
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 10
 		Prerequisites: barracks_
-		Description: General-purpose infantry.\n  Strong vs Infantry\n  Weak vs Vehicles, Aircraft
+		Description: TBD
 	Valued:
 		Cost: 100
 	Tooltip:
@@ -37,13 +37,13 @@ MARINE:
 # Marauder
 MARAUDER:
 	Inherits: ^Soldier
-	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 30
 		Prerequisites: barracks_
-		Description: Anti-tank/Anti-aircraft infantry.\n  Strong vs Vehicles, Aircraft\n  Weak vs Infantry
+		Description: TBD
 	Selectable:
 		Class: E3
 	Valued:
@@ -86,7 +86,7 @@ REAPER:
         BuildAtProductionType: Soldier
         BuildPaletteOrder: 40
         Prerequisites: barracks_
-        Description: Infantry armed with grenades.\n  Strong vs Buildings, Infantry\n  Weak vs Vehicles, Aircraft
+        Description: TBD
     Valued:
         Cost: 160
     Tooltip:
@@ -120,25 +120,42 @@ REAPER:
 
 # Flamethrower
 # Firebat
-E4:
-	Inherits: ^Soldier
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Buildable:
-		Queue: Infantry
-		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 70
-		Prerequisites: ~barr, ftur, ~techlevel.low
-		Description: Advanced anti-structure unit.\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft
-	Tooltip:
-		Name: Firebat
-	Armament@PRIMARY:
-		Weapon: Flamer
-		LocalOffset: 700,0,500
-		FireDelay: 8
-	Armament@GARRISONED:
-		Name: garrisoned
-		Weapon: Flamer
-	-TakeCover:
+FIREBAT:
+    Inherits: ^Soldier
+    Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+    Buildable:
+        Queue: Infantry
+        BuildAtProductionType: Soldier
+        BuildPaletteOrder: 70
+        Prerequisites: barracks_
+        Description: TBD
+    Valued:
+        Cost: 300
+    Tooltip:
+        Name: Firebat
+    UpdatesPlayerStatistics:
+        AddToArmyValue: true
+    Health:
+        HP: 4000
+    Armament@PRIMARY:
+        Weapon: Flamer
+        LocalOffset: 700,0,500
+        FireDelay: 8
+    Armament@GARRISONED:
+        Name: garrisoned
+        Weapon: Flamer
+    Explodes:
+        Weapon: VisualExplode
+        EmptyWeapon: VisualExplode
+        Chance: 50
+    WithInfantryBody:
+        DefaultAttackSequence: shoot
+        RequiresCondition: !parachute
+    ProducibleWithLevel:
+        Prerequisites: barracks.upgraded
+    WithProductionIconOverlay:
+        Types: Veterancy
+        Prerequisites: barracks.upgraded
 
 # Tanya
 # Ghost
@@ -236,6 +253,10 @@ E2:
 
 # Rocket Soldier
 E3:
+
+# Flamethrower
+E4:
+    -Buildable:
 
 # Engineer
 E6:

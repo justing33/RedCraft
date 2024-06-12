@@ -135,3 +135,47 @@ warf-air:
     build-top:
         Filename: weap3.shp
         Length: 1
+
+# Starport
+star:
+    Defaults:
+        Filename: afld.shp
+    idle:
+        Filename: afldidle.shp
+        Length: 8
+        Tick: 160
+        ZOffset: -1023
+        Offset: 0,-4
+    damaged-idle:
+        Filename: afldidle.shp
+        Start: 8
+        Length: 8
+        Tick: 160
+        ZOffset: -1023
+        Offset: 0,-4
+    active:
+        Length: 8
+        Tick: 160
+        ZOffset: -1023
+        Offset: 0,-4
+    damaged-active:
+        Start: 8
+        Length: 8
+        Tick: 160
+        ZOffset: -1023
+        Offset: 0,-4
+    make:
+        Filename: afldmake.shp
+        Length: *
+        Offset: 0,-4
+    icon:
+        Filename: afldicon.shp
+
+# Starport (Lifted Off)
+star-air:
+    idle:
+        Filename: afldidle.shp
+        Length: 8
+        Tick: 160
+        ZOffset: -1023
+        Offset: 0,-4

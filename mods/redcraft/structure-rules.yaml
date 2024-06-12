@@ -527,10 +527,9 @@ BUNK:
 
 # Soviet Airfield
 # Starport
-AFLD:
+STAR:
     Inherits: ^Building
     Inherits@shape: ^3x2Shape
-    Inherits@PRIMARY: ^PrimaryBuilding
     HitShape:
         UseTargetableCellsOffsets: false
         TargetableOffsets: 0,0,0, 420,0,0, 420,-1024,0, 420,1024,0, -777,0,0, -777,-1024,0, -777,1024,0
@@ -569,10 +568,6 @@ AFLD:
         DisableStop: false
     Production:
         Produces: Aircraft, Plane
-    Reservable:
-    -AirstrikePower@spyplane:
-    -ParatroopersPower@paratroopers:
-    -AirstrikePower@parabombs:
     ProductionBar:
         ProductionType: Aircraft
     SupportPowerChargeBar:
@@ -581,13 +576,56 @@ AFLD:
     ProvidesPrerequisite@buildingname:
         Prerequisite: afld
     Targetable:
-        TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate
-    InfiltrateForSupportPower:
-        Proxy: aircraft.upgraded
-        Types: SpyInfiltrate
-        PlayerExperience: 10
-    WithResupplyAnimation:
-        RequiresCondition: !build-incomplete
+        TargetTypes: GroundActor, AirborneActor, Structure, Defense
+    Transforms:
+        PauseOnCondition: being-demolished || build-incomplete
+        IntoActor: star-air
+    TransformsIntoAircraft:
+        DockActors:
+    TransferTimedExternalConditionOnTransform:
+        Condition: invulnerability
+
+# Starport
+STAR-AIR:
+    Inherits: ^Helicopter
+    HitShape:
+        UseTargetableCellsOffsets: false
+        TargetableOffsets: 0,0,0, 420,0,0, 420,-1024,0, 420,1024,0, -777,0,0, -777,-1024,0, -777,1024,0
+    Valued:
+        Cost: 500
+    Tooltip:
+        Name: Starport
+    Selectable:
+        Class: afld
+        Bounds: 3072, 2048
+    Health:
+        HP: 100000
+    Armor:
+        Type: Wood
+    RevealsShroud:
+        MinRange: 4c0
+        Range: 5c0
+        RevealGeneratedShroud: False
+    RevealsShroud@GAPGEN:
+        Range: 4c0
+    Aircraft:
+        TurnSpeed: 20
+        Speed: 128
+        AltitudeVelocity: 0c58
+    SupportPowerChargeBar:
+    Power:
+        Amount: -20
+    ProvidesPrerequisite@buildingname:
+        Prerequisite: afld
+    Targetable:
+        TargetTypes: GroundActor, AirborneActor, Structure, Defense
+    Transforms:
+        IntoActor: star
+        TransformSounds: placbldg.aud, build5.aud
+        NoTransformNotification: BuildingCannotPlaceAudio
+        NoTransformTextNotification: Cannot deploy here.
+    SpawnActorOnDeath:
+        Actor:
 
 #Sam Site
 # Missile Turret
@@ -674,8 +712,13 @@ WEAP:
     Tooltip:
         Name: War Factory
 
+# Soviet Airfield
+AFLD:
+    -Buildable:
+    Tooltip:
+        Name: Airfield
+
 # Ukraine Airfield
-# TODO: See if Migs/Vikings are an issue later?
 AFLD.Ukraine:
     -Buildable:
     Tooltip:

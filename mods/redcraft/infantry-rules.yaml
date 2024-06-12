@@ -157,41 +157,14 @@ FIREBAT:
         Types: Veterancy
         Prerequisites: barracks.upgraded
 
-# Tanya
-# Ghost
-E7:
-	Inherits: ^Soldier
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Buildable:
-		Queue: Infantry
-		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 120
-		Prerequisites: ~tent, atek, ~techlevel.high
-		BuildLimit: 1
-		Description: Elite commando infantry. Armed with\ndual pistols and C4.\nMaximum 1 can be trained.\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft\n  Special Ability: Destroy Building with C4
-	Tooltip:
-		Name: Ghost
-	Mobile:
-		Speed: 68
-		Voice: Move
-	Guard:
-		Voice: Move
-	Demolition:
-		DetonationDelay: 45
-		Voice: Demolish
-	Armament@PRIMARY:
-		Weapon: Colt45
-		LocalOffset: 0,0,0, 0,0,0
-	-Armament@SECONDARY:
-
 # Medic
-MEDI:
+MEDIC_:
     Inherits: ^Soldier
     Buildable:
         Queue: Infantry
         BuildAtProductionType: Soldier
         BuildPaletteOrder: 40
-        Prerequisites: ~tent, ~techlevel.infonly
+        Prerequisites: barracks_
         Description: Heals nearby infantry.\n  Unarmed
     Valued:
         Cost: 200
@@ -218,15 +191,38 @@ MEDI:
         StandSequences: stand
         DefaultAttackSequence: heal
         RequiresCondition: !parachute
-    WithInfantryBody@PARACHUTE:
-        RequiresCondition: parachute
-        Palette: player-noshadow
-        IsPlayerPalette: true
     Voiced:
         VoiceSet: MedicVoice
     AutoTarget:
     AutoTargetPriority@DEFAULT:
         ValidTargets: Infantry
+
+# Tanya
+# Ghost
+E7:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Soldier
+		BuildPaletteOrder: 120
+		Prerequisites: ~tent, atek, ~techlevel.high
+		BuildLimit: 1
+		Description: Elite commando infantry. Armed with\ndual pistols and C4.\nMaximum 1 can be trained.\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft\n  Special Ability: Destroy Building with C4
+	Tooltip:
+		Name: Ghost
+	Mobile:
+		Speed: 68
+		Voice: Move
+	Guard:
+		Voice: Move
+	Demolition:
+		DetonationDelay: 45
+		Voice: Demolish
+	Armament@PRIMARY:
+		Weapon: Colt45
+		LocalOffset: 0,0,0, 0,0,0
+	-Armament@SECONDARY:
 
 ##########################
 # NON BUILDABLE INFANTRY #

@@ -199,42 +199,83 @@ MEDIC_:
 
 # Tanya
 # Ghost
-E7:
-	Inherits: ^Soldier
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Buildable:
-		Queue: Infantry
-		BuildAtProductionType: Soldier
-		BuildPaletteOrder: 120
-		Prerequisites: ~tent, atek, ~techlevel.high
-		BuildLimit: 1
-		Description: Elite commando infantry. Armed with\ndual pistols and C4.\nMaximum 1 can be trained.\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft\n  Special Ability: Destroy Building with C4
-	Tooltip:
-		Name: Ghost
-	Mobile:
-		Speed: 68
-		Voice: Move
-	Guard:
-		Voice: Move
-	Demolition:
-		DetonationDelay: 45
-		Voice: Demolish
-	Armament@PRIMARY:
-		Weapon: Colt45
-		LocalOffset: 0,0,0, 0,0,0
-	-Armament@SECONDARY:
+GHOST:
+    Inherits: ^Soldier
+    Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+    Buildable:
+        Queue: Infantry
+        BuildAtProductionType: Soldier
+        BuildPaletteOrder: 120
+        Prerequisites: barracks_, ghostacademy
+        BuildLimit: 1
+        Description: Elite commando infantry. Armed with\ndual pistols and C4.\nMaximum 1 can be trained.\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft\n  Special Ability: Destroy Building with C4
+    Valued:
+        Cost: 1500
+    Tooltip:
+        Name: Ghost
+    UpdatesPlayerStatistics:
+        AddToArmyValue: true
+    Health:
+        HP: 10000
+    Mobile:
+        Speed: 68
+        Voice: Move
+    Guard:
+        Voice: Move
+    RevealsShroud:
+        Range: 6c0
+    Demolition:
+        DetonationDelay: 45
+        Voice: Demolish
+    Passenger:
+        CustomPipType: red
+        Voice: Move
+    Armament@PRIMARY:
+        Weapon: Colt45
+        LocalOffset: 0,0,0, 0,0,0
+    Armament@SECONDARY:
+        Weapon: Colt45
+        LocalOffset: 0,0,0, 0,0,0
+    Armament@GARRISONED:
+        Name: garrisoned
+        Weapon: Colt45
+        MuzzleSequence: garrison-muzzle
+    WithInfantryBody:
+        AttackSequences:
+           primary: shoot-left, shoot-right
+        StandSequences: stand
+        RequiresCondition: !parachute
+    ExternalCondition@PRODUCED:
+        Condition: produced
+    VoiceAnnouncement:
+        RequiresCondition: produced
+        Voice: Build
+    AnnounceOnKill:
+    Voiced:
+        VoiceSet: TanyaVoice
+    ProducibleWithLevel:
+        Prerequisites: barracks.upgraded
+    WithProductionIconOverlay:
+        Types: Veterancy
+        Prerequisites: barracks.upgraded
 
 ##########################
 # NON BUILDABLE INFANTRY #
 ##########################
 
 E1R1:
+    # TODO: Remove ability to build Rifle Infantry on /all cheat
+    # Buildable:
+    #     Queue: DOESNT_EXIST
     -RenderSprites:
     -ProducibleWithLevel:
     -UpdatesPlayerStatistics:
     -WithProductionIconOverlay:
 
 E3R1:
+    # TODO: Remove ability to build Rifle Infantry on /all cheat
+    # Buildable:
+    #     Queue: DOESNT_EXIST
     -RenderSprites:
     -ProducibleWithLevel:
     -UpdatesPlayerStatistics:
@@ -242,6 +283,7 @@ E3R1:
 
 # Rifle Infantry
 E1:
+    #-Buildable:
 
 # Grenadier
 E2:
@@ -249,6 +291,7 @@ E2:
 
 # Rocket Soldier
 E3:
+    #-Buildable:
 
 # Flamethrower
 E4:
@@ -256,6 +299,14 @@ E4:
 
 # Engineer
 E6:
+    -Buildable:
+
+# Tanya
+E7:
+    -Buildable:
+
+# Field Medic
+MEDI:
     -Buildable:
 
 # Attack Dog

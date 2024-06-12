@@ -96,25 +96,42 @@ barracks_:
 
 # Barracks (Lifted Off)
 barracks-air:
-    # Defaults:
-    #     Filename: barr.shp
     idle:
         Filename: barr.shp
-    # Length: 10
-    # Offset: 0,-6
-    # damaged-idle:
-    #     Start: 10
-    #     Length: 10
-    #     Offset: 0,-6
-    # make:
-    #     Filename: barrmake.shp
-    #     Length: *
-    #     Offset: 0,-6
-    # bib:
-    #     Filename: bib3.tem
-    #     TilesetFilenames:
-    #         SNOW: bib3.sno
-    #         DESERT: bib3.des
-    #     Length: *
-    # icon:
-    #     Filename: barricon.shp
+
+# Factory
+warf:
+    Defaults:
+        Filename: weap.shp
+    idle:
+    damaged-idle:
+        Start: 1
+    place:
+        Filename: weapmake.shp
+        Start: 14
+    make:
+        Filename: weapmake.shp
+        Length: *
+    build-top:
+        Filename: weap3.shp
+        Length: 10
+    damaged-build-top:
+        Filename: weap2.shp
+        Start: 4
+        Length: 4
+    bib:
+        Filename: bib2.tem
+        TilesetFilenames:
+            SNOW: bib2.sno
+            DESERT: bib2.des
+        Length: *
+    icon:
+        Filename: weapicon.shp
+
+# Factory (Lifted Off)
+warf-air:
+    idle:
+        Filename: weap.shp
+    build-top:
+        Filename: weap3.shp
+        Length: 1

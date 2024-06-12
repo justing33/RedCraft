@@ -198,6 +198,8 @@ COMC-AIR:
         Actor: TRAN.Husk
     Selectable:
         DecorationBounds: 1706, 1536
+    Targetable:
+        TargetTypes: GroundActor, AirborneActor, Structure, Defense
     Transforms:
         # TODO: Fix landing offset
         IntoActor: comc
@@ -355,25 +357,19 @@ BARRACKS_:
 
 BARRACKS-AIR:
     Inherits: ^Helicopter
-    # Inherits@shape: ^2x2Shape
-    # Inherits@PRIMARY: ^PrimaryBuilding
     Selectable:
         Bounds: 2048, 2048
-    # HitShape:
-    #     UseTargetableCellsOffsets: false
-    #     TargetableOffsets: 0,0,0, 490,-470,0, 355,512,0, -355,-512,0, -630,512,0
+    HitShape:
+        UseTargetableCellsOffsets: false
+        TargetableOffsets: 0,0,0, 490,-470,0, 355,512,0, -355,-512,0, -630,512,0
     Valued:
         Cost: 500
     Tooltip:
         Name: Barracks (Lifted Off)
-    # Building:
-    #     Footprint: xx xx ==
-    #     Dimensions: 2,3
-    #     LocalCenterOffset: 0,-512,0
     Health:
         HP: 60000
-    # Armor:
-    #     Type: Wood
+    Armor:
+        Type: Wood
     RevealsShroud:
         MinRange: 4c0
         Range: 5c0
@@ -384,27 +380,18 @@ BARRACKS-AIR:
         TurnSpeed: 20
         Speed: 128
         AltitudeVelocity: 0c58
-    # WithBuildingBib:
-    # CommandBarBlacklist:
-    #     DisableStop: false
-    # ProvidesPrerequisite:
-    #     Prerequisite: barracks
-    # Power:
-    #     Amount: -20
-    # ProvidesPrerequisite@buildingname:
-    # InfiltrateForSupportPower:
-    #     Proxy: barracks.upgraded
-    #     Types: SpyInfiltrate
-    #     PlayerExperience: 10
-    # Targetable:
-    #     TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate
+    ProvidesPrerequisite:
+        Prerequisite: barracks
+    Power:
+        Amount: -20
+    ProvidesPrerequisite@buildingname:
+    Targetable:
+        TargetTypes: GroundActor, AirborneActor, Structure, Defense
     Transforms:
-        # TODO: Fix landing offset
         IntoActor: barracks_
         TransformSounds: placbldg.aud, build5.aud
         NoTransformNotification: BuildingCannotPlaceAudio
         NoTransformTextNotification: Cannot deploy here.
-    BaseBuilding:
     SpawnActorOnDeath:
         Actor:
 

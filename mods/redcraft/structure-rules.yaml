@@ -37,17 +37,15 @@ COMC:
         Range: 4c0
     # Want to flip flop between the two production capabilities upon condition
     # WE CAN FLIP FLOP IF THE OTHER SIDE I.E> INFANTRY DONT REQUIRE THE PREREQ!!!!!!!!!!!
-    Production@A:
-        Produces: CommandCenterUpgrades
+    Production@UPGRADES:
+        # Temp queue name
+        Produces: Ship
         RequiresCondition: !orbitalcommandupgraded && !planetaryfortressupgraded
-    Production@B:
-        # What is stopping this shit from producing it when I use the cheat code?
+    Production@SCV:
         Produces: Vehicle
-        RequiresCondition: orbitalcommandupgraded || planetaryfortressupgraded
-    # ProductionQueue@UNITS:
-    #     Type: Infantry
     ProductionQueue@UPGRADES:
-        Type: CommandCenterUpgrades
+        # Temp until I can change the production tab on sidebar in chrome.yaml
+        Type: Ship
         QueueLimit: 1
         ItemLimit: 1
     ProductionQueue@SCV:
@@ -216,7 +214,8 @@ COMC-PLAN:
     Buildable:
         BuildPaletteOrder: 2
         -Prerequisites:
-        Queue: CommandCenterUpgrades
+        # TODO: Temp name
+        Queue: Ship
         BuildDuration: 300
         #BuildDurationModifier: 1
         Description: TBD
@@ -233,7 +232,8 @@ COMC-ORB:
     Buildable:
         BuildPaletteOrder: 1
         -Prerequisites:
-        Queue: CommandCenterUpgrades
+        # TODO: Temp name
+        Queue: Ship
         BuildDuration: 250
         #BuildDurationModifier: 1
         Description: TBD

@@ -1,0 +1,21 @@
+########################
+# DISABLED NAVAL SHIPS #
+########################
+
+SS:
+    -Buildable:
+
+MSUB:
+    -Buildable:
+
+DD:
+    -Buildable:
+
+CA:
+    -Buildable:
+
+LST:
+    -Buildable:
+
+PT:
+    -Buildable:

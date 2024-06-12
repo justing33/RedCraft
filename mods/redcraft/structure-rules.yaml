@@ -42,14 +42,16 @@ COMC:
         RequiresCondition: !orbitalcommandupgraded && !planetaryfortressupgraded
     Production@B:
         # What is stopping this shit from producing it when I use the cheat code?
-        Produces: Infantry
+        Produces: Vehicle
         RequiresCondition: orbitalcommandupgraded || planetaryfortressupgraded
     # ProductionQueue@UNITS:
     #     Type: Infantry
-    ProductionQueue:
+    ProductionQueue@UPGRADES:
         Type: CommandCenterUpgrades
         QueueLimit: 1
         ItemLimit: 1
+    ProductionQueue@SCV:
+        Type: Infantry
     GrantConditionOnProduction@PlanetaryFortress:
         Condition: planetaryfortressupgraded
         Actors: COMC-PLAN
@@ -208,21 +210,6 @@ COMC-AIR:
     BaseBuilding:
     SpawnActorOnDeath:
         Actor:
-
-# Custom SCV Unit 
-SCV:
-    # TODO: Add harv trait
-    Inherits: ^Vehicle
-    Inherits: ^SelectableEconomicUnit
-    Health:
-        HP: 150000
-    Buildable:
-        Queue: CommandCenterUnits
-        BuildDuration: 150
-    Tooltip:
-        Name: NEW SCV
-    Mobile:
-        Speed: 150  
 
 # Planetary Fortress
 COMC-PLAN:

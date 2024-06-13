@@ -66,17 +66,38 @@ SCV:
 
 # Light Tank
 # Hellion
-1TNK:
-    Inherits: ^TrackedVehicle
+HELLION:
+    Inherits: ^Vehicle
+    Inherits@GAINSEXPERIENCE: ^GainsExperience
+    Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
     Buildable:
         Queue: Vehicle
-        BuildPaletteOrder: 220
-        Prerequisites: fix, ~vehicles.allies, ~techlevel.medium
-        Description: Allied Main Battle Tank.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
+        BuildPaletteOrder: 130
+        Prerequisites: factory
+        Description: Fast scout & anti-infantry vehicle.\nCan carry one infantry.\n  Strong vs Infantry\n  Weak vs Vehicles, Aircraft
+    Valued:
+        Cost: 500
     Tooltip:
         Name: Hellion
+    UpdatesPlayerStatistics:
+        AddToArmyValue: true
+    Health:
+        HP: 15000
+    Armor:
+        Type: Light
     Mobile:
-        Speed: 200
+        TurnSpeed: 40
+        Speed: 164
+        PauseOnCondition: notmobile || being-captured
+    RevealsShroud:
+        MinRange: 4c0
+        Range: 7c0
+        RevealGeneratedShroud: False
+    RevealsShroud@GAPGEN:
+        Range: 4c0
+    Turreted:
+        TurnSpeed: 40
+        Offset: 0,0,128
     Armament:
         Weapon: Flamer
         LocalOffset: 192,0,176
@@ -86,12 +107,20 @@ SCV:
     Transforms:
         IntoActor: arty
         Offset: 0,0
-        #-Facing:
         TransformSounds: placbldg.aud, build5.aud
         NoTransformNotification: BuildingCannotPlaceAudio
         NoTransformTextNotification: Cannot deploy here.
     Passenger:
         Weight: 2
+    AttackTurreted:
+    WithMuzzleOverlay:
+    WithSpriteTurret:
+    ProducibleWithLevel:
+        Prerequisites: vehicles.upgraded
+    WithProductionIconOverlay:
+        Types: Veterancy
+        Prerequisites: vehicles.upgraded
+
 
 # Artillery
 # Hellbat
@@ -343,6 +372,10 @@ HARV:
 
 # Jeep is replaced by the light tank
 JEEP:
+    -Buildable:
+
+# Light Tank
+1TNK:
     -Buildable:
 
 # Medium tank

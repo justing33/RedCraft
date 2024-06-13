@@ -568,7 +568,7 @@ BUNK:
 
 # Soviet Airfield
 # Starport
-STAR:
+STARPORT:
     Inherits: ^Building
     Inherits@shape: ^3x2Shape
     HitShape:
@@ -578,7 +578,7 @@ STAR:
         Queue: Building
         BuildPaletteOrder: 130
         Prerequisites: scv, barracks_, factory
-        Description: Produces and reloads aircraft.\n  Special Ability: Spy Plane\n  Special Ability: Paratroopers
+        Description: TBD
     Valued:
         Cost: 500
     Tooltip:
@@ -609,25 +609,27 @@ STAR:
         DisableStop: false
     Production:
         Produces: Aircraft, Plane
+    ProductionQueue:
+        Type: Aircraft
     ProductionBar:
         ProductionType: Aircraft
     SupportPowerChargeBar:
     Power:
         Amount: -20
-    ProvidesPrerequisite@buildingname:
-        Prerequisite: afld
+    ProvidesPrerequisite:
+        Prerequisite: starport
     Targetable:
         TargetTypes: GroundActor, AirborneActor, Structure, Defense
     Transforms:
         PauseOnCondition: being-demolished || build-incomplete
-        IntoActor: star-air
+        IntoActor: starport-air
     TransformsIntoAircraft:
         DockActors:
     TransferTimedExternalConditionOnTransform:
         Condition: invulnerability
 
 # Starport
-STAR-AIR:
+STARPORT-AIR:
     Inherits: ^Helicopter
     HitShape:
         UseTargetableCellsOffsets: false
@@ -661,7 +663,7 @@ STAR-AIR:
     Targetable:
         TargetTypes: GroundActor, AirborneActor, Structure, Defense
     Transforms:
-        IntoActor: star
+        IntoActor: starport
         TransformSounds: placbldg.aud, build5.aud
         NoTransformNotification: BuildingCannotPlaceAudio
         NoTransformTextNotification: Cannot deploy here.

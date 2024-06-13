@@ -1,12 +1,12 @@
-MIG:
+VIKING:
     Inherits: ^Helicopter
-    Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+    Inherits@AUTOTARGET: ^AutoTargetAir
     Buildable:
         Queue: Aircraft
         BuildAtProductionType: Plane
         BuildPaletteOrder: 50
-        Prerequisites: ~afld, stek, ~techlevel.high
-        Description: Fast Ground-Attack Plane.\n  Strong vs Buildings, Vehicles\n  Weak vs Infantry, Aircraft
+        Prerequisites: starport
+        Description: TBD
     Valued:
         Cost: 2000
     Tooltip:
@@ -43,10 +43,6 @@ MIG:
     AutoTarget:
         InitialStance: HoldFire
         InitialStanceAI: HoldFire
-    AmmoPool:
-        Ammo: 24
-        ReloadDelay: 8
-        AmmoCondition: ammo
     Selectable:
         Bounds: 1536, 1194, 0, 85
         DecorationBounds: 1706, 1237, 0, 42
@@ -67,10 +63,7 @@ MIG:
         RequiresCondition: enable-smoke
     ProducibleWithLevel:
         Prerequisites: aircraft.upgraded
-    Rearmable:
-        RearmActors: afld, afld.ukraine
     # Hiding the infinite ammo pips decoration
-    -WithAmmoPipsDecoration:
     GrantConditionOnDamageState@SmokeTrail:
         Condition: enable-smoke
     WithProductionIconOverlay:
@@ -80,17 +73,16 @@ MIG:
     Transforms:
         IntoActor: viking-am
 
-# Chinook
-TRAN:
+MEDIVAC:
     # Inherits: ^NonLandableHelicopter
     Inherits: ^Helicopter
     Inherits@CARGOPIPS: ^CargoPips
     Buildable:
         Queue: Aircraft
-        BuildAtProductionType: Helicopter
+        BuildAtProductionType: Plane
         BuildPaletteOrder: 10
-        Prerequisites: ~hpad, ~techlevel.medium
-        Description: Fast Infantry Transport Helicopter.\n  Unarmed
+        Prerequisites: starport
+        Description: TBD
     Valued:
         Cost: 900
     Tooltip:
@@ -284,6 +276,14 @@ U2:
     Interactable:
     GrantConditionOnDamageState@SmokeTrail:
         Condition: enable-smoke
+
+# Mig
+MIG:
+    -Buildable:
+
+# Chinook
+TRAN:
+    -Buildable:
 
 # Hind
 HIND:

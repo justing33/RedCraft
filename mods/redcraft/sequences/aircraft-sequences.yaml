@@ -1,0 +1,36 @@
+viking:
+    idle:
+        Filename: mig.shp
+        Facings: 16
+        InterpolatedFacings: 64
+    icon:
+        Filename: migicon.shp
+
+medivac:
+    idle:
+        Filename: tran2.shp
+        Facings: 32
+        UseClassicFacings: True
+    rotor:
+        Filename: lrotor.shp
+        Length: 4
+    rotor2:
+        Filename: rrotor.shp
+        Length: 4
+    slow-rotor:
+        Filename: lrotor.shp
+        Start: 4
+        Length: 8
+    slow-rotor2:
+        Filename: rrotor.shp
+        Start: 4
+        Length: 8
+    open:
+        Filename: tran2.shp
+        Start: 32
+        Length: 4
+    unload:
+        Filename: tran2.shp
+        Start: 35
+    icon:
+        Filename: tranicon.shp

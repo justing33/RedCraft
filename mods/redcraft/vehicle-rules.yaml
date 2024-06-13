@@ -4,7 +4,7 @@ SCV:
     Inherits: ^Vehicle
     Inherits: ^SelectableEconomicUnit
     Buildable:
-        Queue: Vehicle
+        Queue: Defense
         BuildPaletteOrder: 110
         BuildDuration: 100
         Prerequisites: command-center

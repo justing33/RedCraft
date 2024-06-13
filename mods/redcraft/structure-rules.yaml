@@ -312,7 +312,6 @@ BARRACKS_:
         Prerequisite: barracks_
     Power:
         Amount: -20
-    ProvidesPrerequisite@buildingname:
     Targetable:
         TargetTypes: GroundActor, AirborneActor, Structure
     Transforms:
@@ -414,11 +413,14 @@ WARF:
         ExitCell: 1,2
     Production:
         Produces: Vehicle
+    ProductionQueue:
+        Type: Vehicle
     ProductionBar:
         ProductionType: Vehicle
+    ProvidesPrerequisite:
+        Prerequisite: factory
     Power:
         Amount: -30
-    ProvidesPrerequisite@buildingname:
     Targetable:
         TargetTypes: GroundActor, AirborneActor, Structure, Defense
     Transforms:

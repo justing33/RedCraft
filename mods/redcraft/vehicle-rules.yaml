@@ -379,15 +379,15 @@ VIKING-AM:
 
 # Mobile Flak
 # Cyclone
-FTRK:
+CYCLONE:
     Inherits: ^Vehicle
     Inherits@GAINSEXPERIENCE: ^GainsExperience
     Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
     Buildable:
         Queue: Vehicle
         BuildPaletteOrder: 130
-        Prerequisites: ~vehicles.soviet, ~techlevel.low
-        Description: Mobile unit with mounted Flak cannon.\n  Strong vs Infantry, Light armor, Aircraft\n  Weak vs Tanks
+        Prerequisites: factory
+        Description: TBD
     Valued:
         Cost: 600
     Tooltip:
@@ -411,12 +411,12 @@ FTRK:
         TurnSpeed: 40
         Offset: -298,0,298
     Armament@AA:
-        Weapon: StingerAA
+        Weapon: FLAK-23-AA
         Recoil: 85
         LocalOffset: 512,0,192
         MuzzleSequence: muzzle
     Armament@AG:
-        Weapon: Stinger
+        Weapon: FLAK-23-AG
         Recoil: 85
         LocalOffset: 512,0,192
         MuzzleSequence: muzzle
@@ -475,6 +475,10 @@ MNLY:
 
 # Chrono Tank
 CTNK:
+    -Buildable:
+
+# Mobile Flak
+FTRK:
     -Buildable:
 
 # Phase Transport

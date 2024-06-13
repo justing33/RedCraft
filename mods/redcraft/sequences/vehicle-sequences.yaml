@@ -77,3 +77,19 @@ viking-am:
     muzzle:
         Filename: gunfire2.shp
         Length: 5
+
+cyclone:
+    Defaults:
+        Filename: ftrk.shp
+    idle:
+        Facings: 32
+        UseClassicFacings: True
+    turret:
+        Start: 32
+        Facings: 32
+        UseClassicFacings: True
+    muzzle:
+        Filename: gunfire2.shp
+        Length: 2
+    icon:
+        Filename: ftrkicon.shp

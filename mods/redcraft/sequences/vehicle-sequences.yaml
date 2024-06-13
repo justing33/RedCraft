@@ -1,28 +1,3 @@
-# # Ore Truck skinned as Engineer
-# harv:
-#     Defaults:
-#         Filename: e6.shp
-#     idle:
-#         Filename: e6.shp
-#         Facings: 32
-#         UseClassicFacings: True
-#     harvest:
-#         Filename: e6.shp
-#         Start: 32
-#         Length: 8
-#         Facings: 8
-#     dock:
-#         Filename: e6.shp
-#         Start: 96
-#         Length: 1
-#     dock-loop:
-#         Filename: e6.shp
-#         Start: 104
-#         Length: 1
-#     icon:
-#         Filename: e6icon.shp
-#         Start: 0
-
 hellion:
     Defaults:
         Filename: jeep.shp
@@ -40,7 +15,6 @@ hellion:
     icon:
         Filename: jeepicon.shp
 
-# Artilery skinned as a Phase transport
 hellbat:
     idle:
         Filename: stnk.shp
@@ -51,6 +25,38 @@ hellbat:
         Length: 5
     icon:
         Filename: artyicon.shp
+
+siegetank:
+    Defaults:
+        Filename: 3tnk.shp
+    idle:
+        Facings: 32
+        UseClassicFacings: True
+    turret:
+        Start: 32
+        Facings: 32
+        UseClassicFacings: True
+    muzzle:
+        Filename: gunfire2.shp
+        Length: 5
+    icon:
+        Filename: 3tnkicon.shp
+
+# Mammoth Tank with empty make sequence/animation
+siegedsiegetank:
+    Defaults:
+        Filename: 4tnk.shp
+    make:
+    idle:
+        Facings: 32
+        UseClassicFacings: True
+    turret:
+        Start: 32
+        Facings: 32
+        UseClassicFacings: True
+    muzzle:
+        Filename: gunfire2.shp
+        Length: 5
 
 # Mine Layer skinned as a 'Mine'
 mnly:
@@ -64,7 +70,3 @@ mnly:
         UseClassicFacings: False
     icon:
         Filename: mnlyicon.shp
-
-# Mammoth Tank with empty make sequence/animation
-4tnk:
-    make:

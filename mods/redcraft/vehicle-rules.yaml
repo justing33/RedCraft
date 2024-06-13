@@ -74,7 +74,7 @@ HELLION:
         Queue: Vehicle
         BuildPaletteOrder: 130
         Prerequisites: factory
-        Description: Fast scout & anti-infantry vehicle.\nCan carry one infantry.\n  Strong vs Infantry\n  Weak vs Vehicles, Aircraft
+        Description: TBD
     Valued:
         Cost: 500
     Tooltip:
@@ -176,17 +176,34 @@ HELLBAT:
 
 # Heavy Tank
 # Siege Tank
-3TNK:
+SIEGETANK:
+    Inherits: ^TrackedVehicle
+    Inherits@GAINSEXPERIENCE: ^GainsExperience
+    Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
     Buildable:
         Queue: Vehicle
         BuildPaletteOrder: 220
-        Prerequisites: fix, ~vehicles.soviet, ~techlevel.medium
-        Description: Soviet Main Battle Tank, with dual cannons\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
+        Prerequisites: factory
+        Description: TBD
+    Valued:
+        Cost: 1150
     Tooltip:
         Name: Siege Tank
         GenericName: Siege Tank
+    UpdatesPlayerStatistics:
+        AddToArmyValue: true
+    Health:
+        HP: 60000
+    Armor:
+        Type: Heavy
     Mobile:
         Speed: 60
+    RevealsShroud:
+        MinRange: 4c0
+        Range: 6c0
+        RevealGeneratedShroud: False
+    RevealsShroud@GAPGEN:
+        Range: 4c0
     Turreted:
         TurnSpeed: 20
     Armament:
@@ -195,25 +212,50 @@ HELLBAT:
         RecoilRecovery: 38
         LocalOffset: 768,85,90, 768,-85,90
         MuzzleSequence: muzzle
+    AttackTurreted:
+    WithMuzzleOverlay:
+    WithSpriteTurret:
     Transforms:
-        IntoActor: 4tnk
+        IntoActor: siegedsiegetank
         Offset: 0,0
         -Facing:
     Passenger:
         Weight: 4
+    SpawnActorOnDeath:
+        Actor: 3TNK.Husk
+    ProducibleWithLevel:
+        Prerequisites: vehicles.upgraded
+    Selectable:
+        DecorationBounds: 1194, 1194
+    WithProductionIconOverlay:
+        Types: Veterancy
+        Prerequisites: vehicles.upgraded
 
 # Mammoth Tank
 # Sieged Tank
-4TNK:
+SIEGEDSIEGETANK:
     Inherits: ^Building
-    -Buildable:
+    Inherits@shape: ^1x1Shape
+    Inherits@GAINSEXPERIENCE: ^GainsExperience
+    Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+    Selectable:
+        DecorationBounds: 1877, 1621, 0, -170
+    # -Buildable:
     Tooltip:
         Name: Siege Tank (Sieged)
         GenericName: Siege Tank (Sieged)
-    -Mobile:
+    UpdatesPlayerStatistics:
+        AddToArmyValue: true
+    Health:
+        HP: 60000
+    Armor:
+        Type: Heavy
     Immobile:
         OccupiesSpace: true
     -AttackMove:
+    AttackTurreted:
+    WithMuzzleOverlay:
+    WithSpriteTurret:
     Turreted:
         TurnSpeed: 100
     Armament@PRIMARY:
@@ -222,9 +264,8 @@ HELLBAT:
         Recoil: 171
         RecoilRecovery: 30
         MuzzleSequence: muzzle
-    -Armament@SECONDARY:
     Transforms:
-        IntoActor: 3tnk
+        IntoActor: siegetank
         Offset: 0,0
         -Facing:
 
@@ -404,6 +445,18 @@ JEEP:
 
 # Medium tank
 2TNK:
+    -Buildable:
+
+# Heavy Tank
+3TNK:
+    -Buildable:
+
+# Mammoth Tank
+4TNK:
+    -Buildable:
+
+# Artillery
+ARTY:
     -Buildable:
 
 # Phase Transport

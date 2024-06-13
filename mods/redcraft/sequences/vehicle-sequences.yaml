@@ -42,7 +42,6 @@ siegetank:
     icon:
         Filename: 3tnkicon.shp
 
-# Mammoth Tank with empty make sequence/animation
 siegedsiegetank:
     Defaults:
         Filename: 4tnk.shp
@@ -58,8 +57,7 @@ siegedsiegetank:
         Filename: gunfire2.shp
         Length: 5
 
-# Mine Layer skinned as a 'Mine'
-mnly:
+widowmine:
     idle:
         Filename: minv.shp
         Facings: 1
@@ -69,4 +67,4 @@ mnly:
         ZOffset: -512
         UseClassicFacings: False
     icon:
-        Filename: mnlyicon.shp
+        Filename: jmin.shp

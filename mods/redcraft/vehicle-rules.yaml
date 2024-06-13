@@ -271,15 +271,26 @@ SIEGEDSIEGETANK:
 
 # Mine Layer
 # Widow Mine
-MNLY:
+WIDOWMINE:
+    Inherits: ^TrackedVehicle
     Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+    # TODO: Look into selectable priorities later for QOL
+    # Inherits@selection: ^SelectableSupportUnit
     Buildable:
         Queue: Vehicle
         BuildPaletteOrder: 310
-        Prerequisites: fix, ~techlevel.medium
-        Description: Lays mines to destroy\nunwary enemy units.\nCan detect mines.\n  Unarmed
+        Prerequisites: factory
+        Description: TBD
+    Valued:
+        Cost: 800
     Tooltip:
         Name: Widow Mine
+    UpdatesPlayerStatistics:
+        AddToArmyValue: true
+    Health:
+        HP: 30000
+    Armor:
+        Type: Heavy
     Mobile:
         Speed: 113
     Armament:
@@ -298,18 +309,20 @@ MNLY:
         IsPlayerPalette: true
         UncloakOn: Move
         PauseOnCondition: cloak-force-disabled
-    GrantConditionOnDamageState@UNCLOAK:
-        Condition: cloak-force-disabled
-        ValidDamageStates: Critical
-    -Minelayer:
-    -AmmoPool:
-    # TODO: Use for other detector units!!
-    -DetectCloaked:
-    -RenderDetectionCircle:
-    RenderSprites:
-        Image: MNLY
-    -Rearmable:
-    -WithAmmoPipsDecoration:
+    # TODO: Look into disabling cloak on Critical
+    # GrantConditionOnDamageState@UNCLOAK:
+    #     Condition: cloak-force-disabled
+    #     ValidDamageStates: Critical
+    RevealsShroud:
+        MinRange: 4c0
+        Range: 5c0
+        RevealGeneratedShroud: False
+    RevealsShroud@GAPGEN:
+        Range: 4c0
+    Explodes:
+        Weapon: ATMine
+    Targetable:
+        TargetTypes: GroundActor, Vehicle, AirborneActor, Defense, Building
     Passenger:
         Weight: 2
 
@@ -457,6 +470,10 @@ JEEP:
 
 # Artillery
 ARTY:
+    -Buildable:
+
+# Mine Layer
+MNLY:
     -Buildable:
 
 # Phase Transport

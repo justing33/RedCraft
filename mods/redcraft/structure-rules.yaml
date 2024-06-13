@@ -11,7 +11,7 @@ COMC:
     Buildable:
         Queue: Building
         BuildPaletteOrder: 60
-        Prerequisites: anypower, ~techlevel.infonly
+        Prerequisites: scv
         Description: Refines Ore and Gems\ninto credits.
     Health:
         HP: 150000
@@ -37,19 +37,19 @@ COMC:
         Range: 4c0
     # Want to flip flop between the two production capabilities upon condition
     # WE CAN FLIP FLOP IF THE OTHER SIDE I.E> INFANTRY DONT REQUIRE THE PREREQ!!!!!!!!!!!
+    Production@SCV:
+        Produces: Defense
     Production@UPGRADES:
         # Temp queue name
         Produces: Ship
         RequiresCondition: !orbitalcommandupgraded && !planetaryfortressupgraded
-    Production@SCV:
-        Produces: Vehicle
     ProductionQueue@UPGRADES:
         # Temp until I can change the production tab on sidebar in chrome.yaml
         Type: Ship
         QueueLimit: 1
         ItemLimit: 1
     ProductionQueue@SCV:
-        Type: Infantry
+        Type: Defense
     GrantConditionOnProduction@PlanetaryFortress:
         Condition: planetaryfortressupgraded
         Actors: COMC-PLAN
@@ -312,7 +312,6 @@ BARRACKS_:
         Prerequisite: barracks_
     Power:
         Amount: -20
-    ProvidesPrerequisite@buildingname:
     Targetable:
         TargetTypes: GroundActor, AirborneActor, Structure
     Transforms:
@@ -366,9 +365,48 @@ BARRACKS-AIR:
 # Silo
 # Supply Depot
 # TODO: Implement this, but this also means that we are adding a new constraint/feature to the engine
-SILO:
+SUPPLYDEPOT:
+    Inherits: ^Building
+    Selectable:
+        Bounds: 1024, 1024
+    Buildable:
+        Queue: Building
+        BuildPaletteOrder: 35
+        Prerequisites: scv
+        Description: TBD
+    Valued:
+        Cost: 150
+    Targetable:
+        TargetTypes: GroundActor, Structure, AirborneActor
     Tooltip:
         Name: Supply Depot
+    -GivesBuildableArea:
+    -MustBeDestroyed:
+    Health:
+        HP: 30000
+    Armor:
+        Type: Wood
+    RevealsShroud:
+        Range: 4c0
+    WithBuildingBib:
+        HasMinibib: true
+    -WithSpriteBody:
+    WithResourceLevelSpriteBody:
+        Sequence: stages
+    # StoresResources:
+    #     Capacity: 3000
+    -SpawnActorsOnSell:
+    Power:
+        Amount: -10
+    Explodes:
+        Weapon: SmallBuildingExplode
+        EmptyWeapon: SmallBuildingExplode
+    # WithResourceStoragePipsDecoration:
+    #     Position: BottomLeft
+    #     Margin: 4, 3
+    #     RequiresSelection: true
+    #     PipCount: 5
+    #     FullSequence: pip-yellow
 
 # War Factory
 # Factory
@@ -380,7 +418,7 @@ WARF:
     Buildable:
         Queue: Building
         BuildPaletteOrder: 80
-        Prerequisites: proc, ~techlevel.low
+        Prerequisites: scv, barracks_
         Description: Produces vehicles.
     Valued:
         Cost: 2000
@@ -414,11 +452,14 @@ WARF:
         ExitCell: 1,2
     Production:
         Produces: Vehicle
+    ProductionQueue:
+        Type: Vehicle
     ProductionBar:
         ProductionType: Vehicle
+    ProvidesPrerequisite:
+        Prerequisite: factory
     Power:
         Amount: -30
-    ProvidesPrerequisite@buildingname:
     Targetable:
         TargetTypes: GroundActor, AirborneActor, Structure, Defense
     Transforms:
@@ -483,7 +524,7 @@ BUNK:
     Buildable:
         Queue: Defense
         BuildPaletteOrder: 40
-        Prerequisites: tent, ~structures.allies, ~techlevel.low
+        Prerequisites: scv, barracks_
         Description: Static defense with a fireport for\na garrisoned soldier.\nCan detect cloaked units.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
     Valued:
         Cost: 600
@@ -536,7 +577,7 @@ STAR:
     Buildable:
         Queue: Building
         BuildPaletteOrder: 130
-        Prerequisites: dome, ~structures.soviet, ~techlevel.medium, ~!structures.ukraine
+        Prerequisites: scv, barracks_, factory
         Description: Produces and reloads aircraft.\n  Special Ability: Spy Plane\n  Special Ability: Paratroopers
     Valued:
         Cost: 500

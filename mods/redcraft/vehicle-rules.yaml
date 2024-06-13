@@ -4,7 +4,7 @@ SCV:
     Inherits: ^Vehicle
     Inherits: ^SelectableEconomicUnit
     Buildable:
-        Queue: Vehicle
+        Queue: Defense
         BuildPaletteOrder: 110
         BuildDuration: 100
         Prerequisites: command-center
@@ -66,17 +66,38 @@ SCV:
 
 # Light Tank
 # Hellion
-1TNK:
-    Inherits: ^TrackedVehicle
+HELLION:
+    Inherits: ^Vehicle
+    Inherits@GAINSEXPERIENCE: ^GainsExperience
+    Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
     Buildable:
         Queue: Vehicle
-        BuildPaletteOrder: 220
-        Prerequisites: fix, ~vehicles.allies, ~techlevel.medium
-        Description: Allied Main Battle Tank.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
+        BuildPaletteOrder: 130
+        Prerequisites: factory
+        Description: TBD
+    Valued:
+        Cost: 500
     Tooltip:
         Name: Hellion
+    UpdatesPlayerStatistics:
+        AddToArmyValue: true
+    Health:
+        HP: 15000
+    Armor:
+        Type: Light
     Mobile:
-        Speed: 200
+        TurnSpeed: 40
+        Speed: 164
+        PauseOnCondition: notmobile || being-captured
+    RevealsShroud:
+        MinRange: 4c0
+        Range: 7c0
+        RevealGeneratedShroud: False
+    RevealsShroud@GAPGEN:
+        Range: 4c0
+    Turreted:
+        TurnSpeed: 40
+        Offset: 0,0,128
     Armament:
         Weapon: Flamer
         LocalOffset: 192,0,176
@@ -84,56 +105,105 @@ SCV:
     Selectable:
         DecorationBounds: 1194, 1194
     Transforms:
-        IntoActor: arty
+        IntoActor: hellbat
         Offset: 0,0
-        #-Facing:
         TransformSounds: placbldg.aud, build5.aud
         NoTransformNotification: BuildingCannotPlaceAudio
         NoTransformTextNotification: Cannot deploy here.
     Passenger:
         Weight: 2
+    AttackTurreted:
+    WithMuzzleOverlay:
+    WithSpriteTurret:
+    ProducibleWithLevel:
+        Prerequisites: vehicles.upgraded
+    WithProductionIconOverlay:
+        Types: Veterancy
+        Prerequisites: vehicles.upgraded
+
 
 # Artillery
 # Hellbat
-ARTY:
+HELLBAT:
     Inherits: ^TrackedVehicle
     Inherits@GAINSEXPERIENCE: ^GainsExperience
     Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-    #Not buildable as a Hellbat
-    -Buildable:
+    # -Buildable:
+    Valued:
+        Cost: 850
     Tooltip:
         Name: Hellbat
+    UpdatesPlayerStatistics:
+        AddToArmyValue: true
+    Health:
+        HP: 10000
+    Armor:
+        Type: Light
     Mobile:
         TurnSpeed: 8
         Speed: 72
         Locomotor: lighttracked
+    RevealsShroud:
+        MinRange: 4c0
+        Range: 5c0
+        RevealGeneratedShroud: False
+    RevealsShroud@GAPGEN:
+        Range: 4c0
     Armament:
         Weapon: Flamer
         LocalOffset: 192,0,176
         FireDelay: 2
+    AttackFrontal:
+        TargetFrozenActors: True
+        ForceFireIgnoresActors: True
+        FacingTolerance: 0
+    WithMuzzleOverlay:
     Transforms:
-        IntoActor: 1tnk
+        IntoActor: hellion
         Offset: 0,0
-        -Facing:
         TransformSounds: placbldg.aud, build5.aud
-        -NoTransformNotification:
-        -NoTransformTextNotification:
     Passenger:
         Weight: 4
+    Explodes:
+        Weapon: ArtilleryExplode
+        EmptyWeapon: UnitExplodeSmall
+        LoadedChance: 75
+    ProducibleWithLevel:
+        Prerequisites: vehicles.upgraded
+    WithProductionIconOverlay:
+        Types: Veterancy
+        Prerequisites: vehicles.upgraded
 
 # Heavy Tank
 # Siege Tank
-3TNK:
+SIEGETANK:
+    Inherits: ^TrackedVehicle
+    Inherits@GAINSEXPERIENCE: ^GainsExperience
+    Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
     Buildable:
         Queue: Vehicle
         BuildPaletteOrder: 220
-        Prerequisites: fix, ~vehicles.soviet, ~techlevel.medium
-        Description: Soviet Main Battle Tank, with dual cannons\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
+        Prerequisites: factory
+        Description: TBD
+    Valued:
+        Cost: 1150
     Tooltip:
         Name: Siege Tank
         GenericName: Siege Tank
+    UpdatesPlayerStatistics:
+        AddToArmyValue: true
+    Health:
+        HP: 60000
+    Armor:
+        Type: Heavy
     Mobile:
         Speed: 60
+    RevealsShroud:
+        MinRange: 4c0
+        Range: 6c0
+        RevealGeneratedShroud: False
+    RevealsShroud@GAPGEN:
+        Range: 4c0
     Turreted:
         TurnSpeed: 20
     Armament:
@@ -142,25 +212,50 @@ ARTY:
         RecoilRecovery: 38
         LocalOffset: 768,85,90, 768,-85,90
         MuzzleSequence: muzzle
+    AttackTurreted:
+    WithMuzzleOverlay:
+    WithSpriteTurret:
     Transforms:
-        IntoActor: 4tnk
+        IntoActor: siegetank-sm
         Offset: 0,0
         -Facing:
     Passenger:
         Weight: 4
+    SpawnActorOnDeath:
+        Actor: 3TNK.Husk
+    ProducibleWithLevel:
+        Prerequisites: vehicles.upgraded
+    Selectable:
+        DecorationBounds: 1194, 1194
+    WithProductionIconOverlay:
+        Types: Veterancy
+        Prerequisites: vehicles.upgraded
 
 # Mammoth Tank
-# Sieged Tank
-4TNK:
+# Sieged Tank Siege Mode
+SIEGETANK-SM:
     Inherits: ^Building
-    -Buildable:
+    Inherits@shape: ^1x1Shape
+    Inherits@GAINSEXPERIENCE: ^GainsExperience
+    Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+    Selectable:
+        DecorationBounds: 1877, 1621, 0, -170
+    # -Buildable:
     Tooltip:
         Name: Siege Tank (Sieged)
         GenericName: Siege Tank (Sieged)
-    -Mobile:
+    UpdatesPlayerStatistics:
+        AddToArmyValue: true
+    Health:
+        HP: 60000
+    Armor:
+        Type: Heavy
     Immobile:
         OccupiesSpace: true
     -AttackMove:
+    AttackTurreted:
+    WithMuzzleOverlay:
+    WithSpriteTurret:
     Turreted:
         TurnSpeed: 100
     Armament@PRIMARY:
@@ -169,23 +264,33 @@ ARTY:
         Recoil: 171
         RecoilRecovery: 30
         MuzzleSequence: muzzle
-    -Armament@SECONDARY:
     Transforms:
-        IntoActor: 3tnk
+        IntoActor: siegetank
         Offset: 0,0
         -Facing:
 
 # Mine Layer
 # Widow Mine
-MNLY:
+WIDOWMINE:
+    Inherits: ^TrackedVehicle
     Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+    # TODO: Look into selectable priorities later for QOL
+    # Inherits@selection: ^SelectableSupportUnit
     Buildable:
         Queue: Vehicle
         BuildPaletteOrder: 310
-        Prerequisites: fix, ~techlevel.medium
-        Description: Lays mines to destroy\nunwary enemy units.\nCan detect mines.\n  Unarmed
+        Prerequisites: factory
+        Description: TBD
+    Valued:
+        Cost: 800
     Tooltip:
         Name: Widow Mine
+    UpdatesPlayerStatistics:
+        AddToArmyValue: true
+    Health:
+        HP: 30000
+    Armor:
+        Type: Heavy
     Mobile:
         Speed: 113
     Armament:
@@ -204,33 +309,35 @@ MNLY:
         IsPlayerPalette: true
         UncloakOn: Move
         PauseOnCondition: cloak-force-disabled
-    GrantConditionOnDamageState@UNCLOAK:
-        Condition: cloak-force-disabled
-        ValidDamageStates: Critical
-    -Minelayer:
-    -AmmoPool:
-    # TODO: Use for other detector units!!
-    -DetectCloaked:
-    -RenderDetectionCircle:
-    RenderSprites:
-        Image: MNLY
-    -Rearmable:
-    -WithAmmoPipsDecoration:
+    # TODO: Look into disabling cloak on Critical
+    # GrantConditionOnDamageState@UNCLOAK:
+    #     Condition: cloak-force-disabled
+    #     ValidDamageStates: Critical
+    RevealsShroud:
+        MinRange: 4c0
+        Range: 5c0
+        RevealGeneratedShroud: False
+    RevealsShroud@GAPGEN:
+        Range: 4c0
+    Explodes:
+        Weapon: ATMine
+    Targetable:
+        TargetTypes: GroundActor, Vehicle, AirborneActor, Defense, Building
     Passenger:
         Weight: 2
 
 # Chrono Tank
-# Landed Viking
-CTNK:
+# Viking Assault Mode (Landed Viking)
+VIKING-AM:
     Inherits: ^Vehicle
     Inherits@GAINSEXPERIENCE: ^GainsExperience
     Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-    -Buildable:
+    # -Buildable:
     Valued:
         Cost: 1350
     Tooltip:
         Name: Viking (Landed)
-        GenericName: Tank
+        GenericName: Viking (Landed)
     UpdatesPlayerStatistics:
         AddToArmyValue: true
     Health:
@@ -265,25 +372,22 @@ CTNK:
     WithProductionIconOverlay:
         Types: Veterancy
         Prerequisites: vehicles.upgraded
-    # Transforms into a Viking (Mig)
     Transforms:
         IntoActor: mig
-        Offset: 0,0
-        -Facing:
     Passenger:
         Weight: 4
 
 # Mobile Flak
 # Cyclone
-FTRK:
+CYCLONE:
     Inherits: ^Vehicle
     Inherits@GAINSEXPERIENCE: ^GainsExperience
     Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
     Buildable:
         Queue: Vehicle
         BuildPaletteOrder: 130
-        Prerequisites: ~vehicles.soviet, ~techlevel.low
-        Description: Mobile unit with mounted Flak cannon.\n  Strong vs Infantry, Light armor, Aircraft\n  Weak vs Tanks
+        Prerequisites: factory
+        Description: TBD
     Valued:
         Cost: 600
     Tooltip:
@@ -307,12 +411,12 @@ FTRK:
         TurnSpeed: 40
         Offset: -298,0,298
     Armament@AA:
-        Weapon: StingerAA
+        Weapon: FLAK-23-AA
         Recoil: 85
         LocalOffset: 512,0,192
         MuzzleSequence: muzzle
     Armament@AG:
-        Weapon: Stinger
+        Weapon: FLAK-23-AG
         Recoil: 85
         LocalOffset: 512,0,192
         MuzzleSequence: muzzle
@@ -345,8 +449,36 @@ HARV:
 JEEP:
     -Buildable:
 
+# Light Tank
+1TNK:
+    -Buildable:
+
 # Medium tank
 2TNK:
+    -Buildable:
+
+# Heavy Tank
+3TNK:
+    -Buildable:
+
+# Mammoth Tank
+4TNK:
+    -Buildable:
+
+# Artillery
+ARTY:
+    -Buildable:
+
+# Mine Layer
+MNLY:
+    -Buildable:
+
+# Chrono Tank
+CTNK:
+    -Buildable:
+
+# Mobile Flak
+FTRK:
     -Buildable:
 
 # Phase Transport

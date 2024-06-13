@@ -78,9 +78,7 @@ MIG:
         Prerequisites: aircraft.upgraded
     # Transforms into a Chrono Tank (Landed Viking)
     Transforms:
-        IntoActor: ctnk
-        Offset: 0,0
-        -Facing:
+        IntoActor: viking-am
 
 # Chinook
 TRAN:

@@ -145,15 +145,15 @@ MEDIVAC:
         FacingTolerance: 0
 
 # Black Hawk
-MH60:
+BANSHEE:
     Inherits: ^Helicopter
     Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
     Buildable:
         Queue: Aircraft
         BuildAtProductionType: Helicopter
         BuildPaletteOrder: 20
-        Prerequisites: ~hpad, ~techlevel.medium
-        Description: Helicopter gunship armed\nwith dual chainguns.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
+        Prerequisites: starport
+        Description: TBD
     Valued:
         Cost: 1500
     Tooltip:
@@ -170,6 +170,7 @@ MH60:
     RevealsShroud@GAPGEN:
         Range: 8c0
         Type: GroundPosition
+    # TODO: Fix so it can shoot ground and ground only
     Armament@PRIMARY:
         Weapon: Dragon
         LocalOffset: 85,-213,-85, 85,213,-85
@@ -201,10 +202,6 @@ MH60:
     WithIdleOverlay@ROTORGROUND:
         Sequence: slow-rotor
         RequiresCondition: !airborne
-    AmmoPool:
-        Ammo: 24
-        ReloadDelay: 8
-        AmmoCondition: ammo
     WithMuzzleOverlay:
     SpawnActorOnDeath:
         Actor: MH60.Husk
@@ -221,10 +218,6 @@ MH60:
         Prerequisites: aircraft.upgraded
     Selectable:
         DecorationBounds: 1621, 1365
-    Rearmable:
-        RearmActors: hpad
-    # Hiding the infinite ammo pips decoration
-    -WithAmmoPipsDecoration:
     GrantConditionOnDamageState@SmokeTrail:
         Condition: enable-smoke
     WithProductionIconOverlay:
@@ -243,6 +236,7 @@ MH60:
 # Non-Buildable Aircraft #
 ##########################
 
+# Spy Plane
 U2:
     Inherits: ^NeutralPlane
     Health:
@@ -283,6 +277,10 @@ MIG:
 
 # Chinook
 TRAN:
+    -Buildable:
+
+# Black Hawk
+MH60:
     -Buildable:
 
 # Hind

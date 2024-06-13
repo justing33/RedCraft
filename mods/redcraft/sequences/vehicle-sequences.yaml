@@ -41,9 +41,8 @@ hellion:
         Filename: jeepicon.shp
 
 # Artilery skinned as a Phase transport
-arty:
+hellbat:
     idle:
-        # Override
         Filename: stnk.shp
         Facings: 32
         UseClassicFacings: True

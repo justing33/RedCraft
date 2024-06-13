@@ -105,7 +105,7 @@ HELLION:
     Selectable:
         DecorationBounds: 1194, 1194
     Transforms:
-        IntoActor: arty
+        IntoActor: hellbat
         Offset: 0,0
         TransformSounds: placbldg.aud, build5.aud
         NoTransformNotification: BuildingCannotPlaceAudio
@@ -124,31 +124,55 @@ HELLION:
 
 # Artillery
 # Hellbat
-ARTY:
+HELLBAT:
     Inherits: ^TrackedVehicle
     Inherits@GAINSEXPERIENCE: ^GainsExperience
     Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-    #Not buildable as a Hellbat
-    -Buildable:
+    # -Buildable:
+    Valued:
+        Cost: 850
     Tooltip:
         Name: Hellbat
+    UpdatesPlayerStatistics:
+        AddToArmyValue: true
+    Health:
+        HP: 10000
+    Armor:
+        Type: Light
     Mobile:
         TurnSpeed: 8
         Speed: 72
         Locomotor: lighttracked
+    RevealsShroud:
+        MinRange: 4c0
+        Range: 5c0
+        RevealGeneratedShroud: False
+    RevealsShroud@GAPGEN:
+        Range: 4c0
     Armament:
         Weapon: Flamer
         LocalOffset: 192,0,176
         FireDelay: 2
+    AttackFrontal:
+        TargetFrozenActors: True
+        ForceFireIgnoresActors: True
+        FacingTolerance: 0
+    WithMuzzleOverlay:
     Transforms:
-        IntoActor: 1tnk
+        IntoActor: hellion
         Offset: 0,0
-        -Facing:
         TransformSounds: placbldg.aud, build5.aud
-        -NoTransformNotification:
-        -NoTransformTextNotification:
     Passenger:
         Weight: 4
+    Explodes:
+        Weapon: ArtilleryExplode
+        EmptyWeapon: UnitExplodeSmall
+        LoadedChance: 75
+    ProducibleWithLevel:
+        Prerequisites: vehicles.upgraded
+    WithProductionIconOverlay:
+        Types: Veterancy
+        Prerequisites: vehicles.upgraded
 
 # Heavy Tank
 # Siege Tank

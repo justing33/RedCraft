@@ -1,12 +1,12 @@
-MIG:
+VIKING:
     Inherits: ^Helicopter
-    Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+    Inherits@AUTOTARGET: ^AutoTargetAir
     Buildable:
         Queue: Aircraft
         BuildAtProductionType: Plane
         BuildPaletteOrder: 50
-        Prerequisites: ~afld, stek, ~techlevel.high
-        Description: Fast Ground-Attack Plane.\n  Strong vs Buildings, Vehicles\n  Weak vs Infantry, Aircraft
+        Prerequisites: starport
+        Description: TBD
     Valued:
         Cost: 2000
     Tooltip:
@@ -43,10 +43,6 @@ MIG:
     AutoTarget:
         InitialStance: HoldFire
         InitialStanceAI: HoldFire
-    AmmoPool:
-        Ammo: 24
-        ReloadDelay: 8
-        AmmoCondition: ammo
     Selectable:
         Bounds: 1536, 1194, 0, 85
         DecorationBounds: 1706, 1237, 0, 42
@@ -67,10 +63,7 @@ MIG:
         RequiresCondition: enable-smoke
     ProducibleWithLevel:
         Prerequisites: aircraft.upgraded
-    Rearmable:
-        RearmActors: afld, afld.ukraine
     # Hiding the infinite ammo pips decoration
-    -WithAmmoPipsDecoration:
     GrantConditionOnDamageState@SmokeTrail:
         Condition: enable-smoke
     WithProductionIconOverlay:
@@ -80,17 +73,16 @@ MIG:
     Transforms:
         IntoActor: viking-am
 
-# Chinook
-TRAN:
+MEDIVAC:
     # Inherits: ^NonLandableHelicopter
     Inherits: ^Helicopter
     Inherits@CARGOPIPS: ^CargoPips
     Buildable:
         Queue: Aircraft
-        BuildAtProductionType: Helicopter
+        BuildAtProductionType: Plane
         BuildPaletteOrder: 10
-        Prerequisites: ~hpad, ~techlevel.medium
-        Description: Fast Infantry Transport Helicopter.\n  Unarmed
+        Prerequisites: starport
+        Description: TBD
     Valued:
         Cost: 900
     Tooltip:
@@ -153,15 +145,15 @@ TRAN:
         FacingTolerance: 0
 
 # Black Hawk
-MH60:
+BANSHEE:
     Inherits: ^Helicopter
     Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
     Buildable:
         Queue: Aircraft
         BuildAtProductionType: Helicopter
         BuildPaletteOrder: 20
-        Prerequisites: ~hpad, ~techlevel.medium
-        Description: Helicopter gunship armed\nwith dual chainguns.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
+        Prerequisites: starport
+        Description: TBD
     Valued:
         Cost: 1500
     Tooltip:
@@ -178,6 +170,7 @@ MH60:
     RevealsShroud@GAPGEN:
         Range: 8c0
         Type: GroundPosition
+    # TODO: Fix so it can shoot ground and ground only
     Armament@PRIMARY:
         Weapon: Dragon
         LocalOffset: 85,-213,-85, 85,213,-85
@@ -209,10 +202,6 @@ MH60:
     WithIdleOverlay@ROTORGROUND:
         Sequence: slow-rotor
         RequiresCondition: !airborne
-    AmmoPool:
-        Ammo: 24
-        ReloadDelay: 8
-        AmmoCondition: ammo
     WithMuzzleOverlay:
     SpawnActorOnDeath:
         Actor: MH60.Husk
@@ -229,10 +218,6 @@ MH60:
         Prerequisites: aircraft.upgraded
     Selectable:
         DecorationBounds: 1621, 1365
-    Rearmable:
-        RearmActors: hpad
-    # Hiding the infinite ammo pips decoration
-    -WithAmmoPipsDecoration:
     GrantConditionOnDamageState@SmokeTrail:
         Condition: enable-smoke
     WithProductionIconOverlay:
@@ -251,6 +236,7 @@ MH60:
 # Non-Buildable Aircraft #
 ##########################
 
+# Spy Plane
 U2:
     Inherits: ^NeutralPlane
     Health:
@@ -284,6 +270,18 @@ U2:
     Interactable:
     GrantConditionOnDamageState@SmokeTrail:
         Condition: enable-smoke
+
+# Mig
+MIG:
+    -Buildable:
+
+# Chinook
+TRAN:
+    -Buildable:
+
+# Black Hawk
+MH60:
+    -Buildable:
 
 # Hind
 HIND:

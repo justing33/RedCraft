@@ -1,6 +1,7 @@
 # Vikings
+# TODO: Fix so that vikings can shoot air units
 Maverick:
-    Inherits: ^AntiGroundMissile
+    Inherits: ^AntiAirMissile
     ReloadDelay: 50
     Range: 9c0
     MinRange: 2c0

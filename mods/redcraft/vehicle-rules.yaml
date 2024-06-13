@@ -373,7 +373,7 @@ VIKING-AM:
         Types: Veterancy
         Prerequisites: vehicles.upgraded
     Transforms:
-        IntoActor: mig
+        IntoActor: viking
     Passenger:
         Weight: 4
 

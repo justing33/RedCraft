@@ -80,6 +80,7 @@ Sequences:
 	ra|sequences/decorations.yaml
 	# Custom Overrides
 	redcraft|sequences/infantry-sequences.yaml
+	redcraft|sequences/aircraft-sequences.yaml
 	redcraft|sequences/vehicle-sequences.yaml
 	redcraft|sequences/structure-sequences.yaml
 	redcraft|sequences/misc-sequences.yaml

@@ -192,7 +192,7 @@ warf-air:
         Length: 1
 
 # Starport
-star:
+starport:
     Defaults:
         Filename: afld.shp
     idle:
@@ -227,7 +227,7 @@ star:
         Filename: afldicon.shp
 
 # Starport (Lifted Off)
-star-air:
+starport-air:
     idle:
         Filename: afldidle.shp
         Length: 8

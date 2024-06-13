@@ -216,7 +216,7 @@ SIEGETANK:
     WithMuzzleOverlay:
     WithSpriteTurret:
     Transforms:
-        IntoActor: siegedsiegetank
+        IntoActor: siegetank-sm
         Offset: 0,0
         -Facing:
     Passenger:
@@ -232,8 +232,8 @@ SIEGETANK:
         Prerequisites: vehicles.upgraded
 
 # Mammoth Tank
-# Sieged Tank
-SIEGEDSIEGETANK:
+# Sieged Tank Siege Mode
+SIEGETANK-SM:
     Inherits: ^Building
     Inherits@shape: ^1x1Shape
     Inherits@GAINSEXPERIENCE: ^GainsExperience
@@ -327,17 +327,17 @@ WIDOWMINE:
         Weight: 2
 
 # Chrono Tank
-# Landed Viking
-CTNK:
+# Viking Assault Mode (Landed Viking)
+VIKING-AM:
     Inherits: ^Vehicle
     Inherits@GAINSEXPERIENCE: ^GainsExperience
     Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-    -Buildable:
+    # -Buildable:
     Valued:
         Cost: 1350
     Tooltip:
         Name: Viking (Landed)
-        GenericName: Tank
+        GenericName: Viking (Landed)
     UpdatesPlayerStatistics:
         AddToArmyValue: true
     Health:
@@ -372,11 +372,8 @@ CTNK:
     WithProductionIconOverlay:
         Types: Veterancy
         Prerequisites: vehicles.upgraded
-    # Transforms into a Viking (Mig)
     Transforms:
         IntoActor: mig
-        Offset: 0,0
-        -Facing:
     Passenger:
         Weight: 4
 
@@ -474,6 +471,10 @@ ARTY:
 
 # Mine Layer
 MNLY:
+    -Buildable:
+
+# Chrono Tank
+CTNK:
     -Buildable:
 
 # Phase Transport

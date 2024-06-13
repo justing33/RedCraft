@@ -42,7 +42,7 @@ siegetank:
     icon:
         Filename: 3tnkicon.shp
 
-siegedsiegetank:
+siegetank-sm:
     Defaults:
         Filename: 4tnk.shp
     make:
@@ -68,3 +68,12 @@ widowmine:
         UseClassicFacings: False
     icon:
         Filename: jmin.shp
+
+viking-am:
+    idle:
+        Filename: ctnk.shp
+        Facings: 32
+        UseClassicFacings: True
+    muzzle:
+        Filename: gunfire2.shp
+        Length: 5

@@ -4,20 +4,26 @@ VIKING:
     Buildable:
         Queue: Aircraft
         BuildAtProductionType: Plane
+        BuildDuration: 750
         BuildPaletteOrder: 50
         Prerequisites: starport
         Description: TBD
     Valued:
-        Cost: 2000
+        Cost: 150
+        # Oil: 75
+    # Supply: 2
     Tooltip:
         Name: Viking
     UpdatesPlayerStatistics:
         AddToArmyValue: true
     Health:
-        HP: 8000
+        HP: 135
+    Armor:
+        Type: Light
+        # Armored, Mechanical
     RevealsShroud:
-        MinRange: 11c0
-        Range: 13c0
+        # MinRange: 11c0
+        Range: 10c0
         Type: GroundPosition
         RevealGeneratedShroud: False
     RevealsShroud@GAPGEN:
@@ -40,7 +46,7 @@ VIKING:
     Aircraft:
         CruiseAltitude: 2560
         TurnSpeed: 16
-        Speed: 223
+        Speed: 78
         RepulsionSpeed: 40
         MaximumPitch: 56
     AutoTarget:
@@ -75,6 +81,8 @@ VIKING:
     # Transforms into a Chrono Tank (Landed Viking)
     Transforms:
         IntoActor: viking-am
+    Passenger:
+        Weight: 2
 
 MEDIVAC:
     # TODO: Inherits: ^NonLandableHelicopter

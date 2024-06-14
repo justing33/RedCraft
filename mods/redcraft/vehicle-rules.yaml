@@ -353,6 +353,7 @@ VIKING-AM:
         RevealGeneratedShroud: False
     RevealsShroud@GAPGEN:
         Range: 4c0
+        #TODO: Need to balance based on viking stats
     Armament@PRIMARY:
         Weapon: APTusk
         LocalOffset: -160,-276,232

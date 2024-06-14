@@ -1,7 +1,7 @@
 VikingMissileAA:
     ReloadDelay: 50
     Range: 9c0
-    MinRange: 2c0
+    # MinRange: 2c0
     Report: missile7.aud
     Burst: 2
     BurstDelays: 7
@@ -19,7 +19,7 @@ VikingMissileAA:
         RangeLimit: 14c410
     Warhead@1Dam: SpreadDamage
         Spread: 128
-        Damage: 7000
+        Damage: 10
         ValidTargets: AirborneActor
         Versus:
             None: 30
@@ -31,8 +31,8 @@ VikingMissileAA:
 
 BansheeMissileAG:
     ReloadDelay: 50
-    Range: 5c0
-    MinRange: 0c512
+    Range: 6c0
+    # MinRange: 0c512
     Report: missile6.aud
     ValidTargets: Ground, Water, GroundActor, WaterActor
     Projectile: Missile

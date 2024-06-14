@@ -137,6 +137,10 @@ COMC:
         Range: 16c0
     WithBuildingBib:
     RenderSprites:
+    # Note: Buildings don't list AirborneActor as targetable, 
+    #       but the weapon can be configured to shoot buildings
+    Targetable:
+        TargetTypes: GroundActor, Structure, Defense
     Transforms:
         PauseOnCondition: being-demolished || build-incomplete
         IntoActor: comc-air
@@ -313,7 +317,7 @@ BARRACKS_:
     Power:
         Amount: -20
     Targetable:
-        TargetTypes: GroundActor, AirborneActor, Structure
+        TargetTypes: GroundActor, Structure, Defense
     Transforms:
         PauseOnCondition: being-demolished || build-incomplete
         IntoActor: barracks-air
@@ -376,8 +380,6 @@ SUPPLYDEPOT:
         Description: TBD
     Valued:
         Cost: 150
-    Targetable:
-        TargetTypes: GroundActor, Structure, AirborneActor
     Tooltip:
         Name: Supply Depot
     -GivesBuildableArea:
@@ -398,6 +400,8 @@ SUPPLYDEPOT:
     -SpawnActorsOnSell:
     Power:
         Amount: -10
+    Targetable:
+        TargetTypes: GroundActor, Structure, Defense
     Explodes:
         Weapon: SmallBuildingExplode
         EmptyWeapon: SmallBuildingExplode
@@ -461,7 +465,7 @@ WARF:
     Power:
         Amount: -30
     Targetable:
-        TargetTypes: GroundActor, AirborneActor, Structure, Defense
+        TargetTypes: GroundActor, Structure, Defense
     Transforms:
         PauseOnCondition: being-demolished || build-incomplete
         IntoActor: warf-air
@@ -565,6 +569,8 @@ BUNK:
         FallbackRange: 6c0
     Power:
         Amount: -20
+    Targetable:
+        TargetTypes: GroundActor, Structure, Defense
 
 # Soviet Airfield
 # Starport
@@ -619,7 +625,7 @@ STARPORT:
     ProvidesPrerequisite:
         Prerequisite: starport
     Targetable:
-        TargetTypes: GroundActor, AirborneActor, Structure, Defense
+        TargetTypes: GroundActor, Structure, Defense
     Transforms:
         PauseOnCondition: being-demolished || build-incomplete
         IntoActor: starport-air

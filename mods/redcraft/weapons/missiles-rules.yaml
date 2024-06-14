@@ -1,27 +1,33 @@
-# Vikings
 VikingMissileAA:
-    Inherits: ^AntiAirMissile
     ReloadDelay: 50
     Range: 9c0
     MinRange: 2c0
     Report: missile7.aud
     Burst: 2
     BurstDelays: 7
-    ValidTargets: Air, AirborneActor
+    ValidTargets: AirborneActor
     Projectile: Missile
         Speed: 256
+        Arm: 2
+        Blockable: false
+        ContrailLength: 10
         Inaccuracy: 316
+        Image: DRAGON
+        Shadow: true
+        HorizontalRateOfTurn: 20
         CruiseAltitude: 2c0
         RangeLimit: 14c410
     Warhead@1Dam: SpreadDamage
+        Spread: 128
         Damage: 7000
+        ValidTargets: AirborneActor
         Versus:
             None: 30
             Wood: 90
             Light: 90
             Heavy: 115
             Concrete: 100
-        ValidTargets: Air, AirborneActor
+        DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 
 # Marauders
 RedEye:

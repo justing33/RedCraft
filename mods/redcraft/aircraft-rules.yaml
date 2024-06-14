@@ -189,6 +189,10 @@ BANSHEE:
         PauseOnCondition: !ammo
         # Infinite Ammo
         AmmoUsage: 0
+    AmmoPool:
+        Ammo: 24
+        ReloadDelay: 8
+        AmmoCondition: ammo
     AttackAircraft:
         FacingTolerance: 80
         PersistentTargeting: false

@@ -1,6 +1,5 @@
 # Vikings
-# TODO: Fix so that vikings can shoot air units
-Maverick:
+VikingMissileAA:
     Inherits: ^AntiAirMissile
     ReloadDelay: 50
     Range: 9c0

@@ -24,12 +24,15 @@ VIKING:
         Range: 11c0
         Type: GroundPosition
     Armament:
-        Weapon: Maverick
+        Weapon: VikingMissileAA
         LocalOffset: 0,-640,0, 0,640,0
         LocalYaw: -40, 24
         PauseOnCondition: !ammo
         # Infinite Ammo
         AmmoUsage: 0
+    AmmoPool:
+        Ammo: 8
+        AmmoCondition: ammo
     AttackAircraft:
         FacingTolerance: 80
         PersistentTargeting: false

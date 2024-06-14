@@ -59,7 +59,7 @@ COMC:
     GrantExternalConditionToProduced:
         Condition: produced
     BaseBuilding:
-    #Required for units to be able to exit CY
+    # Required for units to be able to exit CY
     Exit@1:
         RequiresCondition: !being-captured
         SpawnOffset: 900,2000,0

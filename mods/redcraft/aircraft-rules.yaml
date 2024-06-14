@@ -77,26 +77,33 @@ VIKING:
         IntoActor: viking-am
 
 MEDIVAC:
-    # Inherits: ^NonLandableHelicopter
+    # TODO: Inherits: ^NonLandableHelicopter
     Inherits: ^Helicopter
     Inherits@CARGOPIPS: ^CargoPips
     Buildable:
         Queue: Aircraft
         BuildAtProductionType: Plane
         BuildPaletteOrder: 10
+        BuildDuration: 750
         Prerequisites: starport
         Description: TBD
+    # Supply: 2
     Valued:
-        Cost: 900
+        Cost: 100
+        # Oil: 100
     Tooltip:
         Name: Medivac
     UpdatesPlayerStatistics:
         AddToArmyValue: true
     Health:
-        HP: 14000
+        HP: 150
+    Armor:
+        Type: Light
+        # Armor: 1
+        # Armored, Mechanical
     RevealsShroud:
-        MinRange: 6c0
-        Range: 8c0
+        # MinRange: 6c0
+        Range: 11c0
         Type: GroundPosition
         RevealGeneratedShroud: False
     RevealsShroud@GAPGEN:
@@ -104,7 +111,7 @@ MEDIVAC:
         Type: GroundPosition
     Aircraft:
         TurnSpeed: 20
-        Speed: 128
+        Speed: 87
         AltitudeVelocity: 0c58
     WithIdleOverlay@ROTOR1AIR:
         Offset: 597,0,213
@@ -154,19 +161,28 @@ BANSHEE:
     Buildable:
         Queue: Aircraft
         BuildAtProductionType: Helicopter
+        # Assumed to be 43 seconds from SC2
+        # 25 Ticks = 1 second
+        # 43 * 25 = 1075 ticks
+        BuildDuration: 1075
         BuildPaletteOrder: 20
         Prerequisites: starport
         Description: TBD
+    # Supply: 3
     Valued:
-        Cost: 1500
+        Cost: 150
+        # Oil: 100
     Tooltip:
         Name: Banshee
     UpdatesPlayerStatistics:
         AddToArmyValue: true
     Health:
-        HP: 10000
+        HP: 140
+    Armor:
+        Type: Light
+        # Attribute: Mechanical
     RevealsShroud:
-        MinRange: 8c0
+        # MinRange: 8c0
         Range: 10c0
         Type: GroundPosition
         RevealGeneratedShroud: False
@@ -199,7 +215,8 @@ BANSHEE:
         AttackType: Hover
     Aircraft:
         TurnSpeed: 16
-        Speed: 112
+        Speed: 96
+        # Speed: SC2 3.85 x 25 ticks/sec = 96.25
     AutoTarget:
         InitialStance: HoldFire
         InitialStanceAI: HoldFire

@@ -596,7 +596,7 @@ STARPORT:
         Footprint: xxx xxx
         Dimensions: 3,2
     Health:
-        HP: 100000
+        HP: 100
     Armor:
         Type: Wood
     RevealsShroud:

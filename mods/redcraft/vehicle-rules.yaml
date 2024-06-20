@@ -333,39 +333,38 @@ VIKING-AM:
     Inherits@GAINSEXPERIENCE: ^GainsExperience
     Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
     # -Buildable:
-    Valued:
-        Cost: 1350
+    # Valued:
+    # Cost: 150
+    # Supply: 2 <----
     Tooltip:
         Name: Viking (Landed)
         GenericName: Viking (Landed)
     UpdatesPlayerStatistics:
         AddToArmyValue: true
     Health:
-        HP: 40000
+        HP: 135
     Armor:
         Type: Light
+        # Armor: Armored, Mechanical
     Mobile:
-        Speed: 86
+        Speed: 78
         Locomotor: heavywheeled
     RevealsShroud:
-        MinRange: 4c0
-        Range: 6c0
+        # MinRange: 4c0
+        Range: 10c0
         RevealGeneratedShroud: False
     RevealsShroud@GAPGEN:
         Range: 4c0
         #TODO: Need to balance based on viking stats
     Armament@PRIMARY:
-        Weapon: APTusk
-        LocalOffset: -160,-276,232
-        LocalYaw: 60
-    Armament@SECONDARY:
-        Weapon: APTusk
-        LocalOffset: -160,276,232
-        LocalYaw: -60
+        Weapon: VIKING-AM-GATLING
+        MuzzleSequence: muzzle
+        LocalOffset: 128,0,43
+    WithMuzzleOverlay:
     AttackFrontal:
         FacingTolerance: 0
-    PortableChrono:
-        ChargeDelay: 250
+    # PortableChrono:
+    #     ChargeDelay: 250
     ProducibleWithLevel:
         Prerequisites: vehicles.upgraded
     Selectable:
@@ -376,7 +375,7 @@ VIKING-AM:
     Transforms:
         IntoActor: viking
     Passenger:
-        Weight: 4
+        Weight: 2
 
 # Mobile Flak
 # Cyclone

@@ -72,3 +72,29 @@ M1Carbine:
         InvalidTargets: Bridge
         Explosions: water_piff
         Inaccuracy: 171
+
+VIKING-AM-GATLING:
+	ReloadDelay: 35
+	Range: 6c0
+	Report: gun13.aud
+	ValidTargets: Ground, GroundActor, Building
+	Projectile: InstantHit
+		Blockable: false
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 6
+		ValidTargets: Ground, GroundActor, Building
+		Versus:
+			None: 120
+			Wood: 60
+			Light: 72
+			Heavy: 28
+			Concrete: 28
+		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
+	Warhead@2Eff: CreateEffect
+		Explosions: piffs
+		ValidTargets: Ground, GroundActor, Building
+	Warhead@3EffWater: CreateEffect
+		Explosions: water_piffs
+		ValidTargets: Water, Underwater
+		InvalidTargets: Bridge

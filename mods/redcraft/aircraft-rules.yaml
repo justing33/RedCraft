@@ -45,6 +45,7 @@ VIKING:
         OpportunityFire: False
     Aircraft:
         CruiseAltitude: 2560
+        AltitudeVelocity: 0c75
         TurnSpeed: 16
         Speed: 78
         RepulsionSpeed: 40
@@ -81,8 +82,6 @@ VIKING:
     # Transforms into a Chrono Tank (Landed Viking)
     Transforms:
         IntoActor: viking-am
-    Passenger:
-        Weight: 2
 
 MEDIVAC:
     # TODO: Inherits: ^NonLandableHelicopter

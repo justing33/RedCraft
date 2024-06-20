@@ -72,26 +72,30 @@ HELLION:
     Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
     Buildable:
         Queue: Vehicle
+        BuildDuration: 525
         BuildPaletteOrder: 130
         Prerequisites: factory
         Description: TBD
     Valued:
-        Cost: 500
+        Cost: 100
+        # Supply: 2
+        # Oil: 0
     Tooltip:
         Name: Hellion
     UpdatesPlayerStatistics:
         AddToArmyValue: true
     Health:
-        HP: 15000
+        HP: 90
     Armor:
         Type: Light
+        # Armor: Light, Mechanical
     Mobile:
         TurnSpeed: 40
-        Speed: 164
+        Speed: 148
         PauseOnCondition: notmobile || being-captured
     RevealsShroud:
-        MinRange: 4c0
-        Range: 7c0
+        # MinRange: 4c0
+        Range: 10c0
         RevealGeneratedShroud: False
     RevealsShroud@GAPGEN:
         Range: 4c0
@@ -99,7 +103,7 @@ HELLION:
         TurnSpeed: 40
         Offset: 0,0,128
     Armament:
-        Weapon: Flamer
+        Weapon: HellionFlamethrower
         LocalOffset: 192,0,176
         FireDelay: 2
     Selectable:

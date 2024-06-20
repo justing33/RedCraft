@@ -385,25 +385,29 @@ CYCLONE:
     Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
     Buildable:
         Queue: Vehicle
+        BuildDuration: 800
         BuildPaletteOrder: 130
         Prerequisites: factory
         Description: TBD
     Valued:
-        Cost: 600
+        Cost: 125
+        # Oil: 50
+        # Supply: 2
     Tooltip:
         Name: Cyclone
     UpdatesPlayerStatistics:
         AddToArmyValue: true
     Health:
-        HP: 15000
+        HP: 130
     Armor:
         Type: Light
+        # Armor: Armored, Mechanical
     Mobile:
         TurnSpeed: 40
-        Speed: 113
+        Speed: 98
     RevealsShroud:
-        MinRange: 4c0
-        Range: 6c0
+        # MinRange: 4c0
+        Range: 11c0
         RevealGeneratedShroud: False
     RevealsShroud@GAPGEN:
         Range: 4c0
@@ -411,12 +415,12 @@ CYCLONE:
         TurnSpeed: 40
         Offset: -298,0,298
     Armament@AA:
-        Weapon: FLAK-23-AA
+        Weapon: CycloneMissileAA
         Recoil: 85
         LocalOffset: 512,0,192
         MuzzleSequence: muzzle
     Armament@AG:
-        Weapon: FLAK-23-AG
+        Weapon: CycloneMissileAG
         Recoil: 85
         LocalOffset: 512,0,192
         MuzzleSequence: muzzle
@@ -431,7 +435,7 @@ CYCLONE:
         Types: Veterancy
         Prerequisites: vehicles.upgraded
     Passenger:
-        Weight: 2
+        Weight: 4
 
 #######################
 # NON BUILDABLE UNITS #

@@ -76,3 +76,65 @@ RedEye:
         Speed: 298
     Warhead@1Dam: SpreadDamage
         Damage: 2400
+
+CycloneMissileAG:
+    ReloadDelay: 50
+    Range: 6c0
+    # MinRange: 2c0
+    Report: missile7.aud
+    Burst: 2
+    BurstDelays: 7
+    ValidTargets: Ground, GroundActor, Building
+    Projectile: Missile
+        Speed: 256
+        Arm: 2
+        Blockable: false
+        ContrailLength: 10
+        Inaccuracy: 316
+        Image: DRAGON
+        Shadow: true
+        HorizontalRateOfTurn: 20
+        CruiseAltitude: 2c0
+        RangeLimit: 14c410
+    Warhead@1Dam: SpreadDamage
+        Spread: 128
+        Damage: 11
+        ValidTargets: GroundActor, Building
+        Versus:
+            None: 30
+            Wood: 90
+            Light: 90
+            Heavy: 115
+            Concrete: 100
+        DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+
+CycloneMissileAA:
+    ReloadDelay: 50
+    Range: 6c0
+    # MinRange: 2c0
+    Report: missile7.aud
+    Burst: 2
+    BurstDelays: 7
+    ValidTargets: AirborneActor
+    Projectile: Missile
+        Speed: 256
+        Arm: 2
+        Blockable: false
+        ContrailLength: 10
+        Inaccuracy: 316
+        Image: DRAGON
+        Shadow: true
+        HorizontalRateOfTurn: 20
+        CruiseAltitude: 2c0
+        RangeLimit: 14c410
+    Warhead@1Dam: SpreadDamage
+        Spread: 128
+        Damage: 11
+        ValidTargets: AirborneActor
+        Versus:
+            None: 30
+            Wood: 90
+            Light: 90
+            Heavy: 115
+            Concrete: 100
+        DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath

@@ -134,27 +134,28 @@ HELLBAT:
     Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
     # -Buildable:
     Valued:
-        Cost: 850
+        Cost: 100
+        # Supply: 2
     Tooltip:
         Name: Hellbat
     UpdatesPlayerStatistics:
         AddToArmyValue: true
     Health:
-        HP: 10000
+        HP: 135
     Armor:
         Type: Light
     Mobile:
         TurnSpeed: 8
-        Speed: 72
+        Speed: 78
         Locomotor: lighttracked
     RevealsShroud:
-        MinRange: 4c0
-        Range: 5c0
+        # MinRange: 4c0
+        Range: 10c0
         RevealGeneratedShroud: False
     RevealsShroud@GAPGEN:
         Range: 4c0
     Armament:
-        Weapon: Flamer
+        Weapon: HellbatFlamethrower
         LocalOffset: 192,0,176
         FireDelay: 2
     AttackFrontal:
@@ -186,32 +187,35 @@ SIEGETANK:
     Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
     Buildable:
         Queue: Vehicle
+        BuildDuration: 800
         BuildPaletteOrder: 220
         Prerequisites: factory
         Description: TBD
     Valued:
-        Cost: 1150
+        Cost: 150
+        # Supply: 3
+        # Oil: 125
     Tooltip:
         Name: Siege Tank
         GenericName: Siege Tank
     UpdatesPlayerStatistics:
         AddToArmyValue: true
     Health:
-        HP: 60000
+        HP: 175
     Armor:
         Type: Heavy
     Mobile:
-        Speed: 60
+        Speed: 78
     RevealsShroud:
-        MinRange: 4c0
-        Range: 6c0
+        # MinRange: 4c0
+        Range: 11c0
         RevealGeneratedShroud: False
     RevealsShroud@GAPGEN:
         Range: 4c0
     Turreted:
         TurnSpeed: 20
     Armament:
-        Weapon: 105mm
+        Weapon: SiegeTank90mmCannon
         Recoil: 128
         RecoilRecovery: 38
         LocalOffset: 768,85,90, 768,-85,90
@@ -245,17 +249,24 @@ SIEGETANK-SM:
     Selectable:
         DecorationBounds: 1877, 1621, 0, -170
     # -Buildable:
+    # Valued: Supply: 3
     Tooltip:
         Name: Siege Tank (Sieged)
         GenericName: Siege Tank (Sieged)
     UpdatesPlayerStatistics:
         AddToArmyValue: true
     Health:
-        HP: 60000
+        HP: 175
     Armor:
         Type: Heavy
     Immobile:
         OccupiesSpace: true
+    RevealsShroud:
+        # MinRange: 4c0
+        Range: 11c0
+        RevealGeneratedShroud: False
+    RevealsShroud@GAPGEN:
+        Range: 4c0
     -AttackMove:
     AttackTurreted:
     WithMuzzleOverlay:
@@ -263,7 +274,7 @@ SIEGETANK-SM:
     Turreted:
         TurnSpeed: 100
     Armament@PRIMARY:
-        Weapon: 120mm
+        Weapon: SiegeTankCrucioShockCannon
         LocalOffset: 900,180,340, 900,-180,340
         Recoil: 171
         RecoilRecovery: 30

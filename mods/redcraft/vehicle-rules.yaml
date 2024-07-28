@@ -293,23 +293,26 @@ WIDOWMINE:
     # Inherits@selection: ^SelectableSupportUnit
     Buildable:
         Queue: Vehicle
+        BuildDuration: 525
         BuildPaletteOrder: 310
         Prerequisites: factory
         Description: TBD
     Valued:
-        Cost: 800
+        Cost: 75
+        # Supply: 2
+        # Oil: 25
     Tooltip:
         Name: Widow Mine
     UpdatesPlayerStatistics:
         AddToArmyValue: true
     Health:
-        HP: 30000
+        HP: 90
     Armor:
         Type: Heavy
     Mobile:
-        Speed: 113
+        Speed: 98
     Armament:
-        Weapon: 155mm
+        Weapon: WidowMineSentinelMissile
         LocalOffset: 624,-200,0
         MuzzleSequence: muzzle
     AttackFrontal:
@@ -329,8 +332,8 @@ WIDOWMINE:
     #     Condition: cloak-force-disabled
     #     ValidDamageStates: Critical
     RevealsShroud:
-        MinRange: 4c0
-        Range: 5c0
+        # MinRange: 4c0
+        Range: 7c0
         RevealGeneratedShroud: False
     RevealsShroud@GAPGEN:
         Range: 4c0

@@ -1,16 +1,18 @@
 # Custom SCV Unit (based off HARV)
 SCV:
-    # TODO: Add harv trait
     Inherits: ^Vehicle
+    Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
     Inherits: ^SelectableEconomicUnit
     Buildable:
         Queue: Defense
         BuildPaletteOrder: 110
-        BuildDuration: 100
+        BuildDuration: 300
         Prerequisites: command-center
         Description: TBD
     Valued:
-        Cost: 1100
+        Cost: 50
+        # Supply: 1
+        # Oil: 0
     Tooltip:
         Name: SCV
     Selectable:
@@ -25,15 +27,21 @@ SCV:
         HarvestFacings: 8
         EmptyCondition: no-ore
     Health:
-        HP: 150000
+        HP: 45
     Armor:
         Type: Heavy
     Mobile:
-        Speed: 150
+        Speed: 98
     RevealsShroud:
-        Range: 4c0
+        Range: 8c0
     GpsDot:
         String: Harvester
+    Armament:
+        Weapon: SCVFusionCutter
+        LocalOffset: 427,0,341
+    AttackFrontal:
+        FacingTolerance: 0
+    AttackMove:
     # PRODUCTION #
     Production@BUILDINGS:
         Produces: Building, Defense
@@ -63,6 +71,9 @@ SCV:
         CargoType: Vehicle
         CargoCondition: disable-experience
         Weight: 1
+    # TODO: Fix so SCV can attack structures
+    Targetable:
+        TargetTypes: GroundActor, Vehicle, Defense, Structure
 
 # Light Tank
 # Hellion

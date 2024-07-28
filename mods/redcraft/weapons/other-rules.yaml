@@ -182,3 +182,19 @@ WidowMineSentinelMissile:
         ImpactSounds: splash9.aud
         ValidTargets: Water, Underwater
         InvalidTargets: Bridge
+
+SCVFusionCutter:
+    ReloadDelay: 25
+    Range: 1c0
+    Report: tesla1.aud
+    Projectile: TeslaZap
+    ValidTargets: Ground, GroundActor, Structure, Defense
+    Warhead@1Dam: SpreadDamage
+        Damage: 5
+        Spread: 42
+        ValidTargets: Ground, GroundActor, Structure, Defense
+        Versus:
+            None: 100
+            Wood: 73
+            Heavy: 60
+        DamageTypes: Prone50Percent, TriggerProne, ElectricityDeath

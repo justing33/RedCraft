@@ -1,3 +1,10 @@
+scv:
+    active:
+        Start: 1
+        Length: 9
+        Tick: 100
+        Offset: 0,-13
+
 hellion:
     Defaults:
         Filename: jeep.shp

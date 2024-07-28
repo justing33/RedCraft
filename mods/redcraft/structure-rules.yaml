@@ -10,7 +10,7 @@ COMC:
         LocalCenterOffset: 0,-512,0
     Buildable:
         Queue: Building
-        BuildPaletteOrder: 60
+        BuildPaletteOrder: 10
         Prerequisites: scv
         Description: Refines Ore and Gems\ninto credits.
     Health:
@@ -249,9 +249,11 @@ COMC-ORB:
     KillsSelf:
         RemoveInstead: true
 
+# TODO: Implement this as oil ref
 # Ore Refinery
 # Oil Refinery
 PROC:
+    -Buildable:
     Tooltip:
         Name: Oil Refinery
     -FreeActor:
@@ -268,7 +270,7 @@ BARRACKS_:
         TargetableOffsets: 0,0,0, 490,-470,0, 355,512,0, -355,-512,0, -630,512,0
     Buildable:
         Queue: Building
-        BuildPaletteOrder: 30
+        BuildPaletteOrder: 20
         Prerequisites: scv
         Description: Trains infantry.
     Valued:
@@ -369,48 +371,40 @@ BARRACKS-AIR:
 # Silo
 # Supply Depot
 # TODO: Implement this, but this also means that we are adding a new constraint/feature to the engine
-SUPPLYDEPOT:
-    Inherits: ^Building
-    Selectable:
-        Bounds: 1024, 1024
-    Buildable:
-        Queue: Building
-        BuildPaletteOrder: 35
-        Prerequisites: scv
-        Description: TBD
-    Valued:
-        Cost: 150
-    Tooltip:
-        Name: Supply Depot
-    -GivesBuildableArea:
-    -MustBeDestroyed:
-    Health:
-        HP: 30000
-    Armor:
-        Type: Wood
-    RevealsShroud:
-        Range: 4c0
-    WithBuildingBib:
-        HasMinibib: true
-    -WithSpriteBody:
-    WithResourceLevelSpriteBody:
-        Sequence: stages
-    # StoresResources:
-    #     Capacity: 3000
-    -SpawnActorsOnSell:
-    Power:
-        Amount: -10
-    Targetable:
-        TargetTypes: GroundActor, Structure, Defense
-    Explodes:
-        Weapon: SmallBuildingExplode
-        EmptyWeapon: SmallBuildingExplode
-    # WithResourceStoragePipsDecoration:
-    #     Position: BottomLeft
-    #     Margin: 4, 3
-    #     RequiresSelection: true
-    #     PipCount: 5
-    #     FullSequence: pip-yellow
+# SUPPLYDEPOT:
+#     Inherits: ^Building
+#     Selectable:
+#         Bounds: 1024, 1024
+#     Buildable:
+#         Queue: Building
+#         BuildPaletteOrder: 35
+#         Prerequisites: scv
+#         Description: TBD
+#     Valued:
+#         Cost: 150
+#     Tooltip:
+#         Name: Supply Depot
+#     -GivesBuildableArea:
+#     -MustBeDestroyed:
+#     Health:
+#         HP: 30000
+#     Armor:
+#         Type: Wood
+#     RevealsShroud:
+#         Range: 4c0
+#     WithBuildingBib:
+#         HasMinibib: true
+#     -WithSpriteBody:
+#     WithResourceLevelSpriteBody:
+#         Sequence: stages
+#     -SpawnActorsOnSell:
+#     Power:
+#         Amount: -10
+#     Targetable:
+#         TargetTypes: GroundActor, Structure, Defense
+#     Explodes:
+#         Weapon: SmallBuildingExplode
+#         EmptyWeapon: SmallBuildingExplode
 
 # War Factory
 # Factory
@@ -421,7 +415,7 @@ WARF:
         Bounds: 3072, 2048
     Buildable:
         Queue: Building
-        BuildPaletteOrder: 80
+        BuildPaletteOrder: 30
         Prerequisites: scv, barracks_
         Description: Produces vehicles.
     Valued:
@@ -578,11 +572,11 @@ STARPORT:
     Inherits: ^Building
     Inherits@shape: ^3x2Shape
     HitShape:
-        UseTargetableCellsOffsets: false
+        UseTargetableCellsOffsets: false 
         TargetableOffsets: 0,0,0, 420,0,0, 420,-1024,0, 420,1024,0, -777,0,0, -777,-1024,0, -777,1024,0
     Buildable:
         Queue: Building
-        BuildPaletteOrder: 130
+        BuildPaletteOrder: 40
         Prerequisites: scv, barracks_, factory
         Description: TBD
     Valued:

@@ -1,6 +1,9 @@
 ^Building:
     -Sellable:
 
+^Infantry:
+    -Crushable:
+
 # ^NonLandableHelicopter:
 #     Inherits: ^Helicopter
 #     Aircraft:

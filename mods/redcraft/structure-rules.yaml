@@ -531,7 +531,7 @@ BUNK:
         Name: Bunker
     Building:
     Buildable:
-        Queue: Defense
+        Queue: Building
         BuildDuration: 725
         BuildPaletteOrder: 40
         Prerequisites: scv, barracks_
@@ -817,6 +817,8 @@ TENT:
     Tooltip:
         Name: Barracks
 
+SILO:
+    -Buildable:
 # Pillbox
 PBOX:
     -Buildable:

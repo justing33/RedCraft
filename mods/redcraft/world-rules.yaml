@@ -17,7 +17,7 @@ World:
         Factions: allies, england, france, germany, soviet, russia, ukraine
         BaseActor: comc
         # TODO: Fix me
-        SupportActors: scv, mcv
+        SupportActors: scv, scv, scv, scv, scv, mcv
     ResourceLayer:
         RecalculateResourceDensity: true
         ResourceTypes:

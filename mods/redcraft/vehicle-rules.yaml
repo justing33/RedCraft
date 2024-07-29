@@ -19,11 +19,15 @@ SCV:
         DecorationBounds: 800, 1000, 0, -300
     Harvester:
         Capacity: 1
-        Resources: Ore,Gems
+        Resources: Gems #,Ore
+        BaleLoadDelay: 10
         BaleUnloadDelay: 0
-        BaleUnloadAmount: 1
+        BaleUnloadAmount: 99
+        SearchForDeliveryBuildingDelay: 0
         SearchFromProcRadius: 15
         SearchFromHarvesterRadius: 8
+        WaitDuration: 0
+        FullyLoadedSpeed: 100
         HarvestFacings: 8
         EmptyCondition: no-ore
     Health:

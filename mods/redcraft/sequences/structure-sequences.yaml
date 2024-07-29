@@ -152,36 +152,37 @@ warf:
     icon:
         Filename: weapicon.shp
 
-supplydepot:
-    idle:
-        Filename: silo2.shp
-        Offset: 0,-1
-    damaged-idle:
-        Filename: silo2.shp
-        Start: 9
-        Offset: 0,-1
-    stages:
-        Filename: silo2.shp
-        Length: 9
-        Offset: 0,-1
-    damaged-stages:
-        Filename: silo2.shp
-        Start: 9
-        Length: 9
-        Offset: 0,-1
-    make:
-        Filename: silomake.shp
-        Length: *
-        Offset: 0,-1
-    bib:
-        TilesetFilenames:
-            SNOW: mbSILO.sno
-            INTERIOR: mbSILO.int
-            TEMPERAT: mbSILO.tem
-            DESERT: mbSILO.des
-        Length: *
-    icon:
-        Filename: siloicon.shp
+# TODO:
+# supplydepot:
+#     idle:
+#         Filename: silo2.shp
+#         Offset: 0,-1
+#     damaged-idle:
+#         Filename: silo2.shp
+#         Start: 9
+#         Offset: 0,-1
+#     stages:
+#         Filename: silo2.shp
+#         Length: 9
+#         Offset: 0,-1
+#     damaged-stages:
+#         Filename: silo2.shp
+#         Start: 9
+#         Length: 9
+#         Offset: 0,-1
+#     make:
+#         Filename: silomake.shp
+#         Length: *
+#         Offset: 0,-1
+#     bib:
+#         TilesetFilenames:
+#             SNOW: mbSILO.sno
+#             INTERIOR: mbSILO.int
+#             TEMPERAT: mbSILO.tem
+#             DESERT: mbSILO.des
+#         Length: *
+#     icon:
+#         Filename: siloicon.shp
 
 # Factory (Lifted Off)
 warf-air:

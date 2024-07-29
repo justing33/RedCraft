@@ -1,36 +1,170 @@
-# Vikings
-# TODO: Fix so that vikings can shoot air units
-Maverick:
-    Inherits: ^AntiAirMissile
+VikingMissileAA:
     ReloadDelay: 50
     Range: 9c0
-    MinRange: 2c0
+    # MinRange: 2c0
     Report: missile7.aud
     Burst: 2
     BurstDelays: 7
-    ValidTargets: Air, AirborneActor
+    ValidTargets: AirborneActor
     Projectile: Missile
         Speed: 256
+        Arm: 2
+        Blockable: false
+        ContrailLength: 10
         Inaccuracy: 316
+        Image: DRAGON
+        Shadow: true
+        HorizontalRateOfTurn: 20
         CruiseAltitude: 2c0
         RangeLimit: 14c410
     Warhead@1Dam: SpreadDamage
-        Damage: 7000
+        Spread: 128
+        Damage: 10
+        ValidTargets: AirborneActor
         Versus:
-            None: 30
-            Wood: 90
-            Light: 90
-            Heavy: 115
+            None: 100
+            Wood: 100
+            Light: 100
+            Heavy: 100
             Concrete: 100
-        ValidTargets: Air, AirborneActor
+        DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+
+BansheeMissileAG:
+    ReloadDelay: 50
+    Range: 6c0
+    # MinRange: 0c512
+    Report: missile6.aud
+    ValidTargets: Ground, Water, GroundActor, WaterActor
+    Projectile: Missile
+        Speed: 213
+        Arm: 2
+        Blockable: false
+        ContrailLength: 10
+        # Inaccuracy: 128
+        Inaccuracy: 0c0
+        Image: DRAGON
+        Shadow: True
+        HorizontalRateOfTurn: 20
+        RangeLimit: 6c0
+        TrailImage: smokey
+    Warhead@1Dam: SpreadDamage
+        Spread: 128
+        Damage: 12
+        ValidTargets: GroundActor, WaterActor
+        Versus:
+            None: 100
+            Wood: 100
+            Light: 100
+            Heavy: 100
+            Concrete: 100
+        DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+    Warhead@2Smu: LeaveSmudge
+        SmudgeType: Crater
+        ValidTargets: Ground, Infantry
+    Warhead@3Eff: CreateEffect
+        Explosions: med_explosion
+        ImpactSounds: kaboom25.aud
+        ValidTargets: Ground, GroundActor
 
 # Marauders
-RedEye:
-    Inherits: ^AntiGroundMissile
-    ReloadDelay: 50
+MarauderPunisherGrenade:
+    ReloadDelay: 26
+    Range: 6c0
+    MinRange: 0c512
+    Report: missile6.aud
+    ValidTargets: Ground, Water, GroundActor, WaterActor
     Projectile: Missile
-        Inaccuracy: 0
-        HorizontalRateOfTurn: 80
         Speed: 298
+        Arm: 2
+        Blockable: false
+        ContrailLength: 10
+        Inaccuracy: 0
+        Image: DRAGON
+        Shadow: True
+        HorizontalRateOfTurn: 80
+        RangeLimit: 6c0
     Warhead@1Dam: SpreadDamage
-        Damage: 2400
+        Spread: 128
+        Damage: 10
+        ValidTargets: GroundActor, WaterActor
+        Versus:
+            None: 100
+            Wood: 100
+            Light: 100
+            Heavy: 100
+            Concrete: 100
+        DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+    Warhead@2Smu: LeaveSmudge
+        SmudgeType: Crater
+        ValidTargets: Ground, Infantry
+    Warhead@3Eff: CreateEffect
+        Explosions: med_explosion
+        ImpactSounds: kaboom25.aud
+        ValidTargets: Ground, Air, GroundActor, AirborneActor, WaterActor, Trees
+    Warhead@4EffWater: CreateEffect
+        Explosions: med_splash
+        ImpactSounds: splash9.aud
+        ValidTargets: Water, Underwater
+        InvalidTargets: Bridge
+
+CycloneMissileAG:
+    ReloadDelay: 50
+    Range: 6c0
+    # MinRange: 2c0
+    Report: missile7.aud
+    Burst: 2
+    BurstDelays: 7
+    ValidTargets: Ground, GroundActor, Building
+    Projectile: Missile
+        Speed: 256
+        Arm: 2
+        Blockable: false
+        ContrailLength: 10
+        Inaccuracy: 316
+        Image: DRAGON
+        Shadow: true
+        HorizontalRateOfTurn: 20
+        CruiseAltitude: 2c0
+        RangeLimit: 14c410
+    Warhead@1Dam: SpreadDamage
+        Spread: 128
+        Damage: 11
+        ValidTargets: GroundActor, Building
+        Versus:
+            None: 100
+            Wood: 100
+            Light: 100
+            Heavy: 100
+            Concrete: 100
+        DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+
+CycloneMissileAA:
+    ReloadDelay: 50
+    Range: 6c0
+    # MinRange: 2c0
+    Report: missile7.aud
+    Burst: 2
+    BurstDelays: 7
+    ValidTargets: AirborneActor
+    Projectile: Missile
+        Speed: 256
+        Arm: 2
+        Blockable: false
+        ContrailLength: 10
+        Inaccuracy: 316
+        Image: DRAGON
+        Shadow: true
+        HorizontalRateOfTurn: 20
+        CruiseAltitude: 2c0
+        RangeLimit: 14c410
+    Warhead@1Dam: SpreadDamage
+        Spread: 128
+        Damage: 11
+        ValidTargets: AirborneActor
+        Versus:
+            None: 100
+            Wood: 100
+            Light: 100
+            Heavy: 100
+            Concrete: 100
+        DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath

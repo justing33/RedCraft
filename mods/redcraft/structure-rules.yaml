@@ -10,11 +10,14 @@ COMC:
         LocalCenterOffset: 0,-512,0
     Buildable:
         Queue: Building
-        BuildPaletteOrder: 60
+        BuildDuration: 1775
+        BuildPaletteOrder: 10
         Prerequisites: scv
         Description: Refines Ore and Gems\ninto credits.
+    Valued:
+        Cost: 400
     Health:
-        HP: 150000
+        HP: 1500
     Tooltip:
         Name: Command Center
         RequiresCondition: !orbitalcommandupgraded
@@ -30,11 +33,11 @@ COMC:
     Armor:
         Type: Wood
     RevealsShroud:
-        MinRange: 4c0
-        Range: 5c0
+        # MinRange: 4c0
+        Range: 11c0
         RevealGeneratedShroud: False
     RevealsShroud@GAPGEN:
-        Range: 4c0
+        Range: 11c0
     # Want to flip flop between the two production capabilities upon condition
     # WE CAN FLIP FLOP IF THE OTHER SIDE I.E> INFANTRY DONT REQUIRE THE PREREQ!!!!!!!!!!!
     Production@SCV:
@@ -59,7 +62,7 @@ COMC:
     GrantExternalConditionToProduced:
         Condition: produced
     BaseBuilding:
-    #Required for units to be able to exit CY
+    # Required for units to be able to exit CY
     Exit@1:
         RequiresCondition: !being-captured
         SpawnOffset: 900,2000,0
@@ -137,6 +140,10 @@ COMC:
         Range: 16c0
     WithBuildingBib:
     RenderSprites:
+    # Note: Buildings don't list AirborneActor as targetable,
+    #       but the weapon can be configured to shoot buildings
+    Targetable:
+        TargetTypes: GroundActor, Structure, Defense
     Transforms:
         PauseOnCondition: being-demolished || build-incomplete
         IntoActor: comc-air
@@ -165,7 +172,7 @@ COMC-AIR:
     UpdatesPlayerStatistics:
         AddToArmyValue: true
     Health:
-        HP: 14000
+        HP: 1500
     RevealsShroud:
         MinRange: 6c0
         Range: 8c0
@@ -216,9 +223,12 @@ COMC-PLAN:
         -Prerequisites:
         # TODO: Temp name
         Queue: Ship
-        BuildDuration: 300
+        BuildDuration: 900
         #BuildDurationModifier: 1
         Description: TBD
+    Valued:
+        Cost: 150
+        # Oil: 150
     Interactable:
     AlwaysVisible:
     RenderSprites:
@@ -234,9 +244,11 @@ COMC-ORB:
         -Prerequisites:
         # TODO: Temp name
         Queue: Ship
-        BuildDuration: 250
+        BuildDuration: 625
         #BuildDurationModifier: 1
         Description: TBD
+    Valued:
+        Cost: 150
     Interactable:
     AlwaysVisible:
     RenderSprites:
@@ -245,9 +257,11 @@ COMC-ORB:
     KillsSelf:
         RemoveInstead: true
 
+# TODO: Implement this as oil ref
 # Ore Refinery
 # Oil Refinery
 PROC:
+    -Buildable:
     Tooltip:
         Name: Oil Refinery
     -FreeActor:
@@ -264,11 +278,12 @@ BARRACKS_:
         TargetableOffsets: 0,0,0, 490,-470,0, 355,512,0, -355,-512,0, -630,512,0
     Buildable:
         Queue: Building
-        BuildPaletteOrder: 30
+        BuildDuration: 1150
+        BuildPaletteOrder: 20
         Prerequisites: scv
         Description: Trains infantry.
     Valued:
-        Cost: 500
+        Cost: 150
     Tooltip:
         Name: Barracks
     Building:
@@ -276,12 +291,12 @@ BARRACKS_:
         Dimensions: 2,3
         LocalCenterOffset: 0,-512,0
     Health:
-        HP: 60000
+        HP: 1000
     Armor:
         Type: Wood
     RevealsShroud:
-        MinRange: 4c0
-        Range: 5c0
+        # MinRange: 4c0
+        Range: 9c0
         RevealGeneratedShroud: False
     RevealsShroud@GAPGEN:
         Range: 4c0
@@ -311,9 +326,9 @@ BARRACKS_:
     ProvidesPrerequisite:
         Prerequisite: barracks_
     Power:
-        Amount: -20
+        Amount: -0
     Targetable:
-        TargetTypes: GroundActor, AirborneActor, Structure
+        TargetTypes: GroundActor, Structure, Defense
     Transforms:
         PauseOnCondition: being-demolished || build-incomplete
         IntoActor: barracks-air
@@ -329,20 +344,20 @@ BARRACKS-AIR:
     HitShape:
         UseTargetableCellsOffsets: false
         TargetableOffsets: 0,0,0, 490,-470,0, 355,512,0, -355,-512,0, -630,512,0
-    Valued:
-        Cost: 500
+    #Valued:
+    #    Cost: 500
     Tooltip:
         Name: Barracks (Lifted Off)
     Health:
-        HP: 60000
+        HP: 1000
     Armor:
         Type: Wood
     RevealsShroud:
-        MinRange: 4c0
-        Range: 5c0
+        # MinRange: 4c0
+        Range: 9c0
         RevealGeneratedShroud: False
     RevealsShroud@GAPGEN:
-        Range: 4c0
+        Range: 9c0
     Aircraft:
         TurnSpeed: 20
         Speed: 128
@@ -350,7 +365,7 @@ BARRACKS-AIR:
     ProvidesPrerequisite:
         Prerequisite: barracks
     Power:
-        Amount: -20
+        Amount: -0
     ProvidesPrerequisite@buildingname:
     Targetable:
         TargetTypes: GroundActor, AirborneActor, Structure, Defense
@@ -365,48 +380,40 @@ BARRACKS-AIR:
 # Silo
 # Supply Depot
 # TODO: Implement this, but this also means that we are adding a new constraint/feature to the engine
-SUPPLYDEPOT:
-    Inherits: ^Building
-    Selectable:
-        Bounds: 1024, 1024
-    Buildable:
-        Queue: Building
-        BuildPaletteOrder: 35
-        Prerequisites: scv
-        Description: TBD
-    Valued:
-        Cost: 150
-    Targetable:
-        TargetTypes: GroundActor, Structure, AirborneActor
-    Tooltip:
-        Name: Supply Depot
-    -GivesBuildableArea:
-    -MustBeDestroyed:
-    Health:
-        HP: 30000
-    Armor:
-        Type: Wood
-    RevealsShroud:
-        Range: 4c0
-    WithBuildingBib:
-        HasMinibib: true
-    -WithSpriteBody:
-    WithResourceLevelSpriteBody:
-        Sequence: stages
-    # StoresResources:
-    #     Capacity: 3000
-    -SpawnActorsOnSell:
-    Power:
-        Amount: -10
-    Explodes:
-        Weapon: SmallBuildingExplode
-        EmptyWeapon: SmallBuildingExplode
-    # WithResourceStoragePipsDecoration:
-    #     Position: BottomLeft
-    #     Margin: 4, 3
-    #     RequiresSelection: true
-    #     PipCount: 5
-    #     FullSequence: pip-yellow
+# SUPPLYDEPOT:
+#     Inherits: ^Building
+#     Selectable:
+#         Bounds: 1024, 1024
+#     Buildable:
+#         Queue: Building
+#         BuildPaletteOrder: 35
+#         Prerequisites: scv
+#         Description: TBD
+#     Valued:
+#         Cost: 150
+#     Tooltip:
+#         Name: Supply Depot
+#     -GivesBuildableArea:
+#     -MustBeDestroyed:
+#     Health:
+#         HP: 30000
+#     Armor:
+#         Type: Wood
+#     RevealsShroud:
+#         Range: 4c0
+#     WithBuildingBib:
+#         HasMinibib: true
+#     -WithSpriteBody:
+#     WithResourceLevelSpriteBody:
+#         Sequence: stages
+#     -SpawnActorsOnSell:
+#     Power:
+#         Amount: -0
+#     Targetable:
+#         TargetTypes: GroundActor, Structure, Defense
+#     Explodes:
+#         Weapon: SmallBuildingExplode
+#         EmptyWeapon: SmallBuildingExplode
 
 # War Factory
 # Factory
@@ -417,11 +424,13 @@ WARF:
         Bounds: 3072, 2048
     Buildable:
         Queue: Building
-        BuildPaletteOrder: 80
+        BuildDuration: 1075
+        BuildPaletteOrder: 30
         Prerequisites: scv, barracks_
         Description: Produces vehicles.
     Valued:
-        Cost: 2000
+        Cost: 150
+        # Oil: 100
     Tooltip:
         Name: Factory
     Building:
@@ -429,15 +438,15 @@ WARF:
         Dimensions: 3,3
         LocalCenterOffset: 0,-512,0
     Health:
-        HP: 150000
+        HP: 1250
     Armor:
         Type: Wood
     RevealsShroud:
-        MinRange: 4c0
-        Range: 5c0
+        # MinRange: 4c0
+        Range: 9c0
         RevealGeneratedShroud: False
     RevealsShroud@GAPGEN:
-        Range: 4c0
+        Range: 9c0
     WithBuildingBib:
     WithProductionDoorOverlay:
         RequiresCondition: !build-incomplete
@@ -459,9 +468,9 @@ WARF:
     ProvidesPrerequisite:
         Prerequisite: factory
     Power:
-        Amount: -30
+        Amount: -0
     Targetable:
-        TargetTypes: GroundActor, AirborneActor, Structure, Defense
+        TargetTypes: GroundActor, Structure, Defense
     Transforms:
         PauseOnCondition: being-demolished || build-incomplete
         IntoActor: warf-air
@@ -480,15 +489,15 @@ WARF-AIR:
     Tooltip:
         Name: Factory
     Health:
-        HP: 150000
+        HP: 1250
     Armor:
         Type: Wood
     RevealsShroud:
-        MinRange: 4c0
-        Range: 5c0
+        # MinRange: 4c0
+        Range: 9c0
         RevealGeneratedShroud: False
     RevealsShroud@GAPGEN:
-        Range: 4c0
+        Range: 9c0
     Aircraft:
         TurnSpeed: 20
         Speed: 128
@@ -497,7 +506,7 @@ WARF-AIR:
     WithIdleOverlay@PRODUCTIONDOORTOP:
         Sequence: build-top
     Power:
-        Amount: -30
+        Amount: -0
     ProvidesPrerequisite@buildingname:
     Targetable:
         TargetTypes: GroundActor, AirborneActor, Structure, Defense
@@ -523,23 +532,25 @@ BUNK:
     Building:
     Buildable:
         Queue: Defense
+        BuildDuration: 725
         BuildPaletteOrder: 40
         Prerequisites: scv, barracks_
         Description: Static defense with a fireport for\na garrisoned soldier.\nCan detect cloaked units.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
     Valued:
-        Cost: 600
-    CustomSellValue:
-        Value: 400
+        Cost: 100
+    # TODO: Implement sellable bunker
+    #CustomSellValue:
+    #    Value: 50
     Health:
-        HP: 40000
+        HP: 400
     Armor:
         Type: Heavy
     RevealsShroud:
-        MinRange: 5c0
-        Range: 6c0
+        # MinRange: 5c0
+        Range: 10c0
         RevealGeneratedShroud: False
     RevealsShroud@GAPGEN:
-        Range: 5c0
+        Range: 10c0
     WithBuildingBib:
         HasMinibib: true
     Turreted:
@@ -564,7 +575,9 @@ BUNK:
     RenderRangeCircle:
         FallbackRange: 6c0
     Power:
-        Amount: -20
+        Amount: -0
+    Targetable:
+        TargetTypes: GroundActor, Structure, Defense
 
 # Soviet Airfield
 # Starport
@@ -576,11 +589,13 @@ STARPORT:
         TargetableOffsets: 0,0,0, 420,0,0, 420,-1024,0, 420,1024,0, -777,0,0, -777,-1024,0, -777,1024,0
     Buildable:
         Queue: Building
-        BuildPaletteOrder: 130
+        BuildDuration: 900
+        BuildPaletteOrder: 40
         Prerequisites: scv, barracks_, factory
         Description: TBD
     Valued:
-        Cost: 500
+        Cost: 150
+        # Oil: 100
     Tooltip:
         Name: Starport
     Selectable:
@@ -590,15 +605,15 @@ STARPORT:
         Footprint: xxx xxx
         Dimensions: 3,2
     Health:
-        HP: 100000
+        HP: 1300
     Armor:
         Type: Wood
     RevealsShroud:
-        MinRange: 4c0
-        Range: 5c0
+        # MinRange: 4c0
+        Range: 9c0
         RevealGeneratedShroud: False
     RevealsShroud@GAPGEN:
-        Range: 4c0
+        Range: 9c0
     Exit@1:
         RequiresCondition: !being-captured
         ExitCell: 1,1
@@ -615,11 +630,11 @@ STARPORT:
         ProductionType: Aircraft
     SupportPowerChargeBar:
     Power:
-        Amount: -20
+        Amount: -0
     ProvidesPrerequisite:
         Prerequisite: starport
     Targetable:
-        TargetTypes: GroundActor, AirborneActor, Structure, Defense
+        TargetTypes: GroundActor, Structure, Defense
     Transforms:
         PauseOnCondition: being-demolished || build-incomplete
         IntoActor: starport-air
@@ -634,30 +649,30 @@ STARPORT-AIR:
     HitShape:
         UseTargetableCellsOffsets: false
         TargetableOffsets: 0,0,0, 420,0,0, 420,-1024,0, 420,1024,0, -777,0,0, -777,-1024,0, -777,1024,0
-    Valued:
-        Cost: 500
+    #Valued:
+    #    Cost: 150
     Tooltip:
         Name: Starport
     Selectable:
         Class: afld
         Bounds: 3072, 2048
     Health:
-        HP: 100000
+        HP: 1300
     Armor:
         Type: Wood
     RevealsShroud:
-        MinRange: 4c0
-        Range: 5c0
+        # MinRange: 4c0
+        Range: 9c0
         RevealGeneratedShroud: False
     RevealsShroud@GAPGEN:
-        Range: 4c0
+        Range: 9c0
     Aircraft:
         TurnSpeed: 20
         Speed: 128
         AltitudeVelocity: 0c58
     SupportPowerChargeBar:
     Power:
-        Amount: -20
+        Amount: -0
     ProvidesPrerequisite@buildingname:
         Prerequisite: afld
     Targetable:
@@ -672,21 +687,80 @@ STARPORT-AIR:
 
 #Sam Site
 # Missile Turret
-SAM:
+MISSILETURRET:
+    Inherits: ^Defense
+    # Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
+    Inherits@AUTOTARGET: ^AutoTargetAir
+    Inherits@shape: ^2x1Shape
+    Selectable:
+        Bounds: 2048, 1024
+    HitShape:
+        Type: Rectangle
+            TopLeft: -768,-512
+            BottomRight: 768,512
+    Buildable:
+        Queue: Defense
+        BuildDuration: 450
+        BuildPaletteOrder: 100
+        Prerequisites: dome, ~structures.soviet, ~techlevel.medium
+        Description: Anti-Air base defense.\nRequires power to operate.\n  Strong vs Aircraft\n  Weak vs Ground units
+    Valued:
+        Cost: 100
     Tooltip:
         Name: Missile Turret
+    Building:
+        Footprint: xx
+        Dimensions: 2,1
+    Health:
+        HP: 250
+    Armor:
+        Type: Heavy
+    RevealsShroud:
+        # MinRange: 5c0
+        Range: 11c0
+        RevealGeneratedShroud: False
+    RevealsShroud@GAPGEN:
+        Range: 11c0
+    DetectCloaked:
+        DetectionTypes: Cloak, Mine
+        Range: 11c0
+    WithBuildingBib:
+        HasMinibib: true
+    Turreted:
+        TurnSpeed: 120
+        InitialFacing: 0
+        RealignDelay: -1
+        RequiresCondition: !build-incomplete
+    WithSpriteTurret:
+        RequiresCondition: !build-incomplete
+        Recoils: false
+    Armament:
+        Weapon: Nike
+        LocalOffset: 0,0,320
+        MuzzleSequence: muzzle
+    AttackTurreted:
+        PauseOnCondition: disabled || build-incomplete
+    WithMuzzleOverlay:
+    RenderRangeCircle:
+        RangeCircleType: aa
+    Power:
+        Amount: -0
+    -BodyOrientation:
+    ClassicFacingBodyOrientation:
 
+# TODO:
 # Allied Tech Center
 # Ghost Academy
-ATEK:
-    Tooltip:
-        Name: Ghost Academy
+#ATEK:
+#    Tooltip:
+#        Name: Ghost Academy
 
+# TODO:
 # Soviet Tech Center
 # Engineering Bay
-STEK:
-    Tooltip:
-        Name: Engineering Bay
+#STEK:
+#    Tooltip:
+#        Name: Engineering Bay
 
 # Gap Generator
 GAP:

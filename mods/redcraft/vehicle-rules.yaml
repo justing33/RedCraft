@@ -1,16 +1,18 @@
 # Custom SCV Unit (based off HARV)
 SCV:
-    # TODO: Add harv trait
     Inherits: ^Vehicle
+    Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
     Inherits: ^SelectableEconomicUnit
     Buildable:
         Queue: Defense
         BuildPaletteOrder: 110
-        BuildDuration: 100
+        BuildDuration: 300
         Prerequisites: command-center
         Description: TBD
     Valued:
-        Cost: 1100
+        Cost: 50
+        # Supply: 1
+        # Oil: 0
     Tooltip:
         Name: SCV
     Selectable:
@@ -25,15 +27,21 @@ SCV:
         HarvestFacings: 8
         EmptyCondition: no-ore
     Health:
-        HP: 150000
+        HP: 45
     Armor:
         Type: Heavy
     Mobile:
-        Speed: 150
+        Speed: 98
     RevealsShroud:
-        Range: 4c0
+        Range: 8c0
     GpsDot:
         String: Harvester
+    Armament:
+        Weapon: SCVFusionCutter
+        LocalOffset: 427,0,341
+    AttackFrontal:
+        FacingTolerance: 0
+    AttackMove:
     # PRODUCTION #
     Production@BUILDINGS:
         Produces: Building, Defense
@@ -45,11 +53,11 @@ SCV:
         Condition: produced
     ProvidesPrerequisite@SCV:
         Prerequisite: scv
-    SpawnActorOnDeath:
-        Actor: HARV.EmptyHusk
-    Explodes:
-        RequiresCondition: !no-ore
-        Weapon: OreExplosion
+    #SpawnActorOnDeath:
+    #    Actor: HARV.EmptyHusk
+    #Explodes:
+    #    RequiresCondition: !no-ore
+    #    Weapon: OreExplosion
     WithHarvesterPipsDecoration:
         Position: BottomLeft
         Margin: 4, 3
@@ -58,11 +66,14 @@ SCV:
         ResourceSequences:
             Ore: pip-yellow
             Gems: pip-red
-    # Allow to be loaded into lifted off Command Center
+    # TODO: Allow to be loaded into lifted off Command Center
     Passenger:
         CargoType: Vehicle
         CargoCondition: disable-experience
         Weight: 1
+    # TODO: Fix so SCV can attack structures
+    Targetable:
+        TargetTypes: GroundActor, Vehicle, Defense, Structure
 
 # Light Tank
 # Hellion
@@ -72,26 +83,30 @@ HELLION:
     Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
     Buildable:
         Queue: Vehicle
+        BuildDuration: 525
         BuildPaletteOrder: 130
         Prerequisites: factory
         Description: TBD
     Valued:
-        Cost: 500
+        Cost: 100
+        # Supply: 2
+        # Oil: 0
     Tooltip:
         Name: Hellion
     UpdatesPlayerStatistics:
         AddToArmyValue: true
     Health:
-        HP: 15000
+        HP: 90
     Armor:
         Type: Light
+        # Armor: Light, Mechanical
     Mobile:
         TurnSpeed: 40
-        Speed: 164
+        Speed: 148
         PauseOnCondition: notmobile || being-captured
     RevealsShroud:
-        MinRange: 4c0
-        Range: 7c0
+        # MinRange: 4c0
+        Range: 10c0
         RevealGeneratedShroud: False
     RevealsShroud@GAPGEN:
         Range: 4c0
@@ -99,7 +114,7 @@ HELLION:
         TurnSpeed: 40
         Offset: 0,0,128
     Armament:
-        Weapon: Flamer
+        Weapon: HellionFlamethrower
         LocalOffset: 192,0,176
         FireDelay: 2
     Selectable:
@@ -130,27 +145,28 @@ HELLBAT:
     Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
     # -Buildable:
     Valued:
-        Cost: 850
+        Cost: 100
+        # Supply: 2
     Tooltip:
         Name: Hellbat
     UpdatesPlayerStatistics:
         AddToArmyValue: true
     Health:
-        HP: 10000
+        HP: 135
     Armor:
         Type: Light
     Mobile:
         TurnSpeed: 8
-        Speed: 72
+        Speed: 78
         Locomotor: lighttracked
     RevealsShroud:
-        MinRange: 4c0
-        Range: 5c0
+        # MinRange: 4c0
+        Range: 10c0
         RevealGeneratedShroud: False
     RevealsShroud@GAPGEN:
         Range: 4c0
     Armament:
-        Weapon: Flamer
+        Weapon: HellbatFlamethrower
         LocalOffset: 192,0,176
         FireDelay: 2
     AttackFrontal:
@@ -182,32 +198,35 @@ SIEGETANK:
     Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
     Buildable:
         Queue: Vehicle
+        BuildDuration: 800
         BuildPaletteOrder: 220
         Prerequisites: factory
         Description: TBD
     Valued:
-        Cost: 1150
+        Cost: 150
+        # Supply: 3
+        # Oil: 125
     Tooltip:
         Name: Siege Tank
         GenericName: Siege Tank
     UpdatesPlayerStatistics:
         AddToArmyValue: true
     Health:
-        HP: 60000
+        HP: 175
     Armor:
         Type: Heavy
     Mobile:
-        Speed: 60
+        Speed: 78
     RevealsShroud:
-        MinRange: 4c0
-        Range: 6c0
+        # MinRange: 4c0
+        Range: 11c0
         RevealGeneratedShroud: False
     RevealsShroud@GAPGEN:
         Range: 4c0
     Turreted:
         TurnSpeed: 20
     Armament:
-        Weapon: 105mm
+        Weapon: SiegeTank90mmCannon
         Recoil: 128
         RecoilRecovery: 38
         LocalOffset: 768,85,90, 768,-85,90
@@ -221,8 +240,8 @@ SIEGETANK:
         -Facing:
     Passenger:
         Weight: 4
-    SpawnActorOnDeath:
-        Actor: 3TNK.Husk
+    #SpawnActorOnDeath:
+    #    Actor: 3TNK.Husk
     ProducibleWithLevel:
         Prerequisites: vehicles.upgraded
     Selectable:
@@ -241,17 +260,25 @@ SIEGETANK-SM:
     Selectable:
         DecorationBounds: 1877, 1621, 0, -170
     # -Buildable:
+    # Valued: Supply: 3
     Tooltip:
         Name: Siege Tank (Sieged)
         GenericName: Siege Tank (Sieged)
     UpdatesPlayerStatistics:
         AddToArmyValue: true
+    # Valued: # Supply: 3
     Health:
-        HP: 60000
+        HP: 175
     Armor:
         Type: Heavy
     Immobile:
         OccupiesSpace: true
+    RevealsShroud:
+        # MinRange: 4c0
+        Range: 11c0
+        RevealGeneratedShroud: False
+    RevealsShroud@GAPGEN:
+        Range: 4c0
     -AttackMove:
     AttackTurreted:
     WithMuzzleOverlay:
@@ -259,7 +286,7 @@ SIEGETANK-SM:
     Turreted:
         TurnSpeed: 100
     Armament@PRIMARY:
-        Weapon: 120mm
+        Weapon: SiegeTankCrucioShockCannon
         LocalOffset: 900,180,340, 900,-180,340
         Recoil: 171
         RecoilRecovery: 30
@@ -278,23 +305,26 @@ WIDOWMINE:
     # Inherits@selection: ^SelectableSupportUnit
     Buildable:
         Queue: Vehicle
+        BuildDuration: 525
         BuildPaletteOrder: 310
         Prerequisites: factory
         Description: TBD
     Valued:
-        Cost: 800
+        Cost: 75
+        # Supply: 2
+        # Oil: 25
     Tooltip:
         Name: Widow Mine
     UpdatesPlayerStatistics:
         AddToArmyValue: true
     Health:
-        HP: 30000
+        HP: 90
     Armor:
         Type: Heavy
     Mobile:
-        Speed: 113
+        Speed: 98
     Armament:
-        Weapon: 155mm
+        Weapon: WidowMineSentinelMissile
         LocalOffset: 624,-200,0
         MuzzleSequence: muzzle
     AttackFrontal:
@@ -314,8 +344,8 @@ WIDOWMINE:
     #     Condition: cloak-force-disabled
     #     ValidDamageStates: Critical
     RevealsShroud:
-        MinRange: 4c0
-        Range: 5c0
+        # MinRange: 4c0
+        Range: 7c0
         RevealGeneratedShroud: False
     RevealsShroud@GAPGEN:
         Range: 4c0
@@ -333,38 +363,38 @@ VIKING-AM:
     Inherits@GAINSEXPERIENCE: ^GainsExperience
     Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
     # -Buildable:
-    Valued:
-        Cost: 1350
+    # Valued:
+    # Cost: 150
+    # Supply: 2 <----
     Tooltip:
         Name: Viking (Landed)
         GenericName: Viking (Landed)
     UpdatesPlayerStatistics:
         AddToArmyValue: true
     Health:
-        HP: 40000
+        HP: 135
     Armor:
         Type: Light
+        # Armor: Armored, Mechanical
     Mobile:
-        Speed: 86
+        Speed: 78
         Locomotor: heavywheeled
     RevealsShroud:
-        MinRange: 4c0
-        Range: 6c0
+        # MinRange: 4c0
+        Range: 10c0
         RevealGeneratedShroud: False
     RevealsShroud@GAPGEN:
         Range: 4c0
+        #TODO: Need to balance based on viking stats
     Armament@PRIMARY:
-        Weapon: APTusk
-        LocalOffset: -160,-276,232
-        LocalYaw: 60
-    Armament@SECONDARY:
-        Weapon: APTusk
-        LocalOffset: -160,276,232
-        LocalYaw: -60
+        Weapon: VIKING-AM-GATLING
+        MuzzleSequence: muzzle
+        LocalOffset: 128,0,43
+    WithMuzzleOverlay:
     AttackFrontal:
         FacingTolerance: 0
-    PortableChrono:
-        ChargeDelay: 250
+    # PortableChrono:
+    #     ChargeDelay: 250
     ProducibleWithLevel:
         Prerequisites: vehicles.upgraded
     Selectable:
@@ -375,7 +405,7 @@ VIKING-AM:
     Transforms:
         IntoActor: viking
     Passenger:
-        Weight: 4
+        Weight: 2
 
 # Mobile Flak
 # Cyclone
@@ -385,25 +415,29 @@ CYCLONE:
     Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
     Buildable:
         Queue: Vehicle
+        BuildDuration: 800
         BuildPaletteOrder: 130
         Prerequisites: factory
         Description: TBD
     Valued:
-        Cost: 600
+        Cost: 125
+        # Oil: 50
+        # Supply: 2
     Tooltip:
         Name: Cyclone
     UpdatesPlayerStatistics:
         AddToArmyValue: true
     Health:
-        HP: 15000
+        HP: 130
     Armor:
         Type: Light
+        # Armor: Armored, Mechanical
     Mobile:
         TurnSpeed: 40
-        Speed: 113
+        Speed: 98
     RevealsShroud:
-        MinRange: 4c0
-        Range: 6c0
+        # MinRange: 4c0
+        Range: 11c0
         RevealGeneratedShroud: False
     RevealsShroud@GAPGEN:
         Range: 4c0
@@ -411,12 +445,12 @@ CYCLONE:
         TurnSpeed: 40
         Offset: -298,0,298
     Armament@AA:
-        Weapon: FLAK-23-AA
+        Weapon: CycloneMissileAA
         Recoil: 85
         LocalOffset: 512,0,192
         MuzzleSequence: muzzle
     Armament@AG:
-        Weapon: FLAK-23-AG
+        Weapon: CycloneMissileAG
         Recoil: 85
         LocalOffset: 512,0,192
         MuzzleSequence: muzzle
@@ -431,7 +465,7 @@ CYCLONE:
         Types: Veterancy
         Prerequisites: vehicles.upgraded
     Passenger:
-        Weight: 2
+        Weight: 4
 
 #######################
 # NON BUILDABLE UNITS #

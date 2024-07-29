@@ -105,40 +105,52 @@ REAPER:
     Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
     Buildable:
         Queue: Infantry
+        BuildDuration: 800
         BuildAtProductionType: Soldier
         BuildPaletteOrder: 40
         Prerequisites: barracks_
         Description: TBD
     Valued:
-        Cost: 160
+        Cost: 50
+        # Oil: 50
+        # Supply: 1
     Tooltip:
         Name: Reaper
     UpdatesPlayerStatistics:
         AddToArmyValue: true
     Health:
-        HP: 5000
+        HP: 60
     Mobile:
-        Speed: 68
+        Speed: 131
+        AlwaysTurnInPlace: true
+        Locomotor: foot
+    RevealsShroud:
+        Range: 9c0
+    # TODO: Add grenade AOE attack
     Armament@PRIMARY:
-        Weapon: Grenade
+        Weapon: ReaperP45GaussPistol
         LocalOffset: 0,0,555
-        FireDelay: 15
+        FireDelay: 5
     Armament@GARRISONED:
         Name: garrisoned
-        Weapon: Grenade
-        FireDelay: 15
+        Weapon: ReaperP45GaussPistol
+        FireDelay: 5
     WithInfantryBody:
         DefaultAttackSequence: throw
         RequiresCondition: !parachute
-    Explodes:
-        Weapon: UnitExplodeSmall
-        EmptyWeapon: UnitExplodeSmall
-        DamageSource: Killer
+    #Explodes:
+    #    Weapon: UnitExplodeSmall
+    #    EmptyWeapon: UnitExplodeSmall
+    #    DamageSource: Killer
     ProducibleWithLevel:
         Prerequisites: barracks.upgraded
     WithProductionIconOverlay:
         Types: Veterancy
         Prerequisites: barracks.upgraded
+    Passenger:
+        CargoType: Infantry
+        CargoCondition: disable-experience
+        Weight: 1
 
 # Flamethrower
 # Firebat
@@ -147,25 +159,34 @@ FIREBAT:
     Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
     Buildable:
         Queue: Infantry
+        BuildDuration: 378
         BuildAtProductionType: Soldier
         BuildPaletteOrder: 70
         Prerequisites: barracks_
         Description: TBD
     Valued:
-        Cost: 300
+        Cost: 50
+        # Oil: 25
+        # Supply: 1
     Tooltip:
         Name: Firebat
     UpdatesPlayerStatistics:
         AddToArmyValue: true
     Health:
-        HP: 4000
+        HP: 50
+    Mobile:
+        Speed: 131
+        AlwaysTurnInPlace: true
+        Locomotor: foot
+    RevealsShroud:
+        Range: 7c0
     Armament@PRIMARY:
-        Weapon: Flamer
+        Weapon: FirebatFlamer
         LocalOffset: 700,0,500
         FireDelay: 8
     Armament@GARRISONED:
         Name: garrisoned
-        Weapon: Flamer
+        Weapon: FirebatFlamer
     Explodes:
         Weapon: VisualExplode
         EmptyWeapon: VisualExplode
@@ -178,32 +199,41 @@ FIREBAT:
     WithProductionIconOverlay:
         Types: Veterancy
         Prerequisites: barracks.upgraded
+    Passenger:
+        CargoType: Infantry
+        CargoCondition: disable-experience
+        Weight: 1
 
 # Medic
 MEDIC_:
     Inherits: ^Soldier
     Buildable:
         Queue: Infantry
+        BuildDuration: 472
         BuildAtProductionType: Soldier
         BuildPaletteOrder: 40
         Prerequisites: barracks_
         Description: Heals nearby infantry.\n  Unarmed
     Valued:
-        Cost: 200
+        Cost: 50
+        # Supply: 1
+        # Oil: 25
     Tooltip:
         Name: Medic
     UpdatesPlayerStatistics:
         AddToArmyValue: true
     Health:
-        HP: 6000
+        HP: 60
     Mobile:
         Speed: 49
+        AlwaysTurnInPlace: true
+        Locomotor: foot
     RevealsShroud:
-        Range: 3c0
+        Range: 9c0
     Passenger:
         CustomPipType: blue
     Armament:
-        Weapon: MedivacHeal
+        Weapon: MedicHeal
         Cursor: heal
         OutsideRangeCursor: heal
         TargetRelationships: Ally
@@ -218,6 +248,10 @@ MEDIC_:
     AutoTarget:
     AutoTargetPriority@DEFAULT:
         ValidTargets: Infantry
+    Passenger:
+        CargoType: Infantry
+        CargoCondition: disable-experience
+        Weight: 1
 
 # Tanya
 # Ghost
@@ -226,26 +260,29 @@ GHOST:
     Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
     Buildable:
         Queue: Infantry
+        BuildDuration: 725
         BuildAtProductionType: Soldier
         BuildPaletteOrder: 120
         Prerequisites: barracks_, ghostacademy
         BuildLimit: 1
         Description: Elite commando infantry. Armed with\ndual pistols and C4.\nMaximum 1 can be trained.\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft\n  Special Ability: Destroy Building with C4
     Valued:
-        Cost: 1500
+        Cost: 150
+        # Supply: 2
+        # Oil: 125
     Tooltip:
         Name: Ghost
     UpdatesPlayerStatistics:
         AddToArmyValue: true
     Health:
-        HP: 10000
+        HP: 100
     Mobile:
-        Speed: 68
+        Speed: 98
         Voice: Move
     Guard:
         Voice: Move
     RevealsShroud:
-        Range: 6c0
+        Range: 11c0
     Demolition:
         DetonationDelay: 45
         Voice: Demolish
@@ -253,14 +290,11 @@ GHOST:
         CustomPipType: red
         Voice: Move
     Armament@PRIMARY:
-        Weapon: Colt45
-        LocalOffset: 0,0,0, 0,0,0
-    Armament@SECONDARY:
-        Weapon: Colt45
+        Weapon: GhostC10CanisterRifle
         LocalOffset: 0,0,0, 0,0,0
     Armament@GARRISONED:
         Name: garrisoned
-        Weapon: Colt45
+        Weapon: GhostC10CanisterRifle
         MuzzleSequence: garrison-muzzle
     WithInfantryBody:
         AttackSequences:
@@ -280,6 +314,10 @@ GHOST:
     WithProductionIconOverlay:
         Types: Veterancy
         Prerequisites: barracks.upgraded
+    Passenger:
+        CargoType: Infantry
+        CargoCondition: disable-experience
+        Weight: 2
 
 ##########################
 # NON BUILDABLE INFANTRY #

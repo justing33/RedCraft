@@ -49,3 +49,43 @@ VIKING-AM-GATLING:
 		Explosions: water_piffs
 		ValidTargets: Water, Underwater
 		InvalidTargets: Bridge
+
+ReaperP45GaussPistol:
+    ReloadDelay: 19
+    Range: 5c0
+    Report: gun5.aud
+    ValidTargets: Ground, Infantry, Barrel
+    Projectile: InstantHit
+        Blockable: true
+    Warhead@1Dam: SpreadDamage
+        Spread: 42
+        Damage: 4
+        ValidTargets: Barrel, Infantry
+        DamageTypes: Prone50Percent, TriggerProne, DefaultDeath
+    Warhead@2Eff: CreateEffect
+        Explosions: piff
+        ValidTargets: Ground, GroundActor, Air, AirborneActor, WaterActor, Trees
+    Warhead@3EffWater: CreateEffect
+        Explosions: water_piff
+        ValidTargets: Water, Underwater
+        InvalidTargets: Ship, Structure, Bridge
+
+GhostC10CanisterRifle:
+    ReloadDelay: 26
+    Range: 6c0
+    Report: gun5.aud
+    ValidTargets: Ground, Infantry, Barrel
+    Projectile: InstantHit
+        Blockable: true
+    Warhead@1Dam: SpreadDamage
+        Spread: 42
+        Damage: 10
+        ValidTargets: Barrel, Infantry
+        DamageTypes: Prone50Percent, TriggerProne, DefaultDeath
+    Warhead@2Eff: CreateEffect
+        Explosions: piff
+        ValidTargets: Ground, GroundActor, Air, AirborneActor, WaterActor, Trees
+    Warhead@3EffWater: CreateEffect
+        Explosions: water_piff
+        ValidTargets: Water, Underwater
+        InvalidTargets: Ship, Structure, Bridge

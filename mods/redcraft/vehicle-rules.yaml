@@ -53,11 +53,11 @@ SCV:
         Condition: produced
     ProvidesPrerequisite@SCV:
         Prerequisite: scv
-    SpawnActorOnDeath:
-        Actor: HARV.EmptyHusk
-    Explodes:
-        RequiresCondition: !no-ore
-        Weapon: OreExplosion
+    #SpawnActorOnDeath:
+    #    Actor: HARV.EmptyHusk
+    #Explodes:
+    #    RequiresCondition: !no-ore
+    #    Weapon: OreExplosion
     WithHarvesterPipsDecoration:
         Position: BottomLeft
         Margin: 4, 3
@@ -240,8 +240,8 @@ SIEGETANK:
         -Facing:
     Passenger:
         Weight: 4
-    SpawnActorOnDeath:
-        Actor: 3TNK.Husk
+    #SpawnActorOnDeath:
+    #    Actor: 3TNK.Husk
     ProducibleWithLevel:
         Prerequisites: vehicles.upgraded
     Selectable:
@@ -266,6 +266,7 @@ SIEGETANK-SM:
         GenericName: Siege Tank (Sieged)
     UpdatesPlayerStatistics:
         AddToArmyValue: true
+    # Valued: # Supply: 3
     Health:
         HP: 175
     Armor:

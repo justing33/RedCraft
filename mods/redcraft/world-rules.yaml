@@ -1,3 +1,14 @@
+^BaseWorld:
+    ResourceRenderer:
+        ResourceTypes:
+            Ore:
+                Sequences: #gold01, gold02, gold03, gold04
+                Palette: #player
+                Name: #Valuable Minerals
+            Gems:
+                Sequences: gem01, gem02, gem03, gem04
+                Palette: player
+                Name: Valuable Minerals
 World:
     # Start with command center (deployed mcv) and 5 scv
     StartingUnits@mcvonly:
@@ -7,3 +18,16 @@ World:
         BaseActor: comc
         # TODO: Fix me
         SupportActors: scv, mcv
+    ResourceLayer:
+        RecalculateResourceDensity: true
+        ResourceTypes:
+            Ore:
+                #ResourceIndex: 1
+                #TerrainType: Ore
+                #AllowedTerrainTypes: Clear, Road
+                #MaxDensity: 12
+            Gems:
+                ResourceIndex: 2
+                TerrainType: Gems
+                AllowedTerrainTypes: Clear, Road
+                MaxDensity: 1800

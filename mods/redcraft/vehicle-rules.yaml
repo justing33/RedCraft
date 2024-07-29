@@ -18,10 +18,10 @@ SCV:
     Selectable:
         DecorationBounds: 800, 1000, 0, -300
     Harvester:
-        Capacity: 20
+        Capacity: 1
         Resources: Ore,Gems
         BaleUnloadDelay: 0
-        BaleUnloadAmount: 7
+        BaleUnloadAmount: 1
         SearchFromProcRadius: 15
         SearchFromHarvesterRadius: 8
         HarvestFacings: 8

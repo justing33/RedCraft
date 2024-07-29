@@ -64,6 +64,7 @@ Rules:
 	# Custom Overrides for RedCraft modifications
 	redcraft|defaults.yaml #Overall rules that don't fall into below categories
 	redcraft|world-rules.yaml
+	redcraft|player-rules.yaml
 	redcraft|structure-rules.yaml
 	redcraft|infantry-rules.yaml
 	redcraft|vehicle-rules.yaml

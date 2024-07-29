@@ -247,26 +247,3 @@ FirebatFlamer:
         Explosions: small_napalm
         ImpactSounds: firebl3.aud
         ImpactActors: false
-
-#Flamer:
-#    ReloadDelay: 50
-#    Burst: 15
-#    BurstDelays: 1
-#    Projectile: Bullet
-#        Speed: 170
-#        TrailImage: fb4
-#        Image: fb3
-#        LaunchAngle: 62
-#        Inaccuracy: 853
-#    Warhead@1Dam: SpreadDamage
-#        Spread: 341
-#        Damage: 1000
-#        Versus:
-#            None: 70
-#            Wood: 80
-#            Tree: 80
-#            Light: 40
-#            Heavy: 20
-#            Concrete: 10
-#    Warhead@3Eff: CreateEffect
-#        Explosions: small_napalm

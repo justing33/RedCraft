@@ -263,7 +263,7 @@ GHOST:
         BuildDuration: 725
         BuildAtProductionType: Soldier
         BuildPaletteOrder: 120
-        Prerequisites: barracks_, ghostacademy
+        Prerequisites: barracks_, GhostAcademy
         BuildLimit: 1
         Description: Elite commando infantry. Armed with\ndual pistols and C4.\nMaximum 1 can be trained.\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft\n  Special Ability: Destroy Building with C4
     Valued:
@@ -323,27 +323,27 @@ GHOST:
 # NON BUILDABLE INFANTRY #
 ##########################
 
-E1R1:
-    # TODO: Remove ability to build Rifle Infantry on /all cheat
-    # Buildable:
-    #     Queue: DOESNT_EXIST
-    -RenderSprites:
-    -ProducibleWithLevel:
-    -UpdatesPlayerStatistics:
-    -WithProductionIconOverlay:
+#E1R1:
+#    # TODO: Remove ability to build Rifle Infantry on /all cheat
+#    #-Buildable:
+#    #     Queue: DOESNT_EXIST
+#    -RenderSprites:
+#    -ProducibleWithLevel:
+#    -UpdatesPlayerStatistics:
+#    -WithProductionIconOverlay:
 
-E3R1:
-    # TODO: Remove ability to build Rifle Infantry on /all cheat
-    # Buildable:
-    #     Queue: DOESNT_EXIST
-    -RenderSprites:
-    -ProducibleWithLevel:
-    -UpdatesPlayerStatistics:
-    -WithProductionIconOverlay:
+#E3R1:
+#    # TODO: Remove ability to build Rocket Infantry on /all cheat
+#    #-Buildable:
+#    #     Queue: DOESNT_EXIST
+#    -RenderSprites:
+#    -ProducibleWithLevel:
+#    -UpdatesPlayerStatistics:
+#    -WithProductionIconOverlay:
 
 # Rifle Infantry
 E1:
-    #-Buildable:
+    -Buildable:
 
 # Grenadier
 E2:
@@ -351,7 +351,7 @@ E2:
 
 # Rocket Soldier
 E3:
-    #-Buildable:
+    -Buildable:
 
 # Flamethrower
 E4:

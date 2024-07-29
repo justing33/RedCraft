@@ -239,6 +239,65 @@ starport-air:
         ZOffset: -1023
         Offset: 0,-4
 
+#MISSILETURRET
+missileturret:
+    idle: # Empty first frame (sammake has no empty frames). We need WithSpriteBody for the make anim, and WSB needs at least a placeholder default sequence to work
+        Filename: gunmake.shp
+    turret:
+        Filename: sam2.shp
+        Facings: 32
+        UseClassicFacings: True
+        Offset: -1,-2
+    damaged-turret:
+        Filename: sam2.shp
+        Start: 34
+        Facings: 32
+        UseClassicFacings: True
+        Offset: -1,-2
+    make:
+        Filename: sammake.shp
+        Length: *
+        Offset: -1,-2
+    muzzle:
+        Filename: samfire.shp
+        Length: 18
+        Facings: 8
+        Offset: -1,6
+    bib:
+        TilesetFilenames:
+            SNOW: mbSAM.sno
+            INTERIOR: mbSAM.int
+            TEMPERAT: mbSAM.tem
+            DESERT: mbSAM.des
+        Length: *
+        Offset: 0,1
+    icon:
+        Filename: samicon.shp
+
+ghostacademy:
+    Defaults:
+        Filename: atek.shp
+    idle:
+    damaged-idle:
+        Start: 1
+    make:
+        Filename: atekmake.shp
+        Length: *
+    active:
+        Filename: sputdoor.shp
+        Length: *
+        Offset: -4,0
+    bib:
+        Filename: bib3.tem
+        TilesetFilenames:
+            SNOW: bib3.sno
+            DESERT: bib3.des
+        Length: *
+    icon:
+        Filename: atekicon.shp
+    fake-icon:
+        Filename: ateficon.shp
+
 ##############################
 # UNUSED STRUCTURE SEQUENCES #
 ##############################

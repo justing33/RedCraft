@@ -160,6 +160,8 @@ COMC:
         Type: Rectangle
             TopLeft: -1536, -1536
             BottomRight: 1536, 1536
+    MustBeDestroyed:
+        RequiredForShortGame: true
 
 # Chinook
 # Command Center (Lifted Off)
@@ -215,6 +217,8 @@ COMC-AIR:
     BaseBuilding:
     SpawnActorOnDeath:
         Actor:
+    MustBeDestroyed:
+        RequiredForShortGame: true
 
 # Planetary Fortress
 COMC-PLAN:
@@ -236,6 +240,8 @@ COMC-PLAN:
         Name: Planetary Fortress
     KillsSelf:
         RemoveInstead: true
+    MustBeDestroyed:
+        RequiredForShortGame: true
 
 # Orbital Command
 COMC-ORB:
@@ -256,6 +262,8 @@ COMC-ORB:
         Name: Orbital Command
     KillsSelf:
         RemoveInstead: true
+    MustBeDestroyed:
+        RequiredForShortGame: true
 
 # TODO: Implement this as oil ref
 # Ore Refinery
@@ -336,6 +344,8 @@ BARRACKS_:
         DockActors:
     TransferTimedExternalConditionOnTransform:
         Condition: invulnerability
+    MustBeDestroyed:
+        RequiredForShortGame: true
 
 BARRACKS-AIR:
     Inherits: ^Helicopter
@@ -376,6 +386,8 @@ BARRACKS-AIR:
         NoTransformTextNotification: Cannot deploy here.
     SpawnActorOnDeath:
         Actor:
+    MustBeDestroyed:
+        RequiredForShortGame: true
 
 # Silo
 # Supply Depot
@@ -478,6 +490,8 @@ WARF:
         DockActors:
     TransferTimedExternalConditionOnTransform:
         Condition: invulnerability
+    MustBeDestroyed:
+        RequiredForShortGame: true
 
 # Factory (Lifted Off)
 WARF-AIR:
@@ -520,6 +534,8 @@ WARF-AIR:
     SequencePlaceBuildingPreview:
         Sequence: place
         SequenceAlpha: 0.65
+    MustBeDestroyed:
+        RequiredForShortGame: true
 
 # Pillbox
 # Bunker - custom structure as Pillbox wouldn't let me override InitialUnits
@@ -578,6 +594,8 @@ BUNK:
         Amount: -0
     Targetable:
         TargetTypes: GroundActor, Structure, Defense
+    MustBeDestroyed:
+        RequiredForShortGame: true
 
 # Soviet Airfield
 # Starport
@@ -642,6 +660,8 @@ STARPORT:
         DockActors:
     TransferTimedExternalConditionOnTransform:
         Condition: invulnerability
+    MustBeDestroyed:
+        RequiredForShortGame: true
 
 # Starport
 STARPORT-AIR:
@@ -684,6 +704,8 @@ STARPORT-AIR:
         NoTransformTextNotification: Cannot deploy here.
     SpawnActorOnDeath:
         Actor:
+    MustBeDestroyed:
+        RequiredForShortGame: true
 
 #Sam Site
 # Missile Turret
@@ -699,10 +721,10 @@ MISSILETURRET:
             TopLeft: -768,-512
             BottomRight: 768,512
     Buildable:
-        Queue: Defense
+        Queue: Building
         BuildDuration: 450
         BuildPaletteOrder: 100
-        Prerequisites: dome, ~structures.soviet, ~techlevel.medium
+        Prerequisites: scv, barracks_
         Description: Anti-Air base defense.\nRequires power to operate.\n  Strong vs Aircraft\n  Weak vs Ground units
     Valued:
         Cost: 100
@@ -747,23 +769,78 @@ MISSILETURRET:
         Amount: -0
     -BodyOrientation:
     ClassicFacingBodyOrientation:
+    MustBeDestroyed:
+        RequiredForShortGame: true
 
-# TODO:
+# TODO: Add in nuke building to be used for Ghosts
 # Allied Tech Center
 # Ghost Academy
-#ATEK:
-#    Tooltip:
-#        Name: Ghost Academy
+GHOSTACADEMY:
+    Inherits: ^ScienceBuilding
+    Inherits@IDISABLE: ^DisableOnLowPower
+    Inherits@shape: ^2x2Shape
+    Selectable:
+        Bounds: 2048, 2048
+    Buildable:
+        Queue: Building
+        BuildPaletteOrder: 140
+        Prerequisites: scv, barracks_ #TODO: eng bay?
+        Description: Provides Allied advanced technologies.\n  Special Ability: GPS Satellite
+    Valued:
+        Cost: 1500
+    Tooltip:
+        Name: Ghost Academy
+    ProvidesPrerequisite:
+        Prerequisite: GhostAcademy
+    Building:
+        Footprint: xx xx ==
+        Dimensions: 2,3
+        LocalCenterOffset: 0,-512,0
+    Health:
+        HP: 60000
+    Armor:
+        Type: Wood
+    RevealsShroud:
+        MinRange: 4c0
+        Range: 5c0
+        RevealGeneratedShroud: False
+    RevealsShroud@GAPGEN:
+        Range: 4c0
+    WithBuildingBib:
+    GpsPower:
+        PauseOnCondition: disabled
+        Icon: gps
+        OneShot: true
+        ChargeInterval: 12000
+        Name: GPS Satellite
+        Description: Reveals map terrain and provides tactical\ninformation. Requires power and active radar.
+        RevealDelay: 375
+        LaunchSpeechNotification: SatelliteLaunched
+        LaunchTextNotification: Satellite launched.
+        DisplayTimerRelationships: Ally, Neutral, Enemy
+        SupportPowerPaletteOrder: 90
+    SupportPowerChargeBar:
+    InfiltrateForSupportPowerReset:
+        Types: SpyInfiltrate
+        PlayerExperience: 10
+    Targetable:
+        TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate
+    Power:
+        Amount: -200
+    ProvidesPrerequisite@buildingname:
 
-# TODO:
+# TODO: Impl this
 # Soviet Tech Center
 # Engineering Bay
-#STEK:
-#    Tooltip:
-#        Name: Engineering Bay
+STEK:
+    -Buildable:
+    Tooltip:
+        Name: Engineering Bay
 
+# TODO: Impl this
 # Gap Generator
 GAP:
+    -Buildable:
     Tooltip:
         Name: Sensor Tower
 
@@ -793,6 +870,10 @@ ANYPOWER:
 # Disabled Structures #
 #######################
 
+# Construction Yard
+FACT:
+    -Buildable:
+
 # Power Plant
 POWR:
     -Buildable:
@@ -817,8 +898,14 @@ TENT:
     Tooltip:
         Name: Barracks
 
+# Silo
 SILO:
     -Buildable:
+
+# Sam Site
+SAM:
+    -Buildable:
+
 # Pillbox
 PBOX:
     -Buildable:
@@ -830,6 +917,12 @@ WEAP:
     -Buildable:
     Tooltip:
         Name: War Factory
+
+# Allied Tech Center
+ATEK:
+    -Buildable:
+    Tooltip:
+        Name: Ghost Academy
 
 # Soviet Airfield
 AFLD:

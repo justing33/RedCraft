@@ -68,8 +68,8 @@ SCV:
         RequiresSelection: true
         PipCount: 7
         ResourceSequences:
-            Ore: pip-yellow
-            Gems: pip-red
+            # Ore: pip-yellow
+            Gems: pip-blue
     # TODO: Allow to be loaded into lifted off Command Center
     Passenger:
         CargoType: Vehicle

@@ -66,7 +66,7 @@ SCV:
         ResourceSequences:
             Ore: pip-yellow
             Gems: pip-red
-    # Allow to be loaded into lifted off Command Center
+    # TODO: Allow to be loaded into lifted off Command Center
     Passenger:
         CargoType: Vehicle
         CargoCondition: disable-experience

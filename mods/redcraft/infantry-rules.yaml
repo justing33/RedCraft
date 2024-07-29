@@ -5,23 +5,32 @@ MARINE:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Buildable:
 		Queue: Infantry
+        BuildDuration: 450
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 10
 		Prerequisites: barracks_
 		Description: TBD
 	Valued:
-		Cost: 100
+		Cost: 50
+        # Supply: 1
+        # Oil: 0
 	Tooltip:
 		Name: Marine
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
+    RevealsShroud:
+        Range: 9c0
+    Mobile:
+        Speed: 78
+        AlwaysTurnInPlace: true
+        Locomotor: foot
 	Health:
-		HP: 5000
+		HP: 45
 	Armament@PRIMARY:
-		Weapon: M1Carbine
+		Weapon: MarineC14GaussRifle
 	Armament@GARRISONED:
 		Name: garrisoned
-		Weapon: M1Carbine
+		Weapon: MarineC14GaussRifle
 		MuzzleSequence: garrison-muzzle
 	WithInfantryBody:
 		DefaultAttackSequence: shoot
@@ -31,6 +40,10 @@ MARINE:
 	WithProductionIconOverlay:
 		Types: Veterancy
 		Prerequisites: barracks.upgraded
+	Passenger:
+		CargoType: Infantry
+		CargoCondition: disable-experience
+		Weight: 1
 
 
 # Rocket Soldier
@@ -40,6 +53,7 @@ MARAUDER:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Buildable:
 		Queue: Infantry
+        BuildDuration: 525
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 30
 		Prerequisites: barracks_
@@ -47,23 +61,27 @@ MARAUDER:
 	Selectable:
 		Class: E3
 	Valued:
-		Cost: 300
+		Cost: 100
+        # Oil: 25
+        # Supply: 2
 	Tooltip:
 		Name: Marauder
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
+    RevealsShroud:
+        Range: 10c0
+    Mobile:
+        Speed: 78
+        AlwaysTurnInPlace: true
+        Locomotor: foot
 	Health:
-		HP: 4500
+		HP: 125
 	Armament@PRIMARY:
-		Weapon: RedEye
-		LocalOffset: 0,0,555
-	Armament@SECONDARY:
-		Name: secondary
-		Weapon: Dragon
+		Weapon: MarauderPunisherGrenade
 		LocalOffset: 0,0,555
 	Armament@GARRISONED:
 		Name: garrisoned
-		Weapon: Dragon
+		Weapon: MarauderPunisherGrenade
 	-TakeCover:
 	WithInfantryBody:
 		DefaultAttackSequence: shoot
@@ -75,6 +93,10 @@ MARAUDER:
 	WithProductionIconOverlay:
 		Types: Veterancy
 		Prerequisites: barracks.upgraded
+    Passenger:
+        CargoType: Infantry
+        CargoCondition: disable-experience
+        Weight: 2
 
 # Grenadier
 # Reaper

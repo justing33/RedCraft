@@ -22,10 +22,10 @@ VikingMissileAA:
         Damage: 10
         ValidTargets: AirborneActor
         Versus:
-            None: 30
-            Wood: 90
-            Light: 90
-            Heavy: 115
+            None: 100
+            Wood: 100
+            Light: 100
+            Heavy: 100
             Concrete: 100
         DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 
@@ -52,11 +52,11 @@ BansheeMissileAG:
         Damage: 12
         ValidTargets: GroundActor, WaterActor
         Versus:
-            None: 10
-            Wood: 74
-            Light: 34
+            None: 100
+            Wood: 100
+            Light: 100
             Heavy: 100
-            Concrete: 50
+            Concrete: 100
         DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
     Warhead@2Smu: LeaveSmudge
         SmudgeType: Crater
@@ -67,15 +67,45 @@ BansheeMissileAG:
         ValidTargets: Ground, GroundActor
 
 # Marauders
-RedEye:
-    Inherits: ^AntiGroundMissile
-    ReloadDelay: 50
+MarauderPunisherGrenade:
+    ReloadDelay: 26
+    Range: 6c0
+    MinRange: 0c512
+    Report: missile6.aud
+    ValidTargets: Ground, Water, GroundActor, WaterActor
     Projectile: Missile
-        Inaccuracy: 0
-        HorizontalRateOfTurn: 80
         Speed: 298
+        Arm: 2
+        Blockable: false
+        ContrailLength: 10
+        Inaccuracy: 0
+        Image: DRAGON
+        Shadow: True
+        HorizontalRateOfTurn: 80
+        RangeLimit: 6c0
     Warhead@1Dam: SpreadDamage
-        Damage: 2400
+        Spread: 128
+        Damage: 10
+        ValidTargets: GroundActor, WaterActor
+        Versus:
+            None: 100
+            Wood: 100
+            Light: 100
+            Heavy: 100
+            Concrete: 100
+        DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+    Warhead@2Smu: LeaveSmudge
+        SmudgeType: Crater
+        ValidTargets: Ground, Infantry
+    Warhead@3Eff: CreateEffect
+        Explosions: med_explosion
+        ImpactSounds: kaboom25.aud
+        ValidTargets: Ground, Air, GroundActor, AirborneActor, WaterActor, Trees
+    Warhead@4EffWater: CreateEffect
+        Explosions: med_splash
+        ImpactSounds: splash9.aud
+        ValidTargets: Water, Underwater
+        InvalidTargets: Bridge
 
 CycloneMissileAG:
     ReloadDelay: 50
@@ -101,10 +131,10 @@ CycloneMissileAG:
         Damage: 11
         ValidTargets: GroundActor, Building
         Versus:
-            None: 30
-            Wood: 90
-            Light: 90
-            Heavy: 115
+            None: 100
+            Wood: 100
+            Light: 100
+            Heavy: 100
             Concrete: 100
         DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 
@@ -132,9 +162,9 @@ CycloneMissileAA:
         Damage: 11
         ValidTargets: AirborneActor
         Versus:
-            None: 30
-            Wood: 90
-            Light: 90
-            Heavy: 115
+            None: 100
+            Wood: 100
+            Light: 100
+            Heavy: 100
             Concrete: 100
         DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath

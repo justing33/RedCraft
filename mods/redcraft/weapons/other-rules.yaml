@@ -9,7 +9,7 @@ MedivacHeal:
         Color: 14D000
     Warhead@1Dam: SpreadDamage
         Spread: 213
-        Damage: -5000
+        Damage: -30
         ValidRelationships: Ally
         ValidTargets: Heal
         DebugOverlayColor: 00FF00
@@ -31,12 +31,12 @@ HellionFlamethrower:
         Damage: 8
         ValidTargets: Ground, GroundActor
         Versus:
-            None: 70
-            Wood: 80
-            Tree: 80
-            Light: 40
-            Heavy: 20
-            Concrete: 10
+            None: 100
+            Wood: 100
+            Tree: 100
+            Light: 100
+            Heavy: 100
+            Concrete: 100
     DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
     Warhead@2Smu: LeaveSmudge
         SmudgeType: Scorch
@@ -63,12 +63,12 @@ HellbatFlamethrower:
         Damage: 18
         ValidTargets: Ground, GroundActor
         Versus:
-            None: 70
-            Wood: 80
-            Tree: 80
-            Light: 40
-            Heavy: 20
-            Concrete: 10
+            None: 100
+            Wood: 100
+            Tree: 100
+            Light: 100
+            Heavy: 100
+            Concrete: 100
     DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
     Warhead@2Smu: LeaveSmudge
         SmudgeType: Scorch
@@ -93,11 +93,11 @@ SiegeTank90mmCannon:
         Damage: 15
         ValidTargets: GroundActor, WaterActor
         Versus:
-            None: 30
-            Wood: 75
-            Light: 75
-            Heavy: 115
-            Concrete: 50
+            None: 100
+            Wood: 100
+            Light: 100
+            Heavy: 100
+            Concrete: 100
         DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
     Warhead@2Smu: LeaveSmudge
         SmudgeType: Crater
@@ -127,11 +127,11 @@ SiegeTankCrucioShockCannon:
         Damage: 40
         ValidTargets: GroundActor, WaterActor
         Versus:
-            None: 30
-            Wood: 75
-            Light: 75
-            Heavy: 115
-            Concrete: 50
+            None: 100
+            Wood: 100
+            Light: 100
+            Heavy: 100
+            Concrete: 100
         DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
     Warhead@2Smu: LeaveSmudge
         SmudgeType: Crater
@@ -164,11 +164,11 @@ WidowMineSentinelMissile:
         Damage: 125
         Falloff: 100, 55, 20, 5
         Versus:
-            None: 90
-            Wood: 40
-            Light: 60
-            Heavy: 25
-            Concrete: 50
+            None: 100
+            Wood: 100
+            Light: 100
+            Heavy: 100
+            Concrete: 100
         DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
     Warhead@2Smu: LeaveSmudge
         SmudgeType: Crater
@@ -195,6 +195,6 @@ SCVFusionCutter:
         ValidTargets: Ground, GroundActor, Structure, Defense
         Versus:
             None: 100
-            Wood: 73
-            Heavy: 60
+            Wood: 100
+            Heavy: 100
         DamageTypes: Prone50Percent, TriggerProne, ElectricityDeath

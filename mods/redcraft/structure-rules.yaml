@@ -14,6 +14,7 @@ COMC:
         BuildPaletteOrder: 10
         Prerequisites: scv
         Description: Refines Ore and Gems\ninto credits.
+    ProvidesRadar:
     Valued:
         Cost: 400
     Health:
@@ -24,10 +25,65 @@ COMC:
     Tooltip@ORBITALUPGRADED:
         Name: Orbital Command
         RequiresCondition: orbitalcommandupgraded
+    # START TEST
     Refinery:
-        DockOffset: 1,3
         UseStorage: False
-        DiscardExcessResources: False
+        # DockOffset: 1,3
+        # DiscardExcessResources: False
+    # Left Side Docks
+    DockHost@LEFTCENTER:
+        Type: Unload
+        DockWait: 0
+        DockAngle: 256
+        DockOffset: -2c1, 0, 0
+        MaxQueueLength: 1
+    DockHost@LEFTCENTERANDUP1:
+        Type: Unload
+        DockAngle: 256
+        DockOffset: -2c1, -1c1, 0
+        MaxQueueLength: 1
+    DockHost@LEFTCENTERANDUP2:
+        Type: Unload
+        DockAngle: 256
+        DockOffset: -1c1, -2c1, 0
+        MaxQueueLength: 1
+    DockHost@LEFTCENTERANDDOWN1:
+        Type: Unload
+        DockAngle: 256
+        DockOffset: -2c1, 1c1, 0
+        MaxQueueLength: 1
+    DockHost@LEFTCENTERANDDOWN2:
+        Type: Unload
+        DockAngle: 256
+        DockOffset: -1c1, 2c1, 0
+        MaxQueueLength: 1
+    # Right Side Docks
+    DockHost@RIGHTCENTER:
+        Type: Unload
+        DockWait: 0
+        DockAngle: 256
+        DockOffset: 2c1, 0, 0
+        MaxQueueLength: 1
+    DockHost@RIGHTCENTERANDUP1:
+        Type: Unload
+        DockAngle: 256
+        DockOffset: 2c1, -1c1, 0
+        MaxQueueLength: 1
+    DockHost@RIGHTCENTERANDUP2:
+        Type: Unload
+        DockAngle: 256
+        DockOffset: 1c1, -2c1, 0
+        MaxQueueLength: 1
+    DockHost@RIGHTCENTERANDDOWN1:
+        Type: Unload
+        DockAngle: 256
+        DockOffset: 2c1, 1c1, 0
+        MaxQueueLength: 1
+    DockHost@RIGHTCENTERANDDOWN2:
+        Type: Unload
+        DockAngle: 256
+        DockOffset: 1c1, 2c1, 0
+        MaxQueueLength: 1
     StoresResources:
         Capacity: 2000
     Armor:
@@ -169,6 +225,7 @@ COMC-AIR:
     Inherits: ^Helicopter
     # TODO: Fix bug
     # Inherits@CARGOPIPS: ^CargoPips
+    ProvidesRadar:
     Tooltip:
         Name: Command Center (Lifted off)
     UpdatesPlayerStatistics:
@@ -224,7 +281,7 @@ COMC-AIR:
 COMC-PLAN:
     Buildable:
         BuildPaletteOrder: 2
-        -Prerequisites:
+        #-Prerequisites:
         # TODO: Temp name
         Queue: Ship
         BuildDuration: 900
@@ -247,7 +304,7 @@ COMC-PLAN:
 COMC-ORB:
     Buildable:
         BuildPaletteOrder: 1
-        -Prerequisites:
+        #-Prerequisites:
         # TODO: Temp name
         Queue: Ship
         BuildDuration: 625
@@ -290,6 +347,7 @@ BARRACKS_:
         BuildPaletteOrder: 20
         Prerequisites: scv
         Description: Trains infantry.
+    ProvidesRadar:
     Valued:
         Cost: 150
     Tooltip:
@@ -349,6 +407,7 @@ BARRACKS_:
 
 BARRACKS-AIR:
     Inherits: ^Helicopter
+    ProvidesRadar:
     Selectable:
         Bounds: 2048, 2048
     HitShape:
@@ -440,6 +499,7 @@ WARF:
         BuildPaletteOrder: 30
         Prerequisites: scv, barracks_
         Description: Produces vehicles.
+    ProvidesRadar:
     Valued:
         Cost: 150
         # Oil: 100
@@ -496,6 +556,7 @@ WARF:
 # Factory (Lifted Off)
 WARF-AIR:
     Inherits: ^Helicopter
+    ProvidesRadar:
     Selectable:
         Bounds: 3072, 2048
     Valued:
@@ -552,6 +613,7 @@ BUNK:
         BuildPaletteOrder: 40
         Prerequisites: scv, barracks_
         Description: Static defense with a fireport for\na garrisoned soldier.\nCan detect cloaked units.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
+    ProvidesRadar:
     Valued:
         Cost: 100
     # TODO: Implement sellable bunker
@@ -581,7 +643,7 @@ BUNK:
     Cargo:
         Types: Infantry
         MaxWeight: 4
-        -InitialUnits:
+        #-InitialUnits:
     AttackGarrisoned:
         PauseOnCondition: build-incomplete
         Armaments: garrisoned
@@ -611,6 +673,7 @@ STARPORT:
         BuildPaletteOrder: 40
         Prerequisites: scv, barracks_, factory
         Description: TBD
+    ProvidesRadar:
     Valued:
         Cost: 150
         # Oil: 100
@@ -666,6 +729,7 @@ STARPORT:
 # Starport
 STARPORT-AIR:
     Inherits: ^Helicopter
+    ProvidesRadar:
     HitShape:
         UseTargetableCellsOffsets: false
         TargetableOffsets: 0,0,0, 420,0,0, 420,-1024,0, 420,1024,0, -777,0,0, -777,-1024,0, -777,1024,0
@@ -714,6 +778,7 @@ MISSILETURRET:
     # Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
     Inherits@AUTOTARGET: ^AutoTargetAir
     Inherits@shape: ^2x1Shape
+    ProvidesRadar:
     Selectable:
         Bounds: 2048, 1024
     HitShape:
@@ -779,6 +844,7 @@ GHOSTACADEMY:
     Inherits: ^ScienceBuilding
     Inherits@IDISABLE: ^DisableOnLowPower
     Inherits@shape: ^2x2Shape
+    ProvidesRadar:
     Selectable:
         Bounds: 2048, 2048
     Buildable:

@@ -18,8 +18,9 @@ SCV:
     Selectable:
         DecorationBounds: 800, 1000, 0, -300
     Harvester:
-        Capacity: 1
-        Resources: Gems #,Ore
+        Type: Unload
+        # TODO: Remove ore
+        Resources: Gems
         BaleLoadDelay: 10
         BaleUnloadDelay: 0
         BaleUnloadAmount: 99
@@ -30,6 +31,11 @@ SCV:
         FullyLoadedSpeed: 100
         HarvestFacings: 8
         EmptyCondition: no-ore
+    StoresResources:
+        Capacity: 1
+        Resources: Gems
+    DockClientManager:
+        SearchForDockDelay: 1
     Health:
         HP: 45
     Armor:
@@ -62,7 +68,7 @@ SCV:
     #Explodes:
     #    RequiresCondition: !no-ore
     #    Weapon: OreExplosion
-    WithHarvesterPipsDecoration:
+    WithStoresResourcesPipsDecoration:
         Position: BottomLeft
         Margin: 4, 3
         RequiresSelection: true
@@ -241,7 +247,7 @@ SIEGETANK:
     Transforms:
         IntoActor: siegetank-sm
         Offset: 0,0
-        -Facing:
+        #-Facing:
     Passenger:
         Weight: 4
     #SpawnActorOnDeath:
@@ -298,7 +304,7 @@ SIEGETANK-SM:
     Transforms:
         IntoActor: siegetank
         Offset: 0,0
-        -Facing:
+        #-Facing:
 
 # Mine Layer
 # Widow Mine

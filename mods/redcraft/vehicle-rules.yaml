@@ -2,7 +2,7 @@
 SCV:
     Inherits: ^Vehicle
     Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-    Inherits: ^SelectableEconomicUnit
+    Inherits@selection: ^SelectableEconomicUnit
     Buildable:
         Queue: Defense
         BuildPaletteOrder: 110

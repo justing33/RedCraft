@@ -4,6 +4,12 @@
 ^Infantry:
     -Crushable:
 
+^Vehicle:
+    -Explodes:
+
+^NeutralPlane:
+    -Explodes:
+
 # ^NonLandableHelicopter:
 #     Inherits: ^Helicopter
 #     Aircraft:

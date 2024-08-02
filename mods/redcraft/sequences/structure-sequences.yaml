@@ -71,7 +71,7 @@ comc:
             DESERT: bib2.des
         Length: *
     icon:
-        Filename: facticon.shp
+        Filename: domeicon.shp
     turret:
         Filename: gun.shp
         Facings: 32

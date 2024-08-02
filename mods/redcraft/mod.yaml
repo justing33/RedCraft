@@ -164,6 +164,8 @@ Translations:
 	common|languages/en.ftl
 	common|languages/rules/en.ftl
 	ra|languages/rules/en.ftl
+	# TODO:
+	#redcraft|languages/rules/en.ftl
 
 Weapons:
 	ra|weapons/explosions.yaml

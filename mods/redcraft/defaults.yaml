@@ -9,10 +9,3 @@
 
 ^NeutralPlane:
     -Explodes:
-
-# ^NonLandableHelicopter:
-#     Inherits: ^Helicopter
-#     Aircraft:
-#         # LandAltitude: 1c256
-#         MinAirborneAltitude: 300
-#         # CruiseAltitude: 1

@@ -424,7 +424,7 @@ BARRACKS-AIR:
     RevealsShroud:
         # MinRange: 4c0
         Range: 9c0
-        RevealGeneratedShroud: False
+        RevealGeneratedShroud: True
     RevealsShroud@GAPGEN:
         Range: 9c0
     Aircraft:
@@ -850,7 +850,7 @@ GHOSTACADEMY:
     Buildable:
         Queue: Building
         BuildPaletteOrder: 140
-        Prerequisites: scv, barracks_ #TODO: eng bay?
+        Prerequisites: scv, barracks_, #EngineerBay #TODO: eng bay?
         Description: Provides Allied advanced technologies.\n  Special Ability: GPS Satellite
     Valued:
         Cost: 1500
@@ -863,7 +863,7 @@ GHOSTACADEMY:
         Dimensions: 2,3
         LocalCenterOffset: 0,-512,0
     Health:
-        HP: 60000
+        HP: 1250
     Armor:
         Type: Wood
     RevealsShroud:
@@ -1085,6 +1085,9 @@ FENC:
 # Concrete Wall
 BRIK:
     -Buildable:
+    # TODO: Remove all maps with concrete walls
+    Health:
+        HP: 25
     Tooltip:
         Name: Concrete Wall
 

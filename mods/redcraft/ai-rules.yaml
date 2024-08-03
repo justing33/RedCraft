@@ -17,16 +17,16 @@ Player:
             missileturret: 30
     UnitBuilderBotModule@normal:
         UnitsToBuild:
-            scv: 40
-            marine: 60
-            marauder: 60
+            scv: 60
+            marine: 40
+            marauder: 40
             medic: 30
             reaper: 30
             firebat: 40
             ghost: 30
-            siegetank: 90
-            cyclone: 90
-            hellion: 90
-            banshee: 90
-            medivac: 90
-            viking: 90
+            siegetank: 30
+            cyclone: 20
+            hellion: 30
+            banshee: 30
+            medivac: 30
+            viking: 30

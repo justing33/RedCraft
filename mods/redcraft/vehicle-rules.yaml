@@ -191,10 +191,6 @@ HELLBAT:
         TransformSounds: placbldg.aud, build5.aud
     Passenger:
         Weight: 4
-    Explodes:
-        Weapon: ArtilleryExplode
-        EmptyWeapon: UnitExplodeSmall
-        LoadedChance: 75
     ProducibleWithLevel:
         Prerequisites: vehicles.upgraded
     WithProductionIconOverlay:

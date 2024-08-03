@@ -13,14 +13,14 @@ COMC:
         BuildDuration: 1775
         BuildPaletteOrder: 10
         Prerequisites: scv
-        Description: Refines Ore and Gems\ninto credits.
+        Description: actor-comc.description
     ProvidesRadar:
     Valued:
         Cost: 400
     Health:
         HP: 1500
     Tooltip:
-        Name: Command Center
+        Name: actor-comc.name
         RequiresCondition: !orbitalcommandupgraded
     Tooltip@ORBITALUPGRADED:
         Name: Orbital Command
@@ -125,7 +125,7 @@ COMC:
         ExitCell: 3,3
     # TODO: This is important for some reason regarding building the upgrades
     ProvidesPrerequisite@command-center:
-        Prerequisite: command-center
+        Prerequisite: comc
     # TODO: Fix bug
     # Cargo:
     #     # TODO: Testing
@@ -227,7 +227,7 @@ COMC-AIR:
     # Inherits@CARGOPIPS: ^CargoPips
     ProvidesRadar:
     Tooltip:
-        Name: Command Center (Lifted off)
+        Name: actor-comc-air.name
     UpdatesPlayerStatistics:
         AddToArmyValue: true
     Health:
@@ -286,7 +286,8 @@ COMC-PLAN:
         Queue: Ship
         BuildDuration: 900
         #BuildDurationModifier: 1
-        Description: TBD
+        Description: actor-comc-plan.description
+        Prerequisites: comc, engineeringbay
     Valued:
         Cost: 150
         # Oil: 150
@@ -294,7 +295,7 @@ COMC-PLAN:
     AlwaysVisible:
     RenderSprites:
     Tooltip:
-        Name: Planetary Fortress
+        Name: actor-comc-plan.name
     KillsSelf:
         RemoveInstead: true
     MustBeDestroyed:
@@ -304,19 +305,19 @@ COMC-PLAN:
 COMC-ORB:
     Buildable:
         BuildPaletteOrder: 1
-        #-Prerequisites:
+        Prerequisites: comc, barracks_
         # TODO: Temp name
         Queue: Ship
         BuildDuration: 625
         #BuildDurationModifier: 1
-        Description: TBD
+        Description: actor-comc-orb.description
     Valued:
         Cost: 150
     Interactable:
     AlwaysVisible:
     RenderSprites:
     Tooltip:
-        Name: Orbital Command
+        Name: actor-comc-orb.name
     KillsSelf:
         RemoveInstead: true
     MustBeDestroyed:
@@ -346,12 +347,12 @@ BARRACKS_:
         BuildDuration: 1150
         BuildPaletteOrder: 20
         Prerequisites: scv
-        Description: Trains infantry.
+        Description: actor-barracks_.description
     ProvidesRadar:
     Valued:
         Cost: 150
     Tooltip:
-        Name: Barracks
+        Name: actor-barracks_.name
     Building:
         Footprint: xx xx ==
         Dimensions: 2,3
@@ -416,7 +417,7 @@ BARRACKS-AIR:
     #Valued:
     #    Cost: 500
     Tooltip:
-        Name: Barracks (Lifted Off)
+        Name: actor-barracks-air.name
     Health:
         HP: 1000
     Armor:
@@ -488,7 +489,7 @@ BARRACKS-AIR:
 
 # War Factory
 # Factory
-WARF:
+FACTORY:
     Inherits: ^Building
     Inherits@shape: ^3x2Shape
     Selectable:
@@ -498,13 +499,13 @@ WARF:
         BuildDuration: 1075
         BuildPaletteOrder: 30
         Prerequisites: scv, barracks_
-        Description: Produces vehicles.
+        Description: actor-factory.description
     ProvidesRadar:
     Valued:
         Cost: 150
         # Oil: 100
     Tooltip:
-        Name: Factory
+        Name: actor-factory.name
     Building:
         Footprint: xxx xxx ===
         Dimensions: 3,3
@@ -545,7 +546,7 @@ WARF:
         TargetTypes: GroundActor, Structure, Defense
     Transforms:
         PauseOnCondition: being-demolished || build-incomplete
-        IntoActor: warf-air
+        IntoActor: factory-air
     TransformsIntoAircraft:
         DockActors:
     TransferTimedExternalConditionOnTransform:
@@ -554,7 +555,7 @@ WARF:
         RequiredForShortGame: true
 
 # Factory (Lifted Off)
-WARF-AIR:
+FACTORY-AIR:
     Inherits: ^Helicopter
     ProvidesRadar:
     Selectable:
@@ -562,7 +563,7 @@ WARF-AIR:
     Valued:
         Cost: 2000
     Tooltip:
-        Name: Factory
+        Name: actor-factory-air.name
     Health:
         HP: 1250
     Armor:
@@ -586,7 +587,7 @@ WARF-AIR:
     Targetable:
         TargetTypes: GroundActor, AirborneActor, Structure, Defense
     Transforms:
-        IntoActor: warf
+        IntoActor: factory
         TransformSounds: placbldg.aud, build5.aud
         NoTransformNotification: BuildingCannotPlaceAudio
         NoTransformTextNotification: Cannot deploy here.
@@ -605,14 +606,14 @@ BUNK:
     Inherits@AUTOTARGET: ^AutoTargetAll
     Inherits@CARGOPIPS: ^CargoPips
     Tooltip:
-        Name: Bunker
+        Name: actor-bunk.name
     Building:
     Buildable:
         Queue: Building
         BuildDuration: 725
         BuildPaletteOrder: 40
         Prerequisites: scv, barracks_
-        Description: Static defense with a fireport for\na garrisoned soldier.\nCan detect cloaked units.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
+        Description: actor-bunk.description
     ProvidesRadar:
     Valued:
         Cost: 100
@@ -671,14 +672,14 @@ STARPORT:
         Queue: Building
         BuildDuration: 900
         BuildPaletteOrder: 40
-        Prerequisites: scv, barracks_, factory
-        Description: TBD
+        Prerequisites: scv, factory
+        Description: actor-starport.description
     ProvidesRadar:
     Valued:
         Cost: 150
         # Oil: 100
     Tooltip:
-        Name: Starport
+        Name: actor-starport.name
     Selectable:
         Class: afld
         Bounds: 3072, 2048
@@ -736,7 +737,7 @@ STARPORT-AIR:
     #Valued:
     #    Cost: 150
     Tooltip:
-        Name: Starport
+        Name: actor-starport-air.name
     Selectable:
         Class: afld
         Bounds: 3072, 2048
@@ -789,12 +790,12 @@ MISSILETURRET:
         Queue: Building
         BuildDuration: 450
         BuildPaletteOrder: 100
-        Prerequisites: scv, barracks_
-        Description: Anti-Air base defense.\nRequires power to operate.\n  Strong vs Aircraft\n  Weak vs Ground units
+        Prerequisites: scv, engineeringbay
+        Description: actor-missileturret.description
     Valued:
         Cost: 100
     Tooltip:
-        Name: Missile Turret
+        Name: actor-missileturret.name
     Building:
         Footprint: xx
         Dimensions: 2,1
@@ -822,6 +823,7 @@ MISSILETURRET:
         RequiresCondition: !build-incomplete
         Recoils: false
     Armament:
+        # TODO: Make custom armament
         Weapon: Nike
         LocalOffset: 0,0,320
         MuzzleSequence: muzzle
@@ -849,15 +851,16 @@ GHOSTACADEMY:
         Bounds: 2048, 2048
     Buildable:
         Queue: Building
+        BuildDuration: 725
         BuildPaletteOrder: 140
-        Prerequisites: scv, barracks_, #EngineerBay #TODO: eng bay?
-        Description: Provides Allied advanced technologies.\n  Special Ability: GPS Satellite
+        Prerequisites: scv, barracks_
+        Description: actor-ghostacademy.description
     Valued:
         Cost: 1500
     Tooltip:
-        Name: Ghost Academy
+        Name: actor-ghostacademy.name
     ProvidesPrerequisite:
-        Prerequisite: GhostAcademy
+        Prerequisite: ghostacademy
     Building:
         Footprint: xx xx ==
         Dimensions: 2,3
@@ -879,13 +882,45 @@ GHOSTACADEMY:
         Amount: 0
     ProvidesPrerequisite@buildingname:
 
-# TODO: Impl this
 # Soviet Tech Center
 # Engineering Bay
-STEK:
-    -Buildable:
+ENGINEERINGBAY:
+    Inherits: ^ScienceBuilding
+    Inherits@shape: ^3x2Shape
+    Selectable:
+        Bounds: 3072, 2048
+    HitShape:
+        TargetableOffsets: 420,-768,0, 420,768,0, -770,-768,0, -770,768,0
+    Buildable:
+        Queue: Building
+        BuildDuration: 625
+        BuildPaletteOrder: 150
+        Prerequisites: scv, comc
+        Description: actor-engineeringbay.description
+    Valued:
+        Cost: 125
     Tooltip:
-        Name: Engineering Bay
+        Name: actor-engineeringbay.name
+    ProvidesPrerequisite:
+        Prerequisite: engineeringbay
+    Building:
+        Footprint: XxX XxX ===
+        Dimensions: 3,3
+        LocalCenterOffset: 0,-512,0
+    Health:
+        HP: 1250
+    Armor:
+        Type: Wood
+    RevealsShroud:
+        MinRange: 4c0
+        Range: 5c0
+        RevealGeneratedShroud: False
+    RevealsShroud@GAPGEN:
+        Range: 4c0
+    WithBuildingBib:
+    Power:
+        Amount: -0
+    ProvidesPrerequisite@buildingname:
 
 # TODO: Impl this
 # Gap Generator
@@ -967,6 +1002,12 @@ WEAP:
     -Buildable:
     Tooltip:
         Name: War Factory
+
+# Soviet Tech Center
+STEK:
+    -Buildable:
+    Tooltip:
+        Name: Engineering Bay
 
 # Allied Tech Center
 ATEK:

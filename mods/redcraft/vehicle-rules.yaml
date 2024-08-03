@@ -6,8 +6,8 @@ SCV:
     Buildable:
         Queue: Defense
         BuildPaletteOrder: 110
-        BuildDuration: 300
-        Prerequisites: command-center
+        BuildDuration: 900
+        Prerequisites: comc
         Description: TBD
     Valued:
         Cost: 50

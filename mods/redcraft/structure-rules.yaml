@@ -10,13 +10,15 @@ COMC:
         LocalCenterOffset: 0,-512,0
     Buildable:
         Queue: Building
-        BuildDuration: 1775
+        # 75 * SC2 Seconds = Build Duration
+        BuildDuration: 5325
         BuildPaletteOrder: 10
         Prerequisites: scv
         Description: actor-comc.description
     ProvidesRadar:
     Valued:
         Cost: 400
+        # TODO: Provides 15 initial supply
     Health:
         HP: 1500
     Tooltip:
@@ -281,13 +283,11 @@ COMC-AIR:
 COMC-PLAN:
     Buildable:
         BuildPaletteOrder: 2
-        #-Prerequisites:
-        # TODO: Temp name
+        Prerequisites: engineeringbay
+        # TODO: Temp queue name -> Want it to be Upgrades
         Queue: Ship
-        BuildDuration: 900
-        #BuildDurationModifier: 1
+        BuildDuration: 2700
         Description: actor-comc-plan.description
-        Prerequisites: comc, engineeringbay
     Valued:
         Cost: 150
         # Oil: 150
@@ -305,10 +305,10 @@ COMC-PLAN:
 COMC-ORB:
     Buildable:
         BuildPaletteOrder: 1
-        Prerequisites: comc, barracks_
+        Prerequisites: barracks_
         # TODO: Temp name
         Queue: Ship
-        BuildDuration: 625
+        BuildDuration: 1875
         #BuildDurationModifier: 1
         Description: actor-comc-orb.description
     Valued:
@@ -344,7 +344,7 @@ BARRACKS_:
         TargetableOffsets: 0,0,0, 490,-470,0, 355,512,0, -355,-512,0, -630,512,0
     Buildable:
         Queue: Building
-        BuildDuration: 1150
+        BuildDuration: 3450
         BuildPaletteOrder: 20
         Prerequisites: scv
         Description: actor-barracks_.description
@@ -496,7 +496,7 @@ FACTORY:
         Bounds: 3072, 2048
     Buildable:
         Queue: Building
-        BuildDuration: 1075
+        BuildDuration: 3225
         BuildPaletteOrder: 30
         Prerequisites: scv, barracks_
         Description: actor-factory.description
@@ -610,7 +610,7 @@ BUNK:
     Building:
     Buildable:
         Queue: Building
-        BuildDuration: 725
+        BuildDuration: 2175
         BuildPaletteOrder: 40
         Prerequisites: scv, barracks_
         Description: actor-bunk.description
@@ -670,7 +670,7 @@ STARPORT:
         TargetableOffsets: 0,0,0, 420,0,0, 420,-1024,0, 420,1024,0, -777,0,0, -777,-1024,0, -777,1024,0
     Buildable:
         Queue: Building
-        BuildDuration: 900
+        BuildDuration: 2700
         BuildPaletteOrder: 40
         Prerequisites: scv, factory
         Description: actor-starport.description
@@ -788,7 +788,7 @@ MISSILETURRET:
             BottomRight: 768,512
     Buildable:
         Queue: Building
-        BuildDuration: 450
+        BuildDuration: 1350
         BuildPaletteOrder: 100
         Prerequisites: scv, engineeringbay
         Description: actor-missileturret.description
@@ -851,7 +851,7 @@ GHOSTACADEMY:
         Bounds: 2048, 2048
     Buildable:
         Queue: Building
-        BuildDuration: 725
+        BuildDuration: 2175
         BuildPaletteOrder: 140
         Prerequisites: scv, barracks_
         Description: actor-ghostacademy.description
@@ -893,7 +893,7 @@ ENGINEERINGBAY:
         TargetableOffsets: 420,-768,0, 420,768,0, -770,-768,0, -770,768,0
     Buildable:
         Queue: Building
-        BuildDuration: 625
+        BuildDuration: 1875
         BuildPaletteOrder: 150
         Prerequisites: scv, comc
         Description: actor-engineeringbay.description

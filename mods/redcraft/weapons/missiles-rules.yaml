@@ -77,12 +77,14 @@ MarauderPunisherGrenade:
         Speed: 298
         Arm: 2
         Blockable: false
-        ContrailLength: 10
+        ContrailLength: 20
         Inaccuracy: 0
+        Jammable: false
         Image: DRAGON
         Shadow: True
         HorizontalRateOfTurn: 80
-        RangeLimit: 6c0
+        # Negative is unlimited fuel / distance (always want to hit)
+        RangeLimit: -0c0
     Warhead@1Dam: SpreadDamage
         Spread: 128
         Damage: 10

@@ -286,6 +286,40 @@ actor-dog =
    .name = Attack Dog
    .generic-name = Dog
 
+actor-marine =
+   .description = All-purpose infantry equipped with C14 Gauss Rifle
+   Can use researched Stimpack upgrade
+   Attacks ground and air
+   .name = Marine
+
+actor-marauder =
+   .description = Heavy infantry equipped with Punisher Grenade Missiles
+   Can use researched Stimpack upgrade
+   Attacks ground
+   .name = Marauder
+
+actor-reaper =
+   .description = Light scouting infantry equipped with P45 Gauss Pistol
+   Heals itself over time
+   Attacks ground
+   .name = Reaper
+
+actor-firebat =
+   .description = Flamethrower equipped infantry
+   Can use researched Stimpack upgrade
+   Attacks ground
+   .name = Firebat
+
+actor-medic_ =
+   .description = Heals close-by infantry automatically
+   Does not attack
+   .name = Medic
+
+actor-ghost =
+   .description = Specialized cloaked infantry
+   Can launch tactical nukes from Ghost Academy
+   .name = Ghost
+
 actor-e1 =
    .description = General-purpose infantry.
       Strong vs Infantry

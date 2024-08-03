@@ -205,7 +205,7 @@ FirebatFlamer:
     # TODO: ?
     ReloadDelay: 70
     Range: 2c0
-    Burst: 1
+    Burst: 3
     BurstDelays: 1
     Projectile: Bullet
         Speed: 170
@@ -215,7 +215,7 @@ FirebatFlamer:
         Inaccuracy: 853
     Warhead@1Dam: SpreadDamage
         Spread: 213
-        Damage: 16
+        Damage: 8
         ValidTargets: Ground, GroundActor, Infantry, Building
         Versus:
             None: 100

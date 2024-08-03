@@ -1,5 +1,9 @@
 ^Building:
     -Sellable:
+    # TODO: Make SCV repair buildings
+    RepairableBuilding:
+        RepairStep: 20
+        RepairingNotification: Repairing
 
 ^Infantry:
     -Crushable:

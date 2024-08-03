@@ -31,7 +31,7 @@ MedicHeal:
         DebugOverlayColor: 00FF00
 
 HellionFlamethrower:
-    ValidTargets: Ground, GroundActor
+    ValidTargets: Ground, GroundActor, Building, Infantry
     ReloadDelay: 44
     Range: 5c0
     Burst: 15
@@ -45,7 +45,7 @@ HellionFlamethrower:
     Warhead@1Dam: SpreadDamage
         Spread: 341
         Damage: 8
-        ValidTargets: Ground, GroundActor
+        ValidTargets: Ground, GroundActor, Building, Infantry
         Versus:
             None: 100
             Wood: 100
@@ -63,7 +63,7 @@ HellionFlamethrower:
         ImpactActors: false
 
 HellbatFlamethrower:
-    ValidTargets: Ground, GroundActor
+    ValidTargets: Ground, GroundActor, Building, Infantry
     ReloadDelay: 35
     Range: 2c0
     Burst: 15
@@ -77,7 +77,7 @@ HellbatFlamethrower:
     Warhead@1Dam: SpreadDamage
         Spread: 341
         Damage: 18
-        ValidTargets: Ground, GroundActor
+        ValidTargets: Ground, GroundActor, Building, Infantry
         Versus:
             None: 100
             Wood: 100
@@ -99,7 +99,7 @@ SiegeTank90mmCannon:
     Burst: 1
     Range: 7c0
     Report: cannon1.aud
-    ValidTargets: Ground, Water, GroundActor, WaterActor
+    ValidTargets: Ground, GroundActor, Building, Infantry
     Projectile: InstantHit
         Speed: 682
         Image: 120MM
@@ -107,7 +107,7 @@ SiegeTank90mmCannon:
     Warhead@1Dam: SpreadDamage
         Spread: 128
         Damage: 15
-        ValidTargets: GroundActor, WaterActor
+        ValidTargets: Ground, GroundActor, Building, Infantry
         Versus:
             None: 100
             Wood: 100
@@ -121,19 +121,14 @@ SiegeTank90mmCannon:
     Warhead@3Eff: CreateEffect
         Explosions: small_explosion
         ImpactSounds: kaboom12.aud
-        ValidTargets: Ground, GroundActor, WaterActor, Trees
-    Warhead@4EffWater: CreateEffect
-        Explosions: small_splash
-        ImpactSounds: splash9.aud
-        ValidTargets: Water, Underwater
-        InvalidTargets: Bridge
+        ValidTargets: Ground, GroundActor, Building, Infantry
 
 SiegeTankCrucioShockCannon:
     ReloadDelay: 53
     Burst: 1
     Range: 13c0
     Report: cannon1.aud
-    ValidTargets: Ground, Water, GroundActor, WaterActor
+    ValidTargets: Ground, GroundActor, Building, Infantry
     Projectile: InstantHit
         Speed: 682
         Image: 120MM
@@ -141,7 +136,7 @@ SiegeTankCrucioShockCannon:
     Warhead@1Dam: SpreadDamage
         Spread: 128
         Damage: 40
-        ValidTargets: GroundActor, WaterActor
+        ValidTargets: Ground, GroundActor, Building, Infantry
         Versus:
             None: 100
             Wood: 100
@@ -155,19 +150,14 @@ SiegeTankCrucioShockCannon:
     Warhead@3Eff: CreateEffect
         Explosions: small_explosion
         ImpactSounds: kaboom12.aud
-        ValidTargets: Ground, GroundActor, WaterActor, Trees
-    Warhead@4EffWater: CreateEffect
-        Explosions: small_splash
-        ImpactSounds: splash9.aud
-        ValidTargets: Water, Underwater
-        InvalidTargets: Bridge
+        ValidTargets: Ground, GroundActor, Building, Infantry
 
 WidowMineSentinelMissile:
     Range: 5c0
     ReloadDelay: 650
     # Report: tank5.aud
     Report: cannon1.aud
-    ValidTargets: Ground, Water, GroundActor, WaterActor
+    ValidTargets: Ground, GroundActor, Infantry, Air, AirborneActor
     TargetActorCenter: true
     Projectile: Bullet
         ContrailLength: 30
@@ -192,23 +182,18 @@ WidowMineSentinelMissile:
     Warhead@3Eff: CreateEffect
         Explosions: small_explosion
         ImpactSounds: kaboom12.aud
-        ValidTargets: Ground, GroundActor, WaterActor, Trees
-    Warhead@4EffWater: CreateEffect
-        Explosions: small_splash
-        ImpactSounds: splash9.aud
-        ValidTargets: Water, Underwater
-        InvalidTargets: Bridge
+        ValidTargets: Ground, GroundActor, Infantry, Air, AirborneActor
 
 SCVFusionCutter:
     ReloadDelay: 25
     Range: 1c0
     Report: tesla1.aud
     Projectile: TeslaZap
-    ValidTargets: Ground, GroundActor, Structure, Defense
+    ValidTargets: Ground, GroundActor, Infantry, Building
     Warhead@1Dam: SpreadDamage
         Damage: 5
         Spread: 42
-        ValidTargets: Ground, GroundActor, Structure, Defense
+        ValidTargets: Ground, GroundActor, Infantry, Building
         Versus:
             None: 100
             Wood: 100
@@ -216,7 +201,7 @@ SCVFusionCutter:
         DamageTypes: Prone50Percent, TriggerProne, ElectricityDeath
 
 FirebatFlamer:
-    ValidTargets: Ground, Water, GroundActor, WaterActor, Trees
+    ValidTargets: Ground, GroundActor, Infantry, Building
     # TODO: ?
     ReloadDelay: 70
     Range: 2c0
@@ -231,7 +216,7 @@ FirebatFlamer:
     Warhead@1Dam: SpreadDamage
         Spread: 213
         Damage: 16
-        ValidTargets: GroundActor, WaterActor, Trees
+        ValidTargets: Ground, GroundActor, Infantry, Building
         Versus:
             None: 100
             Wood: 100

@@ -5,7 +5,7 @@ VikingMissileAA:
     Report: missile7.aud
     Burst: 2
     BurstDelays: 7
-    ValidTargets: AirborneActor
+    ValidTargets: Air, AirborneActor
     Projectile: Missile
         Speed: 256
         Arm: 2
@@ -20,7 +20,7 @@ VikingMissileAA:
     Warhead@1Dam: SpreadDamage
         Spread: 128
         Damage: 10
-        ValidTargets: AirborneActor
+        ValidTargets: Air, AirborneActor
         Versus:
             None: 100
             Wood: 100
@@ -34,7 +34,7 @@ BansheeMissileAG:
     Range: 6c0
     # MinRange: 0c512
     Report: missile6.aud
-    ValidTargets: Ground, Water, GroundActor, WaterActor
+    ValidTargets: Ground, GroundActor, Infantry, Building
     Projectile: Missile
         Speed: 213
         Arm: 2
@@ -50,7 +50,7 @@ BansheeMissileAG:
     Warhead@1Dam: SpreadDamage
         Spread: 128
         Damage: 12
-        ValidTargets: GroundActor, WaterActor
+        ValidTargets: Ground, GroundActor, Infantry, Building
         Versus:
             None: 100
             Wood: 100
@@ -72,7 +72,7 @@ MarauderPunisherGrenade:
     Range: 6c0
     MinRange: 0c512
     Report: missile6.aud
-    ValidTargets: Ground, Water, GroundActor, WaterActor
+    ValidTargets: Ground, GroundActor, Infantry, Building
     Projectile: Missile
         Speed: 298
         Arm: 2
@@ -86,7 +86,7 @@ MarauderPunisherGrenade:
     Warhead@1Dam: SpreadDamage
         Spread: 128
         Damage: 10
-        ValidTargets: GroundActor, WaterActor
+        ValidTargets: Ground, GroundActor, Infantry, Building
         Versus:
             None: 100
             Wood: 100
@@ -100,12 +100,7 @@ MarauderPunisherGrenade:
     Warhead@3Eff: CreateEffect
         Explosions: med_explosion
         ImpactSounds: kaboom25.aud
-        ValidTargets: Ground, Air, GroundActor, AirborneActor, WaterActor, Trees
-    Warhead@4EffWater: CreateEffect
-        Explosions: med_splash
-        ImpactSounds: splash9.aud
-        ValidTargets: Water, Underwater
-        InvalidTargets: Bridge
+        ValidTargets: Ground, GroundActor, Infantry, Building
 
 CycloneMissileAG:
     ReloadDelay: 50
@@ -114,7 +109,7 @@ CycloneMissileAG:
     Report: missile7.aud
     Burst: 2
     BurstDelays: 7
-    ValidTargets: Ground, GroundActor, Building
+    ValidTargets: Ground, GroundActor, Building, Infantry
     Projectile: Missile
         Speed: 256
         Arm: 2
@@ -129,7 +124,7 @@ CycloneMissileAG:
     Warhead@1Dam: SpreadDamage
         Spread: 128
         Damage: 11
-        ValidTargets: GroundActor, Building
+        ValidTargets: Ground, GroundActor, Building, Infantry
         Versus:
             None: 100
             Wood: 100
@@ -145,7 +140,7 @@ CycloneMissileAA:
     Report: missile7.aud
     Burst: 2
     BurstDelays: 7
-    ValidTargets: AirborneActor
+    ValidTargets: Air, AirborneActor
     Projectile: Missile
         Speed: 256
         Arm: 2
@@ -160,7 +155,7 @@ CycloneMissileAA:
     Warhead@1Dam: SpreadDamage
         Spread: 128
         Damage: 11
-        ValidTargets: AirborneActor
+        ValidTargets: Air, AirborneActor
         Versus:
             None: 100
             Wood: 100

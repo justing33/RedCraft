@@ -10,6 +10,16 @@
                 Palette: player
                 Name: Valuable Minerals
 World:
+    # Map settings
+    MapOptions:
+        ShortGameCheckboxEnabled: false
+        ShortGameCheckboxLocked: true
+    MapBuildRadius:
+        BuildRadiusCheckboxEnabled: false
+        BuildRadiusCheckboxLocked: true
+    CrateSpawner:
+        CheckboxEnabled: false
+        CheckboxLocked: true
     # Start with command center (deployed mcv) and 5 scv
     StartingUnits@mcvonly:
         Class: none

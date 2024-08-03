@@ -25,8 +25,9 @@ SCV:
         BaleUnloadDelay: 0
         BaleUnloadAmount: 99
         SearchForDeliveryBuildingDelay: 0
-        SearchFromProcRadius: 15
-        SearchFromHarvesterRadius: 8
+        # TODO: Radius stuff..
+        SearchFromProcRadius: 200
+        SearchFromHarvesterRadius: 100
         WaitDuration: 0
         FullyLoadedSpeed: 100
         HarvestFacings: 8

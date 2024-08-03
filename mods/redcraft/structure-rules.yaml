@@ -242,7 +242,7 @@ COMC-AIR:
         Type: GroundPosition
     Aircraft:
         TurnSpeed: 20
-        Speed: 128
+        Speed: 40
         AltitudeVelocity: 0c58
     # TODO: Fix bug where game crashes when landing a command center with scv inside
     # Cargo:
@@ -429,7 +429,7 @@ BARRACKS-AIR:
         Range: 9c0
     Aircraft:
         TurnSpeed: 20
-        Speed: 128
+        Speed: 40
         AltitudeVelocity: 0c58
     ProvidesPrerequisite:
         Prerequisite: barracks
@@ -575,7 +575,7 @@ WARF-AIR:
         Range: 9c0
     Aircraft:
         TurnSpeed: 20
-        Speed: 128
+        Speed: 40
         AltitudeVelocity: 0c58
     # Cannot be a building but need garage door overlay so draw idle overlay on top
     WithIdleOverlay@PRODUCTIONDOORTOP:
@@ -752,7 +752,7 @@ STARPORT-AIR:
         Range: 9c0
     Aircraft:
         TurnSpeed: 20
-        Speed: 128
+        Speed: 40
         AltitudeVelocity: 0c58
     SupportPowerChargeBar:
     Power:

@@ -1,0 +1,32 @@
+Player:
+    BaseBuilderBotModule@normal:
+        ConstructionYardTypes: comc
+        RefineryTypes: comc
+        BarracksTypes: barracks_
+        VehiclesFactoryTypes: fact
+        ProductionTypes: barracks_,fact,starport
+        DefenseTypes: bunker,missileturret
+        BuildingLimits:
+            comc: 2
+        BuildingFractions:
+            comc: 50
+            barracks_: 50
+            fact: 50
+            starport: 50
+            bunker: 40
+            missileturret: 30
+    UnitBuilderBotModule@normal:
+        UnitsToBuild:
+            scv: 40
+            marine: 60
+            marauder: 60
+            medic: 30
+            reaper: 30
+            firebat: 40
+            ghost: 30
+            siegetank: 90
+            cyclone: 90
+            hellion: 90
+            banshee: 90
+            medivac: 90
+            viking: 90

@@ -283,12 +283,6 @@ GHOST:
         Voice: Move
     RevealsShroud:
         Range: 11c0
-    Demolition:
-        DetonationDelay: 45
-        Voice: Demolish
-    Passenger:
-        CustomPipType: red
-        Voice: Move
     Armament@PRIMARY:
         Weapon: GhostC10CanisterRifle
         LocalOffset: 0,0,0, 0,0,0

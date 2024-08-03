@@ -70,6 +70,7 @@ Rules:
 	redcraft|vehicle-rules.yaml
 	redcraft|aircraft-rules.yaml
 	redcraft|ships-rules.yaml
+	redcraft|ai-rules.yaml
 
 Sequences:
 	ra|sequences/ships.yaml

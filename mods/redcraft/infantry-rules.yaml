@@ -5,7 +5,7 @@ MARINE:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Buildable:
 		Queue: Infantry
-		BuildDuration: 450
+		BuildDuration: 1350
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 10
 		Prerequisites: barracks_

@@ -155,20 +155,19 @@ SiegeTankCrucioShockCannon:
 WidowMineSentinelMissile:
     Range: 5c0
     ReloadDelay: 650
-    # Report: tank5.aud
     Report: cannon1.aud
     ValidTargets: Ground, GroundActor, Infantry, Air, AirborneActor
     TargetActorCenter: true
     Projectile: Bullet
         ContrailLength: 30
-        Speed: 170
+        Speed: 250
         Blockable: false
         LaunchAngle: 62
         Inaccuracy: 0c0
     Warhead@1Dam: SpreadDamage
         Spread: 426
         Damage: 125
-        Falloff: 100, 55, 20, 5
+        ValidTargets: Ground, GroundActor, Building, Infantry
         Versus:
             None: 100
             Wood: 100

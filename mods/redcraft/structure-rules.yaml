@@ -129,9 +129,8 @@ COMC:
     # TODO: This is important for some reason regarding building the upgrades
     ProvidesPrerequisite@command-center:
         Prerequisite: comc
-    # TODO: Fix bug
+    # TODO: Fix bug where cc lifts off with cargo inside and lands, and game crashes
     # Cargo:
-    #     # TODO: Testing
     #     Types: Vehicle
     #     # TODO: Consider future upgrade to 10 capacity
     #     MaxWeight: 5
@@ -227,7 +226,7 @@ COMC:
 # Command Center (Lifted Off)
 COMC-AIR:
     Inherits: ^Helicopter
-    # TODO: Fix bug
+    # TODO: Fix bug listed below
     # Inherits@CARGOPIPS: ^CargoPips
     ProvidesRadar:
     Tooltip:
@@ -311,7 +310,6 @@ COMC-ORB:
         # TODO: Temp name
         Queue: Ship
         BuildDuration: 1025
-        #BuildDurationModifier: 1
         Description: actor-comc-orb.description
     Valued:
         Cost: 150

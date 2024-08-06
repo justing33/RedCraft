@@ -8,8 +8,13 @@
 ^Infantry:
     -Crushable:
 
+^Soldier:
+    -TakeCover:
+
 ^Vehicle:
     -Explodes:
 
 ^NeutralPlane:
     -Explodes:
+    -EjectOnDeath:
+    -SpawnActorOnDeath:

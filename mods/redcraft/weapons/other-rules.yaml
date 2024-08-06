@@ -167,7 +167,7 @@ WidowMineSentinelMissile:
     Warhead@1Dam: SpreadDamage
         Spread: 426
         Damage: 125
-        ValidTargets: Ground, GroundActor, Building, Infantry
+        ValidTargets: Ground, GroundActor, Infantry, Air, AirborneActor
         Versus:
             None: 100
             Wood: 100

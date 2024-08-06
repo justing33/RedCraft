@@ -7,17 +7,19 @@ Player:
         ProductionTypes: barracks_,fact,starport
         DefenseTypes: bunker,missileturret
         BuildingLimits:
-            comc: 2
+            comc: 0
         BuildingFractions:
-            comc: 50
-            barracks_: 50
-            fact: 50
-            starport: 50
+            comc: 0
+            barracks_: 40
+            fact: 40
+            starport: 40
             bunker: 40
-            missileturret: 30
+            missileturret: 40
+            engineeringbay: 15
+            ghostacademy: 15
     UnitBuilderBotModule@normal:
         UnitsToBuild:
-            scv: 60
+            scv: 99
             marine: 40
             marauder: 40
             medic: 30

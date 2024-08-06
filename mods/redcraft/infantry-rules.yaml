@@ -82,7 +82,6 @@ MARAUDER:
 	Armament@GARRISONED:
 		Name: garrisoned
 		Weapon: MarauderPunisherGrenade
-	-TakeCover:
 	WithInfantryBody:
 		DefaultAttackSequence: shoot
 		RequiresCondition: !parachute

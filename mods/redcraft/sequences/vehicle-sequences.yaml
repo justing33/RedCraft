@@ -68,11 +68,15 @@ widowmine:
     idle:
         Filename: minv.shp
         Facings: 1
-        groups:
-            Length: 1
-            Frames: 1
-        ZOffset: -512
         UseClassicFacings: False
+    turret:
+        Filename: stnk.shp
+        Start: 1
+        Facings: 32
+        UseClassicFacings: True
+    muzzle:
+        Filename: gunfire2.shp
+        Length: 2
     icon:
         Filename: jmin.shp
 

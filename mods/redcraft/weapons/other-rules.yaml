@@ -156,18 +156,18 @@ WidowMineSentinelMissile:
     Range: 5c0
     ReloadDelay: 650
     Report: cannon1.aud
-    ValidTargets: Ground, GroundActor, Infantry, Air, AirborneActor
+    ValidTargets: Ground, Infantry, Vehicle, Air, AirborneActor
     TargetActorCenter: true
     Projectile: Bullet
         ContrailLength: 30
-        Speed: 250
+        Speed: 300
         Blockable: false
         LaunchAngle: 62
         Inaccuracy: 0c0
     Warhead@1Dam: SpreadDamage
         Spread: 426
         Damage: 125
-        ValidTargets: Ground, GroundActor, Infantry, Air, AirborneActor
+        ValidTargets: Ground, Infantry, Vehicle, Air, AirborneActor
         Versus:
             None: 100
             Wood: 100
@@ -181,7 +181,7 @@ WidowMineSentinelMissile:
     Warhead@3Eff: CreateEffect
         Explosions: small_explosion
         ImpactSounds: kaboom12.aud
-        ValidTargets: Ground, GroundActor, Infantry, Air, AirborneActor
+        ValidTargets: Ground, Infantry, Vehicle, Air, AirborneActor
 
 SCVFusionCutter:
     ReloadDelay: 25

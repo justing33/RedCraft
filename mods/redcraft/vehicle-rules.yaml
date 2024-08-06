@@ -306,7 +306,7 @@ SIEGETANK-SM:
 # Mine Layer
 # Widow Mine
 WIDOWMINE:
-    Inherits: ^TrackedVehicle
+    Inherits: ^Vehicle
     Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
     # TODO: Look into selectable priorities later for QOL
     # Inherits@selection: ^SelectableSupportUnit
@@ -330,14 +330,15 @@ WIDOWMINE:
         Type: Heavy
     Mobile:
         Speed: 98
+    Turreted:
+        TurnSpeed: 300
+        Offset: -298,0,298
     Armament:
         Weapon: WidowMineSentinelMissile
         LocalOffset: 624,-200,0
         MuzzleSequence: muzzle
-    AttackFrontal:
-        TargetFrozenActors: True
-        ForceFireIgnoresActors: True
-        FacingTolerance: 512
+    AttackTurreted:
+    WithMuzzleOverlay:
     Cloak:
         InitialDelay: 50
         CloakDelay: 100
@@ -356,10 +357,8 @@ WIDOWMINE:
         RevealGeneratedShroud: False
     RevealsShroud@GAPGEN:
         Range: 4c0
-    Explodes:
-        Weapon: ATMine
     Targetable:
-        TargetTypes: GroundActor, Vehicle, AirborneActor, Defense, Building
+        TargetTypes: Ground, Infantry, Vehicle, Air, AirborneActor
     Passenger:
         Weight: 2
 

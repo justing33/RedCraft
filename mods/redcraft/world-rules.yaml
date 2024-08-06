@@ -26,7 +26,6 @@ World:
         ClassName: options-starting-units.mcv-only
         Factions: allies, england, france, germany, soviet, russia, ukraine
         BaseActor: comc
-        # TODO: Fix me
         SupportActors: scv, scv, scv, scv, scv
     ResourceLayer:
         RecalculateResourceDensity: true

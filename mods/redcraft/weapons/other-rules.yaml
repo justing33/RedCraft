@@ -231,3 +231,23 @@ FirebatFlamer:
         Explosions: small_napalm
         ImpactSounds: firebl3.aud
         ImpactActors: false
+
+PlanetaryFortressCannon:
+    Inherits: ^Artillery
+    ReloadDelay: 55
+    Range: 8c0
+    Burst: 1
+    Report: turret1.aud
+    TargetActorCenter: true
+    ValidTargets: Ground, GroundActor, Infantry, Building, Vehicle
+    Projectile: InstantHit
+        ContrailLength: 30
+    Warhead@1Dam: SpreadDamage
+        Damage: 40
+        Versus:
+            None: 100
+            Wood: 100
+            Light: 100
+            Heavy: 100
+            Concrete: 100
+        ValidTargets: Ground, GroundActor, Infantry, Building, Vehicle

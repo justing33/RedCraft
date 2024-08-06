@@ -2,6 +2,7 @@
 # Command Center
 COMC:
     Inherits: ^Building
+    Inherits@AUTOTARGET: ^AutoTargetGround
     Selectable:
         Bounds: 3072, 3072
     Building:
@@ -141,14 +142,14 @@ COMC:
     Turreted@PRIMARY:
         Turret: primary
         Offset: 0,-64,700
-        TurnSpeed: 12
+        TurnSpeed: 75
         RequiresCondition: planetaryfortressupgraded
     WithSpriteTurret:
         Recoils: false
         RequiresCondition: planetaryfortressupgraded && !build-incomplete
     Armament@PRIMARY:
         Turret: primary
-        Weapon: 8Inch
+        Weapon: PlanetaryFortressCannon
         LocalOffset: 480,-100,40, 480,100,40
         Recoil: 171
         RecoilRecovery: 34
@@ -156,6 +157,7 @@ COMC:
         RequiresCondition: planetaryfortressupgraded
     AttackTurreted:
         Turrets: primary
+        OpportunityFire: True
         TargetFrozenActors: True
         ForceFireIgnoresActors: True
         RequiresCondition: planetaryfortressupgraded

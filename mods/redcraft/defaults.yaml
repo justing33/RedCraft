@@ -10,11 +10,14 @@
 
 ^Soldier:
     -TakeCover:
+    #-MustBeDestroyed:
 
 ^Vehicle:
     -Explodes:
+    #-MustBeDestroyed:
 
 ^NeutralPlane:
     -Explodes:
     -EjectOnDeath:
     -SpawnActorOnDeath:
+    #-MustBeDestroyed:

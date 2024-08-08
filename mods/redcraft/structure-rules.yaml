@@ -28,7 +28,6 @@ COMC:
     Tooltip@ORBITALUPGRADED:
         Name: Orbital Command
         RequiresCondition: orbitalcommandupgraded
-    # START TEST
     Refinery:
         UseStorage: False
         # DockOffset: 1,3
@@ -92,7 +91,6 @@ COMC:
     Armor:
         Type: Wood
     RevealsShroud:
-        # MinRange: 4c0
         Range: 11c0
         RevealGeneratedShroud: False
     RevealsShroud@GAPGEN:
@@ -362,7 +360,6 @@ BARRACKS_:
     Armor:
         Type: Wood
     RevealsShroud:
-        # MinRange: 4c0
         Range: 9c0
         RevealGeneratedShroud: False
     RevealsShroud@GAPGEN:
@@ -423,7 +420,6 @@ BARRACKS-AIR:
     Armor:
         Type: Wood
     RevealsShroud:
-        # MinRange: 4c0
         Range: 9c0
         RevealGeneratedShroud: True
     RevealsShroud@GAPGEN:
@@ -515,7 +511,6 @@ FACTORY:
     Armor:
         Type: Wood
     RevealsShroud:
-        # MinRange: 4c0
         Range: 9c0
         RevealGeneratedShroud: False
     RevealsShroud@GAPGEN:
@@ -569,7 +564,6 @@ FACTORY-AIR:
     Armor:
         Type: Wood
     RevealsShroud:
-        # MinRange: 4c0
         Range: 9c0
         RevealGeneratedShroud: False
     RevealsShroud@GAPGEN:
@@ -625,7 +619,6 @@ BUNK:
     Armor:
         Type: Heavy
     RevealsShroud:
-        # MinRange: 5c0
         Range: 10c0
         RevealGeneratedShroud: False
     RevealsShroud@GAPGEN:
@@ -644,7 +637,6 @@ BUNK:
     Cargo:
         Types: Infantry
         MaxWeight: 4
-        #-InitialUnits:
     AttackGarrisoned:
         PauseOnCondition: build-incomplete
         Armaments: garrisoned
@@ -881,6 +873,37 @@ GHOSTACADEMY:
     Power:
         Amount: 0
     ProvidesPrerequisite@buildingname:
+    NukePower:
+        PauseOnCondition: disabled
+        Cursor: nuke
+        Icon: abomb
+        ChargeInterval: 4500
+        Name: actor-mslo.nukepower-name
+        Description: actor-mslo.nukepower-description
+        BeginChargeSpeechNotification: AbombPrepping
+        EndChargeSpeechNotification: AbombReady
+        SelectTargetSpeechNotification: SelectTarget
+        InsufficientPowerSpeechNotification: InsufficientPower
+        IncomingSpeechNotification: AbombLaunchDetected
+        SelectTargetTextNotification: notification-select-target
+        InsufficientPowerTextNotification: notification-insufficient-power
+        BeginChargeTextNotification: notification-abomb-prepping
+        EndChargeTextNotification: notification-abomb-ready
+        IncomingTextNotification: notification-abomb-launch-detected
+        MissileWeapon: ghostacademynuke
+        MissileImage: atomic
+        MissileDelay: 14 # 14 seconds to land?
+        SpawnOffset: 1c0,427,0
+        DisplayTimerRelationships: Ally, Neutral, Enemy
+        DisplayBeacon: True
+        DisplayRadarPing: True
+        BeaconPoster: atomicon
+        CameraRange: 10c0
+        ArrowSequence: arrow
+        ClockSequence: clock
+        CircleSequence: circles
+        SupportPowerPaletteOrder: 70
+    SupportPowerChargeBar:
 
 # Soviet Tech Center
 # Engineering Bay

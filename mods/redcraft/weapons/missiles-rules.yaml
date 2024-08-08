@@ -165,3 +165,33 @@ CycloneMissileAA:
             Heavy: 100
             Concrete: 100
         DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+
+MissileTurretMissileAA:
+    ReloadDelay: 25
+    Range: 7c0
+    Report: missile7.aud
+    Burst: 2
+    BurstDelays: 4
+    ValidTargets: Air, AirborneActor
+    Projectile: Missile
+        Speed: 512
+        Arm: 2
+        Blockable: false
+        ContrailLength: 10
+        Inaccuracy: 0
+        Image: DRAGON
+        Shadow: true
+        HorizontalRateOfTurn: 20
+        CruiseAltitude: 2c0
+        RangeLimit: 14c410
+    Warhead@1Dam: SpreadDamage
+        Spread: 128
+        Damage: 24
+        ValidTargets: Air, AirborneActor
+        Versus:
+            None: 100
+            Wood: 100
+            Light: 100
+            Heavy: 100
+            Concrete: 100
+        DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath

@@ -46,8 +46,8 @@ VIKING:
     Aircraft:
         CruiseAltitude: 2560
         AltitudeVelocity: 0c75
-        TurnSpeed: 16
-        Speed: 78
+        TurnSpeed: 40
+        Speed: 120
         RepulsionSpeed: 40
         MaximumPitch: 56
     AutoTarget:
@@ -116,7 +116,7 @@ MEDIVAC:
         Type: GroundPosition
     Aircraft:
         TurnSpeed: 20
-        Speed: 87
+        Speed: 110
         AltitudeVelocity: 0c58
     WithIdleOverlay@ROTOR1AIR:
         Offset: 597,0,213
@@ -218,7 +218,7 @@ BANSHEE:
         AttackType: Hover
     Aircraft:
         TurnSpeed: 16
-        Speed: 96
+        Speed: 115
         # Speed: SC2 3.85 x 25 ticks/sec = 96.25
     Cloak:
         InitialDelay: 0

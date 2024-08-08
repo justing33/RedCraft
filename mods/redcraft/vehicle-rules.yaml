@@ -391,7 +391,6 @@ VIKING-AM:
         RevealGeneratedShroud: False
     RevealsShroud@GAPGEN:
         Range: 4c0
-        #TODO: Need to balance based on viking stats
     Armament@PRIMARY:
         Weapon: VIKING-AM-GATLING
         MuzzleSequence: muzzle

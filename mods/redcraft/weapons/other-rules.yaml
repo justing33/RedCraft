@@ -185,7 +185,7 @@ WidowMineSentinelMissile:
 
 SCVFusionCutter:
     ReloadDelay: 25
-    Range: 1c0
+    Range: 1c256
     Report: tesla1.aud
     Projectile: TeslaZap
     ValidTargets: Ground, GroundActor, Infantry, Building

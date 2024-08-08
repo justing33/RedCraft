@@ -767,7 +767,7 @@ STARPORT-AIR:
 #Sam Site
 # Missile Turret
 MISSILETURRET:
-    Inherits: ^Defense
+    Inherits: ^Building
     # Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
     Inherits@AUTOTARGET: ^AutoTargetAir
     Inherits@shape: ^2x1Shape
@@ -815,8 +815,7 @@ MISSILETURRET:
         RequiresCondition: !build-incomplete
         Recoils: false
     Armament:
-        # TODO: Make custom armament
-        Weapon: Nike
+        Weapon: MissileTurretMissileAA
         LocalOffset: 0,0,320
         MuzzleSequence: muzzle
     AttackTurreted:
@@ -831,7 +830,6 @@ MISSILETURRET:
     MustBeDestroyed:
         RequiredForShortGame: true
 
-# TODO: Add in nuke building to be used for Ghosts
 # Allied Tech Center
 # Ghost Academy
 GHOSTACADEMY:

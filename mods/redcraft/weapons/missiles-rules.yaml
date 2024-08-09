@@ -36,7 +36,7 @@ BansheeMissileAG:
     Report: missile6.aud
     ValidTargets: Ground, GroundActor, Infantry, Building
     Projectile: Missile
-        Speed: 213
+        Speed: 250
         Arm: 2
         Blockable: false
         ContrailLength: 10
@@ -49,7 +49,7 @@ BansheeMissileAG:
         TrailImage: smokey
     Warhead@1Dam: SpreadDamage
         Spread: 128
-        Damage: 12
+        Damage: 18
         ValidTargets: Ground, GroundActor, Infantry, Building
         Versus:
             None: 100
@@ -57,6 +57,7 @@ BansheeMissileAG:
             Light: 100
             Heavy: 100
             Concrete: 100
+            Steel: 100
         DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
     Warhead@2Smu: LeaveSmudge
         SmudgeType: Crater

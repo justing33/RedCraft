@@ -124,21 +124,24 @@ SiegeTank90mmCannon:
         ValidTargets: Ground, GroundActor, Building, Infantry
 
 SiegeTankCrucioShockCannon:
-    ReloadDelay: 53
+    ReloadDelay: 80
     Burst: 1
-    Range: 13c0
+    MinRange: 3c0
+    Range: 8c0
     Report: cannon1.aud
     ValidTargets: Ground, GroundActor, Building, Infantry
     Projectile: InstantHit
-        Speed: 682
-        Image: 120MM
-        Shadow: True
-    Warhead@1Dam: SpreadDamage
-        Spread: 128
+		Speed: 682
+		Image: 120MM
+		Shadow: True
+	Warhead@1Dam: SpreadDamage
+		Spread: 1c0
         Damage: 40
+        Falloff: 75, 40, 20, 15, 7
         ValidTargets: Ground, GroundActor, Building, Infantry
         Versus:
             None: 100
+            Biological: 65
             Wood: 100
             Light: 100
             Heavy: 100
@@ -196,7 +199,9 @@ SCVFusionCutter:
         Versus:
             None: 100
             Wood: 100
+            Light: 100
             Heavy: 100
+            Concrete: 100
         DamageTypes: Prone50Percent, TriggerProne, ElectricityDeath
 
 FirebatFlamer:

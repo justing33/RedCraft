@@ -32,18 +32,18 @@ VIKING-AM-GATLING:
 		Damage: 6
 		ValidTargets: Ground, GroundActor, Building
 		Versus:
-			None: 120
-			Wood: 60
-			Light: 72
-			Heavy: 28
-			Concrete: 28
+			None: 100
+			Wood: 100
+			Light: 100
+			Heavy: 100
+			Concrete: 100
 		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: piffs
 		ValidTargets: Ground, GroundActor, Building
 
 ReaperP45GaussPistol:
-    ReloadDelay: 19
+    ReloadDelay: 25
     Range: 5c0
     Report: gun5.aud
     ValidTargets: Ground, GroundActor, Infantry, Building
@@ -51,8 +51,14 @@ ReaperP45GaussPistol:
         Blockable: false
     Warhead@1Dam: SpreadDamage
         Spread: 42
-        Damage: 4
+        Damage: 8
         ValidTargets: Ground, GroundActor, Infantry, Building
+        Versus:
+            None: 100
+            Wood: 100
+            Light: 100
+            Heavy: 100
+            Concrete: 100
         DamageTypes: Prone50Percent, TriggerProne, DefaultDeath
     Warhead@2Eff: CreateEffect
         Explosions: piff
@@ -68,6 +74,12 @@ GhostC10CanisterRifle:
     Warhead@1Dam: SpreadDamage
         Spread: 42
         Damage: 10
+        Versus:
+            None: 100
+            Wood: 100
+            Light: 100
+            Heavy: 100
+            Concrete: 100
         ValidTargets: Ground, GroundActor, Infantry, Building, Air, AirborneActor
         DamageTypes: Prone50Percent, TriggerProne, DefaultDeath
     Warhead@2Eff: CreateEffect

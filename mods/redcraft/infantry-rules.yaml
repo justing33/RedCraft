@@ -18,14 +18,16 @@ MARINE:
 		Name: actor-marine.name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
-    RevealsShroud:
-        Range: 9c0
-    Mobile:
+	RevealsShroud:
+		Range: 9c0
+	Mobile:
         Speed: 78
         AlwaysTurnInPlace: true
         Locomotor: foot
 	Health:
 		HP: 45
+	Armor:
+		Type: Biological
 	Armament@PRIMARY:
 		Weapon: MarineC14GaussRifle
 	Armament@GARRISONED:

@@ -236,12 +236,12 @@ COMC-AIR:
     Health:
         HP: 1500
     RevealsShroud:
-        MinRange: 6c0
         Range: 8c0
-        Type: GroundPosition
         RevealGeneratedShroud: False
+        MaxHeightDelta: -1
+        Type: CenterPosition
     RevealsShroud@GAPGEN:
-        Range: 6c0
+        Range: 8c0
         Type: GroundPosition
     Aircraft:
         TurnSpeed: 20
@@ -424,6 +424,8 @@ BARRACKS-AIR:
     RevealsShroud:
         Range: 9c0
         RevealGeneratedShroud: True
+        MaxHeightDelta: -1
+        Type: CenterPosition
     RevealsShroud@GAPGEN:
         Range: 9c0
     Aircraft:
@@ -567,7 +569,9 @@ FACTORY-AIR:
         Type: Wood
     RevealsShroud:
         Range: 9c0
-        RevealGeneratedShroud: False
+        RevealGeneratedShroud: True
+        MaxHeightDelta: -1
+        Type: CenterPosition
     RevealsShroud@GAPGEN:
         Range: 9c0
     Aircraft:
@@ -740,9 +744,10 @@ STARPORT-AIR:
     Armor:
         Type: Wood
     RevealsShroud:
-        # MinRange: 4c0
         Range: 9c0
-        RevealGeneratedShroud: False
+        RevealGeneratedShroud: True
+        MaxHeightDelta: -1
+        Type: CenterPosition
     RevealsShroud@GAPGEN:
         Range: 9c0
     Aircraft:

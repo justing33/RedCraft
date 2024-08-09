@@ -4,6 +4,30 @@ scv:
         Length: 9
         Tick: 100
         Offset: 0,-13
+    stand:
+        Facings: 8
+    stand2:
+        Start: 8
+        Facings: 8
+    run:
+        Start: 16
+        Length: 6
+        Facings: 8
+        Tick: 100
+    shoot:
+        Start: 64
+        Length: 8
+        Facings: 8
+    #prone-stand:
+    #prone-stand2:
+    #prone-run:
+    #liedown:
+    standup:
+        Start: 176
+        Length: 2
+        Facings: 8
+    #prone-shoot:
+    #parachute:
 
 hellion:
     Defaults:

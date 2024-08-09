@@ -298,6 +298,8 @@ SIEGETANK-SM:
         Recoil: 171
         RecoilRecovery: 30
         MuzzleSequence: muzzle
+    RenderRangeCircle:
+        RangeCircleType: siege-radius
     Transforms:
         IntoActor: siegetank
         Offset: 0,0

@@ -230,7 +230,7 @@ MEDIC_:
     Health:
         HP: 60
     Mobile:
-        Speed: 49
+        Speed: 78
         AlwaysTurnInPlace: true
         Locomotor: foot
     RevealsShroud:

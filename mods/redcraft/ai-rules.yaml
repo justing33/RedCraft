@@ -3,20 +3,31 @@ Player:
         ConstructionYardTypes: comc
         RefineryTypes: comc
         BarracksTypes: barracks_
-        VehiclesFactoryTypes: fact
-        ProductionTypes: barracks_,fact,starport
+        VehiclesFactoryTypes: factory
+        ProductionTypes: comc,barracks_,factory,starport,engineeringbay,ghostacademy
         DefenseTypes: bunker,missileturret
         BuildingLimits:
             comc: 0
         BuildingFractions:
-            comc: 0
+            #comc: 0
             barracks_: 40
-            fact: 40
+            factory: 40
             starport: 40
-            bunker: 40
+            bunker: 30
             missileturret: 40
             engineeringbay: 15
             ghostacademy: 15
+    SquadManagerBotModule@normal:
+        RequiresCondition: enable-normal-ai
+        SquadSize: 15
+        #NavalUnitsTypes: ss, msub, dd, ca, lst, pt
+        ExcludeFromSquadsTypes: harv, mcv, dog, badr.bomber, u2, scv
+        ConstructionYardTypes: comc
+        #NavalProductionTypes: spen, syrd
+        AirUnitsTypes: mig, yak, heli, hind, mh60, viking, banshee, medivac
+        AircraftTargetType: AirborneActor
+        ProtectionTypes: scv, comc, barracks_, factory, starport, engineeringbay, ghostacademy, bunker, missileturret
+        #IgnoredEnemyTargetTypes: AirborneActor
     UnitBuilderBotModule@normal:
         UnitsToBuild:
             scv: 99

@@ -26,20 +26,20 @@ Player:
         #NavalProductionTypes: spen, syrd
         AirUnitsTypes: mig, yak, heli, hind, mh60, viking, banshee, medivac
         AircraftTargetType: AirborneActor
-        ProtectionTypes: scv, comc, barracks_, factory, starport, engineeringbay, ghostacademy, bunker, missileturret
+        ProtectionTypes: scv, comc, barracks_, factory, starport, engineeringbay, ghostacademy, bunker, missileturret, marine, marauder, reaper, medic, ghost, firebat, hellion, hellbat, cyclone, siegetank, siegetank-sm, widowmine, viking, viking-am, banshee, medivac
         #IgnoredEnemyTargetTypes: AirborneActor
     UnitBuilderBotModule@normal:
         UnitsToBuild:
-            scv: 99
+            scv: 40
             marine: 40
             marauder: 40
             medic: 30
             reaper: 30
             firebat: 40
-            ghost: 30
-            siegetank: 30
-            cyclone: 20
-            hellion: 30
+            ghost: 20
+            siegetank: 40
+            cyclone: 30
+            hellion: 40
             banshee: 30
-            medivac: 30
+            medivac: 15
             viking: 30

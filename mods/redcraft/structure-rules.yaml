@@ -100,7 +100,7 @@ COMC:
     # Want to flip flop between the two production capabilities upon condition
     # WE CAN FLIP FLOP IF THE OTHER SIDE I.E> INFANTRY DONT REQUIRE THE PREREQ!!!!!!!!!!!
     Production@SCV:
-        Produces: Defense
+        Produces: Ship
     Production@UPGRADES:
         # Temp queue name
         Produces: Ship
@@ -111,7 +111,7 @@ COMC:
         QueueLimit: 1
         ItemLimit: 1
     ProductionQueue@SCV:
-        Type: Defense
+        Type: Ship
     GrantConditionOnProduction@PlanetaryFortress:
         Condition: planetaryfortressupgraded
         Actors: COMC-PLAN
@@ -283,7 +283,7 @@ COMC-AIR:
 # Planetary Fortress
 COMC-PLAN:
     Buildable:
-        BuildPaletteOrder: 2
+        BuildPaletteOrder: 30
         Prerequisites: engineeringbay
         # TODO: Temp queue name -> Want it to be Upgrades
         Queue: Ship
@@ -305,9 +305,9 @@ COMC-PLAN:
 # Orbital Command
 COMC-ORB:
     Buildable:
-        BuildPaletteOrder: 1
+        BuildPaletteOrder: 20
         Prerequisites: barracks_
-        # TODO: Temp name
+        # TODO: Figure out how to rename the queue to Upgrades
         Queue: Ship
         BuildDuration: 1025
         Description: actor-comc-orb.description

@@ -97,10 +97,11 @@ COMC:
         RevealGeneratedShroud: False
     RevealsShroud@GAPGEN:
         Range: 11c0
-    # Want to flip flop between the two production capabilities upon condition
-    # WE CAN FLIP FLOP IF THE OTHER SIDE I.E> INFANTRY DONT REQUIRE THE PREREQ!!!!!!!!!!!
+    # Having 'Defense' type prevents duplicate (2) SCVs building simultaneously (Bug)
+    # Adding 'Ship' type allows for Normal AI to build SCVs as Defense must not be a unit production type in engine
+    # Making a decision to roll back to Defense type for now for SCV and stunt AI formidability
     Production@SCV:
-        Produces: Ship
+        Produces: Defense
     Production@UPGRADES:
         # Temp queue name
         Produces: Ship
@@ -111,7 +112,7 @@ COMC:
         QueueLimit: 1
         ItemLimit: 1
     ProductionQueue@SCV:
-        Type: Ship
+        Type: Defense
     GrantConditionOnProduction@PlanetaryFortress:
         Condition: planetaryfortressupgraded
         Actors: COMC-PLAN

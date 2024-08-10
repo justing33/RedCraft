@@ -4,7 +4,7 @@ SCV:
     Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
     Inherits@selection: ^SelectableEconomicUnit
     Buildable:
-        Queue: Ship
+        Queue: Defense
         BuildPaletteOrder: 10
         BuildDuration: 900
         Prerequisites: comc

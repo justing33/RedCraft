@@ -172,6 +172,8 @@ COMC:
     AirstrikePower@spyplane:
         OrderName: SovietSpyPlane
         Icon: scannersweep
+        # Allow multiple instances of this support power
+        AllowMultiple: true
         ChargeInterval: 3750
         Name: Scanner Sweep
         Description: Reveals an area of the map.
@@ -876,13 +878,43 @@ GHOSTACADEMY:
     Power:
         Amount: 0
     ProvidesPrerequisite@buildingname:
+    Production@TACTICALNUKE:
+        # TODO: Temp queue name
+        Produces: Ship
+        RequiresCondition: !built-nuke
+    ProductionQueue@TACTICALNUKE:
+        # TODO: Temp until I can change the production tab on sidebar in chrome.yaml
+        Type: Ship
+    GrantConditionOnProduction@TACTICALNUKE:
+        Condition: built-nuke
+        Actors: TACTICALNUKE
+    Exit:
+        ExitCell: -2, 1
+
+# Build a Nuclear Strike
+TACTICALNUKE:
+    Buildable:
+        BuildPaletteOrder: 10
+        Prerequisites: ghostacademy
+        Queue: Ship
+        BuildDuration: 1900 # 43
+        Description: actor-tactical-nuke.description
+    Valued:
+        Cost: 100
+        # Oil: 100
+    Tooltip:
+        Name: actor-tactical-nuke.name
+    Interactable:
+    RenderSprites:
     NukePower:
-        PauseOnCondition: disabled
         Cursor: nuke
+        OneShot: true
+        AllowMultiple: true
         Icon: abomb
-        ChargeInterval: 4500
-        Name: actor-mslo.nukepower-name
-        Description: actor-mslo.nukepower-description
+        ChargeInterval: 0
+        SupportPowerPaletteOrder: 40
+        Name: actor-tactical-nuke.name
+        Description: actor-tactical-nuke.description
         BeginChargeSpeechNotification: AbombPrepping
         EndChargeSpeechNotification: AbombReady
         SelectTargetSpeechNotification: SelectTarget
@@ -895,7 +927,7 @@ GHOSTACADEMY:
         IncomingTextNotification: notification-abomb-launch-detected
         MissileWeapon: ghostacademynuke
         MissileImage: atomic
-        MissileDelay: 14 # 14 seconds to land?
+        MissileDelay: 1
         SpawnOffset: 1c0,427,0
         DisplayTimerRelationships: Ally, Neutral, Enemy
         DisplayBeacon: True
@@ -905,7 +937,6 @@ GHOSTACADEMY:
         ArrowSequence: arrow
         ClockSequence: clock
         CircleSequence: circles
-        SupportPowerPaletteOrder: 70
     SupportPowerChargeBar:
 
 # Soviet Tech Center

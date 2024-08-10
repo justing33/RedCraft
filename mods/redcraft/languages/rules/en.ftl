@@ -522,7 +522,7 @@ actor-comc-plan =
 
 actor-comc-orb =
    .description = An upgrade for the Command Center, provides Scanner Sweep, MULEs, and Extra Supplies
-    Can be lifted off to relocate
+    Cannot be lifted off
     Collects Gems for credits
    .name = Orbital Command
 
@@ -570,6 +570,11 @@ actor-ghostacademy =
    .description = Provides Ghost unit to Barracks
    Research upgrades for Ghosts and build Nukes
    .name = Ghost Academy
+
+actor-tactical-nuke =
+   .name = Tactical Nuke
+   .description = A devastating nuclear strike dealing large area of effect damage
+    Individual nuke instances can be built and used independently
 
 actor-engineeringbay =
    .description = Research center for upgrades

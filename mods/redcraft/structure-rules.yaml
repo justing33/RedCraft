@@ -122,11 +122,8 @@ COMC:
     GrantExternalConditionToProduced:
         Condition: produced
     BaseBuilding:
-    # Required for units to be able to exit CY
     Exit@1:
-        RequiresCondition: !being-captured
-        SpawnOffset: 900,2000,0
-        ExitCell: 3,3
+        ExitCell: 0,0
     # TODO: This is important for some reason regarding building the upgrades
     ProvidesPrerequisite@command-center:
         Prerequisite: comc

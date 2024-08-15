@@ -10,13 +10,22 @@
                 Palette: player
                 Name: Valuable Minerals
 World:
+    # Map settings
+    MapOptions:
+        ShortGameCheckboxEnabled: false
+        ShortGameCheckboxLocked: true
+    MapBuildRadius:
+        BuildRadiusCheckboxEnabled: false
+        BuildRadiusCheckboxLocked: true
+    CrateSpawner:
+        CheckboxEnabled: false
+        CheckboxLocked: true
     # Start with command center (deployed mcv) and 5 scv
     StartingUnits@mcvonly:
         Class: none
         ClassName: options-starting-units.mcv-only
         Factions: allies, england, france, germany, soviet, russia, ukraine
         BaseActor: comc
-        # TODO: Fix me
         SupportActors: scv, scv, scv, scv, scv
     ResourceLayer:
         RecalculateResourceDensity: true

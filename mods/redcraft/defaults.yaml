@@ -1,12 +1,23 @@
 ^Building:
     -Sellable:
+    # TODO: Make SCV repair buildings
+    RepairableBuilding:
+        RepairStep: 20
+        RepairingNotification: Repairing
 
 ^Infantry:
     -Crushable:
 
-# ^NonLandableHelicopter:
-#     Inherits: ^Helicopter
-#     Aircraft:
-#         # LandAltitude: 1c256
-#         MinAirborneAltitude: 300
-#         # CruiseAltitude: 1
+^Soldier:
+    -TakeCover:
+    #-MustBeDestroyed:
+
+^Vehicle:
+    -Explodes:
+    #-MustBeDestroyed:
+
+^NeutralPlane:
+    -Explodes:
+    -EjectOnDeath:
+    -SpawnActorOnDeath:
+    #-MustBeDestroyed:

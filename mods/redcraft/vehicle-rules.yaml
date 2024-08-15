@@ -5,9 +5,9 @@ SCV:
     Inherits@selection: ^SelectableEconomicUnit
     Buildable:
         Queue: Defense
-        BuildPaletteOrder: 110
-        BuildDuration: 300
-        Prerequisites: command-center
+        BuildPaletteOrder: 10
+        BuildDuration: 900
+        Prerequisites: comc
         Description: TBD
     Valued:
         Cost: 50
@@ -25,8 +25,9 @@ SCV:
         BaleUnloadDelay: 0
         BaleUnloadAmount: 99
         SearchForDeliveryBuildingDelay: 0
-        SearchFromProcRadius: 15
-        SearchFromHarvesterRadius: 8
+        # TODO: Radius stuff..
+        SearchFromProcRadius: 200
+        SearchFromHarvesterRadius: 100
         WaitDuration: 0
         FullyLoadedSpeed: 100
         HarvestFacings: 8
@@ -190,10 +191,6 @@ HELLBAT:
         TransformSounds: placbldg.aud, build5.aud
     Passenger:
         Weight: 4
-    Explodes:
-        Weapon: ArtilleryExplode
-        EmptyWeapon: UnitExplodeSmall
-        LoadedChance: 75
     ProducibleWithLevel:
         Prerequisites: vehicles.upgraded
     WithProductionIconOverlay:
@@ -301,6 +298,8 @@ SIEGETANK-SM:
         Recoil: 171
         RecoilRecovery: 30
         MuzzleSequence: muzzle
+    RenderRangeCircle:
+        RangeCircleType: siege-radius
     Transforms:
         IntoActor: siegetank
         Offset: 0,0
@@ -309,7 +308,7 @@ SIEGETANK-SM:
 # Mine Layer
 # Widow Mine
 WIDOWMINE:
-    Inherits: ^TrackedVehicle
+    Inherits: ^Vehicle
     Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
     # TODO: Look into selectable priorities later for QOL
     # Inherits@selection: ^SelectableSupportUnit
@@ -333,14 +332,15 @@ WIDOWMINE:
         Type: Heavy
     Mobile:
         Speed: 98
+    Turreted:
+        TurnSpeed: 300
+        Offset: -298,0,298
     Armament:
         Weapon: WidowMineSentinelMissile
         LocalOffset: 624,-200,0
         MuzzleSequence: muzzle
-    AttackFrontal:
-        TargetFrozenActors: True
-        ForceFireIgnoresActors: True
-        FacingTolerance: 512
+    AttackTurreted:
+    WithMuzzleOverlay:
     Cloak:
         InitialDelay: 50
         CloakDelay: 100
@@ -359,10 +359,8 @@ WIDOWMINE:
         RevealGeneratedShroud: False
     RevealsShroud@GAPGEN:
         Range: 4c0
-    Explodes:
-        Weapon: ATMine
     Targetable:
-        TargetTypes: GroundActor, Vehicle, AirborneActor, Defense, Building
+        TargetTypes: Ground, Infantry, Vehicle, Air, AirborneActor
     Passenger:
         Weight: 2
 
@@ -395,7 +393,6 @@ VIKING-AM:
         RevealGeneratedShroud: False
     RevealsShroud@GAPGEN:
         Range: 4c0
-        #TODO: Need to balance based on viking stats
     Armament@PRIMARY:
         Weapon: VIKING-AM-GATLING
         MuzzleSequence: muzzle

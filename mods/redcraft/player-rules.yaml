@@ -5,3 +5,28 @@
         ResourceValues:
             Ore: 0
             Gems: 5
+
+Player:
+    Shroud:
+        ExploredMapCheckboxEnabled: false
+        ExploredMapCheckboxLocked: true
+        FogCheckboxEnabled: true
+        FogCheckboxLocked: true
+    LobbyPrerequisiteCheckbox@REUSABLEENGINEERS:
+        ID: reusable-engineers
+        Label: checkbox-reusable-engineers.label
+        Description: checkbox-reusable-engineers.description
+        Enabled: false
+        Locked: true
+    LobbyPrerequisiteCheckbox@GLOBALFACTUNDEPLOY:
+        ID: factundeploy
+        Label: checkbox-redeployable-mcvs.label
+        Description: checkbox-redeployable-mcvs.description
+        Enabled: false
+        Locked: true
+    LobbyPrerequisiteCheckbox@GLOBALBOUNTY:
+        ID: bounty
+        Label: checkbox-kill-bounties.label
+        Description: checkbox-kill-bounties.description
+        Enabled: false
+        Locked: true

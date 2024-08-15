@@ -2,6 +2,7 @@
 # Command Center
 COMC:
     Inherits: ^Building
+    Inherits@AUTOTARGET: ^AutoTargetGround
     Selectable:
         Bounds: 3072, 3072
     Building:
@@ -10,21 +11,26 @@ COMC:
         LocalCenterOffset: 0,-512,0
     Buildable:
         Queue: Building
-        BuildDuration: 1775
+        # 75 * SC2 Seconds = Build Duration
+        BuildDuration: 4800
         BuildPaletteOrder: 10
         Prerequisites: scv
         Description: actor-comc.description
     ProvidesRadar:
     Valued:
         Cost: 400
+        # TODO: Provides 15 initial supply
     Health:
         HP: 1500
+    Armor:
+        Type: Steel
     Tooltip:
         Name: actor-comc.name
         RequiresCondition: !orbitalcommandupgraded
     Tooltip@ORBITALUPGRADED:
         Name: actor-comc-orb.name
         RequiresCondition: orbitalcommandupgraded
+    # TODO: TESTING
     Tooltip@PLANETARYFORTRESSUPGRADED:
         Name: actor-comc-plan.name
         RequiresCondition: planetaryfortressupgraded
@@ -96,8 +102,9 @@ COMC:
         RevealGeneratedShroud: true
     RevealsShroud@GAPGEN:
         Range: 11c0
-    # Want to flip flop between the two production capabilities upon condition
-    # WE CAN FLIP FLOP IF THE OTHER SIDE I.E> INFANTRY DONT REQUIRE THE PREREQ!!!!!!!!!!!
+    # Having 'Defense' type prevents duplicate (2) SCVs building simultaneously (Bug)
+    # Adding 'Ship' type allows for Normal AI to build SCVs as Defense must not be a unit production type in engine
+    # Making a decision to roll back to Defense type for now for SCV and stunt AI formidability
     Production@SCV:
         Produces: Defense
     Production@UPGRADES:
@@ -120,15 +127,13 @@ COMC:
     GrantExternalConditionToProduced:
         Condition: produced
     BaseBuilding:
-    # Required for units to be able to exit CY
     Exit@1:
         ExitCell: 0,0
     # TODO: This is important for some reason regarding building the upgrades
     ProvidesPrerequisite@command-center:
-        Prerequisite: command-center
-    # TODO: Fix bug
+        Prerequisite: comc
+    # TODO: Fix bug where cc lifts off with cargo inside and lands, and game crashes
     # Cargo:
-    #     # TODO: Testing
     #     Types: Vehicle
     #     # TODO: Consider future upgrade to 10 capacity
     #     MaxWeight: 5
@@ -139,14 +144,14 @@ COMC:
     Turreted@PRIMARY:
         Turret: primary
         Offset: 0,-64,700
-        TurnSpeed: 12
+        TurnSpeed: 75
         RequiresCondition: planetaryfortressupgraded
     WithSpriteTurret:
         Recoils: false
         RequiresCondition: planetaryfortressupgraded && !build-incomplete
     Armament@PRIMARY:
         Turret: primary
-        Weapon: 8Inch
+        Weapon: PlanetaryFortressCannon
         LocalOffset: 480,-100,40, 480,100,40
         Recoil: 171
         RecoilRecovery: 34
@@ -154,6 +159,7 @@ COMC:
         RequiresCondition: planetaryfortressupgraded
     AttackTurreted:
         Turrets: primary
+        OpportunityFire: True
         TargetFrozenActors: True
         ForceFireIgnoresActors: True
         RequiresCondition: planetaryfortressupgraded
@@ -171,6 +177,8 @@ COMC:
     AirstrikePower@spyplane:
         OrderName: SovietSpyPlane
         Icon: scannersweep
+        # Allow multiple instances of this support power
+        AllowMultiple: true
         ChargeInterval: 3750
         Name: Scanner Sweep
         Description: Reveals an area of the map.
@@ -223,7 +231,7 @@ COMC:
 # Command Center (Lifted Off)
 COMC-AIR:
     Inherits: ^Helicopter
-    # TODO: Fix bug
+    # TODO: Fix bug listed below
     # Inherits@CARGOPIPS: ^CargoPips
     ProvidesRadar:
     Tooltip:
@@ -237,11 +245,11 @@ COMC-AIR:
         Type: CenterPosition
         RevealGeneratedShroud: true
     RevealsShroud@GAPGEN:
-        Range: 6c0
+        Range: 8c0
         Type: GroundPosition
     Aircraft:
         TurnSpeed: 20
-        Speed: 35
+        Speed: 40
         AltitudeVelocity: 0c58
     # TODO: Fix bug where game crashes when landing a command center with scv inside
     # Cargo:
@@ -277,10 +285,11 @@ COMC-AIR:
 # Planetary Fortress
 COMC-PLAN:
     Buildable:
-        BuildPaletteOrder: 2
-        # TODO: Temp name
+        BuildPaletteOrder: 30
+        Prerequisites: engineeringbay
+        # TODO: Temp queue name -> Want it to be Upgrades
         Queue: Ship
-        BuildDuration: 900
+        BuildDuration: 1500
         Description: actor-comc-plan.description
     Valued:
         Cost: 150
@@ -298,10 +307,11 @@ COMC-PLAN:
 # Orbital Command
 COMC-ORB:
     Buildable:
-        BuildPaletteOrder: 1
-        # TODO: Temp name
+        BuildPaletteOrder: 20
+        Prerequisites: barracks_
+        # TODO: Figure out how to rename the queue to Upgrades
         Queue: Ship
-        BuildDuration: 625
+        BuildDuration: 1025
         Description: actor-comc-orb.description
     Valued:
         Cost: 150
@@ -336,7 +346,7 @@ BARRACKS_:
         TargetableOffsets: 0,0,0, 490,-470,0, 355,512,0, -355,-512,0, -630,512,0
     Buildable:
         Queue: Building
-        BuildDuration: 1150
+        BuildDuration: 3100
         BuildPaletteOrder: 20
         Prerequisites: scv
         Description: actor-barracks_.description
@@ -419,7 +429,7 @@ BARRACKS-AIR:
         Range: 9c0
     Aircraft:
         TurnSpeed: 20
-        Speed: 35
+        Speed: 40
         AltitudeVelocity: 0c58
     ProvidesPrerequisite:
         Prerequisite: barracks
@@ -485,7 +495,7 @@ FACTORY:
         Bounds: 3072, 2048
     Buildable:
         Queue: Building
-        BuildDuration: 1075
+        BuildDuration: 2900
         BuildPaletteOrder: 30
         Prerequisites: scv, barracks_
         Description: actor-factory.description
@@ -562,7 +572,7 @@ FACTORY-AIR:
         Range: 9c0
     Aircraft:
         TurnSpeed: 20
-        Speed: 35
+        Speed: 40
         AltitudeVelocity: 0c58
     # Cannot be a building but need garage door overlay so draw idle overlay on top
     WithIdleOverlay@PRODUCTIONDOORTOP:
@@ -596,7 +606,7 @@ BUNKER:
     Building:
     Buildable:
         Queue: Building
-        BuildDuration: 725
+        BuildDuration: 2000
         BuildPaletteOrder: 40
         Prerequisites: scv, barracks_
         Description: actor-bunker.description
@@ -629,7 +639,6 @@ BUNKER:
     Cargo:
         Types: Infantry
         MaxWeight: 4
-        #-InitialUnits:
     AttackGarrisoned:
         PauseOnCondition: build-incomplete
         Armaments: garrisoned
@@ -655,9 +664,9 @@ STARPORT:
         TargetableOffsets: 0,0,0, 420,0,0, 420,-1024,0, 420,1024,0, -777,0,0, -777,-1024,0, -777,1024,0
     Buildable:
         Queue: Building
-        BuildDuration: 900
+        BuildDuration: 2450
         BuildPaletteOrder: 40
-        Prerequisites: scv, barracks_, factory
+        Prerequisites: scv, factory
         Description: actor-starport.description
     ProvidesRadar:
     Valued:
@@ -719,7 +728,7 @@ STARPORT-AIR:
         UseTargetableCellsOffsets: false
         TargetableOffsets: 0,0,0, 420,0,0, 420,-1024,0, 420,1024,0, -777,0,0, -777,-1024,0, -777,1024,0
     Tooltip:
-        Name: actor-starport.name
+        Name: actor-starport-air.name
     Selectable:
         Class: afld
         Bounds: 3072, 2048
@@ -735,7 +744,7 @@ STARPORT-AIR:
         Range: 9c0
     Aircraft:
         TurnSpeed: 20
-        Speed: 35
+        Speed: 40
         AltitudeVelocity: 0c58
     SupportPowerChargeBar:
     Power:
@@ -757,7 +766,7 @@ STARPORT-AIR:
 #Sam Site
 # Missile Turret
 MISSILETURRET:
-    Inherits: ^Defense
+    Inherits: ^Building
     Inherits@AUTOTARGET: ^AutoTargetAir
     Inherits@shape: ^2x1Shape
     ProvidesRadar:
@@ -769,7 +778,7 @@ MISSILETURRET:
             BottomRight: 768,512
     Buildable:
         Queue: Building
-        BuildDuration: 450
+        BuildDuration: 1250
         BuildPaletteOrder: 100
         Prerequisites: scv, engineeringbay
         Description: actor-missileturret.description
@@ -803,7 +812,7 @@ MISSILETURRET:
         RequiresCondition: !build-incomplete
         Recoils: false
     Armament:
-        Weapon: Nike
+        Weapon: MissileTurretMissileAA
         LocalOffset: 0,0,320
         MuzzleSequence: muzzle
     AttackTurreted:
@@ -818,44 +827,6 @@ MISSILETURRET:
     MustBeDestroyed:
         RequiredForShortGame: true
 
-ENGINEERINGBAY:
-    Inherits: ^Building
-    Inherits@shape: ^3x2Shape
-    Selectable:
-        Bounds: 3072, 2048
-    HitShape:
-        TargetableOffsets: 420,-768,0, 420,768,0, -770,-768,0, -770,768,0
-    Buildable:
-        Queue: Building
-        # TODO: Check this
-        BuildDuration: 625
-        BuildPaletteOrder: 150
-        Description: actor-engineeringbay.description
-    Valued:
-        Cost: 125
-    Tooltip:
-        Name: actor-engineeringbay.name
-    ProvidesPrerequisite:
-        Prerequisite: techcenter
-    Building:
-        Footprint: XxX XxX ===
-        Dimensions: 3,3
-        LocalCenterOffset: 0,-512,0
-    Health:
-        HP: 80000
-    Armor:
-        Type: Wood
-    RevealsShroud:
-        Range: 5c0
-        RevealGeneratedShroud: true
-    RevealsShroud@GAPGEN:
-        Range: 4c0
-    WithBuildingBib:
-    Power:
-        Amount: -0
-    ProvidesPrerequisite@buildingname:
-
-# TODO: Add in nuke building to be used for Ghosts
 # Allied Tech Center
 # Ghost Academy
 GHOSTACADEMY:
@@ -866,6 +837,7 @@ GHOSTACADEMY:
         Bounds: 2048, 2048
     Buildable:
         Queue: Building
+        BuildDuration: 1975
         BuildPaletteOrder: 140
         Prerequisites: scv, barracks_
         Description: actor-ghostacademy.description
@@ -873,15 +845,15 @@ GHOSTACADEMY:
         Cost: 150
         # Oil: 50
     Tooltip:
-        Name: Ghost Academy
+        Name: actor-ghostacademy.name
     ProvidesPrerequisite:
-        Prerequisite: GhostAcademy
+        Prerequisite: ghostacademy
     Building:
         Footprint: xx xx ==
         Dimensions: 2,3
         LocalCenterOffset: 0,-512,0
     Health:
-        HP: 60000
+        HP: 1250
     Armor:
         Type: Wood
     RevealsShroud:
@@ -894,22 +866,17 @@ GHOSTACADEMY:
     Production@TACTICALNUKE:
         # Temp queue name
         Produces: Ship
-        #RequiresCondition:
+        # RequiresCondition: !built-nuke
     ProductionQueue@TACTICALNUKE:
         # Temp until I can change the production tab on sidebar in chrome.yaml
         Type: Ship
-        #QueueLimit: 1
-        #ItemLimit: 1
     # TODO: Testing
     #GrantConditionOnProduction@TACTICALNUKE:
-        #Condition: nuke-built
-        #Actors: TACTICAL-NUKE
+    #Condition: nuke-built
+    #Actors: TACTICAL-NUKE
     SupportPowerChargeBar:
-    InfiltrateForSupportPowerReset:
-        Types: SpyInfiltrate
-        PlayerExperience: 10
     Targetable:
-        TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate
+        TargetTypes: GroundActor, Infantry, Vehicle, AirborneActor, Structure, Defense
     Power:
         Amount: -0
     ProvidesPrerequisite@buildingname:
@@ -917,25 +884,25 @@ GHOSTACADEMY:
 # TACTICAL NUKE (BUILT)
 TACTICAL-NUKE:
     Buildable:
-        BuildPaletteOrder: 2
+        BuildPaletteOrder: 10
+        Prerequisites: ghostacademy
         Queue: Ship
-        # TODO: Check this
-        BuildDuration: 1075
+        BuildDuration: 1900 # 43
         Description: actor-tactical-nuke.description
     Valued:
         Cost: 100
         # Oil: 100
+    Tooltip:
+        Name: actor-tactical-nuke.name
     Interactable:
     AlwaysVisible:
     RenderSprites:
-    Tooltip:
-        Name: actor-tactical-nuke.name
     NukePower:
         Cursor: nuke
         Icon: abomb
         AllowMultiple: true
         OneShot: true
-        ChargeInterval: 1
+        ChargeInterval: 0
         Name: actor-tactical-nuke.name
         Description: actor-tactical-nuke.description
         BeginChargeSpeechNotification: AbombPrepping
@@ -950,7 +917,7 @@ TACTICAL-NUKE:
         IncomingTextNotification: notification-abomb-launch-detected
         MissileWeapon: tactical-nuke-superweapon
         MissileImage: atomic
-        MissileDelay: 5
+        MissileDelay: 1
         SpawnOffset: 1c0,427,0
         DisplayTimerRelationships: Ally, Neutral, Enemy
         DisplayBeacon: True
@@ -961,6 +928,46 @@ TACTICAL-NUKE:
         ClockSequence: clock
         CircleSequence: circles
         SupportPowerPaletteOrder: 70
+
+# Soviet Tech Center
+# Engineering Bay
+ENGINEERINGBAY:
+    Inherits: ^Building
+    Inherits@shape: ^3x2Shape
+    Selectable:
+        Bounds: 3072, 2048
+    HitShape:
+        TargetableOffsets: 420,-768,0, 420,768,0, -770,-768,0, -770,768,0
+    Buildable:
+        Queue: Building
+        BuildDuration: 1700
+        BuildPaletteOrder: 150
+        Prerequisites: scv, comc
+        Description: actor-engineeringbay.description
+    Valued:
+        Cost: 125
+    Tooltip:
+        Name: actor-engineeringbay.name
+    ProvidesPrerequisite:
+        Prerequisite: engineeringbay
+    Building:
+        Footprint: XxX XxX ===
+        Dimensions: 3,3
+        LocalCenterOffset: 0,-512,0
+    Health:
+        HP: 1250
+    Armor:
+        Type: Wood
+    RevealsShroud:
+        MinRange: 4c0
+        Range: 5c0
+        RevealGeneratedShroud: False
+    RevealsShroud@GAPGEN:
+        Range: 4c0
+    WithBuildingBib:
+    Power:
+        Amount: -0
+    ProvidesPrerequisite@buildingname:
 
 # TODO: Impl this
 # Gap Generator
@@ -1043,18 +1050,17 @@ WEAP:
     Tooltip:
         Name: War Factory
 
+# Soviet Tech Center
+STEK:
+    -Buildable:
+    Tooltip:
+        Name: Engineering Bay
+
 # Allied Tech Center
 ATEK:
     -Buildable:
     Tooltip:
         Name: Ghost Academy
-
-# Soviet Tech Center
-# Engineering Bay
-STEK:
-    -Buildable:
-    Tooltip:
-        Name: Engineering Bay
 
 # Soviet Airfield
 AFLD:
@@ -1167,6 +1173,9 @@ FENC:
 # Concrete Wall
 BRIK:
     -Buildable:
+    # TODO: Remove all maps with concrete walls
+    Health:
+        HP: 25
     Tooltip:
         Name: Concrete Wall
 

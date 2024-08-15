@@ -1,9 +1,14 @@
+# Command Center / Scanner Sweep
 icon:
 	scannersweep:
 		Filename: sonricon.shp
-
 beacon:
 	scannersweep-small:
 		Filename: lores|sonricon.shp
 		Length: *
 		Offset: 0,-42
+
+# Tactical Nuke / Ghost Academy
+tacticalnuke:
+    icon:
+        Filename: atomicon.shp

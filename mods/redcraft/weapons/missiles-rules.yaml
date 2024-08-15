@@ -5,7 +5,7 @@ VikingMissileAA:
     Report: missile7.aud
     Burst: 2
     BurstDelays: 7
-    ValidTargets: AirborneActor
+    ValidTargets: Air, AirborneActor
     Projectile: Missile
         Speed: 256
         Arm: 2
@@ -20,7 +20,7 @@ VikingMissileAA:
     Warhead@1Dam: SpreadDamage
         Spread: 128
         Damage: 10
-        ValidTargets: AirborneActor
+        ValidTargets: Air, AirborneActor
         Versus:
             None: 100
             Wood: 100
@@ -34,9 +34,9 @@ BansheeMissileAG:
     Range: 6c0
     # MinRange: 0c512
     Report: missile6.aud
-    ValidTargets: Ground, Water, GroundActor, WaterActor
+    ValidTargets: Ground, GroundActor, Infantry, Building
     Projectile: Missile
-        Speed: 213
+        Speed: 250
         Arm: 2
         Blockable: false
         ContrailLength: 10
@@ -49,14 +49,15 @@ BansheeMissileAG:
         TrailImage: smokey
     Warhead@1Dam: SpreadDamage
         Spread: 128
-        Damage: 12
-        ValidTargets: GroundActor, WaterActor
+        Damage: 18
+        ValidTargets: Ground, GroundActor, Infantry, Building
         Versus:
             None: 100
             Wood: 100
             Light: 100
             Heavy: 100
             Concrete: 100
+            Steel: 100
         DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
     Warhead@2Smu: LeaveSmudge
         SmudgeType: Crater
@@ -72,21 +73,23 @@ MarauderPunisherGrenade:
     Range: 6c0
     MinRange: 0c512
     Report: missile6.aud
-    ValidTargets: Ground, Water, GroundActor, WaterActor
+    ValidTargets: Ground, GroundActor, Infantry, Building
     Projectile: Missile
         Speed: 298
         Arm: 2
         Blockable: false
-        ContrailLength: 10
+        ContrailLength: 20
         Inaccuracy: 0
+        Jammable: false
         Image: DRAGON
         Shadow: True
         HorizontalRateOfTurn: 80
-        RangeLimit: 6c0
+        # Negative is unlimited fuel / distance (always want to hit)
+        RangeLimit: -0c0
     Warhead@1Dam: SpreadDamage
         Spread: 128
         Damage: 10
-        ValidTargets: GroundActor, WaterActor
+        ValidTargets: Ground, GroundActor, Infantry, Building
         Versus:
             None: 100
             Wood: 100
@@ -100,12 +103,7 @@ MarauderPunisherGrenade:
     Warhead@3Eff: CreateEffect
         Explosions: med_explosion
         ImpactSounds: kaboom25.aud
-        ValidTargets: Ground, Air, GroundActor, AirborneActor, WaterActor, Trees
-    Warhead@4EffWater: CreateEffect
-        Explosions: med_splash
-        ImpactSounds: splash9.aud
-        ValidTargets: Water, Underwater
-        InvalidTargets: Bridge
+        ValidTargets: Ground, GroundActor, Infantry, Building
 
 CycloneMissileAG:
     ReloadDelay: 50
@@ -114,7 +112,7 @@ CycloneMissileAG:
     Report: missile7.aud
     Burst: 2
     BurstDelays: 7
-    ValidTargets: Ground, GroundActor, Building
+    ValidTargets: Ground, GroundActor, Building, Infantry
     Projectile: Missile
         Speed: 256
         Arm: 2
@@ -129,7 +127,7 @@ CycloneMissileAG:
     Warhead@1Dam: SpreadDamage
         Spread: 128
         Damage: 11
-        ValidTargets: GroundActor, Building
+        ValidTargets: Ground, GroundActor, Building, Infantry
         Versus:
             None: 100
             Wood: 100
@@ -145,7 +143,7 @@ CycloneMissileAA:
     Report: missile7.aud
     Burst: 2
     BurstDelays: 7
-    ValidTargets: AirborneActor
+    ValidTargets: Air, AirborneActor
     Projectile: Missile
         Speed: 256
         Arm: 2
@@ -160,7 +158,37 @@ CycloneMissileAA:
     Warhead@1Dam: SpreadDamage
         Spread: 128
         Damage: 11
-        ValidTargets: AirborneActor
+        ValidTargets: Air, AirborneActor
+        Versus:
+            None: 100
+            Wood: 100
+            Light: 100
+            Heavy: 100
+            Concrete: 100
+        DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+
+MissileTurretMissileAA:
+    ReloadDelay: 25
+    Range: 7c0
+    Report: missile7.aud
+    Burst: 2
+    BurstDelays: 4
+    ValidTargets: Air, AirborneActor
+    Projectile: Missile
+        Speed: 512
+        Arm: 2
+        Blockable: false
+        ContrailLength: 10
+        Inaccuracy: 0
+        Image: DRAGON
+        Shadow: true
+        HorizontalRateOfTurn: 20
+        CruiseAltitude: 2c0
+        RangeLimit: 14c410
+    Warhead@1Dam: SpreadDamage
+        Spread: 128
+        Damage: 24
+        ValidTargets: Air, AirborneActor
         Versus:
             None: 100
             Wood: 100

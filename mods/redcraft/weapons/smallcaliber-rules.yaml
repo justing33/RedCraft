@@ -2,13 +2,13 @@ MarineC14GaussRifle:
     ReloadDelay: 35
     Range: 5c0
     Report: gun11.aud
-    ValidTargets: Ground, Water, GroundActor, WaterActor, AirborneActor, Air
+    ValidTargets: Ground, GroundActor, Infantry, Building, Air, AirborneActor
     Projectile: InstantHit
-        Blockable: true
+        Blockable: false
     Warhead@1Dam: SpreadDamage
         Spread: 128
         Damage: 6
-        ValidTargets: GroundActor, WaterActor, AirborneActor, Air
+        ValidTargets: Ground, GroundActor, Infantry, Building, Air, AirborneActor
         Versus:
             None: 100
             Wood: 100
@@ -18,11 +18,7 @@ MarineC14GaussRifle:
         DamageTypes: Prone50Percent, TriggerProne, BulletDeath
     Warhead@2Eff: CreateEffect
         Explosions: piffs
-        ValidTargets: Ground, GroundActor, Air, AirborneActor, WaterActor, Trees
-    Warhead@3EffWater: CreateEffect
-        Explosions: water_piffs
-        ValidTargets: Water, Underwater
-        InvalidTargets: Bridge
+        ValidTargets: Ground, GroundActor, Infantry, Building, Air, AirborneActor
 
 VIKING-AM-GATLING:
 	ReloadDelay: 35
@@ -36,56 +32,56 @@ VIKING-AM-GATLING:
 		Damage: 6
 		ValidTargets: Ground, GroundActor, Building
 		Versus:
-			None: 120
-			Wood: 60
-			Light: 72
-			Heavy: 28
-			Concrete: 28
+			None: 100
+			Wood: 100
+			Light: 100
+			Heavy: 100
+			Concrete: 100
 		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: piffs
 		ValidTargets: Ground, GroundActor, Building
-	Warhead@3EffWater: CreateEffect
-		Explosions: water_piffs
-		ValidTargets: Water, Underwater
-		InvalidTargets: Bridge
 
 ReaperP45GaussPistol:
-    ReloadDelay: 19
+    ReloadDelay: 25
     Range: 5c0
     Report: gun5.aud
-    ValidTargets: Ground, Infantry, Barrel
+    ValidTargets: Ground, GroundActor, Infantry, Building
     Projectile: InstantHit
-        Blockable: true
+        Blockable: false
     Warhead@1Dam: SpreadDamage
         Spread: 42
-        Damage: 4
-        ValidTargets: Barrel, Infantry
+        Damage: 8
+        ValidTargets: Ground, GroundActor, Infantry, Building
+        Versus:
+            None: 100
+            Wood: 100
+            Light: 100
+            Heavy: 100
+            Concrete: 100
         DamageTypes: Prone50Percent, TriggerProne, DefaultDeath
     Warhead@2Eff: CreateEffect
         Explosions: piff
-        ValidTargets: Ground, GroundActor, Air, AirborneActor, WaterActor, Trees
-    Warhead@3EffWater: CreateEffect
-        Explosions: water_piff
-        ValidTargets: Water, Underwater
-        InvalidTargets: Ship, Structure, Bridge
+        ValidTargets: Ground, GroundActor, Infantry, Building
 
 GhostC10CanisterRifle:
     ReloadDelay: 26
     Range: 6c0
     Report: gun5.aud
-    ValidTargets: Ground, Infantry, Barrel
+    ValidTargets: Ground, GroundActor, Building, Infantry, Air, AirborneActor
     Projectile: InstantHit
-        Blockable: true
+        Blockable: false
     Warhead@1Dam: SpreadDamage
         Spread: 42
         Damage: 10
-        ValidTargets: Barrel, Infantry
+        Versus:
+            None: 100
+            Wood: 100
+            Light: 100
+            Heavy: 100
+            Concrete: 100
+        ValidTargets: Ground, GroundActor, Infantry, Building, Air, AirborneActor
         DamageTypes: Prone50Percent, TriggerProne, DefaultDeath
     Warhead@2Eff: CreateEffect
         Explosions: piff
-        ValidTargets: Ground, GroundActor, Air, AirborneActor, WaterActor, Trees
-    Warhead@3EffWater: CreateEffect
-        Explosions: water_piff
-        ValidTargets: Water, Underwater
-        InvalidTargets: Ship, Structure, Bridge
+        ValidTargets: Ground, GroundActor, Building, Infantry, Air, AirborneActor

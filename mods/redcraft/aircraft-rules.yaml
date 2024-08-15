@@ -11,7 +11,7 @@ VIKING:
     Valued:
         Cost: 150
         # Oil: 75
-    # Supply: 2
+        # Supply: 2
     Tooltip:
         Name: Viking
     UpdatesPlayerStatistics:
@@ -46,8 +46,8 @@ VIKING:
     Aircraft:
         CruiseAltitude: 2560
         AltitudeVelocity: 0c75
-        TurnSpeed: 16
-        Speed: 78
+        TurnSpeed: 40
+        Speed: 120
         RepulsionSpeed: 40
         MaximumPitch: 56
     AutoTarget:
@@ -62,8 +62,6 @@ VIKING:
     Contrail@2:
         Offset: -598,683,0
         StartColorAlpha: 128
-    SpawnActorOnDeath:
-        Actor: MIG.Husk
     LeavesTrails:
         Offsets: -853,0,171
         MovingInterval: 2
@@ -118,7 +116,7 @@ MEDIVAC:
         Type: GroundPosition
     Aircraft:
         TurnSpeed: 20
-        Speed: 87
+        Speed: 110
         AltitudeVelocity: 0c58
     WithIdleOverlay@ROTOR1AIR:
         Offset: 597,0,213
@@ -143,8 +141,6 @@ MEDIVAC:
         AfterLoadDelay: 0
         BeforeUnloadDelay: 0
         AfterUnloadDelay: 0
-    SpawnActorOnDeath:
-        Actor: TRAN.Husk
     Selectable:
         DecorationBounds: 1706, 1536
     Armament:
@@ -198,20 +194,20 @@ BANSHEE:
         Type: GroundPosition
     # TODO: Fix so it can shoot ground and ground only
     Armament@PRIMARY:
-        Weapon: Dragon
+        Weapon: BansheeMissileAG
         LocalOffset: 85,-213,-85, 85,213,-85
         MuzzleSequence: muzzle
         PauseOnCondition: !ammo
         # Infinite Ammo
         AmmoUsage: 0
-    Armament@SECONDARY:
-        Name: secondary
-        Weapon: Dragon
-        LocalOffset: 85,213,-85, 85,-213,-85
-        MuzzleSequence: muzzle
-        PauseOnCondition: !ammo
+    #Armament@SECONDARY:
+    #    Name: secondary
+    #    Weapon: Dragon
+    #    LocalOffset: 85,213,-85, 85,-213,-85
+    #    MuzzleSequence: muzzle
+    #    PauseOnCondition: !ammo
         # Infinite Ammo
-        AmmoUsage: 0
+    #    AmmoUsage: 0
     AmmoPool:
         Ammo: 24
         ReloadDelay: 8
@@ -222,8 +218,16 @@ BANSHEE:
         AttackType: Hover
     Aircraft:
         TurnSpeed: 16
-        Speed: 96
+        Speed: 115
         # Speed: SC2 3.85 x 25 ticks/sec = 96.25
+    Cloak:
+        InitialDelay: 0
+        CloakDelay: 50
+        CloakSound: appear1.aud
+        UncloakSound: appear1.aud
+        IsPlayerPalette: true
+        UncloakOn: Move
+        PauseOnCondition: cloak-force-disabled
     AutoTarget:
         InitialStance: HoldFire
         InitialStanceAI: HoldFire
@@ -234,8 +238,6 @@ BANSHEE:
         Sequence: slow-rotor
         RequiresCondition: !airborne
     WithMuzzleOverlay:
-    SpawnActorOnDeath:
-        Actor: MH60.Husk
     LeavesTrails:
         Offsets: -427,0,0
         Image: smokey
@@ -254,14 +256,6 @@ BANSHEE:
     WithProductionIconOverlay:
         Types: Veterancy
         Prerequisites: aircraft.upgraded
-    Cloak:
-        InitialDelay: 0
-        CloakDelay: 50
-        CloakSound: appear1.aud
-        UncloakSound: appear1.aud
-        IsPlayerPalette: true
-        UncloakOn: Move
-        PauseOnCondition: cloak-force-disabled
 
 ##########################
 # Non-Buildable Aircraft #
@@ -288,8 +282,8 @@ U2:
     Contrail@2:
         Offset: -725,-683,0
         StartColorAlpha: 128
-    SpawnActorOnDeath:
-        Actor: U2.Husk
+    #SpawnActorOnDeath:
+    #    Actor: U2.Husk
     LeavesTrails:
         Offsets: -1c43,0,0
         MovingInterval: 2

@@ -70,6 +70,7 @@ Rules:
 	redcraft|vehicle-rules.yaml
 	redcraft|aircraft-rules.yaml
 	redcraft|ships-rules.yaml
+	redcraft|ai-rules.yaml
 
 Sequences:
 	ra|sequences/ships.yaml
@@ -161,12 +162,12 @@ ChromeLayout:
 	#redcraft|chrome/ingame-player-override.yaml
 
 Translations:
-    common|languages/en.ftl
-    common|languages/chrome/en.ftl
-    common|languages/rules/en.ftl
-    ra|languages/chrome/en.ftl
-    ra|languages/rules/en.ftl
-    redcraft|languages/rules/en.ftl
+	common|languages/en.ftl
+	common|languages/chrome/en.ftl
+	common|languages/rules/en.ftl
+	ra|languages/chrome/en.ftl
+	ra|languages/rules/en.ftl
+	redcraft|languages/rules/en.ftl
 
 Weapons:
 	ra|weapons/explosions.yaml

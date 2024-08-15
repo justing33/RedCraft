@@ -5,27 +5,29 @@ MARINE:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Buildable:
 		Queue: Infantry
-        BuildDuration: 450
+		BuildDuration: 750
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 10
 		Prerequisites: barracks_
-		Description: TBD
+		Description: actor-marine.description
 	Valued:
 		Cost: 50
         # Supply: 1
         # Oil: 0
 	Tooltip:
-		Name: Marine
+		Name: actor-marine.name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
-    RevealsShroud:
-        Range: 9c0
-    Mobile:
+	RevealsShroud:
+		Range: 9c0
+	Mobile:
         Speed: 78
         AlwaysTurnInPlace: true
         Locomotor: foot
 	Health:
 		HP: 45
+	Armor:
+		Type: Biological
 	Armament@PRIMARY:
 		Weapon: MarineC14GaussRifle
 	Armament@GARRISONED:
@@ -53,11 +55,11 @@ MARAUDER:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Buildable:
 		Queue: Infantry
-        BuildDuration: 525
+		BuildDuration: 850
 		BuildAtProductionType: Soldier
 		BuildPaletteOrder: 30
 		Prerequisites: barracks_
-		Description: TBD
+		Description: actor-marauder.description
 	Selectable:
 		Class: E3
 	Valued:
@@ -65,7 +67,7 @@ MARAUDER:
         # Oil: 25
         # Supply: 2
 	Tooltip:
-		Name: Marauder
+		Name: actor-marauder.name
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
     RevealsShroud:
@@ -82,7 +84,6 @@ MARAUDER:
 	Armament@GARRISONED:
 		Name: garrisoned
 		Weapon: MarauderPunisherGrenade
-	-TakeCover:
 	WithInfantryBody:
 		DefaultAttackSequence: shoot
 		RequiresCondition: !parachute
@@ -105,21 +106,28 @@ REAPER:
     Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
     Buildable:
         Queue: Infantry
-        BuildDuration: 800
+        BuildDuration: 1325
         BuildAtProductionType: Soldier
         BuildPaletteOrder: 40
         Prerequisites: barracks_
-        Description: TBD
+        Description: actor-reaper.description
     Valued:
         Cost: 50
         # Oil: 50
         # Supply: 1
     Tooltip:
-        Name: Reaper
+        Name: actor-reaper.name
     UpdatesPlayerStatistics:
         AddToArmyValue: true
     Health:
         HP: 60
+    ChangesHealth:
+        Step: 1
+        # Time to wait inbetween ticks
+        Delay: 50
+        StartIfBelow: 100
+        # Wait time in ticks after taking damage
+        DamageCooldown: 250
     Mobile:
         Speed: 131
         AlwaysTurnInPlace: true
@@ -131,6 +139,7 @@ REAPER:
         Weapon: ReaperP45GaussPistol
         LocalOffset: 0,0,555
         FireDelay: 5
+    # TODO: Add KD8 Charge Grenade ability
     Armament@GARRISONED:
         Name: garrisoned
         Weapon: ReaperP45GaussPistol
@@ -138,10 +147,6 @@ REAPER:
     WithInfantryBody:
         DefaultAttackSequence: throw
         RequiresCondition: !parachute
-    #Explodes:
-    #    Weapon: UnitExplodeSmall
-    #    EmptyWeapon: UnitExplodeSmall
-    #    DamageSource: Killer
     ProducibleWithLevel:
         Prerequisites: barracks.upgraded
     WithProductionIconOverlay:
@@ -159,17 +164,17 @@ FIREBAT:
     Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
     Buildable:
         Queue: Infantry
-        BuildDuration: 378
+        BuildDuration: 850
         BuildAtProductionType: Soldier
         BuildPaletteOrder: 70
         Prerequisites: barracks_
-        Description: TBD
+        Description: actor-firebat.description
     Valued:
         Cost: 50
         # Oil: 25
         # Supply: 1
     Tooltip:
-        Name: Firebat
+        Name: actor-firebat.name
     UpdatesPlayerStatistics:
         AddToArmyValue: true
     Health:
@@ -209,23 +214,23 @@ MEDIC_:
     Inherits: ^Soldier
     Buildable:
         Queue: Infantry
-        BuildDuration: 472
+        BuildDuration: 725
         BuildAtProductionType: Soldier
         BuildPaletteOrder: 40
-        Prerequisites: barracks_
-        Description: Heals nearby infantry.\n  Unarmed
+        Prerequisites: barracks_, engineeringbay
+        Description: actor-medic_.description
     Valued:
         Cost: 50
         # Supply: 1
         # Oil: 25
     Tooltip:
-        Name: Medic
+        Name: actor-medic_.name
     UpdatesPlayerStatistics:
         AddToArmyValue: true
     Health:
         HP: 60
     Mobile:
-        Speed: 49
+        Speed: 78
         AlwaysTurnInPlace: true
         Locomotor: foot
     RevealsShroud:
@@ -260,18 +265,18 @@ GHOST:
     Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
     Buildable:
         Queue: Infantry
-        BuildDuration: 725
+        BuildDuration: 1300
         BuildAtProductionType: Soldier
         BuildPaletteOrder: 120
-        Prerequisites: barracks_, GhostAcademy
+        Prerequisites: barracks_, ghostacademy
         BuildLimit: 1
-        Description: Elite commando infantry. Armed with\ndual pistols and C4.\nMaximum 1 can be trained.\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft\n  Special Ability: Destroy Building with C4
+        Description: actor-ghost.description
     Valued:
         Cost: 150
         # Supply: 2
         # Oil: 125
     Tooltip:
-        Name: Ghost
+        Name: actor-ghost.name
     UpdatesPlayerStatistics:
         AddToArmyValue: true
     Health:
@@ -279,16 +284,18 @@ GHOST:
     Mobile:
         Speed: 98
         Voice: Move
+    Cloak:
+        InitialDelay: 0
+        CloakDelay: 50
+        CloakSound: appear1.aud
+        UncloakSound: appear1.aud
+        IsPlayerPalette: true
+        UncloakOn: Move
+        PauseOnCondition: cloak-force-disabled
     Guard:
         Voice: Move
     RevealsShroud:
         Range: 11c0
-    Demolition:
-        DetonationDelay: 45
-        Voice: Demolish
-    Passenger:
-        CustomPipType: red
-        Voice: Move
     Armament@PRIMARY:
         Weapon: GhostC10CanisterRifle
         LocalOffset: 0,0,0, 0,0,0

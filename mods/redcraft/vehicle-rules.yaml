@@ -225,30 +225,25 @@ SIEGETANK:
     Mobile:
         Speed: 78
     RevealsShroud:
-        # MinRange: 4c0
         Range: 11c0
         RevealGeneratedShroud: False
     RevealsShroud@GAPGEN:
         Range: 4c0
+    AttackTurreted:
+    WithMuzzleOverlay:
+    WithSpriteTurret:
     Turreted:
-        TurnSpeed: 20
+        TurnSpeed: 100
     Armament:
         Weapon: SiegeTank90mmCannon
         Recoil: 128
         RecoilRecovery: 38
         LocalOffset: 768,85,90, 768,-85,90
         MuzzleSequence: muzzle
-    AttackTurreted:
-    WithMuzzleOverlay:
-    WithSpriteTurret:
     Transforms:
         IntoActor: siegetank-sm
-        Offset: 0,0
-        #-Facing:
     Passenger:
         Weight: 4
-    #SpawnActorOnDeath:
-    #    Actor: 3TNK.Husk
     ProducibleWithLevel:
         Prerequisites: vehicles.upgraded
     Selectable:
@@ -263,17 +258,24 @@ SIEGETANK-SM:
     Inherits: ^Building
     Inherits@shape: ^1x1Shape
     Inherits@GAINSEXPERIENCE: ^GainsExperience
-    Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+    # Allows siege tanks to auto attack other siege tanks!
+    AutoTarget:
+    AutoTargetPriority@ATTACKGROUNDUNITSFIRST:
+        Priority: 2
+        ValidTargets: Infantry, Vehicle, Building
+        InvalidTargets: NoAutoTarget
+    AutoTargetPriority@ATTACKBUILDINGSSECOND:
+        Priority: 1
+        ValidTargets: Structure
+        InvalidTargets: NoAutoTarget
     Selectable:
-        DecorationBounds: 1877, 1621, 0, -170
-    # -Buildable:
-    # Valued: Supply: 3
+        DecorationBounds: 1194, 1194
+    # Supply: 3
     Tooltip:
         Name: Siege Tank (Sieged)
         GenericName: Siege Tank (Sieged)
     UpdatesPlayerStatistics:
         AddToArmyValue: true
-    # Valued: # Supply: 3
     Health:
         HP: 175
     Armor:
@@ -281,29 +283,25 @@ SIEGETANK-SM:
     Immobile:
         OccupiesSpace: true
     RevealsShroud:
-        # MinRange: 4c0
         Range: 11c0
         RevealGeneratedShroud: False
     RevealsShroud@GAPGEN:
         Range: 4c0
-    -AttackMove:
     AttackTurreted:
     WithMuzzleOverlay:
     WithSpriteTurret:
     Turreted:
         TurnSpeed: 100
-    Armament@PRIMARY:
+    Armament:
         Weapon: SiegeTankCrucioShockCannon
-        LocalOffset: 900,180,340, 900,-180,340
         Recoil: 171
         RecoilRecovery: 30
+        LocalOffset: 768,85,90, 768,-85,90
         MuzzleSequence: muzzle
     RenderRangeCircle:
         RangeCircleType: siege-radius
     Transforms:
         IntoActor: siegetank
-        Offset: 0,0
-        #-Facing:
 
 # Mine Layer
 # Widow Mine

@@ -132,6 +132,22 @@ REAPER:
         Speed: 131
         AlwaysTurnInPlace: true
         Locomotor: foot
+    # TODO: Make reapers jump cliffs
+    #JumpjetLocomotor@JUMPJET:
+    #    Name: jumpjet
+    #    SharesCell: true
+    #    JumpjetTransitionCost: 100
+    #    TerrainSpeeds:
+    #        Clear: 90
+    #        Road: 100
+    #        Bridge: 100
+    #        Rail: 90
+    #        DirtRoad: 100
+    #        Rough: 80
+    #        Tiberium: 90
+    #        BlueTiberium: 90
+    #        Veins: 50
+    #        Jumpjet: 110
     RevealsShroud:
         Range: 9c0
     # TODO: Add grenade AOE attack

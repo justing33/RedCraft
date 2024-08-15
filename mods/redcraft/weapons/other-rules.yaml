@@ -129,7 +129,10 @@ SiegeTankCrucioShockCannon:
     MinRange: 3c0
     Range: 8c0
     Report: cannon1.aud
-    ValidTargets: Ground, GroundActor, Building, Infantry
+    # Structure and Building are NOT synonomous
+    # Structure is a building in the game
+    # A SIEGED tank is a Building
+    ValidTargets: Infantry, Vehicle, Building, Structure, Ground, GroundActor
     Projectile: InstantHit
 		Speed: 682
 		Image: 120MM
@@ -138,7 +141,7 @@ SiegeTankCrucioShockCannon:
 		Spread: 1c0
         Damage: 40
         Falloff: 75, 40, 20, 15, 7
-        ValidTargets: Ground, GroundActor, Building, Infantry
+        ValidTargets: Infantry, Vehicle, Building, Structure, Ground, GroundActor
         Versus:
             None: 100
             Biological: 65

@@ -43,3 +43,6 @@ Player:
             banshee: 30
             medivac: 15
             viking: 30
+    #TODO: Testing siege tanks auto targeting
+    #McvManagerBotModule:
+    #    McvTypes: siegetank, comc

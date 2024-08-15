@@ -2,14 +2,15 @@ Player:
     BaseBuilderBotModule@normal:
         ConstructionYardTypes: comc
         RefineryTypes: comc
-        BarracksTypes: barracks_
+        BarracksTypes: barracks_, comc
         VehiclesFactoryTypes: factory
-        ProductionTypes: comc,barracks_,factory,starport,engineeringbay,ghostacademy
-        DefenseTypes: bunker,missileturret
+        ProductionTypes: comc, barracks_, factory, starport, engineeringbay, ghostacademy
+        DefenseTypes: comc
+        NavalProductionTypes: comc
         BuildingLimits:
             comc: 0
         BuildingFractions:
-            #comc: 0
+            comc: 0
             barracks_: 40
             factory: 40
             starport: 40
@@ -20,10 +21,10 @@ Player:
     SquadManagerBotModule@normal:
         RequiresCondition: enable-normal-ai
         SquadSize: 15
-        #NavalUnitsTypes: ss, msub, dd, ca, lst, pt
+        NavalUnitsTypes: scv
         ExcludeFromSquadsTypes: harv, mcv, dog, badr.bomber, u2, scv
         ConstructionYardTypes: comc
-        #NavalProductionTypes: spen, syrd
+        NavalProductionTypes: comc
         AirUnitsTypes: mig, yak, heli, hind, mh60, viking, banshee, medivac
         AircraftTargetType: AirborneActor
         ProtectionTypes: scv, comc, barracks_, factory, starport, engineeringbay, ghostacademy, bunker, missileturret, marine, marauder, reaper, medic, ghost, firebat, hellion, hellbat, cyclone, siegetank, siegetank-sm, widowmine, viking, viking-am, banshee, medivac
@@ -31,15 +32,15 @@ Player:
     UnitBuilderBotModule@normal:
         UnitsToBuild:
             scv: 40
-            marine: 40
-            marauder: 40
-            medic: 30
-            reaper: 30
-            firebat: 40
+            marine: 45
+            marauder: 45
+            medic: 20
+            reaper: 25
+            firebat: 25
             ghost: 20
             siegetank: 40
             cyclone: 30
-            hellion: 40
+            hellion: 50
             banshee: 30
             medivac: 15
             viking: 30

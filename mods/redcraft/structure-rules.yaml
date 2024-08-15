@@ -102,22 +102,23 @@ COMC:
         RevealGeneratedShroud: true
     RevealsShroud@GAPGEN:
         Range: 11c0
+    # Historical Info:
     # Having 'Defense' type prevents duplicate (2) SCVs building simultaneously (Bug)
     # Adding 'Ship' type allows for Normal AI to build SCVs as Defense must not be a unit production type in engine
     # Making a decision to roll back to Defense type for now for SCV and stunt AI formidability
-    Production@SCV:
-        Produces: Defense
+    #
+    # Note: Need to keep Upgrade production defined above SCV production or upgrades seem to break
     Production@UPGRADES:
-        # Temp queue name
-        Produces: Ship
+        Produces: Defense
         RequiresCondition: !orbitalcommandupgraded && !planetaryfortressupgraded
     ProductionQueue@UPGRADES:
-        # Temp until I can change the production tab on sidebar in chrome.yaml
-        Type: Ship
+        Type: Defense
         QueueLimit: 1
         ItemLimit: 1
+    Production@SCV:
+        Produces: Ship
     ProductionQueue@SCV:
-        Type: Defense
+        Type: Ship
     GrantConditionOnProduction@PlanetaryFortress:
         Condition: planetaryfortressupgraded
         Actors: COMC-PLAN
@@ -129,6 +130,7 @@ COMC:
     BaseBuilding:
     Exit@1:
         ExitCell: 0,0
+        ProductionTypes: Ship
     # TODO: This is important for some reason regarding building the upgrades
     ProvidesPrerequisite@command-center:
         Prerequisite: comc
@@ -287,8 +289,7 @@ COMC-PLAN:
     Buildable:
         BuildPaletteOrder: 30
         Prerequisites: engineeringbay
-        # TODO: Temp queue name -> Want it to be Upgrades
-        Queue: Ship
+        Queue: Defense
         BuildDuration: 1500
         Description: actor-comc-plan.description
     Valued:
@@ -309,8 +310,7 @@ COMC-ORB:
     Buildable:
         BuildPaletteOrder: 20
         Prerequisites: barracks_
-        # TODO: Figure out how to rename the queue to Upgrades
-        Queue: Ship
+        Queue: Defense
         BuildDuration: 1025
         Description: actor-comc-orb.description
     Valued:
@@ -886,7 +886,7 @@ TACTICAL-NUKE:
     Buildable:
         BuildPaletteOrder: 10
         Prerequisites: ghostacademy
-        Queue: Ship
+        Queue: Defense
         BuildDuration: 1900 # 43
         Description: actor-tactical-nuke.description
     Valued:

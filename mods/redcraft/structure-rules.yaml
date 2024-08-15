@@ -13,18 +13,21 @@ COMC:
         BuildDuration: 1775
         BuildPaletteOrder: 10
         Prerequisites: scv
-        Description: Refines Ore and Gems\ninto credits.
+        Description: actor-comc.description
     ProvidesRadar:
     Valued:
         Cost: 400
     Health:
         HP: 1500
     Tooltip:
-        Name: Command Center
+        Name: actor-comc.name
         RequiresCondition: !orbitalcommandupgraded
     Tooltip@ORBITALUPGRADED:
-        Name: Orbital Command
+        Name: actor-comc-orb.name
         RequiresCondition: orbitalcommandupgraded
+    Tooltip@PLANETARYFORTRESSUPGRADED:
+        Name: actor-comc-plan.name
+        RequiresCondition: planetaryfortressupgraded
     # START TEST
     Refinery:
         UseStorage: False
@@ -89,9 +92,8 @@ COMC:
     Armor:
         Type: Wood
     RevealsShroud:
-        # MinRange: 4c0
         Range: 11c0
-        RevealGeneratedShroud: False
+        RevealGeneratedShroud: true
     RevealsShroud@GAPGEN:
         Range: 11c0
     # Want to flip flop between the two production capabilities upon condition
@@ -120,9 +122,7 @@ COMC:
     BaseBuilding:
     # Required for units to be able to exit CY
     Exit@1:
-        RequiresCondition: !being-captured
-        SpawnOffset: 900,2000,0
-        ExitCell: 3,3
+        ExitCell: 0,0
     # TODO: This is important for some reason regarding building the upgrades
     ProvidesPrerequisite@command-center:
         Prerequisite: command-center
@@ -227,22 +227,21 @@ COMC-AIR:
     # Inherits@CARGOPIPS: ^CargoPips
     ProvidesRadar:
     Tooltip:
-        Name: Command Center (Lifted off)
+        Name: actor-comc-air.name
     UpdatesPlayerStatistics:
         AddToArmyValue: true
     Health:
         HP: 1500
     RevealsShroud:
-        MinRange: 6c0
         Range: 8c0
-        Type: GroundPosition
-        RevealGeneratedShroud: False
+        Type: CenterPosition
+        RevealGeneratedShroud: true
     RevealsShroud@GAPGEN:
         Range: 6c0
         Type: GroundPosition
     Aircraft:
         TurnSpeed: 20
-        Speed: 128
+        Speed: 35
         AltitudeVelocity: 0c58
     # TODO: Fix bug where game crashes when landing a command center with scv inside
     # Cargo:
@@ -256,8 +255,6 @@ COMC-AIR:
     #     # TODO: Would be nice to show appropriate cursor between cargo loading and landing
     #     # UnloadCursor: repair
     #     # UnloadBlockedCursor: repair-blocked
-    SpawnActorOnDeath:
-        Actor: TRAN.Husk
     Selectable:
         DecorationBounds: 1706, 1536
     Targetable:
@@ -281,12 +278,10 @@ COMC-AIR:
 COMC-PLAN:
     Buildable:
         BuildPaletteOrder: 2
-        #-Prerequisites:
         # TODO: Temp name
         Queue: Ship
         BuildDuration: 900
-        #BuildDurationModifier: 1
-        Description: TBD
+        Description: actor-comc-plan.description
     Valued:
         Cost: 150
         # Oil: 150
@@ -294,7 +289,7 @@ COMC-PLAN:
     AlwaysVisible:
     RenderSprites:
     Tooltip:
-        Name: Planetary Fortress
+        Name: actor-comc-plan.name
     KillsSelf:
         RemoveInstead: true
     MustBeDestroyed:
@@ -304,19 +299,17 @@ COMC-PLAN:
 COMC-ORB:
     Buildable:
         BuildPaletteOrder: 1
-        #-Prerequisites:
         # TODO: Temp name
         Queue: Ship
         BuildDuration: 625
-        #BuildDurationModifier: 1
-        Description: TBD
+        Description: actor-comc-orb.description
     Valued:
         Cost: 150
     Interactable:
     AlwaysVisible:
     RenderSprites:
     Tooltip:
-        Name: Orbital Command
+        Name: actor-comc-orb.name
     KillsSelf:
         RemoveInstead: true
     MustBeDestroyed:
@@ -346,12 +339,12 @@ BARRACKS_:
         BuildDuration: 1150
         BuildPaletteOrder: 20
         Prerequisites: scv
-        Description: Trains infantry.
+        Description: actor-barracks_.description
     ProvidesRadar:
     Valued:
         Cost: 150
     Tooltip:
-        Name: Barracks
+        Name: actor-barracks_.name
     Building:
         Footprint: xx xx ==
         Dimensions: 2,3
@@ -361,9 +354,8 @@ BARRACKS_:
     Armor:
         Type: Wood
     RevealsShroud:
-        # MinRange: 4c0
         Range: 9c0
-        RevealGeneratedShroud: False
+        RevealGeneratedShroud: true
     RevealsShroud@GAPGEN:
         Range: 4c0
     WithBuildingBib:
@@ -413,23 +405,21 @@ BARRACKS-AIR:
     HitShape:
         UseTargetableCellsOffsets: false
         TargetableOffsets: 0,0,0, 490,-470,0, 355,512,0, -355,-512,0, -630,512,0
-    #Valued:
-    #    Cost: 500
     Tooltip:
-        Name: Barracks (Lifted Off)
+        Name: actor-barracks-air.name
     Health:
         HP: 1000
     Armor:
         Type: Wood
     RevealsShroud:
-        # MinRange: 4c0
         Range: 9c0
-        RevealGeneratedShroud: False
+        Type: CenterPosition
+        RevealGeneratedShroud: true
     RevealsShroud@GAPGEN:
         Range: 9c0
     Aircraft:
         TurnSpeed: 20
-        Speed: 128
+        Speed: 35
         AltitudeVelocity: 0c58
     ProvidesPrerequisite:
         Prerequisite: barracks
@@ -488,7 +478,7 @@ BARRACKS-AIR:
 
 # War Factory
 # Factory
-WARF:
+FACTORY:
     Inherits: ^Building
     Inherits@shape: ^3x2Shape
     Selectable:
@@ -498,13 +488,13 @@ WARF:
         BuildDuration: 1075
         BuildPaletteOrder: 30
         Prerequisites: scv, barracks_
-        Description: Produces vehicles.
+        Description: actor-factory.description
     ProvidesRadar:
     Valued:
         Cost: 150
         # Oil: 100
     Tooltip:
-        Name: Factory
+        Name: actor-factory.name
     Building:
         Footprint: xxx xxx ===
         Dimensions: 3,3
@@ -514,9 +504,8 @@ WARF:
     Armor:
         Type: Wood
     RevealsShroud:
-        # MinRange: 4c0
         Range: 9c0
-        RevealGeneratedShroud: False
+        RevealGeneratedShroud: true
     RevealsShroud@GAPGEN:
         Range: 9c0
     WithBuildingBib:
@@ -545,7 +534,7 @@ WARF:
         TargetTypes: GroundActor, Structure, Defense
     Transforms:
         PauseOnCondition: being-demolished || build-incomplete
-        IntoActor: warf-air
+        IntoActor: factory-air
     TransformsIntoAircraft:
         DockActors:
     TransferTimedExternalConditionOnTransform:
@@ -554,28 +543,26 @@ WARF:
         RequiredForShortGame: true
 
 # Factory (Lifted Off)
-WARF-AIR:
+FACTORY-AIR:
     Inherits: ^Helicopter
     ProvidesRadar:
     Selectable:
         Bounds: 3072, 2048
-    Valued:
-        Cost: 2000
     Tooltip:
-        Name: Factory
+        Name: actor-factory-air.name
     Health:
         HP: 1250
     Armor:
         Type: Wood
     RevealsShroud:
-        # MinRange: 4c0
         Range: 9c0
-        RevealGeneratedShroud: False
+        Type: CenterPosition
+        RevealGeneratedShroud: true
     RevealsShroud@GAPGEN:
         Range: 9c0
     Aircraft:
         TurnSpeed: 20
-        Speed: 128
+        Speed: 35
         AltitudeVelocity: 0c58
     # Cannot be a building but need garage door overlay so draw idle overlay on top
     WithIdleOverlay@PRODUCTIONDOORTOP:
@@ -586,7 +573,7 @@ WARF-AIR:
     Targetable:
         TargetTypes: GroundActor, AirborneActor, Structure, Defense
     Transforms:
-        IntoActor: warf
+        IntoActor: factory
         TransformSounds: placbldg.aud, build5.aud
         NoTransformNotification: BuildingCannotPlaceAudio
         NoTransformTextNotification: Cannot deploy here.
@@ -600,19 +587,19 @@ WARF-AIR:
 
 # Pillbox
 # Bunker - custom structure as Pillbox wouldn't let me override InitialUnits
-BUNK:
+BUNKER:
     Inherits: ^Defense
     Inherits@AUTOTARGET: ^AutoTargetAll
     Inherits@CARGOPIPS: ^CargoPips
     Tooltip:
-        Name: Bunker
+        Name: actor-bunker.name
     Building:
     Buildable:
         Queue: Building
         BuildDuration: 725
         BuildPaletteOrder: 40
         Prerequisites: scv, barracks_
-        Description: Static defense with a fireport for\na garrisoned soldier.\nCan detect cloaked units.\n  Strong vs Infantry, Light armor\n  Weak vs Tanks, Aircraft
+        Description: actor-bunker.description
     ProvidesRadar:
     Valued:
         Cost: 100
@@ -624,9 +611,8 @@ BUNK:
     Armor:
         Type: Heavy
     RevealsShroud:
-        # MinRange: 5c0
         Range: 10c0
-        RevealGeneratedShroud: False
+        RevealGeneratedShroud: true
     RevealsShroud@GAPGEN:
         Range: 10c0
     WithBuildingBib:
@@ -672,13 +658,13 @@ STARPORT:
         BuildDuration: 900
         BuildPaletteOrder: 40
         Prerequisites: scv, barracks_, factory
-        Description: TBD
+        Description: actor-starport.description
     ProvidesRadar:
     Valued:
         Cost: 150
         # Oil: 100
     Tooltip:
-        Name: Starport
+        Name: actor-starport.name
     Selectable:
         Class: afld
         Bounds: 3072, 2048
@@ -690,9 +676,8 @@ STARPORT:
     Armor:
         Type: Wood
     RevealsShroud:
-        # MinRange: 4c0
         Range: 9c0
-        RevealGeneratedShroud: False
+        RevealGeneratedShroud: true
     RevealsShroud@GAPGEN:
         Range: 9c0
     Exit@1:
@@ -733,10 +718,8 @@ STARPORT-AIR:
     HitShape:
         UseTargetableCellsOffsets: false
         TargetableOffsets: 0,0,0, 420,0,0, 420,-1024,0, 420,1024,0, -777,0,0, -777,-1024,0, -777,1024,0
-    #Valued:
-    #    Cost: 150
     Tooltip:
-        Name: Starport
+        Name: actor-starport.name
     Selectable:
         Class: afld
         Bounds: 3072, 2048
@@ -745,14 +728,14 @@ STARPORT-AIR:
     Armor:
         Type: Wood
     RevealsShroud:
-        # MinRange: 4c0
         Range: 9c0
-        RevealGeneratedShroud: False
+        Type: CenterPosition
+        RevealGeneratedShroud: true
     RevealsShroud@GAPGEN:
         Range: 9c0
     Aircraft:
         TurnSpeed: 20
-        Speed: 128
+        Speed: 35
         AltitudeVelocity: 0c58
     SupportPowerChargeBar:
     Power:
@@ -775,7 +758,6 @@ STARPORT-AIR:
 # Missile Turret
 MISSILETURRET:
     Inherits: ^Defense
-    # Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
     Inherits@AUTOTARGET: ^AutoTargetAir
     Inherits@shape: ^2x1Shape
     ProvidesRadar:
@@ -789,12 +771,12 @@ MISSILETURRET:
         Queue: Building
         BuildDuration: 450
         BuildPaletteOrder: 100
-        Prerequisites: scv, barracks_
-        Description: Anti-Air base defense.\nRequires power to operate.\n  Strong vs Aircraft\n  Weak vs Ground units
+        Prerequisites: scv, engineeringbay
+        Description: actor-missileturret.description
     Valued:
         Cost: 100
     Tooltip:
-        Name: Missile Turret
+        Name: actor-missileturret.name
     Building:
         Footprint: xx
         Dimensions: 2,1
@@ -803,9 +785,8 @@ MISSILETURRET:
     Armor:
         Type: Heavy
     RevealsShroud:
-        # MinRange: 5c0
         Range: 11c0
-        RevealGeneratedShroud: False
+        RevealGeneratedShroud: true
     RevealsShroud@GAPGEN:
         Range: 11c0
     DetectCloaked:
@@ -837,12 +818,48 @@ MISSILETURRET:
     MustBeDestroyed:
         RequiredForShortGame: true
 
+ENGINEERINGBAY:
+    Inherits: ^Building
+    Inherits@shape: ^3x2Shape
+    Selectable:
+        Bounds: 3072, 2048
+    HitShape:
+        TargetableOffsets: 420,-768,0, 420,768,0, -770,-768,0, -770,768,0
+    Buildable:
+        Queue: Building
+        # TODO: Check this
+        BuildDuration: 625
+        BuildPaletteOrder: 150
+        Description: actor-engineeringbay.description
+    Valued:
+        Cost: 125
+    Tooltip:
+        Name: actor-engineeringbay.name
+    ProvidesPrerequisite:
+        Prerequisite: techcenter
+    Building:
+        Footprint: XxX XxX ===
+        Dimensions: 3,3
+        LocalCenterOffset: 0,-512,0
+    Health:
+        HP: 80000
+    Armor:
+        Type: Wood
+    RevealsShroud:
+        Range: 5c0
+        RevealGeneratedShroud: true
+    RevealsShroud@GAPGEN:
+        Range: 4c0
+    WithBuildingBib:
+    Power:
+        Amount: -0
+    ProvidesPrerequisite@buildingname:
+
 # TODO: Add in nuke building to be used for Ghosts
 # Allied Tech Center
 # Ghost Academy
 GHOSTACADEMY:
     Inherits: ^ScienceBuilding
-    Inherits@IDISABLE: ^DisableOnLowPower
     Inherits@shape: ^2x2Shape
     ProvidesRadar:
     Selectable:
@@ -850,10 +867,11 @@ GHOSTACADEMY:
     Buildable:
         Queue: Building
         BuildPaletteOrder: 140
-        Prerequisites: scv, barracks_ #TODO: eng bay?
-        Description: Provides Allied advanced technologies.\n  Special Ability: GPS Satellite
+        Prerequisites: scv, barracks_
+        Description: actor-ghostacademy.description
     Valued:
-        Cost: 1500
+        Cost: 150
+        # Oil: 50
     Tooltip:
         Name: Ghost Academy
     ProvidesPrerequisite:
@@ -873,18 +891,19 @@ GHOSTACADEMY:
     RevealsShroud@GAPGEN:
         Range: 4c0
     WithBuildingBib:
-    GpsPower:
-        PauseOnCondition: disabled
-        Icon: gps
-        OneShot: true
-        ChargeInterval: 12000
-        Name: GPS Satellite
-        Description: Reveals map terrain and provides tactical\ninformation. Requires power and active radar.
-        RevealDelay: 375
-        LaunchSpeechNotification: SatelliteLaunched
-        LaunchTextNotification: Satellite launched.
-        DisplayTimerRelationships: Ally, Neutral, Enemy
-        SupportPowerPaletteOrder: 90
+    Production@TACTICALNUKE:
+        # Temp queue name
+        Produces: Ship
+        #RequiresCondition:
+    ProductionQueue@TACTICALNUKE:
+        # Temp until I can change the production tab on sidebar in chrome.yaml
+        Type: Ship
+        #QueueLimit: 1
+        #ItemLimit: 1
+    # TODO: Testing
+    #GrantConditionOnProduction@TACTICALNUKE:
+        #Condition: nuke-built
+        #Actors: TACTICAL-NUKE
     SupportPowerChargeBar:
     InfiltrateForSupportPowerReset:
         Types: SpyInfiltrate
@@ -892,16 +911,56 @@ GHOSTACADEMY:
     Targetable:
         TargetTypes: GroundActor, C4, DetonateAttack, Structure, SpyInfiltrate
     Power:
-        Amount: -200
+        Amount: -0
     ProvidesPrerequisite@buildingname:
 
-# TODO: Impl this
-# Soviet Tech Center
-# Engineering Bay
-STEK:
-    -Buildable:
+# TACTICAL NUKE (BUILT)
+TACTICAL-NUKE:
+    Buildable:
+        BuildPaletteOrder: 2
+        Queue: Ship
+        # TODO: Check this
+        BuildDuration: 1075
+        Description: actor-tactical-nuke.description
+    Valued:
+        Cost: 100
+        # Oil: 100
+    Interactable:
+    AlwaysVisible:
+    RenderSprites:
     Tooltip:
-        Name: Engineering Bay
+        Name: actor-tactical-nuke.name
+    NukePower:
+        Cursor: nuke
+        Icon: abomb
+        AllowMultiple: true
+        OneShot: true
+        ChargeInterval: 1
+        Name: actor-tactical-nuke.name
+        Description: actor-tactical-nuke.description
+        BeginChargeSpeechNotification: AbombPrepping
+        EndChargeSpeechNotification: AbombReady
+        SelectTargetSpeechNotification: SelectTarget
+        InsufficientPowerSpeechNotification: InsufficientPower
+        IncomingSpeechNotification: AbombLaunchDetected
+        SelectTargetTextNotification: notification-select-target
+        InsufficientPowerTextNotification: notification-insufficient-power
+        BeginChargeTextNotification: notification-abomb-prepping
+        EndChargeTextNotification: notification-abomb-ready
+        IncomingTextNotification: notification-abomb-launch-detected
+        MissileWeapon: tactical-nuke-superweapon
+        MissileImage: atomic
+        MissileDelay: 5
+        SpawnOffset: 1c0,427,0
+        DisplayTimerRelationships: Ally, Neutral, Enemy
+        DisplayBeacon: True
+        DisplayRadarPing: True
+        BeaconPoster: atomicon
+        CameraRange: 10c0
+        ArrowSequence: arrow
+        ClockSequence: clock
+        CircleSequence: circles
+        SupportPowerPaletteOrder: 70
 
 # TODO: Impl this
 # Gap Generator
@@ -989,6 +1048,13 @@ ATEK:
     -Buildable:
     Tooltip:
         Name: Ghost Academy
+
+# Soviet Tech Center
+# Engineering Bay
+STEK:
+    -Buildable:
+    Tooltip:
+        Name: Engineering Bay
 
 # Soviet Airfield
 AFLD:

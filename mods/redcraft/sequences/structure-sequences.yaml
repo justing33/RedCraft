@@ -1,6 +1,6 @@
 # Bunker
 # Based on Pill Box
-bunk:
+bunker:
     Defaults:
         Filename: pbox.shp
     idle:
@@ -71,7 +71,7 @@ comc:
             DESERT: bib2.des
         Length: *
     icon:
-        Filename: facticon.shp
+        Filename: domeicon.shp
     turret:
         Filename: gun.shp
         Facings: 32
@@ -127,7 +127,7 @@ barracks-air:
         Filename: barr.shp
 
 # Factory
-warf:
+factory:
     Defaults:
         Filename: weap.shp
     idle:
@@ -188,7 +188,7 @@ warf:
 #         Filename: siloicon.shp
 
 # Factory (Lifted Off)
-warf-air:
+factory-air:
     idle:
         Filename: weap.shp
     build-top:
@@ -274,6 +274,24 @@ missileturret:
     icon:
         Filename: samicon.shp
 
+engineeringbay:
+    Defaults:
+        Filename: stek.shp
+    idle:
+    damaged-idle:
+        Start: 1
+    make:
+        Filename: stekmake.shp
+        Length: *
+    bib:
+        Filename: bib2.tem
+        TilesetFilenames:
+            SNOW: bib2.sno
+            DESERT: bib2.des
+        Length: *
+    icon:
+        Filename: stekicon.shp
+
 ghostacademy:
     Defaults:
         Filename: atek.shp
@@ -297,6 +315,11 @@ ghostacademy:
         Filename: atekicon.shp
     fake-icon:
         Filename: ateficon.shp
+
+# Tactical Nuke (Built)
+tactical-nuke:
+    icon:
+        Filename: atomicon.shp
 
 ##############################
 # UNUSED STRUCTURE SEQUENCES #

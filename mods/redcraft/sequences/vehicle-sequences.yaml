@@ -1,9 +1,53 @@
 scv:
-    active:
-        Start: 1
-        Length: 9
+    Defaults:
+        Filename: e6.shp
+    stand:
+        Facings: 8
+    stand2:
+        Start: 8
+        Facings: 8
+    run:
+        Start: 16
+        Length: 6
+        Facings: 8
         Tick: 100
-        Offset: 0,-13
+    idle1:
+        Start: 121
+        Length: 8
+        Tick: 120
+    idle2:
+        Start: 130
+        Length: 14
+        Tick: 120
+    die1:
+        Start: 146
+        Length: 8
+        Tick: 80
+    die2:
+        Start: 154
+        Length: 8
+        Tick: 80
+    die3:
+        Start: 162
+        Length: 8
+        Tick: 80
+    die4:
+        Start: 170
+        Length: 12
+        Tick: 80
+    die5:
+        Start: 182
+        Length: 18
+        Tick: 80
+    die6:
+        Filename: electro.tem
+        TilesetFilenames:
+            SNOW: electro.sno
+        Frames: 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+        Length: *
+        Tick: 80
+    icon:
+        Filename: e6icon.shp
 
 hellion:
     Defaults:

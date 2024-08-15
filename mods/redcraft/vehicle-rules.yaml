@@ -1,8 +1,8 @@
 # Custom SCV Unit (based off HARV)
 SCV:
-    Inherits: ^Vehicle
+    Inherits: ^Infantry
     Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-    Inherits: ^SelectableEconomicUnit
+    Inherits@selection: ^SelectableEconomicUnit
     Buildable:
         Queue: Defense
         BuildPaletteOrder: 110

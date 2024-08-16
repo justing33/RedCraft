@@ -1,8 +1,16 @@
 # Rifle Infantry
 # Marine
 MARINE:
-	Inherits: ^Soldier
-	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+    Inherits: ^Soldier
+    AutoTarget:
+    AutoTargetPriority@ATTACKGROUNDUNITSFIRST:
+        Priority: 2
+        ValidTargets: Infantry, Vehicle, Air, AirborneActor, Building
+        InvalidTargets: NoAutoTarget
+    AutoTargetPriority@ATTACKBUILDINGSSECOND:
+        Priority: 1
+        ValidTargets: Structure
+        InvalidTargets: NoAutoTarget
 	Buildable:
 		Queue: Infantry
 		BuildDuration: 750
@@ -52,7 +60,15 @@ MARINE:
 # Marauder
 MARAUDER:
 	Inherits: ^Soldier
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+    AutoTarget:
+    AutoTargetPriority@ATTACKGROUNDUNITSFIRST:
+        Priority: 2
+        ValidTargets: Infantry, Vehicle, Building
+        InvalidTargets: NoAutoTarget
+    AutoTargetPriority@ATTACKBUILDINGSSECOND:
+        Priority: 1
+        ValidTargets: Structure
+        InvalidTargets: NoAutoTarget
 	Buildable:
 		Queue: Infantry
 		BuildDuration: 850
@@ -103,7 +119,15 @@ MARAUDER:
 # Reaper
 REAPER:
     Inherits: ^Soldier
-    Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+    AutoTarget:
+    AutoTargetPriority@ATTACKGROUNDUNITSFIRST:
+        Priority: 2
+        ValidTargets: Infantry, Vehicle, Building
+        InvalidTargets: NoAutoTarget
+    AutoTargetPriority@ATTACKBUILDINGSSECOND:
+        Priority: 1
+        ValidTargets: Structure
+        InvalidTargets: NoAutoTarget
     Buildable:
         Queue: Infantry
         BuildDuration: 1325
@@ -131,23 +155,10 @@ REAPER:
     Mobile:
         Speed: 131
         AlwaysTurnInPlace: true
-        Locomotor: foot
+        #Locomotor: jumpjet
+    #GrantConditionOnJumpjetLayer:
+    #    Condition: airborne
     # TODO: Make reapers jump cliffs
-    #JumpjetLocomotor@JUMPJET:
-    #    Name: jumpjet
-    #    SharesCell: true
-    #    JumpjetTransitionCost: 100
-    #    TerrainSpeeds:
-    #        Clear: 90
-    #        Road: 100
-    #        Bridge: 100
-    #        Rail: 90
-    #        DirtRoad: 100
-    #        Rough: 80
-    #        Tiberium: 90
-    #        BlueTiberium: 90
-    #        Veins: 50
-    #        Jumpjet: 110
     RevealsShroud:
         Range: 9c0
     # TODO: Add grenade AOE attack
@@ -177,7 +188,15 @@ REAPER:
 # Firebat
 FIREBAT:
     Inherits: ^Soldier
-    Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+    AutoTarget:
+    AutoTargetPriority@ATTACKGROUNDUNITSFIRST:
+        Priority: 2
+        ValidTargets: Infantry, Vehicle, Building
+        InvalidTargets: NoAutoTarget
+    AutoTargetPriority@ATTACKBUILDINGSSECOND:
+        Priority: 1
+        ValidTargets: Structure
+        InvalidTargets: NoAutoTarget
     Buildable:
         Queue: Infantry
         BuildDuration: 850
@@ -278,7 +297,15 @@ MEDIC_:
 # Ghost
 GHOST:
     Inherits: ^Soldier
-    Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+    AutoTarget:
+    AutoTargetPriority@ATTACKGROUNDUNITSFIRST:
+        Priority: 2
+        ValidTargets: Infantry, Vehicle, Air, AirborneActor, Building
+        InvalidTargets: NoAutoTarget
+    AutoTargetPriority@ATTACKBUILDINGSSECOND:
+        Priority: 1
+        ValidTargets: Structure
+        InvalidTargets: NoAutoTarget
     Buildable:
         Queue: Infantry
         BuildDuration: 1300

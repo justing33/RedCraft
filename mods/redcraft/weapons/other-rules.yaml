@@ -147,8 +147,8 @@ SiegeTankCrucioShockCannon:
 		Shadow: True
 	Warhead@1Dam: SpreadDamage
 		Spread: 1c0
-        Damage: 40
-        Falloff: 75, 40, 20, 15, 7
+        Damage: 37
+        Falloff: 55, 32, 20, 15, 7
         ValidTargets: Infantry, Vehicle, Building, Structure, Ground, GroundActor
         Versus:
             None: 100

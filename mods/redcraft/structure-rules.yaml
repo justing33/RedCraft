@@ -277,8 +277,8 @@ COMC-AIR:
         # DeployCursor: deploy
         # DeployBlockedCursor: deploy-blocked
     BaseBuilding:
-    SpawnActorOnDeath:
-        Actor:
+    #SpawnActorOnDeath:
+    #    Actor:
     MustBeDestroyed:
         RequiredForShortGame: true
 
@@ -439,8 +439,9 @@ BARRACKS-AIR:
         TransformSounds: placbldg.aud, build5.aud
         NoTransformNotification: BuildingCannotPlaceAudio
         NoTransformTextNotification: Cannot deploy here.
-    SpawnActorOnDeath:
-        Actor:
+    # TODO: Did this cause crash? Try a bldg husk later
+    #SpawnActorOnDeath:
+    #    Actor:
     MustBeDestroyed:
         RequiredForShortGame: true
 
@@ -526,6 +527,15 @@ FACTORY:
         RequiresCondition: !being-captured
         SpawnOffset: 213,-128,0
         ExitCell: 1,2
+    #Production@UPGRADES:
+    #    Produces: Defense
+    #    RequiresCondition: !siege-mode-researched
+    #ProductionQueue@UPGRADES:
+    #    Type: Defense
+    #    ItemLimit: 1
+    #GrantConditionOnProduction@SIEGEMODE:
+    #    Condition: siege-mode-researched
+    #    Actors: SIEGE-MODE-UPGRADE
     Production:
         Produces: Vehicle
     ProductionQueue:
@@ -581,8 +591,8 @@ FACTORY-AIR:
         TransformSounds: placbldg.aud, build5.aud
         NoTransformNotification: BuildingCannotPlaceAudio
         NoTransformTextNotification: Cannot deploy here.
-    SpawnActorOnDeath:
-        Actor:
+    #SpawnActorOnDeath:
+    #    Actor:
     SequencePlaceBuildingPreview:
         Sequence: place
         SequenceAlpha: 0.65
@@ -746,8 +756,8 @@ STARPORT-AIR:
         TransformSounds: placbldg.aud, build5.aud
         NoTransformNotification: BuildingCannotPlaceAudio
         NoTransformTextNotification: Cannot deploy here.
-    SpawnActorOnDeath:
-        Actor:
+    #SpawnActorOnDeath:
+    #    Actor:
     MustBeDestroyed:
         RequiredForShortGame: true
 
@@ -957,10 +967,34 @@ ENGINEERINGBAY:
         Amount: -0
     ProvidesPrerequisite@buildingname:
 
+##### UPGRADES #####
+
+#SIEGE-MODE-UPGRADE:
+#    Buildable:
+#        BuildPaletteOrder: 30
+#        Prerequisites: factory
+#        Queue: Defense
+#        #TODO: Tweak this
+#        BuildDuration: 25
+#        # TODO:
+#        Description: TBD
+#    Valued:
+#        Cost: 150
+#        # Oil: 150
+#    Interactable:
+#    AlwaysVisible:
+#    RenderSprites:
+#    # TODO:
+#    Tooltip:
+#        Name: TBD
+#    KillsSelf:
+#        #RemoveInstead: true
+
 # TODO: Impl this
 # Gap Generator
 GAP:
     -Buildable:
+    -WithBuildingRepairDecoration:
     Tooltip:
         Name: Sensor Tower
 
@@ -1025,6 +1059,7 @@ SILO:
 # Sam Site
 SAM:
     -Buildable:
+    -WithBuildingRepairDecoration:
 
 # Pillbox
 PBOX:
@@ -1083,36 +1118,42 @@ SYRD:
 # Missile Silo
 MSLO:
     -Buildable:
+    -WithBuildingRepairDecoration:
     Tooltip:
         Name: Missile Silo
 
 # Iron Curtain
 IRON:
     -Buildable:
+    -WithBuildingRepairDecoration:
     Tooltip:
         Name: Iron Curtain
 
 # Chronosphere
 PDOX:
     -Buildable:
+    -WithBuildingRepairDecoration:
     Tooltip:
         Name: Chronosphere
 
 # Tesla Coil
 TSLA:
     -Buildable:
+    -WithBuildingRepairDecoration:
     Tooltip:
         Name: Tesla Coil
 
 # AA GUN
 AGUN:
     -Buildable:
+    -WithBuildingRepairDecoration:
     Tooltip:
         Name: AA Gun
 
 # Radar Dome
 DOME:
     -Buildable:
+    -WithBuildingRepairDecoration:
     Tooltip:
         Name: Radar Dome
 

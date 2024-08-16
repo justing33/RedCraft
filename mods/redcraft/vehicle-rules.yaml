@@ -159,7 +159,7 @@ HELLION:
 # Artillery
 # Hellbat
 HELLBAT:
-    Inherits: ^TrackedVehicle
+    Inherits: ^Vehicle
     Inherits@GAINSEXPERIENCE: ^GainsExperience
     AutoTarget:
     AutoTargetPriority@ATTACKGROUNDUNITSFIRST:
@@ -183,9 +183,7 @@ HELLBAT:
     Armor:
         Type: Light
     Mobile:
-        TurnSpeed: 8
         Speed: 78
-        Locomotor: lighttracked
     RevealsShroud:
         # MinRange: 4c0
         Range: 10c0

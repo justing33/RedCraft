@@ -20,7 +20,7 @@ SCVBuildingHeal:
     Range: 1c256
     # TODO: Is this sound annoying?
     Report: heal2.aud
-    ValidTargets: Building, Structure
+    ValidTargets: Building, Structure, Vehicle, AirborneActor, Air
     Projectile: LaserZap
         Speed: 1c682
         # Green beam color
@@ -29,7 +29,7 @@ SCVBuildingHeal:
         Spread: 213
         Damage: -5
         ValidRelationships: Ally
-        ValidTargets: Building, Structure
+        ValidTargets: Building, Structure, Vehicle, AirborneActor, Air
         DebugOverlayColor: 00FF00
 
 MedicHeal:

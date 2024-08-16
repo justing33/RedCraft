@@ -168,9 +168,9 @@ SiegeTankCrucioShockCannon:
 
 WidowMineSentinelMissile:
     Range: 5c0
-    ReloadDelay: 650
+    ReloadDelay: 400
     Report: cannon1.aud
-    ValidTargets: Ground, Infantry, Vehicle, Air, AirborneActor
+    ValidTargets: Ground, Infantry, Vehicle, Air, AirborneActor, Building, Structure
     TargetActorCenter: true
     Projectile: Bullet
         ContrailLength: 30
@@ -181,7 +181,7 @@ WidowMineSentinelMissile:
     Warhead@1Dam: SpreadDamage
         Spread: 426
         Damage: 125
-        ValidTargets: Ground, Infantry, Vehicle, Air, AirborneActor
+        ValidTargets: Ground, Infantry, Vehicle, Air, AirborneActor, Building, Structure
         Versus:
             None: 100
             Wood: 100
@@ -195,7 +195,7 @@ WidowMineSentinelMissile:
     Warhead@3Eff: CreateEffect
         Explosions: small_explosion
         ImpactSounds: kaboom12.aud
-        ValidTargets: Ground, Infantry, Vehicle, Air, AirborneActor
+        ValidTargets: Ground, Infantry, Vehicle, Air, AirborneActor, Building, Structure
 
 SCVFusionCutter:
     ReloadDelay: 25

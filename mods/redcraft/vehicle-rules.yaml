@@ -307,7 +307,15 @@ SIEGETANK-SM:
 # Widow Mine
 WIDOWMINE:
     Inherits: ^Vehicle
-    Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+    AutoTarget:
+    AutoTargetPriority@ATTACKGROUNDUNITSFIRST:
+        Priority: 2
+        ValidTargets: Infantry, Vehicle, Building
+        InvalidTargets: NoAutoTarget
+    AutoTargetPriority@ATTACKBUILDINGSSECOND:
+        Priority: 1
+        ValidTargets: Structure
+        InvalidTargets: NoAutoTarget
     # TODO: Look into selectable priorities later for QOL
     # Inherits@selection: ^SelectableSupportUnit
     Buildable:

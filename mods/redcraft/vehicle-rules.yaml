@@ -47,9 +47,15 @@ SCV:
         Range: 8c0
     GpsDot:
         String: Harvester
-    Armament:
+    Armament@PRIMARY:
         Weapon: SCVFusionCutter
         LocalOffset: 427,0,341
+    Armament@REPAIRBUILDINGS:
+        Weapon: SCVBuildingHeal
+        Cursor: heal
+        OutsideRangeCursor: heal
+        TargetRelationships: Ally
+        ForceTargetRelationships: None
     AttackFrontal:
         FacingTolerance: 0
     AttackMove:
@@ -255,6 +261,7 @@ SIEGETANK:
         LocalOffset: 768,85,90, 768,-85,90
         MuzzleSequence: muzzle
     Transforms:
+        # RequiresCondition: siege-mode-researched
         IntoActor: siegetank-sm
     Passenger:
         Weight: 4

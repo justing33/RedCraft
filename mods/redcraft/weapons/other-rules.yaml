@@ -14,6 +14,24 @@ MedivacHeal:
         ValidTargets: Heal
         DebugOverlayColor: 00FF00
 
+# TODO: Make this cost resources
+SCVBuildingHeal:
+    ReloadDelay: 50
+    Range: 1c256
+    # TODO: Is this sound annoying?
+    Report: heal2.aud
+    ValidTargets: Building, Structure
+    Projectile: LaserZap
+        Speed: 1c682
+        # Green beam color
+        Color: 14D000
+    Warhead@1Dam: SpreadDamage
+        Spread: 213
+        Damage: -5
+        ValidRelationships: Ally
+        ValidTargets: Building, Structure
+        DebugOverlayColor: 00FF00
+
 MedicHeal:
     ReloadDelay: 80
     Range: 2c0
@@ -29,6 +47,7 @@ MedicHeal:
         ValidRelationships: Ally
         ValidTargets: Heal
         DebugOverlayColor: 00FF00
+
 
 HellionFlamethrower:
     ValidTargets: Ground, Building, Structure, Infantry, Vehicle

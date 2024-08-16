@@ -46,6 +46,10 @@ scv:
         Frames: 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
         Length: *
         Tick: 80
+    heal:
+        Start: 56
+        Length: 58
+        Tick: 120
     icon:
         Filename: e6icon.shp
 

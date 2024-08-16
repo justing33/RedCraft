@@ -39,4 +39,4 @@ World:
                 ResourceIndex: 2
                 TerrainType: Gems
                 AllowedTerrainTypes: Clear, Road
-                MaxDensity: 1800
+                MaxDensity: 1200

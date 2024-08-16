@@ -91,7 +91,15 @@ SCV:
 HELLION:
     Inherits: ^Vehicle
     Inherits@GAINSEXPERIENCE: ^GainsExperience
-    Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+    AutoTarget:
+    AutoTargetPriority@ATTACKGROUNDUNITSFIRST:
+        Priority: 2
+        ValidTargets: Infantry, Vehicle, Building
+        InvalidTargets: NoAutoTarget
+    AutoTargetPriority@ATTACKBUILDINGSSECOND:
+        Priority: 1
+        ValidTargets: Structure
+        InvalidTargets: NoAutoTarget
     Buildable:
         Queue: Vehicle
         BuildDuration: 525
@@ -153,7 +161,15 @@ HELLION:
 HELLBAT:
     Inherits: ^TrackedVehicle
     Inherits@GAINSEXPERIENCE: ^GainsExperience
-    Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+    AutoTarget:
+    AutoTargetPriority@ATTACKGROUNDUNITSFIRST:
+        Priority: 2
+        ValidTargets: Infantry, Vehicle, Building
+        InvalidTargets: NoAutoTarget
+    AutoTargetPriority@ATTACKBUILDINGSSECOND:
+        Priority: 1
+        ValidTargets: Structure
+        InvalidTargets: NoAutoTarget
     # -Buildable:
     Valued:
         Cost: 100

@@ -10,7 +10,6 @@ Player:
         BuildingLimits:
             comc: 0
         BuildingFractions:
-            comc: 0
             barracks_: 40
             factory: 40
             starport: 40

@@ -6,6 +6,7 @@ VikingMissileAA:
     Burst: 2
     BurstDelays: 7
     ValidTargets: Air, AirborneActor
+    InvalidTargets: Building, Structure, GroundActor, Ground
     Projectile: Missile
         Speed: 256
         Arm: 2
@@ -21,6 +22,7 @@ VikingMissileAA:
         Spread: 128
         Damage: 10
         ValidTargets: Air, AirborneActor
+        InvalidTargets: Building, Structure, GroundActor, Ground
         Versus:
             None: 100
             Wood: 100

@@ -171,9 +171,9 @@ MissileTurretMissileAA:
     ReloadDelay: 25
     Range: 7c0
     Report: missile7.aud
-    Burst: 2
-    BurstDelays: 4
+    Burst: 1
     ValidTargets: Air, AirborneActor
+    InvalidTargets: Building, Structure, Vehicle
     Projectile: Missile
         Speed: 512
         Arm: 2
@@ -184,11 +184,13 @@ MissileTurretMissileAA:
         Shadow: true
         HorizontalRateOfTurn: 20
         CruiseAltitude: 2c0
-        RangeLimit: 14c410
+        # Unlimited Fuel
+        RangeLimit: -1
     Warhead@1Dam: SpreadDamage
         Spread: 128
-        Damage: 24
+        Damage: 40
         ValidTargets: Air, AirborneActor
+        InvalidTargets: Building, Structure, Vehicle
         Versus:
             None: 100
             Wood: 100

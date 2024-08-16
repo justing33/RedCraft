@@ -236,6 +236,8 @@ COMC-AIR:
     # TODO: Fix bug listed below
     # Inherits@CARGOPIPS: ^CargoPips
     ProvidesRadar:
+    Selectable:
+        DecorationBounds: 1706, 1536
     Tooltip:
         Name: actor-comc-air.name
     UpdatesPlayerStatistics:
@@ -265,10 +267,6 @@ COMC-AIR:
     #     # TODO: Would be nice to show appropriate cursor between cargo loading and landing
     #     # UnloadCursor: repair
     #     # UnloadBlockedCursor: repair-blocked
-    Selectable:
-        DecorationBounds: 1706, 1536
-    Targetable:
-        TargetTypes: GroundActor, AirborneActor, Structure, Defense
     Transforms:
         # TODO: Fix landing offset
         IntoActor: comc
@@ -436,8 +434,6 @@ BARRACKS-AIR:
     Power:
         Amount: -0
     ProvidesPrerequisite@buildingname:
-    Targetable:
-        TargetTypes: GroundActor, AirborneActor, Structure, Defense
     Transforms:
         IntoActor: barracks_
         TransformSounds: placbldg.aud, build5.aud
@@ -580,8 +576,6 @@ FACTORY-AIR:
     Power:
         Amount: -0
     ProvidesPrerequisite@buildingname:
-    Targetable:
-        TargetTypes: GroundActor, AirborneActor, Structure, Defense
     Transforms:
         IntoActor: factory
         TransformSounds: placbldg.aud, build5.aud
@@ -724,14 +718,11 @@ STARPORT:
 STARPORT-AIR:
     Inherits: ^Helicopter
     ProvidesRadar:
-    HitShape:
-        UseTargetableCellsOffsets: false
-        TargetableOffsets: 0,0,0, 420,0,0, 420,-1024,0, 420,1024,0, -777,0,0, -777,-1024,0, -777,1024,0
-    Tooltip:
-        Name: actor-starport-air.name
     Selectable:
         Class: afld
         Bounds: 3072, 2048
+    Tooltip:
+        Name: actor-starport-air.name
     Health:
         HP: 1300
     Armor:
@@ -746,13 +737,10 @@ STARPORT-AIR:
         TurnSpeed: 20
         Speed: 40
         AltitudeVelocity: 0c58
-    SupportPowerChargeBar:
     Power:
         Amount: -0
     ProvidesPrerequisite@buildingname:
         Prerequisite: afld
-    Targetable:
-        TargetTypes: GroundActor, AirborneActor, Structure, Defense
     Transforms:
         IntoActor: starport
         TransformSounds: placbldg.aud, build5.aud

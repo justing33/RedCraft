@@ -1,6 +1,12 @@
 VIKING:
     Inherits: ^Helicopter
-    Inherits@AUTOTARGET: ^AutoTargetAir
+    AutoTarget:
+    AutoTargetPriority@ATTACKGROUNDUNITSFIRST:
+        Priority: 2
+        ValidTargets: AirborneActor, Air
+    AutoTargetPriority@ATTACKBUILDINGSSECOND:
+        Priority: 1
+        ValidTargets: Structure
     Buildable:
         Queue: Aircraft
         BuildAtProductionType: Plane
@@ -50,9 +56,6 @@ VIKING:
         Speed: 120
         RepulsionSpeed: 40
         MaximumPitch: 56
-    AutoTarget:
-        InitialStance: HoldFire
-        InitialStanceAI: HoldFire
     Selectable:
         Bounds: 1536, 1194, 0, 85
         DecorationBounds: 1706, 1237, 0, 42

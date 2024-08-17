@@ -52,7 +52,6 @@ MARINE:
 		Prerequisites: barracks.upgraded
 	Passenger:
 		CargoType: Infantry
-		CargoCondition: disable-experience
 		Weight: 1
 
 
@@ -112,7 +111,6 @@ MARAUDER:
 		Prerequisites: barracks.upgraded
     Passenger:
         CargoType: Infantry
-        CargoCondition: disable-experience
         Weight: 2
 
 # Grenadier
@@ -181,7 +179,6 @@ REAPER:
         Prerequisites: barracks.upgraded
     Passenger:
         CargoType: Infantry
-        CargoCondition: disable-experience
         Weight: 1
 
 # Flamethrower
@@ -241,7 +238,6 @@ FIREBAT:
         Prerequisites: barracks.upgraded
     Passenger:
         CargoType: Infantry
-        CargoCondition: disable-experience
         Weight: 1
 
 # Medic
@@ -290,7 +286,6 @@ MEDIC_:
         ValidTargets: Infantry
     Passenger:
         CargoType: Infantry
-        CargoCondition: disable-experience
         Weight: 1
 
 # Tanya
@@ -366,7 +361,6 @@ GHOST:
         Prerequisites: barracks.upgraded
     Passenger:
         CargoType: Infantry
-        CargoCondition: disable-experience
         Weight: 2
 
 ##########################

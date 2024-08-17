@@ -436,8 +436,16 @@ VIKING-AM:
 # Cyclone
 CYCLONE:
     Inherits: ^Vehicle
-    Inherits@GAINSEXPERIENCE: ^GainsExperience
-    Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+    AutoTarget:
+    AutoTargetPriority@ATTACKGROUNDUNITSFIRST:
+        Priority: 2
+        #TODO: Testing make sure can shoot air and ground still
+        ValidTargets: Infantry, Vehicle, Building, AirborneActor
+        InvalidTargets: NoAutoTarget
+    AutoTargetPriority@ATTACKBUILDINGSSECOND:
+        Priority: 1
+        ValidTargets: Structure
+        InvalidTargets: NoAutoTarget
     Buildable:
         Queue: Vehicle
         BuildDuration: 800

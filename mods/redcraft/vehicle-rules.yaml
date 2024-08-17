@@ -80,14 +80,11 @@ SCV:
         RequiresSelection: true
         PipCount: 7
         ResourceSequences:
-            # Ore: pip-yellow
             Gems: pip-blue
     # TODO: Allow to be loaded into lifted off Command Center
     Passenger:
         CargoType: Vehicle
-        CargoCondition: disable-experience
         Weight: 1
-    # TODO: Fix so SCV can attack structures
     Targetable:
         TargetTypes: GroundActor, Vehicle, Defense, Structure
 
@@ -95,7 +92,6 @@ SCV:
 # Hellion
 HELLION:
     Inherits: ^Vehicle
-    Inherits@GAINSEXPERIENCE: ^GainsExperience
     AutoTarget:
     AutoTargetPriority@ATTACKGROUNDUNITSFIRST:
         Priority: 2
@@ -129,7 +125,6 @@ HELLION:
         Speed: 148
         PauseOnCondition: notmobile || being-captured
     RevealsShroud:
-        # MinRange: 4c0
         Range: 10c0
         RevealGeneratedShroud: False
     RevealsShroud@GAPGEN:
@@ -154,8 +149,6 @@ HELLION:
     AttackTurreted:
     WithMuzzleOverlay:
     WithSpriteTurret:
-    ProducibleWithLevel:
-        Prerequisites: vehicles.upgraded
     WithProductionIconOverlay:
         Types: Veterancy
         Prerequisites: vehicles.upgraded
@@ -165,7 +158,6 @@ HELLION:
 # Hellbat
 HELLBAT:
     Inherits: ^Vehicle
-    Inherits@GAINSEXPERIENCE: ^GainsExperience
     AutoTarget:
     AutoTargetPriority@ATTACKGROUNDUNITSFIRST:
         Priority: 2
@@ -175,7 +167,6 @@ HELLBAT:
         Priority: 1
         ValidTargets: Structure
         InvalidTargets: NoAutoTarget
-    # -Buildable:
     Valued:
         Cost: 100
         # Supply: 2
@@ -190,7 +181,6 @@ HELLBAT:
     Mobile:
         Speed: 78
     RevealsShroud:
-        # MinRange: 4c0
         Range: 10c0
         RevealGeneratedShroud: False
     RevealsShroud@GAPGEN:
@@ -210,8 +200,6 @@ HELLBAT:
         TransformSounds: placbldg.aud, build5.aud
     Passenger:
         Weight: 4
-    ProducibleWithLevel:
-        Prerequisites: vehicles.upgraded
     WithProductionIconOverlay:
         Types: Veterancy
         Prerequisites: vehicles.upgraded
@@ -220,8 +208,15 @@ HELLBAT:
 # Siege Tank
 SIEGETANK:
     Inherits: ^TrackedVehicle
-    Inherits@GAINSEXPERIENCE: ^GainsExperience
-    Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+    AutoTarget:
+    AutoTargetPriority@ATTACKGROUNDUNITSFIRST:
+        Priority: 2
+        ValidTargets: Infantry, Vehicle, Building
+        InvalidTargets: NoAutoTarget
+    AutoTargetPriority@ATTACKBUILDINGSSECOND:
+        Priority: 1
+        ValidTargets: Structure
+        InvalidTargets: NoAutoTarget
     Buildable:
         Queue: Vehicle
         BuildDuration: 800
@@ -264,8 +259,6 @@ SIEGETANK:
         IntoActor: siegetank-sm
     Passenger:
         Weight: 4
-    ProducibleWithLevel:
-        Prerequisites: vehicles.upgraded
     Selectable:
         DecorationBounds: 1194, 1194
     WithProductionIconOverlay:
@@ -277,7 +270,6 @@ SIEGETANK:
 SIEGETANK-SM:
     Inherits: ^Building
     Inherits@shape: ^1x1Shape
-    Inherits@GAINSEXPERIENCE: ^GainsExperience
     # Allows siege tanks to auto attack other siege tanks!
     AutoTarget:
     AutoTargetPriority@ATTACKGROUNDUNITSFIRST:
@@ -380,7 +372,6 @@ WIDOWMINE:
     #     Condition: cloak-force-disabled
     #     ValidDamageStates: Critical
     RevealsShroud:
-        # MinRange: 4c0
         Range: 7c0
         RevealGeneratedShroud: False
     RevealsShroud@GAPGEN:
@@ -394,9 +385,15 @@ WIDOWMINE:
 # Viking Assault Mode (Landed Viking)
 VIKING-AM:
     Inherits: ^Vehicle
-    Inherits@GAINSEXPERIENCE: ^GainsExperience
-    Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-    # -Buildable:
+    AutoTarget:
+    AutoTargetPriority@ATTACKGROUNDUNITSFIRST:
+        Priority: 2
+        ValidTargets: Infantry, Vehicle, Building
+        InvalidTargets: NoAutoTarget
+    AutoTargetPriority@ATTACKBUILDINGSSECOND:
+        Priority: 1
+        ValidTargets: Structure
+        InvalidTargets: NoAutoTarget
     # Valued:
     # Cost: 150
     # Supply: 2 <----
@@ -414,7 +411,6 @@ VIKING-AM:
         Speed: 78
         Locomotor: heavywheeled
     RevealsShroud:
-        # MinRange: 4c0
         Range: 10c0
         RevealGeneratedShroud: False
     RevealsShroud@GAPGEN:
@@ -426,10 +422,6 @@ VIKING-AM:
     WithMuzzleOverlay:
     AttackFrontal:
         FacingTolerance: 0
-    # PortableChrono:
-    #     ChargeDelay: 250
-    ProducibleWithLevel:
-        Prerequisites: vehicles.upgraded
     Selectable:
         DecorationBounds: 1280, 1280
     WithProductionIconOverlay:
@@ -469,7 +461,6 @@ CYCLONE:
         TurnSpeed: 40
         Speed: 98
     RevealsShroud:
-        # MinRange: 4c0
         Range: 11c0
         RevealGeneratedShroud: False
     RevealsShroud@GAPGEN:
@@ -490,8 +481,6 @@ CYCLONE:
     AttackTurreted:
     WithMuzzleOverlay:
     WithSpriteTurret:
-    ProducibleWithLevel:
-        Prerequisites: vehicles.upgraded
     Selectable:
         DecorationBounds: 1194, 1194
     WithProductionIconOverlay:

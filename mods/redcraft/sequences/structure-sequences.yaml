@@ -321,6 +321,39 @@ engineeringbay:
     icon:
         Filename: stekicon.shp
 
+auto-turret:
+    Defaults:
+        Filename: hbox.tem
+        TilesetFilenames:
+            SNOW: hbox.sno
+            DESERT: hbox.des
+    idle:
+    damaged-idle:
+        Start: 2
+    make:
+        Filename: hboxmake.tem
+        TilesetFilenames:
+            SNOW: hboxmake.sno
+            DESERT: hboxmake.des
+        Length: *
+    turret:
+        Filename: jeep.shp
+        Start: 1
+        Facings: 1
+        UseClassicFacings: false
+    muzzle:
+        Filename: minigun.shp
+        TilesetFilenames:
+        Length: 6
+        Facings: 8
+    icon:
+        Filename: hboxicon.shp
+        TilesetFilenames:
+
+#siege-mode-upgrade:
+#    icon:
+#        Filename: 4tnkicon.shp
+
 ##############################
 # UNUSED STRUCTURE SEQUENCES #
 ##############################

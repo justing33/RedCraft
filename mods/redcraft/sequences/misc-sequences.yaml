@@ -2,6 +2,8 @@
 icon:
 	scannersweep:
 		Filename: sonricon.shp
+    auto-turret:
+        Filename: hboxicon.shp
 beacon:
 	scannersweep-small:
 		Filename: lores|sonricon.shp

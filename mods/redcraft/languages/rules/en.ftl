@@ -789,6 +789,14 @@ actor-techcenter-name = Tech Center
 actor-anypower-name = Any Power Generation
 
 ## vehicles.yaml
+
+actor-raven =
+   .name = Raven
+   .description = Flying support unit
+      Detects cloaked units
+      Deploys Auto Turrets
+      Unarmed
+
 actor-v2rl =
    .description = Long-range rocket artillery.
       Strong vs Infantry, Buildings

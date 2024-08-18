@@ -299,6 +299,72 @@ U2:
     GrantConditionOnDamageState@SmokeTrail:
         Condition: enable-smoke
 
+RAVEN:
+    Inherits: ^Helicopter
+    Buildable:
+        Queue: Aircraft
+        BuildDuration: 1350 #34
+        BuildPaletteOrder: 320
+        Prerequisites: starport #,tech lab
+        Description: actor-raven.description
+    Valued:
+        Cost: 100
+        # Oil: 150
+        # Supply: 2
+    Tooltip:
+        Name: actor-raven.name
+    UpdatesPlayerStatistics:
+        AddToArmyValue: true
+    Health:
+        HP: 140
+    Armor:
+        Type: Light
+        # Mechanical
+    RevealsShroud:
+        Range: 11c0
+        Type: GroundPosition
+    Aircraft:
+        CruiseAltitude: 2560
+        TurnSpeed: 28
+        Speed: 103
+        MaximumPitch: 56
+    WithIdleOverlay@SPINNER:
+        Sequence: spinner
+        Offset: -256,0,256
+    DetectCloaked:
+        DetectionTypes: Cloak
+        Range: 9c0
+    WithRangeCircle:
+        Range: 9c0
+        Color: 0000FF80
+    Selectable:
+        DecorationBounds: 1621, 1365
+    GivesBuildableArea:
+        AreaTypes: building
+    Production:
+        Produces: Raven
+        RequiresCondition: auto-turret-enabled
+    ProductionQueue:
+        Type: Raven
+        #ItemLimit: 3
+        #QueueLimit: 3
+    ProductionBar:
+        ProductionType: Raven
+    GrantPrerequisiteChargeDrainPower:
+        Name: AutoTurret
+        Description: TBD
+        ChargeInterval: 75
+        DischargeModifier: 10
+        Prerequisite: deploy-auto-turret
+        #IconImage: hboxicon.shp
+        Icon: auto-turret
+        #AllowMultiple: true
+        #StartFullyCharged: true
+    GrantConditionOnPrerequisite:
+        Condition: auto-turret-enabled
+        Prerequisites: deploy-auto-turret
+
+
 # Mig
 MIG:
     -Buildable:

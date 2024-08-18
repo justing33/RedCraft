@@ -45,8 +45,6 @@ MARINE:
 	WithInfantryBody:
 		DefaultAttackSequence: shoot
 		RequiresCondition: !parachute
-	ProducibleWithLevel:
-		Prerequisites: barracks.upgraded
 	WithProductionIconOverlay:
 		Types: Veterancy
 		Prerequisites: barracks.upgraded
@@ -102,8 +100,6 @@ MARAUDER:
 	WithInfantryBody:
 		DefaultAttackSequence: shoot
 		RequiresCondition: !parachute
-	ProducibleWithLevel:
-		Prerequisites: barracks.upgraded
 	AutoTarget:
 		ScanRadius: 5
 	WithProductionIconOverlay:
@@ -153,9 +149,16 @@ REAPER:
     Mobile:
         Speed: 131
         AlwaysTurnInPlace: true
-        #Locomotor: jumpjet
-    #GrantConditionOnJumpjetLayer:
-    #    Condition: airborne
+    #    Locomotor: jumpjet
+    #    Hovers:
+    #        #BobDistance: 3c0
+    #        #Ticks: 25
+    #        FallTicks: 75
+    #        RiseTicks: 75
+    #        InitialHeight: 2c0
+    #        #RequiresCondition: airborne
+    #    GrantConditionOnJumpjetLayer:
+    #        Condition: airborne
     # TODO: Make reapers jump cliffs
     RevealsShroud:
         Range: 9c0
@@ -172,8 +175,6 @@ REAPER:
     WithInfantryBody:
         DefaultAttackSequence: throw
         RequiresCondition: !parachute
-    ProducibleWithLevel:
-        Prerequisites: barracks.upgraded
     WithProductionIconOverlay:
         Types: Veterancy
         Prerequisites: barracks.upgraded
@@ -231,8 +232,6 @@ FIREBAT:
     WithInfantryBody:
         DefaultAttackSequence: shoot
         RequiresCondition: !parachute
-    ProducibleWithLevel:
-        Prerequisites: barracks.upgraded
     WithProductionIconOverlay:
         Types: Veterancy
         Prerequisites: barracks.upgraded
@@ -307,7 +306,6 @@ GHOST:
         BuildAtProductionType: Soldier
         BuildPaletteOrder: 120
         Prerequisites: barracks_, ghostacademy
-        BuildLimit: 1
         Description: actor-ghost.description
     Valued:
         Cost: 150
@@ -354,8 +352,6 @@ GHOST:
     AnnounceOnKill:
     Voiced:
         VoiceSet: TanyaVoice
-    ProducibleWithLevel:
-        Prerequisites: barracks.upgraded
     WithProductionIconOverlay:
         Types: Veterancy
         Prerequisites: barracks.upgraded

@@ -8,9 +8,31 @@
             Gems:
                 Sequences: gem01, gem02, gem03, gem04
                 Palette: player
-                Name: Valuable Minerals
+                Name: Mineral Field
+    #    JumpjetLocomotor@JUMPJET:
+    #        Name: jumpjet
+    #        SharesCell: true
+    #        JumpjetTransitionCost: 0
+    #        JumpjetTransitionTerrainTypes: Rock
+    #        TerrainSpeeds:
+    #            Clear: 90
+    #            Road: 100
+    #            Bridge: 100
+    #            Rail: 90
+    #            DirtRoad: 100
+    #            Rough: 80
+    #            Tiberium: 90
+    #            BlueTiberium: 90
+    #            Veins: 50
+    #            Jumpjet: 1100
+
 World:
-    # Map settings
+    # TODO: Tileset 'DESERT' lacks terrain type 'Jumpjet'
+    #JumpjetActorLayer:
+    #    TerrainType: Rock
+    ######################
+    # GAME LOBBY OPTIONS #
+    ######################
     MapOptions:
         ShortGameCheckboxEnabled: false
         ShortGameCheckboxLocked: true
@@ -20,7 +42,7 @@ World:
     CrateSpawner:
         CheckboxEnabled: false
         CheckboxLocked: true
-    # Start with command center (deployed mcv) and 5 scv
+    ######################
     StartingUnits@mcvonly:
         Class: none
         ClassName: options-starting-units.mcv-only

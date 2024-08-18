@@ -339,30 +339,33 @@ RAVEN:
         Color: 0000FF80
     Selectable:
         DecorationBounds: 1621, 1365
-    GivesBuildableArea:
-        AreaTypes: building
-    Production:
-        Produces: Raven
-        RequiresCondition: auto-turret-enabled
-    ProductionQueue:
-        Type: Raven
-        #ItemLimit: 3
-        #QueueLimit: 3
-    ProductionBar:
-        ProductionType: Raven
-    GrantPrerequisiteChargeDrainPower:
-        Name: AutoTurret
-        Description: TBD
-        ChargeInterval: 75
-        DischargeModifier: 10
-        Prerequisite: deploy-auto-turret
-        #IconImage: hboxicon.shp
-        Icon: auto-turret
-        #AllowMultiple: true
-        #StartFullyCharged: true
-    GrantConditionOnPrerequisite:
-        Condition: auto-turret-enabled
-        Prerequisites: deploy-auto-turret
+    #GivesBuildableArea:
+    #    AreaTypes: building
+    #Production:
+    #    Produces: Raven
+    #    RequiresCondition: auto-turret-enabled
+    #ProductionQueue:
+    #    Type: Raven
+    #    # TODO: Figure out how to limit the amount of turrets to be built later
+    #    # Deciding to for now make the ability to place turrets a time limited thing
+    #    # so it isn't totally overpowered ability
+    #    #ItemLimit: 3
+    #    #QueueLimit: 1
+    #ProductionBar:
+    #    ProductionType: Raven
+    #GrantPrerequisiteChargeDrainPower:
+    #    Name: AutoTurret
+    #    Description: TBD
+    #    ChargeInterval: 100
+    #    DischargeModifier: 50
+    #    Prerequisite: deploy-auto-turret
+    #    Icon: auto-turret
+    #    #AllowMultiple: true
+    #ProvidesPrerequisite:
+    #    Prerequisite: raven
+    #GrantConditionOnPrerequisite:
+    #    Condition: auto-turret-enabled
+    #    Prerequisites: deploy-auto-turret
 
 
 # Mig

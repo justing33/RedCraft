@@ -28,7 +28,6 @@ VIKING:
         Type: Light
         # Armored, Mechanical
     RevealsShroud:
-        # MinRange: 11c0
         Range: 10c0
         Type: GroundPosition
         RevealGeneratedShroud: False
@@ -72,15 +71,8 @@ VIKING:
         SpawnAtLastPosition: False
         Type: CenterPosition
         RequiresCondition: enable-smoke
-    ProducibleWithLevel:
-        Prerequisites: aircraft.upgraded
-    # Hiding the infinite ammo pips decoration
     GrantConditionOnDamageState@SmokeTrail:
         Condition: enable-smoke
-    WithProductionIconOverlay:
-        Types: Veterancy
-        Prerequisites: aircraft.upgraded
-    # Transforms into a Chrono Tank (Landed Viking)
     Transforms:
         IntoActor: viking-am
 
@@ -110,7 +102,6 @@ MEDIVAC:
         # Armor: 1
         # Armored, Mechanical
     RevealsShroud:
-        # MinRange: 6c0
         Range: 11c0
         Type: GroundPosition
         RevealGeneratedShroud: False
@@ -174,10 +165,10 @@ BANSHEE:
         BuildPaletteOrder: 20
         Prerequisites: starport
         Description: TBD
-    # Supply: 3
     Valued:
         Cost: 150
         # Oil: 100
+        # Supply: 3
     Tooltip:
         Name: Banshee
     UpdatesPlayerStatistics:
@@ -188,7 +179,6 @@ BANSHEE:
         Type: Light
         # Attribute: Mechanical
     RevealsShroud:
-        # MinRange: 8c0
         Range: 10c0
         Type: GroundPosition
         RevealGeneratedShroud: False
@@ -203,14 +193,6 @@ BANSHEE:
         PauseOnCondition: !ammo
         # Infinite Ammo
         AmmoUsage: 0
-    #Armament@SECONDARY:
-    #    Name: secondary
-    #    Weapon: Dragon
-    #    LocalOffset: 85,213,-85, 85,-213,-85
-    #    MuzzleSequence: muzzle
-    #    PauseOnCondition: !ammo
-        # Infinite Ammo
-    #    AmmoUsage: 0
     AmmoPool:
         Ammo: 24
         ReloadDelay: 8
@@ -250,52 +232,8 @@ BANSHEE:
         RequiresCondition: enable-smoke
         TrailWhileStationary: True
         StationaryInterval: 3
-    ProducibleWithLevel:
-        Prerequisites: aircraft.upgraded
     Selectable:
         DecorationBounds: 1621, 1365
-    GrantConditionOnDamageState@SmokeTrail:
-        Condition: enable-smoke
-    WithProductionIconOverlay:
-        Types: Veterancy
-        Prerequisites: aircraft.upgraded
-
-##########################
-# Non-Buildable Aircraft #
-##########################
-
-# Spy Plane
-U2:
-    Inherits: ^NeutralPlane
-    Health:
-        HP: 200000
-    Tooltip:
-        Name: Spy Plane
-    Aircraft:
-        CruiseAltitude: 2560
-        TurnSpeed: 28
-        Speed: 373
-        Repulsable: False
-        MaximumPitch: 56
-    AttackBomber:
-        FacingTolerance: 8
-    Contrail@1:
-        Offset: -725,683,0
-        StartColorAlpha: 128
-    Contrail@2:
-        Offset: -725,-683,0
-        StartColorAlpha: 128
-    #SpawnActorOnDeath:
-    #    Actor: U2.Husk
-    LeavesTrails:
-        Offsets: -1c43,0,0
-        MovingInterval: 2
-        Image: smokey
-        SpawnAtLastPosition: False
-        Type: CenterPosition
-        RequiresCondition: enable-smoke
-    RejectsOrders:
-    Interactable:
     GrantConditionOnDamageState@SmokeTrail:
         Condition: enable-smoke
 
@@ -367,6 +305,111 @@ RAVEN:
     #    Condition: auto-turret-enabled
     #    Prerequisites: deploy-auto-turret
 
+BATTLECRUISER:
+    Inherits: ^Helicopter
+    AutoTarget:
+    AutoTargetPriority@ATTACKGROUNDUNITSFIRST:
+        Priority: 2
+        ValidTargets: Infantry, Vehicle, Building, AirborneActor, Air
+    AutoTargetPriority@ATTACKBUILDINGSSECOND:
+        Priority: 1
+        ValidTargets: Structure
+    Buildable:
+        Queue: Aircraft
+        BuildAtProductionType: Plane
+        # TODO: Cehck this
+        BuildDuration: 50 #64 sec
+        BuildPaletteOrder: 50
+        Prerequisites: starport
+        Description: TBD
+    Valued:
+        Cost: 400
+        # Oil: 300
+        # Supply: 6
+    Tooltip:
+        Name: Battlecruiser
+    UpdatesPlayerStatistics:
+        AddToArmyValue: true
+    Health:
+        HP: 550
+    Armor:
+        Type: Light
+        # Armored, Mechanical
+    RevealsShroud:
+        # MinRange: 11c0
+        Range: 12c0
+        Type: GroundPosition
+        RevealGeneratedShroud: False
+    RevealsShroud@GAPGEN:
+        Range: 12c0
+        Type: GroundPosition
+    Armament:
+        Weapon: BattlecruiserLaserBattery
+        LocalOffset: 0,-640,0, 0,640,0
+        # LocalYaw: -40, 24
+        # Infinite Ammo
+        AmmoUsage: 0
+        Recoil: 128
+        RecoilRecovery: 38
+        MuzzleSequence: muzzle
+    AmmoPool:
+        Ammo: 8
+        AmmoCondition: ammo
+    AttackAircraft:
+        FacingTolerance: 80
+        PersistentTargeting: false
+        OpportunityFire: False
+    Aircraft:
+        CruiseAltitude: 2560
+        AltitudeVelocity: 0c75
+        TurnSpeed: 40
+        Speed: 75
+        RepulsionSpeed: 40
+        MaximumPitch: 56
+    Selectable:
+        Bounds: 1536, 1194, 0, 85
+        DecorationBounds: 1706, 1237, 0, 42
+    GrantConditionOnDamageState@SmokeTrail:
+        Condition: enable-smoke
+
+##########################
+# Non-Buildable Aircraft #
+##########################
+
+# Spy Plane
+U2:
+    Inherits: ^NeutralPlane
+    Health:
+        HP: 200000
+    Tooltip:
+        Name: Spy Plane
+    Aircraft:
+        CruiseAltitude: 2560
+        TurnSpeed: 28
+        Speed: 373
+        Repulsable: False
+        MaximumPitch: 56
+    AttackBomber:
+        FacingTolerance: 8
+    Contrail@1:
+        Offset: -725,683,0
+        StartColorAlpha: 128
+    Contrail@2:
+        Offset: -725,-683,0
+        StartColorAlpha: 128
+    #SpawnActorOnDeath:
+    #    Actor: U2.Husk
+    LeavesTrails:
+        Offsets: -1c43,0,0
+        MovingInterval: 2
+        Image: smokey
+        SpawnAtLastPosition: False
+        Type: CenterPosition
+        RequiresCondition: enable-smoke
+    RejectsOrders:
+    Interactable:
+    GrantConditionOnDamageState@SmokeTrail:
+        Condition: enable-smoke
 
 # Mig
 MIG:

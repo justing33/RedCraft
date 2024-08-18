@@ -200,3 +200,28 @@ MissileTurretMissileAA:
             Heavy: 100
             Concrete: 100
         DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+
+BattlecruiserLaserBattery:
+    ValidTargets: Ground, Building, Structure, Infantry, Vehicle, Air, AirborneActor
+    ReloadDelay: 10
+    Range: 6c0
+    Report: tank6.aud
+    Burst: 1
+    BurstDelays: 0
+    Projectile: InstantHit
+        Inaccuracy: 0c0
+        Blockable: false
+    Warhead@1Dam: SpreadDamage
+        Damage: 8
+        ValidTargets: Ground, Building, Structure, Infantry, Vehicle, Air, AirborneActor
+        Versus:
+            None: 100
+            Wood: 100
+            Light: 100
+            Heavy: 100
+            Concrete: 100
+        DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+    Warhead@2Eff: CreateEffect
+        Explosions: small_explosion
+        ValidTargets: Ground, GroundActor, Building, Structure, Infantry, Air, AirborneActor
+

@@ -149,9 +149,6 @@ HELLION:
     AttackTurreted:
     WithMuzzleOverlay:
     WithSpriteTurret:
-    WithProductionIconOverlay:
-        Types: Veterancy
-        Prerequisites: vehicles.upgraded
 
 
 # Artillery
@@ -200,9 +197,6 @@ HELLBAT:
         TransformSounds: placbldg.aud, build5.aud
     Passenger:
         Weight: 4
-    WithProductionIconOverlay:
-        Types: Veterancy
-        Prerequisites: vehicles.upgraded
 
 # Heavy Tank
 # Siege Tank
@@ -261,9 +255,6 @@ SIEGETANK:
         Weight: 4
     Selectable:
         DecorationBounds: 1194, 1194
-    WithProductionIconOverlay:
-        Types: Veterancy
-        Prerequisites: vehicles.upgraded
 
 # Mammoth Tank
 # Sieged Tank Siege Mode
@@ -424,9 +415,6 @@ VIKING-AM:
         FacingTolerance: 0
     Selectable:
         DecorationBounds: 1280, 1280
-    WithProductionIconOverlay:
-        Types: Veterancy
-        Prerequisites: vehicles.upgraded
     Transforms:
         IntoActor: viking
     Passenger:
@@ -491,9 +479,6 @@ CYCLONE:
     WithSpriteTurret:
     Selectable:
         DecorationBounds: 1194, 1194
-    WithProductionIconOverlay:
-        Types: Veterancy
-        Prerequisites: vehicles.upgraded
     Passenger:
         Weight: 4
 

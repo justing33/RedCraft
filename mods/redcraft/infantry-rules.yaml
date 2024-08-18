@@ -45,9 +45,6 @@ MARINE:
 	WithInfantryBody:
 		DefaultAttackSequence: shoot
 		RequiresCondition: !parachute
-	WithProductionIconOverlay:
-		Types: Veterancy
-		Prerequisites: barracks.upgraded
 	Passenger:
 		CargoType: Infantry
 		Weight: 1
@@ -102,9 +99,6 @@ MARAUDER:
 		RequiresCondition: !parachute
 	AutoTarget:
 		ScanRadius: 5
-	WithProductionIconOverlay:
-		Types: Veterancy
-		Prerequisites: barracks.upgraded
     Passenger:
         CargoType: Infantry
         Weight: 2
@@ -175,9 +169,6 @@ REAPER:
     WithInfantryBody:
         DefaultAttackSequence: throw
         RequiresCondition: !parachute
-    WithProductionIconOverlay:
-        Types: Veterancy
-        Prerequisites: barracks.upgraded
     Passenger:
         CargoType: Infantry
         Weight: 1
@@ -232,9 +223,6 @@ FIREBAT:
     WithInfantryBody:
         DefaultAttackSequence: shoot
         RequiresCondition: !parachute
-    WithProductionIconOverlay:
-        Types: Veterancy
-        Prerequisites: barracks.upgraded
     Passenger:
         CargoType: Infantry
         Weight: 1
@@ -352,9 +340,6 @@ GHOST:
     AnnounceOnKill:
     Voiced:
         VoiceSet: TanyaVoice
-    WithProductionIconOverlay:
-        Types: Veterancy
-        Prerequisites: barracks.upgraded
     Passenger:
         CargoType: Infantry
         Weight: 2

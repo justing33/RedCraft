@@ -65,3 +65,11 @@ raven:
         Length: 32
     icon:
         Filename: mrjicon.shp
+
+battlecruiser:
+    idle:
+        Filename: badr.shp
+        Facings: 16
+        InterpolatedFacings: 64
+    icon:
+        Filename: badricon.shp

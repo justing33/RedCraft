@@ -353,6 +353,7 @@ BATTLECRUISER:
     AmmoPool:
         Ammo: 8
         AmmoCondition: ammo
+    WithMuzzleOverlay:
     AttackAircraft:
         FacingTolerance: 512
         PersistentTargeting: false
@@ -368,6 +369,17 @@ BATTLECRUISER:
         DecorationBounds: 1706, 1237, 0, 42
     GrantConditionOnDamageState@SmokeTrail:
         Condition: enable-smoke
+    PortableChrono:
+        HasDistanceLimit: false
+        FlashScreen: true
+        ChargeDelay: 2700
+    # TODO: Need to see if engine can be tweaked to allow Chronoshiftable to work
+    # with Aircraft units (requires Mobile: Locomotor -> ) which Aircraft do not use
+    #
+    #Chronoshiftable:
+    #    ReturnToOrigin: false
+    #ChronoshiftPower@advancedchronoshift:
+    # ...
 
 ##########################
 # Non-Buildable Aircraft #

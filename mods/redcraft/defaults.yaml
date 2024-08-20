@@ -1,7 +1,6 @@
 ^Building:
     -Sellable:
-    # TODO: Make SCV repair buildings
-    -RepairableBuilding:
+    #-RepairableBuilding:
 
 ^Infantry:
     -Crushable:

@@ -47,11 +47,10 @@ VIKING:
     AttackAircraft:
         FacingTolerance: 80
         PersistentTargeting: false
-        OpportunityFire: False
+        OpportunityFire: true
     Aircraft:
         CruiseAltitude: 2560
         AltitudeVelocity: 0c75
-        TurnSpeed: 40
         Speed: 120
         RepulsionSpeed: 40
         MaximumPitch: 56
@@ -109,7 +108,6 @@ MEDIVAC:
         Range: 6c0
         Type: GroundPosition
     Aircraft:
-        TurnSpeed: 20
         Speed: 110
         AltitudeVelocity: 0c58
     WithIdleOverlay@ROTOR1AIR:
@@ -202,7 +200,6 @@ BANSHEE:
         PersistentTargeting: false
         AttackType: Hover
     Aircraft:
-        TurnSpeed: 16
         Speed: 115
         # Speed: SC2 3.85 x 25 ticks/sec = 96.25
     Cloak:
@@ -263,7 +260,6 @@ RAVEN:
         Type: GroundPosition
     Aircraft:
         CruiseAltitude: 2560
-        TurnSpeed: 28
         Speed: 103
         MaximumPitch: 56
     WithIdleOverlay@SPINNER:
@@ -336,7 +332,6 @@ BATTLECRUISER:
         Type: Light
         # Armored, Mechanical
     RevealsShroud:
-        # MinRange: 11c0
         Range: 12c0
         Type: GroundPosition
         RevealGeneratedShroud: False
@@ -356,13 +351,12 @@ BATTLECRUISER:
         Ammo: 8
         AmmoCondition: ammo
     AttackAircraft:
-        FacingTolerance: 80
+        FacingTolerance: 512
         PersistentTargeting: false
-        OpportunityFire: False
+        OpportunityFire: true
     Aircraft:
         CruiseAltitude: 2560
         AltitudeVelocity: 0c75
-        TurnSpeed: 40
         Speed: 75
         RepulsionSpeed: 40
         MaximumPitch: 56
@@ -397,8 +391,6 @@ U2:
     Contrail@2:
         Offset: -725,-683,0
         StartColorAlpha: 128
-    #SpawnActorOnDeath:
-    #    Actor: U2.Husk
     LeavesTrails:
         Offsets: -1c43,0,0
         MovingInterval: 2

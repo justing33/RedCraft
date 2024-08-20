@@ -1049,7 +1049,6 @@ ENGINEERINGBAY:
 # Gap Generator
 GAP:
     -Buildable:
-    -WithBuildingRepairDecoration:
     Tooltip:
         Name: Sensor Tower
 
@@ -1114,7 +1113,6 @@ SILO:
 # Sam Site
 SAM:
     -Buildable:
-    -WithBuildingRepairDecoration:
 
 # Pillbox
 PBOX:
@@ -1173,42 +1171,36 @@ SYRD:
 # Missile Silo
 MSLO:
     -Buildable:
-    -WithBuildingRepairDecoration:
     Tooltip:
         Name: Missile Silo
 
 # Iron Curtain
 IRON:
     -Buildable:
-    -WithBuildingRepairDecoration:
     Tooltip:
         Name: Iron Curtain
 
 # Chronosphere
 PDOX:
     -Buildable:
-    -WithBuildingRepairDecoration:
     Tooltip:
         Name: Chronosphere
 
 # Tesla Coil
 TSLA:
     -Buildable:
-    -WithBuildingRepairDecoration:
     Tooltip:
         Name: Tesla Coil
 
 # AA GUN
 AGUN:
     -Buildable:
-    -WithBuildingRepairDecoration:
     Tooltip:
         Name: AA Gun
 
 # Radar Dome
 DOME:
     -Buildable:
-    -WithBuildingRepairDecoration:
     Tooltip:
         Name: Radar Dome
 

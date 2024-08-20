@@ -30,15 +30,11 @@ COMC:
     Tooltip@ORBITALUPGRADED:
         Name: actor-comc-orb.name
         RequiresCondition: orbitalcommandupgraded
-    # TODO: TESTING
     Tooltip@PLANETARYFORTRESSUPGRADED:
         Name: actor-comc-plan.name
         RequiresCondition: planetaryfortressupgraded
-    # START TEST
     Refinery:
         UseStorage: False
-        # DockOffset: 1,3
-        # DiscardExcessResources: False
     # Left Side Docks
     DockHost@LEFTCENTER:
         Type: Unload
@@ -257,7 +253,6 @@ COMC-AIR:
         AltitudeVelocity: 0c58
     # TODO: Fix bug where game crashes when landing a command center with scv inside
     # Cargo:
-    #     # TODO: Testing
     #     Types: Vehicle
     #     # TODO: Consider future upgrade to 10 capacity
     #     MaxWeight: 5
@@ -398,7 +393,6 @@ BARRACKS-AIR:
         TransformSounds: placbldg.aud, build5.aud
         NoTransformNotification: BuildingCannotPlaceAudio
         NoTransformTextNotification: Cannot deploy here.
-    # TODO: Did this cause crash? Try a bldg husk later
     #SpawnActorOnDeath:
     #    Actor:
     MustBeDestroyed:
@@ -821,10 +815,6 @@ GHOSTACADEMY:
     ProductionQueue@TACTICALNUKE:
         # Temp until I can change the production tab on sidebar in chrome.yaml
         Type: Ship
-    # TODO: Testing
-    #GrantConditionOnProduction@TACTICALNUKE:
-    #Condition: nuke-built
-    #Actors: TACTICAL-NUKE
     SupportPowerChargeBar:
     Targetable:
         TargetTypes: GroundActor, Infantry, Vehicle, AirborneActor, Structure, Defense
@@ -1037,7 +1027,6 @@ SIEGE-MODE-UPGRADE:
         BuildPaletteOrder: 50
         Prerequisites: factory
         Queue: EngineeringBayUpgrades
-        # TODO: Tweak as needed
         BuildDuration: 1800
         Description: Research Siege Mode for Siege Tanks
         BuildLimit: 1

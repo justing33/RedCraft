@@ -186,7 +186,6 @@ BANSHEE:
     RevealsShroud@GAPGEN:
         Range: 8c0
         Type: GroundPosition
-    # TODO: Fix so it can shoot ground and ground only
     Armament@PRIMARY:
         Weapon: BansheeMissileAG
         LocalOffset: 85,-213,-85, 85,213,-85
@@ -317,8 +316,7 @@ BATTLECRUISER:
     Buildable:
         Queue: Aircraft
         BuildAtProductionType: Plane
-        # TODO: Cehck this
-        BuildDuration: 50 #64 sec
+        BuildDuration: 2625 #64 sec
         BuildPaletteOrder: 50
         Prerequisites: starport
         Description: TBD

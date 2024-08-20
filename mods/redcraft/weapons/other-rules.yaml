@@ -237,7 +237,6 @@ SCVFusionCutter:
 FirebatFlamer:
     ValidTargets: Ground, Building, Structure, Infantry, Vehicle
     InvalidTargets: Air, AirborneActor
-    # TODO: ?
     ReloadDelay: 70
     Range: 2c0
     Burst: 3

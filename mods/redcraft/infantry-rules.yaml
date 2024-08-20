@@ -353,7 +353,6 @@ GHOST:
 ##########################
 
 #E1R1:
-#    # TODO: Remove ability to build Rifle Infantry on /all cheat
 #    #-Buildable:
 #    #     Queue: DOESNT_EXIST
 #    -RenderSprites:
@@ -362,7 +361,6 @@ GHOST:
 #    -WithProductionIconOverlay:
 
 #E3R1:
-#    # TODO: Remove ability to build Rocket Infantry on /all cheat
 #    #-Buildable:
 #    #     Queue: DOESNT_EXIST
 #    -RenderSprites:

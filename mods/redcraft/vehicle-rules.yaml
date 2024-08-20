@@ -104,7 +104,7 @@ HELLION:
     Buildable:
         Queue: Vehicle
         BuildDuration: 525
-        BuildPaletteOrder: 130
+        BuildPaletteOrder: 10
         Prerequisites: factory
         Description: TBD
     Valued:
@@ -214,7 +214,7 @@ SIEGETANK:
     Buildable:
         Queue: Vehicle
         BuildDuration: 800
-        BuildPaletteOrder: 220
+        BuildPaletteOrder: 20
         Prerequisites: factory
         Description: TBD
     Valued:
@@ -248,9 +248,13 @@ SIEGETANK:
         RecoilRecovery: 38
         LocalOffset: 768,85,90, 768,-85,90
         MuzzleSequence: muzzle
+    GrantConditionOnPrerequisite:
+        Condition: siege-mode-researched
+        Prerequisites: can-siege
     Transforms:
-        # RequiresCondition: siege-mode-researched
+        RequiresCondition: siege-mode-researched
         IntoActor: siegetank-sm
+        DeployBlockedCursor: deploy-blocked
     Passenger:
         Weight: 4
     Selectable:
@@ -324,7 +328,7 @@ WIDOWMINE:
     Buildable:
         Queue: Vehicle
         BuildDuration: 525
-        BuildPaletteOrder: 310
+        BuildPaletteOrder: 40
         Prerequisites: factory
         Description: TBD
     Valued:
@@ -427,7 +431,6 @@ CYCLONE:
     AutoTarget:
     AutoTargetPriority@ATTACKGROUNDUNITSFIRST:
         Priority: 2
-        #TODO: Testing make sure can shoot air and ground still
         ValidTargets: Infantry, Vehicle, Building, AirborneActor
         InvalidTargets: NoAutoTarget
     AutoTargetPriority@ATTACKBUILDINGSSECOND:
@@ -437,7 +440,7 @@ CYCLONE:
     Buildable:
         Queue: Vehicle
         BuildDuration: 800
-        BuildPaletteOrder: 130
+        BuildPaletteOrder: 30
         Prerequisites: factory
         Description: TBD
     Valued:

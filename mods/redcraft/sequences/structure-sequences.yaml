@@ -350,9 +350,9 @@ auto-turret:
         Filename: hboxicon.shp
         TilesetFilenames:
 
-#siege-mode-upgrade:
-#    icon:
-#        Filename: 4tnkicon.shp
+siege-mode-upgrade:
+    icon:
+        Filename: 4tnkicon.shp
 
 ##############################
 # UNUSED STRUCTURE SEQUENCES #

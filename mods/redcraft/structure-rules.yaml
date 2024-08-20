@@ -282,47 +282,6 @@ COMC-AIR:
     MustBeDestroyed:
         RequiredForShortGame: true
 
-# Planetary Fortress
-COMC-PLAN:
-    Buildable:
-        BuildPaletteOrder: 30
-        Prerequisites: engineeringbay
-        Queue: Defense
-        BuildDuration: 1500
-        Description: actor-comc-plan.description
-    Valued:
-        Cost: 150
-        # Oil: 150
-    Interactable:
-    AlwaysVisible:
-    RenderSprites:
-    Tooltip:
-        Name: actor-comc-plan.name
-    KillsSelf:
-        RemoveInstead: true
-    MustBeDestroyed:
-        RequiredForShortGame: true
-
-# Orbital Command
-COMC-ORB:
-    Buildable:
-        BuildPaletteOrder: 20
-        Prerequisites: barracks_
-        Queue: Defense
-        BuildDuration: 1025
-        Description: actor-comc-orb.description
-    Valued:
-        Cost: 150
-    Interactable:
-    AlwaysVisible:
-    RenderSprites:
-    Tooltip:
-        Name: actor-comc-orb.name
-    KillsSelf:
-        RemoveInstead: true
-    MustBeDestroyed:
-        RequiredForShortGame: true
-
 # TODO: Implement this as oil ref
 # Ore Refinery
 # Oil Refinery
@@ -498,7 +457,8 @@ FACTORY:
         Description: actor-factory.description
     ProvidesRadar:
     Valued:
-        Cost: 150
+        # Cost: 150
+        Cost: 250
         # Oil: 100
     Tooltip:
         Name: actor-factory.name
@@ -665,7 +625,8 @@ STARPORT:
         Description: actor-starport.description
     ProvidesRadar:
     Valued:
-        Cost: 150
+        # Cost: 150
+        Cost: 250
         # Oil: 100
     Tooltip:
         Name: actor-starport.name
@@ -831,7 +792,8 @@ GHOSTACADEMY:
         Prerequisites: scv, barracks_
         Description: actor-ghostacademy.description
     Valued:
-        Cost: 150
+        # Cost: 150
+        Cost: 200
         # Oil: 50
     Tooltip:
         Name: actor-ghostacademy.name
@@ -881,7 +843,8 @@ TACTICAL-NUKE:
         BuildDuration: 1900 # 43
         Description: actor-tactical-nuke.description
     Valued:
-        Cost: 100
+        # Cost: 100
+        Cost: 200
         # Oil: 100
     Tooltip:
         Name: actor-tactical-nuke.name
@@ -1027,19 +990,62 @@ ENGINEERINGBAY:
 
 ##### UPGRADES #####
 
+# Planetary Fortress
+COMC-PLAN:
+    Buildable:
+        BuildPaletteOrder: 30
+        Prerequisites: engineeringbay
+        Queue: Defense
+        BuildDuration: 1500
+        Description: actor-comc-plan.description
+    Valued:
+        # Cost: 150
+        Cost: 300
+        # Oil: 150
+    Interactable:
+    AlwaysVisible:
+    RenderSprites:
+    Tooltip:
+        Name: actor-comc-plan.name
+    KillsSelf:
+        RemoveInstead: true
+    MustBeDestroyed:
+        RequiredForShortGame: true
+
+# Orbital Command
+COMC-ORB:
+    Buildable:
+        BuildPaletteOrder: 20
+        Prerequisites: barracks_
+        Queue: Defense
+        BuildDuration: 1025
+        Description: actor-comc-orb.description
+    Valued:
+        Cost: 150
+    Interactable:
+    AlwaysVisible:
+    RenderSprites:
+    Tooltip:
+        Name: actor-comc-orb.name
+    KillsSelf:
+        RemoveInstead: true
+    MustBeDestroyed:
+        RequiredForShortGame: true
+
 SIEGE-MODE-UPGRADE:
     Buildable:
         BuildPaletteOrder: 50
         Prerequisites: factory
         Queue: EngineeringBayUpgrades
         # TODO: Tweak as needed
-        BuildDuration: 1300
+        BuildDuration: 1800
         Description: Research Siege Mode for Siege Tanks
         BuildLimit: 1
     ProvidesPrerequisite:
         Prerequisite: can-siege
     Valued:
-        Cost: 150
+        # Cost: 150
+        Cost: 300
         # Oil: 150
     Tooltip:
         Name: Siege Mode Research Item

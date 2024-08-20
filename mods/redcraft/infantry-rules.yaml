@@ -21,7 +21,6 @@ MARINE:
 	Valued:
 		Cost: 50
         # Supply: 1
-        # Oil: 0
 	Tooltip:
 		Name: actor-marine.name
 	UpdatesPlayerStatistics:
@@ -73,7 +72,8 @@ MARAUDER:
 	Selectable:
 		Class: E3
 	Valued:
-		Cost: 100
+		# Cost: 100
+		Cost: 125
         # Oil: 25
         # Supply: 2
 	Tooltip:
@@ -124,7 +124,8 @@ REAPER:
         Prerequisites: barracks_
         Description: actor-reaper.description
     Valued:
-        Cost: 50
+        # Cost: 50
+        Cost: 100
         # Oil: 50
         # Supply: 1
     Tooltip:
@@ -194,7 +195,8 @@ FIREBAT:
         Prerequisites: barracks_
         Description: actor-firebat.description
     Valued:
-        Cost: 50
+        # Cost: 50
+        Cost: 75
         # Oil: 25
         # Supply: 1
     Tooltip:
@@ -238,7 +240,8 @@ MEDIC_:
         Prerequisites: barracks_, engineeringbay
         Description: actor-medic_.description
     Valued:
-        Cost: 50
+        # Cost: 50
+        Cost: 75
         # Supply: 1
         # Oil: 25
     Tooltip:
@@ -296,7 +299,8 @@ GHOST:
         Prerequisites: barracks_, ghostacademy
         Description: actor-ghost.description
     Valued:
-        Cost: 150
+        # Cost: 150
+        Cost: 175
         # Supply: 2
         # Oil: 125
     Tooltip:

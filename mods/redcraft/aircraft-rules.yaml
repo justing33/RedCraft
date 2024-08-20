@@ -15,7 +15,8 @@ VIKING:
         Prerequisites: starport
         Description: TBD
     Valued:
-        Cost: 150
+        # Cost: 150
+        Cost: 225
         # Oil: 75
         # Supply: 2
     Tooltip:
@@ -86,10 +87,11 @@ MEDIVAC:
         BuildDuration: 750
         Prerequisites: starport
         Description: TBD
-    # Supply: 2
     Valued:
-        Cost: 100
+        # Cost: 100
+        Cost: 200
         # Oil: 100
+        # Supply: 2
     Tooltip:
         Name: Medivac
     UpdatesPlayerStatistics:
@@ -164,7 +166,8 @@ BANSHEE:
         Prerequisites: starport
         Description: TBD
     Valued:
-        Cost: 150
+        # Cost: 150
+        Cost: 250
         # Oil: 100
         # Supply: 3
     Tooltip:
@@ -243,7 +246,8 @@ RAVEN:
         Prerequisites: starport #,tech lab
         Description: actor-raven.description
     Valued:
-        Cost: 100
+        # Cost: 100
+        Cost: 250
         # Oil: 150
         # Supply: 2
     Tooltip:
@@ -319,7 +323,8 @@ BATTLECRUISER:
         Prerequisites: starport
         Description: TBD
     Valued:
-        Cost: 400
+        # Cost: 400
+        Cost: 700
         # Oil: 300
         # Supply: 6
     Tooltip:

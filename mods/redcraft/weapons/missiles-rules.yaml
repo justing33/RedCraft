@@ -203,7 +203,7 @@ MissileTurretMissileAA:
 
 BattlecruiserLaserBattery:
     ValidTargets: Ground, Building, Structure, Infantry, Vehicle, Air, AirborneActor
-    ReloadDelay: 10
+    ReloadDelay: 8
     Range: 6c0
     Report: tank6.aud
     Burst: 1

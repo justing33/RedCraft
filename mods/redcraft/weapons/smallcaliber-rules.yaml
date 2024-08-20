@@ -73,7 +73,8 @@ GhostC10CanisterRifle:
         Blockable: false
     Warhead@1Dam: SpreadDamage
         Spread: 42
-        Damage: 10
+        # TODO: Temp boosting this..
+        Damage: 25
         Versus:
             None: 100
             Wood: 100

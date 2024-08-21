@@ -189,6 +189,8 @@ COMC:
         UnitType: u2
         QuantizedFacings: 8
         DisplayBeacon: true
+        #TODO: Need to make it Instant scans
+        BeaconDelay: 0
         BeaconPoster: scannersweep-small
         ArrowSequence: arrow
         ClockSequence: clock

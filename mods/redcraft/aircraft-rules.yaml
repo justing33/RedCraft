@@ -392,10 +392,16 @@ U2:
         HP: 200000
     Tooltip:
         Name: Spy Plane
+    DetectCloaked:
+        DetectionTypes: Cloak, Mine
+        Range: 75c0
+    WithRangeCircle:
+        Range: 13c0
+        Color: 0000FF80
     Aircraft:
         CruiseAltitude: 2560
         TurnSpeed: 28
-        Speed: 373
+        Speed: 225
         Repulsable: False
         MaximumPitch: 56
     AttackBomber:

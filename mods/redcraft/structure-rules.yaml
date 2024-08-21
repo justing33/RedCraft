@@ -197,6 +197,20 @@ COMC:
         DirectionArrowAnimation: paradirection
         SupportPowerPaletteOrder: 60
         RequiresCondition: orbitalcommandupgraded
+    DropPodsPower:
+        Cursor: chrono-target
+        RequiresCondition: orbitalcommandupgraded
+        AllowMultiple: true
+        Icon: droppods
+        Name: actor-gaplug.droppodspower-name
+        Description: actor-gaplug.droppodspower-description
+        Drops: 3,3
+        SelectTargetSpeechNotification: SelectTarget
+        SelectTargetTextNotification: notification-select-target
+        DisplayRadarPing: true
+        ChargeInterval: 2625
+        UnitTypes: MULE-DROP-POD
+        CameraActor: camera
     BaseProvider:
         PauseOnCondition: being-captured
         Range: 16c0

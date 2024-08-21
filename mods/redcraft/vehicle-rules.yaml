@@ -86,6 +86,182 @@ SCV:
     Targetable:
         TargetTypes: GroundActor, Vehicle, Defense, Structure
 
+MULE:
+    Inherits: ^Infantry
+    Inherits@selection: ^SelectableEconomicUnit
+    Tooltip:
+        Name: M.U.L.E.
+    Selectable:
+        DecorationBounds: 800, 1000, 0, -300
+    Harvester:
+        Type: Unload
+        Resources: Gems
+        BaleLoadDelay: 10
+        BaleUnloadDelay: 0
+        BaleUnloadAmount: 99
+        SearchForDeliveryBuildingDelay: 0
+        SearchFromProcRadius: 200
+        SearchFromHarvesterRadius: 100
+        WaitDuration: 0
+        FullyLoadedSpeed: 100
+        HarvestFacings: 8
+        EmptyCondition: no-ore
+    StoresResources:
+        Capacity: 1
+        Resources: Gems
+    DockClientManager:
+        SearchForDockDelay: 1
+    Health:
+        HP: 60
+    KillsSelf:
+        Delay: 2625
+        DamageTypes: ExplosionDeath
+    ActorLostNotification:
+        TextNotification: M.U.L.E. expired
+    Armor:
+        Type: Light
+    Mobile:
+        Speed: 98
+    RevealsShroud:
+        Range: 8c0
+    GpsDot:
+        String: Harvester
+    AttackFrontal:
+        FacingTolerance: 0
+    AttackMove:
+    Armament:
+        Weapon: SCVBuildingHeal
+        Cursor: heal
+        OutsideRangeCursor: heal
+        TargetRelationships: Ally
+        ForceTargetRelationships: None
+    WithStoresResourcesPipsDecoration:
+        Position: BottomLeft
+        Margin: 4, 3
+        RequiresSelection: true
+        PipCount: 7
+        ResourceSequences:
+            Gems: pip-blue
+    # TODO: Allow to be loaded into lifted off Command Center
+    Passenger:
+        CargoType: Vehicle
+        Weight: 1
+    Targetable:
+        TargetTypes: GroundActor, Vehicle, Defense, Structure
+
+^Aircraft:
+    Inherits@2: ^ExistsInWorld
+    Huntable:
+    OwnerLostAction:
+        Action: Kill
+    AppearsOnRadar:
+        UseLocation: true
+    Targetable@GROUND:
+        TargetTypes: Ground, Vehicle
+        RequiresCondition: !airborne
+    Targetable@AIRBORNE:
+        TargetTypes: Air
+        RequiresCondition: airborne
+    Repairable:
+        RepairActors: gadept
+        Voice: Move
+    Aircraft:
+        AirborneCondition: airborne
+        CruisingCondition: cruising
+        CruiseAltitude: 4c704
+        AltitudeVelocity: 96
+        Voice: Move
+        IdealSeparation: 853
+        MaximumPitch: 120
+        LandableTerrainTypes: Clear, Road, Rail, DirtRoad, Rough, Tiberium, BlueTiberium, Veins
+        Crushes: crate, infantry
+        MoveIntoShroud: false
+        CanHover: true
+        CanSlide: true
+        VTOL: true
+        Pitch: -64
+        PitchSpeed: 16
+        Roll: 56
+        RollSpeed: 14
+    Voiced:
+        VoiceSet: Heli
+    HiddenUnderFog:
+        Type: GroundPosition
+    AttackMove:
+        Voice: Move
+        MoveIntoShroud: false
+    ActorLostNotification:
+        TextNotification: notification-unit-lost
+    BodyOrientation:
+        QuantizedFacings: 0
+        CameraPitch: 85
+    Guard:
+        Voice: Move
+    Guardable:
+    MustBeDestroyed:
+    RenderVoxels:
+    WithVoxelBody:
+    RevealOnFire:
+    HitShape:
+    MapEditorData:
+        Categories: Aircraft
+    SpawnActorOnDeath:
+        RequiresCondition: airborne
+    Hovers@CRUISING:
+        RequiresCondition: cruising
+        BobDistance: -64
+        InitialHeight: 64
+    Sellable:
+        SellSounds: cashturn.aud
+        Cursor: sell2
+        Notification: UnitSold
+        TextNotification: notification-unit-sold
+        RequiresCondition: unit.sellable
+    GrantConditionOnClientDock@Sellable:
+        Condition: unit.sellable
+        AfterDockDuration: 20
+        DockHostNames: gadept
+
+MULE-DROP-POD:
+    Inherits@2: ^ExistsInWorld
+    Valued:
+        Cost: 10
+    Tooltip:
+        Name: actor-dpod2-name
+    Health:
+        HP: 6000
+    Armor:
+        Type: Light
+    Aircraft:
+        TurnSpeed: 20
+        Speed: 300
+        CruiseAltitude: 16c0
+        MaximumPitch: 110
+        LandableTerrainTypes: Clear, Road, Rail, DirtRoad, Rough
+    HiddenUnderFog:
+        Type: CenterPosition
+    BodyOrientation:
+        UseClassicPerspectiveFudge: False
+    RenderSprites:
+        Image: pod
+    WithFacingSpriteBody:
+    QuantizeFacingsFromSequence:
+    HitShape:
+    Interactable:
+    WithShadow:
+    LeavesTrails:
+        Image: largesmoke
+        MovingInterval: 3
+        SpawnAtLastPosition: False
+        Type: CenterPosition
+    FallsToEarth:
+        Explosion: DropPodExplode
+        Moves: true
+        Velocity: 768
+        MaximumSpinSpeed: 0
+    SpawnActorOnDeath:
+        Actor: MULE
+
 # Light Tank
 # Hellion
 HELLION:

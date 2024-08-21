@@ -77,3 +77,61 @@ battlecruiser:
         Facings: 8
     icon:
         Filename: badricon.shp
+
+#######################
+# TS SEQUENCES PORTED #
+#######################
+
+# Drop Pods (M.U.L.E.'s)
+pod:
+    emp-overlay:
+        #TODO: Need TS asset for this, temp fx for now
+        #Filename: emp_fx01.shp
+        #invuln
+        Filename: infxicon.shp
+        Offset: 0, 0, 24
+        Length: *
+        BlendMode: Additive
+        IgnoreWorldTint: True
+    idle:
+        Filename: tran.shp
+        Facings: 1
+        Length: 1
+podring:
+    idle:
+        Filename: badr.shp
+        Frames: 0
+        Length: 1
+        AlphaFade: True
+largesmoke:
+    idle:
+        Filename: fball1.shp
+        Length: *
+        ZOffset: 1023
+        Offset: 0, 0, 24
+        AlphaFade: True
+explosion:
+    droppod_explosion:
+        Filename: fball1.shp
+        Length: 8
+        Tick: 360
+        IgnoreWorldTint: False
+    droppod2_explosion:
+        Filename: fball1.shp
+        Length: 8
+        Tick: 360
+        IgnoreWorldTint: False
+    droppody_explosion:
+        Filename: fball1.shp
+        Defaults:
+            Filename: badr.shp
+        Length: 8
+        Tick: 360
+        IgnoreWorldTint: False
+    droppody2_explosion:
+        Filename: fball1.shp
+        Defaults:
+            Filename: badr.shp
+        Length: 8
+        Tick: 360
+        IgnoreWorldTint: False

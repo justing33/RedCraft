@@ -2,8 +2,11 @@
 icon:
 	scannersweep:
 		Filename: sonricon.shp
-    auto-turret:
+	auto-turret:
         Filename: hboxicon.shp
+	droppods:
+        Filename: mechicon.shp
+
 beacon:
 	scannersweep-small:
 		Filename: lores|sonricon.shp
@@ -12,5 +15,5 @@ beacon:
 
 # Tactical Nuke / Ghost Academy
 tacticalnuke:
-    icon:
-        Filename: atomicon.shp
+	icon:
+		Filename: atomicon.shp

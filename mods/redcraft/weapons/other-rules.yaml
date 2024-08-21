@@ -18,8 +18,7 @@ MedivacHeal:
 SCVBuildingHeal:
     ReloadDelay: 50
     Range: 1c256
-    # TODO: Is this sound annoying?
-    Report: heal2.aud
+    Report: fixit1.aud
     ValidTargets: Building, Structure, Vehicle, AirborneActor, Air
     Projectile: LaserZap
         Speed: 1c682
@@ -415,3 +414,44 @@ TACTICAL-NUKE-SUPERWEAPON:
     Warhead@22FlashEffect: FlashEffect
         Duration: 20
         FlashType: Nuke
+
+#Note: Needed for Drop Pods
+Vulcan2:
+    ValidTargets: Ground, Building, Structure, Infantry, Vehicle
+    InvalidTargets: Air, AirborneActor
+    ReloadDelay: 70
+    Range: 2c0
+    Burst: 3
+    BurstDelays: 1
+    Projectile: Bullet
+        Speed: 170
+        TrailImage: fb4
+        Image: fb3
+        LaunchAngle: 62
+        Inaccuracy: 853
+    Warhead@1Dam: SpreadDamage
+        Spread: 213
+        Damage: 8
+        ValidTargets: Ground, Building, Structure, Infantry, Vehicle
+        InvalidTargets: Air, AirborneActor
+        Versus:
+            None: 100
+            Wood: 100
+            Tree: 100
+            Light: 100
+            Heavy: 100
+            Concrete: 100
+        DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
+    Warhead@2Smu: LeaveSmudge
+        SmudgeType: Scorch
+        InvalidTargets: Structure, Wall
+    Warhead@3Eff: CreateEffect
+        Explosions: small_napalm
+        ImpactSounds: firebl3.aud
+        ImpactActors: false
+        ValidTargets: Ground, Building, Structure, Infantry, Vehicle
+        InvalidTargets: Air, AirborneActor
+
+DropPodExplode:
+    Warhead@1Eff: CreateEffect
+        Explosions: droppod_explosion, droppod2_explosion, droppody_explosion, droppody2_explosion

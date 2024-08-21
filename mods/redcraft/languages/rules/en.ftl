@@ -521,7 +521,8 @@ actor-comc-plan =
    .name = Planetary Fortress
 
 actor-comc-orb =
-   .description = An upgrade for the Command Center, provides Scanner Sweep, MULEs, and Extra Supplies
+   .description = An upgrade for the Command Center
+    Provides abilities: Scanner Sweep, Calldown: MULE, and Calldown: Extra Supplies
     Cannot be lifted off
     Collects Gems for credits
    .name = Orbital Command

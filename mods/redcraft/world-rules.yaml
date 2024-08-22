@@ -52,11 +52,6 @@ World:
     ResourceLayer:
         RecalculateResourceDensity: true
         ResourceTypes:
-            Ore:
-                #ResourceIndex: 1
-                #TerrainType: Ore
-                #AllowedTerrainTypes: Clear, Road
-                #MaxDensity: 12
             Gems:
                 ResourceIndex: 2
                 TerrainType: Gems

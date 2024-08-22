@@ -17,9 +17,8 @@ SCV:
         DecorationBounds: 800, 1000, 0, -300
     Harvester:
         Type: Unload
-        # TODO: Remove ore from game? Or alternatively maybe use as anti siege patches later
-        Resources: Gems
-        BaleLoadDelay: 10
+        Resources: Gems #, Gold
+        BaleLoadDelay: 80
         BaleUnloadDelay: 0
         BaleUnloadAmount: 99
         SearchForDeliveryBuildingDelay: 0
@@ -31,7 +30,7 @@ SCV:
         EmptyCondition: no-ore
     StoresResources:
         Capacity: 1
-        Resources: Gems
+        Resources: Gems #, Gold
     DockClientManager:
         SearchForDockDelay: 1
     Health:
@@ -95,8 +94,9 @@ MULE:
         DecorationBounds: 800, 1000, 0, -300
     Harvester:
         Type: Unload
-        Resources: Gems
-        BaleLoadDelay: 10
+        Resources: Gems #, Gold
+        #Half of what the SCV has to compensate for same mining times
+        BaleLoadDelay: 40
         BaleUnloadDelay: 0
         BaleUnloadAmount: 99
         SearchForDeliveryBuildingDelay: 0
@@ -107,8 +107,12 @@ MULE:
         HarvestFacings: 8
         EmptyCondition: no-ore
     StoresResources:
-        Capacity: 1
-        Resources: Gems
+        # 2x the capacity of a normal SCV means 2x more value
+        # 1 Load of Gems is $5 so 2x = $10
+        # TODO: Add Gold
+        # 1 Load of Gold is $7 so 2x = $14
+        Capacity: 2
+        Resources: Gems #, Gold
     DockClientManager:
         SearchForDockDelay: 1
     Health:

@@ -1,5 +1,4 @@
 # Rifle Infantry
-# Marine
 MARINE:
     Inherits: ^Soldier
     AutoTarget:
@@ -41,6 +40,26 @@ MARINE:
 		Name: garrisoned
 		Weapon: MarineC14GaussRifle
 		MuzzleSequence: garrison-muzzle
+    # 50% movement speed increase
+    SpeedMultiplier:
+        Modifier: 150
+        RequiresCondition: stimmed
+    # 50% damage increase
+    FirepowerMultiplier:
+        Modifier: 150
+        RequiresCondition: stimmed
+    ChangesHealth:
+        # 11 seconds cooldown, to match the length of time stimpack is active so each stim causes damage to units
+        DamageCooldown: 275
+        # Always reduce HP
+        StartIfBelow: 200
+        RequiresCondition: stimmed
+        # 10 HP health reduced on stimpack use
+        Step: -10
+        PercentageStep: -1
+    GrantConditionOnPrerequisite:
+        Condition: stimmed
+        Prerequisites: stimpack-activated
 	WithInfantryBody:
 		DefaultAttackSequence: shoot
 		RequiresCondition: !parachute
@@ -50,7 +69,6 @@ MARINE:
 
 
 # Rocket Soldier
-# Marauder
 MARAUDER:
 	Inherits: ^Soldier
     AutoTarget:
@@ -94,6 +112,26 @@ MARAUDER:
 	Armament@GARRISONED:
 		Name: garrisoned
 		Weapon: MarauderPunisherGrenade
+    # 50% movement speed increase
+    SpeedMultiplier:
+        Modifier: 150
+        RequiresCondition: stimmed
+    # 50% damage increase
+    FirepowerMultiplier:
+        Modifier: 150
+        RequiresCondition: stimmed
+    ChangesHealth:
+        # 11 seconds cooldown, to match the length of time stimpack is active so each stim causes damage to units
+        DamageCooldown: 275
+        # Always reduce HP
+        StartIfBelow: 200
+        RequiresCondition: stimmed
+        # 10 HP health reduced on stimpack use
+        Step: -10
+        PercentageStep: -1
+    GrantConditionOnPrerequisite:
+        Condition: stimmed
+        Prerequisites: stimpack-activated
 	WithInfantryBody:
 		DefaultAttackSequence: shoot
 		RequiresCondition: !parachute
@@ -104,7 +142,6 @@ MARAUDER:
         Weight: 2
 
 # Grenadier
-# Reaper
 REAPER:
     Inherits: ^Soldier
     AutoTarget:
@@ -175,7 +212,6 @@ REAPER:
         Weight: 1
 
 # Flamethrower
-# Firebat
 FIREBAT:
     Inherits: ^Soldier
     AutoTarget:
@@ -189,14 +225,14 @@ FIREBAT:
         InvalidTargets: NoAutoTarget
     Buildable:
         Queue: Infantry
-        BuildDuration: 850
+        BuildDuration: 1225
         BuildAtProductionType: Soldier
         BuildPaletteOrder: 70
         Prerequisites: barracks_
         Description: actor-firebat.description
     Valued:
-        # Cost: 50
-        Cost: 75
+        # Cost: 100
+        Cost: 125
         # Oil: 25
         # Supply: 1
     Tooltip:
@@ -204,13 +240,13 @@ FIREBAT:
     UpdatesPlayerStatistics:
         AddToArmyValue: true
     Health:
-        HP: 50
+        HP: 100
     Mobile:
-        Speed: 131
+        Speed: 57
         AlwaysTurnInPlace: true
         Locomotor: foot
     RevealsShroud:
-        Range: 7c0
+        Range: 9c0
     Armament@PRIMARY:
         Weapon: FirebatFlamer
         LocalOffset: 700,0,500
@@ -218,6 +254,26 @@ FIREBAT:
     Armament@GARRISONED:
         Name: garrisoned
         Weapon: FirebatFlamer
+    # 50% movement speed increase
+    SpeedMultiplier:
+        Modifier: 150
+        RequiresCondition: stimmed
+    # 50% damage increase
+    FirepowerMultiplier:
+        Modifier: 150
+        RequiresCondition: stimmed
+    ChangesHealth:
+        # 11 seconds cooldown, to match the length of time stimpack is active so each stim causes damage to units
+        DamageCooldown: 275
+        # Always reduce HP
+        StartIfBelow: 200
+        RequiresCondition: stimmed
+        # 10 HP health reduced on stimpack use
+        Step: -10
+        PercentageStep: -1
+    GrantConditionOnPrerequisite:
+        Condition: stimmed
+        Prerequisites: stimpack-activated
     Explodes:
         Weapon: VisualExplode
         EmptyWeapon: VisualExplode
@@ -227,7 +283,7 @@ FIREBAT:
         RequiresCondition: !parachute
     Passenger:
         CargoType: Infantry
-        Weight: 1
+        Weight: 2
 
 # Medic
 MEDIC_:
@@ -279,7 +335,6 @@ MEDIC_:
         Weight: 1
 
 # Tanya
-# Ghost
 GHOST:
     Inherits: ^Soldier
     AutoTarget:

@@ -354,6 +354,10 @@ siege-mode-upgrade:
     icon:
         Filename: 4tnkicon.shp
 
+stimpack-upgrade:
+    icon:
+        Filename: e1icon.shp
+
 ##############################
 # UNUSED STRUCTURE SEQUENCES #
 ##############################

@@ -359,6 +359,18 @@ BARRACKS_:
         ProductionType: Infantry
     GrantExternalConditionToProduced:
         Condition: produced
+    GrantPrerequisiteChargeDrainPower:
+        Name: Stimpack
+        Description: Stimpack
+        StartFullyCharged: true
+        ChargeInterval: 50
+        # Roughly 11 seconds of duration
+        DischargeModifier: 22
+        Prerequisite: stimpack-activated
+        # Required pre-req to use Power
+        Prerequisites: can-stimpack
+        Icon: auto-turret
+        AllowMultiple: false
     ProvidesPrerequisite:
         Prerequisite: barracks_
     Power:
@@ -1043,7 +1055,7 @@ SIEGE-MODE-UPGRADE:
         BuildPaletteOrder: 50
         Prerequisites: factory
         Queue: EngineeringBayUpgrades
-        BuildDuration: 1800
+        BuildDuration: 3300
         Description: Research Siege Mode for Siege Tanks
         BuildLimit: 1
     ProvidesPrerequisite:
@@ -1054,6 +1066,26 @@ SIEGE-MODE-UPGRADE:
         # Oil: 150
     Tooltip:
         Name: Siege Mode Research Item
+    Interactable:
+    AlwaysVisible:
+    RenderSprites:
+
+STIMPACK-UPGRADE:
+    Buildable:
+        BuildPaletteOrder: 30
+        Prerequisites: barracks_, engineeringbay
+        Queue: EngineeringBayUpgrades
+        BuildDuration: 4150
+        Description: Research Stimpack for Infantry Units
+        BuildLimit: 1
+    ProvidesPrerequisite:
+        Prerequisite: can-stimpack
+    Valued:
+        # Cost: 100
+        Cost: 200
+        # Oil: 100
+    Tooltip:
+        Name: Stimpack Research Item
     Interactable:
     AlwaysVisible:
     RenderSprites:

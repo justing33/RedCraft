@@ -267,7 +267,6 @@ MULE-DROP-POD:
         Actor: MULE
 
 # Light Tank
-# Hellion
 HELLION:
     Inherits: ^Vehicle
     AutoTarget:
@@ -329,7 +328,6 @@ HELLION:
 
 
 # Artillery
-# Hellbat
 HELLBAT:
     Inherits: ^Vehicle
     AutoTarget:
@@ -374,7 +372,6 @@ HELLBAT:
         Weight: 4
 
 # Heavy Tank
-# Siege Tank
 SIEGETANK:
     Inherits: ^TrackedVehicle
     AutoTarget:
@@ -487,7 +484,6 @@ SIEGETANK-SM:
         IntoActor: siegetank
 
 # Mine Layer
-# Widow Mine
 WIDOWMINE:
     Inherits: ^Vehicle
     AutoTarget:
@@ -600,7 +596,6 @@ VIKING-AM:
         Weight: 2
 
 # Mobile Flak
-# Cyclone
 CYCLONE:
     Inherits: ^Vehicle
     AutoTarget:

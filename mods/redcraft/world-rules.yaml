@@ -19,7 +19,7 @@
             Rough: 89
             Road: 111
             Bridge: 111
-            Ore: 89
+            #Ore: 89
             Gems: 89
             Beach: 89
     Locomotor@WHEELED:
@@ -30,7 +30,7 @@
             Rough: 50
             Road: 125
             Bridge: 125
-            Ore: 88
+            #Ore: 88
             Gems: 88
             Beach: 50
     Locomotor@HEAVYWHEELED:
@@ -41,7 +41,7 @@
             Rough: 50
             Road: 125
             Bridge: 125
-            Ore: 88
+            #Ore: 88
             Gems: 88
             Beach: 50
     Locomotor@LIGHTTRACKED:
@@ -52,7 +52,7 @@
             Rough: 88
             Road: 125
             Bridge: 125
-            Ore: 88
+            #Ore: 88
             Gems: 88
             Beach: 88
     Locomotor@TRACKED:
@@ -63,7 +63,7 @@
             Rough: 88
             Road: 125
             Bridge: 125
-            Ore: 88
+            #Ore: 88
             Gems: 88
             Beach: 88
     Locomotor@HEAVYTRACKED:
@@ -74,7 +74,7 @@
             Rough: 88
             Road: 125
             Bridge: 125
-            Ore: 88
+            #Ore: 88
             Gems: 88
             Beach: 88
     Locomotor@NAVAL:
@@ -166,16 +166,6 @@
         RandomFactionMembers: russia, ukraine
         Side: Random
         Description: faction-randomsoviet.description
-    ResourceRenderer:
-        ResourceTypes:
-            Ore:
-                Sequences: #gold01, gold02, gold03, gold04
-                Palette: #player
-                Name: #Valuable Minerals
-            Gems:
-                Sequences: gem01, gem02, gem03, gem04
-                Palette: player
-                Name: Mineral Field
 
 World:
     Inherits: ^BaseWorld
@@ -223,18 +213,6 @@ World:
         MaxSmokeOffsetDistance: 213
     ResourceLayer:
         RecalculateResourceDensity: true
-        ResourceTypes:
-            # TODO: How does this work to remove Ore? Is it just "Ore:" or Ore with commented sub attributes like below?
-            Ore:
-                #ResourceIndex: 1
-                #TerrainType: Ore
-                #AllowedTerrainTypes: Clear, Road
-                #MaxDensity: 12
-            Gems:
-                ResourceIndex: 2
-                TerrainType: Gems
-                AllowedTerrainTypes: Clear, Road
-                MaxDensity: 1200
     ResourceClaimLayer:
     WithResourceAnimation@GEMS:
         Types: Gems
@@ -333,16 +311,6 @@ EditorWorld:
     EditorResourceLayer:
         RecalculateResourceDensity: true
         ResourceTypes:
-            #Ore:
-            #    ResourceIndex: 1
-            #    TerrainType: Ore
-            #    AllowedTerrainTypes: Clear, Road
-            #    MaxDensity: 12
-            Gems:
-                ResourceIndex: 2
-                TerrainType: Gems
-                AllowedTerrainTypes: Clear, Road
-                MaxDensity: 3
     EditorSelectionLayer:
     LoadWidgetAtGameStart:
     EditorActionManager:

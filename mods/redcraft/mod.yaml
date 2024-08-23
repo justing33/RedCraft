@@ -1,7 +1,7 @@
 # TODO: Adjust title and website/icon32 info later
 Metadata:
 	Title: RedCraft
-	Version: release-20231010
+	Version: 05ed9d9
 	Website: https://www.openra.net
 	WebIcon32: https://www.openra.net/images/icons/ra_32x32.png
 	WindowTitle: OpenRA - RedCraft
@@ -43,6 +43,7 @@ Packages:
 
 MapFolders:
 	ra|maps: System
+	redcraft|maps: System
 	~^SupportDir|maps/ra/release-20231010: User
 
 Rules:

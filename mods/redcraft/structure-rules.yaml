@@ -369,7 +369,7 @@ BARRACKS_:
         Prerequisite: stimpack-activated
         # Required pre-req to use Power
         Prerequisites: can-stimpack
-        Icon: auto-turret
+        Icon: stimpack
         AllowMultiple: false
     ProvidesPrerequisite:
         Prerequisite: barracks_

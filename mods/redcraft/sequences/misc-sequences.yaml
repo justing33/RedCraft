@@ -5,7 +5,9 @@ icon:
 	auto-turret:
         Filename: hboxicon.shp
 	droppods:
-        Filename: mechicon.shp
+		Filename: mechicon.shp
+	medivac-afterburners:
+		Filename: tranicon.shp
 
 beacon:
 	scannersweep-small:

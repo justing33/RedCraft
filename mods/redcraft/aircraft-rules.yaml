@@ -143,6 +143,22 @@ MEDIVAC:
         OutsideRangeCursor: heal
         TargetRelationships: Ally
         ForceTargetRelationships: None
+    GrantPrerequisiteChargeDrainPower:
+        Name: IgniteAfterburners
+        Description: TBD
+        # Cooldown: 14s
+        ChargeInterval: 350
+        # 4.3s discharge time
+        DischargeModifier: 265
+        Prerequisite: medivac-afterburners
+        Icon: medivac-afterburners
+    GrantConditionOnPrerequisite:
+        Condition: afterburners-ignited
+        Prerequisites: medivac-afterburners
+    # 5.95 speed with afterburners
+    SpeedMultiplier:
+        Modifier: 170
+        RequiresCondition: afterburners-ignited
     Voiced:
         VoiceSet: MedicVoice
     AutoTarget:
@@ -423,6 +439,33 @@ U2:
     Interactable:
     GrantConditionOnDamageState@SmokeTrail:
         Condition: enable-smoke
+
+#SCANNER-SWEEP-ACTOR:
+#    Inherits: ^Helicopter
+#    Tooltip:
+#        Name: SCANNER SWEEP ACTOR
+#    Health:
+#        HP: 140
+#    Armor:
+#        Type: Light
+#    RevealsShroud:
+#        Range: 11c0
+#        Type: GroundPosition
+#    Aircraft:
+#        CruiseAltitude: 2560
+#        Speed: 103
+#        MaximumPitch: 56
+#    WithIdleOverlay@SPINNER:
+#        Sequence: spinner
+#        Offset: -256,0,256
+#    AttackBomber:
+#        FacingTolerance: 8
+#    DetectCloaked:
+#        DetectionTypes: Cloak
+#        Range: 9c0
+#    WithRangeCircle:
+#        Range: 9c0
+#        Color: 0000FF80
 
 # Mig
 MIG:

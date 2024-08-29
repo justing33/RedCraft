@@ -1,6 +1,6 @@
 # Construction Yard
 # Command Center
-COMC:
+COMMAND-CENTER:
     Inherits: ^Building
     Inherits@AUTOTARGET: ^AutoTargetGround
     Selectable:
@@ -17,21 +17,19 @@ COMC:
         Actor: scv
         RequiresCondition: !under-construction
     ProvidesRadar:
-    Valued:
-        Cost: 400
         # TODO: Provides 15 initial supply
     Health:
         HP: 1500
     Armor:
         Type: Steel
     Tooltip:
-        Name: actor-comc.name
+        Name: actor-command-center.name
         RequiresCondition: !orbitalcommandupgraded
     Tooltip@ORBITALUPGRADED:
-        Name: actor-comc-orb.name
+        Name: actor-command-center-orbital.name
         RequiresCondition: orbitalcommandupgraded
     Tooltip@PLANETARYFORTRESSUPGRADED:
-        Name: actor-comc-plan.name
+        Name: actor-commandcenter-planetaryfortress.name
         RequiresCondition: planetaryfortressupgraded
     Refinery:
         UseStorage: False
@@ -129,10 +127,10 @@ COMC:
         Type: Ship
     GrantConditionOnProduction@PlanetaryFortress:
         Condition: planetaryfortressupgraded
-        Actors: COMC-PLAN
+        Actors: COMMAND-CENTER-PLANETARYFORTRESS
     GrantConditionOnProduction@OrbitalCommand:
         Condition: orbitalcommandupgraded
-        Actors: COMC-ORB
+        Actors: COMMAND-CENTER-ORBITAL
     GrantExternalConditionToProduced:
         Condition: produced
     BaseBuilding:
@@ -141,7 +139,7 @@ COMC:
         ProductionTypes: Ship
     # TODO: This is important for some reason regarding building the upgrades
     ProvidesPrerequisite@command-center:
-        Prerequisite: comc
+        Prerequisite: command-center
     # TODO: Fix bug where cc lifts off with cargo inside and lands, and game crashes
     # Cargo:
     #     Types: Vehicle
@@ -181,7 +179,7 @@ COMC:
     # ORBITAL COMMAND UPGRADED
     WithIdleOverlay@ORBITAL:
         RequiresCondition: orbitalcommandupgraded && !build-incomplete && !planetaryfortressupgraded
-        Sequence: comc-orb
+        Sequence: command-center-orbital
         # Forward, Right, Up
         Offset: 0,1500,-450
     AirstrikePower@spyplane:
@@ -239,7 +237,7 @@ COMC:
     #
     #Transforms:
     #    PauseOnCondition: being-demolished || build-incomplete
-    #    IntoActor: comc-air
+    #    IntoActor: command-center-air
     #    Offset: 1,1
     #    Facing: 384
     #    RequiresCondition: !planetaryfortressupgraded && !orbitalcommandupgraded
@@ -258,55 +256,55 @@ COMC:
 
 # Chinook
 # Command Center (Lifted Off)
-COMC-AIR:
-    Inherits: ^Helicopter
-    # TODO: Fix bug listed below
-    # Inherits@CARGOPIPS: ^CargoPips
-    ProvidesRadar:
-    Selectable:
-        DecorationBounds: 1706, 1536
-    Tooltip:
-        Name: actor-comc-air.name
-    UpdatesPlayerStatistics:
-        AddToArmyValue: true
-    Health:
-        HP: 1500
-    RevealsShroud:
-        Range: 8c0
-        Type: CenterPosition
-        RevealGeneratedShroud: true
-    RevealsShroud@GAPGEN:
-        Range: 8c0
-        Type: GroundPosition
-    Aircraft:
-        TurnSpeed: 20
-        Speed: 40
-        AltitudeVelocity: 0c58
-    # TODO: Fix bug where game crashes when landing a command center with scv inside
-    # Cargo:
-    #     Types: Vehicle
-    #     # TODO: Consider future upgrade to 10 capacity
-    #     MaxWeight: 5
-    #     # Instant unload and movement
-    #     BeforeUnloadDelay: 0
-    #     AfterUnloadDelay: 0
-    #     # TODO: Would be nice to show appropriate cursor between cargo loading and landing
-    #     # UnloadCursor: repair
-    #     # UnloadBlockedCursor: repair-blocked
-    Transforms:
-        # TODO: Fix landing offset
-        IntoActor: comc
-        TransformSounds: placbldg.aud, build5.aud
-        NoTransformNotification: BuildingCannotPlaceAudio
-        NoTransformTextNotification: Cannot deploy here.
-        # TODO: Would be nice to show appropriate cursor between cargo loading and landing
-        # DeployCursor: deploy
-        # DeployBlockedCursor: deploy-blocked
-    BaseBuilding:
-    #SpawnActorOnDeath:
-    #    Actor:
-    MustBeDestroyed:
-        RequiredForShortGame: true
+#COMMAND-CENTER-AIR:
+#    Inherits: ^Helicopter
+#    # TODO: Fix bug listed below
+#    # Inherits@CARGOPIPS: ^CargoPips
+#    ProvidesRadar:
+#    Selectable:
+#        DecorationBounds: 1706, 1536
+#    Tooltip:
+#        Name: actor-command-center-air.name
+#    UpdatesPlayerStatistics:
+#        AddToArmyValue: true
+#    Health:
+#        HP: 1500
+#    RevealsShroud:
+#        Range: 8c0
+#        Type: CenterPosition
+#        RevealGeneratedShroud: true
+#    RevealsShroud@GAPGEN:
+#        Range: 8c0
+#        Type: GroundPosition
+#    Aircraft:
+#        TurnSpeed: 20
+#        Speed: 40
+#        AltitudeVelocity: 0c58
+#    # TODO: Fix bug where game crashes when landing a command center with scv inside
+#    # Cargo:
+#    #     Types: Vehicle
+#    #     # TODO: Consider future upgrade to 10 capacity
+#    #     MaxWeight: 5
+#    #     # Instant unload and movement
+#    #     BeforeUnloadDelay: 0
+#    #     AfterUnloadDelay: 0
+#    #     # TODO: Would be nice to show appropriate cursor between cargo loading and landing
+#    #     # UnloadCursor: repair
+#    #     # UnloadBlockedCursor: repair-blocked
+#    Transforms:
+#        # TODO: Fix landing offset
+#        IntoActor: command-center
+#        TransformSounds: placbldg.aud, build5.aud
+#        NoTransformNotification: BuildingCannotPlaceAudio
+#        NoTransformTextNotification: Cannot deploy here.
+#        # TODO: Would be nice to show appropriate cursor between cargo loading and landing
+#        # DeployCursor: deploy
+#        # DeployBlockedCursor: deploy-blocked
+#    BaseBuilding:
+#    #SpawnActorOnDeath:
+#    #    Actor:
+#    MustBeDestroyed:
+#        RequiredForShortGame: true
 
 # TODO: Implement this as oil ref
 # Ore Refinery
@@ -929,7 +927,7 @@ ENGINEERINGBAY:
         Queue: Building
         BuildDuration: 1700
         BuildPaletteOrder: 150
-        Prerequisites: scv, comc
+        Prerequisites: scv, command-center
         Description: actor-engineeringbay.description
     Valued:
         Cost: 125
@@ -1024,13 +1022,13 @@ ENGINEERINGBAY:
 ##### UPGRADES #####
 
 # Planetary Fortress
-COMC-PLAN:
+COMMAND-CENTER-PLANETARYFORTRESS:
     Buildable:
         BuildPaletteOrder: 30
         Prerequisites: engineeringbay
         Queue: Defense
         BuildDuration: 1500
-        Description: actor-comc-plan.description
+        Description: actor-command-center-planetaryfortress.description
     Valued:
         # Cost: 150
         Cost: 300
@@ -1039,27 +1037,27 @@ COMC-PLAN:
     AlwaysVisible:
     RenderSprites:
     Tooltip:
-        Name: actor-comc-plan.name
+        Name: actor-command-center-planetaryfortress.name
     KillsSelf:
         RemoveInstead: true
     MustBeDestroyed:
         RequiredForShortGame: true
 
 # Orbital Command
-COMC-ORB:
+COMMAND-CENTER-ORBITAL:
     Buildable:
         BuildPaletteOrder: 20
         Prerequisites: barracks_
         Queue: Defense
         BuildDuration: 1025
-        Description: actor-comc-orb.description
+        Description: actor-command-center-orbital.description
     Valued:
         Cost: 150
     Interactable:
     AlwaysVisible:
     RenderSprites:
     Tooltip:
-        Name: actor-comc-orb.name
+        Name: actor-command-center-orbital.name
     KillsSelf:
         RemoveInstead: true
     MustBeDestroyed:
@@ -1572,7 +1570,7 @@ FACF:
 # BUILDING INITIAL STRUCTURES #
 ###############################
 
-COMC-CONSTR:
+COMMAND-CENTER-CONSTRUCTION-BLDG:
     Inherits: ^Building
     Selectable:
         Bounds: 3072, 3072
@@ -1585,7 +1583,7 @@ COMC-CONSTR:
         BuildDuration: 0
         BuildPaletteOrder: 10
         Prerequisites: scv
-        Description: actor-comc.description
+        Description: actor-command-center.description
     CaptureManager:
         CapturingCondition: capturing-under-construction
         BeingCapturedCondition: being-captured-under-construction
@@ -1596,10 +1594,12 @@ COMC-CONSTR:
     # TODO: Only take this out if I cant get the Health Regen to mimic the health of the building/built progress
     #CapturableProgressBar:
     ProvidesRadar:
+    Valued:
+        Cost: 400
     Health:
         HP: 100
     Tooltip:
-        Name: actor-comc.name
+        Name: actor-command-center.name
     RevealsShroud:
         Range: 11c0
         RevealGeneratedShroud: true
@@ -1607,7 +1607,7 @@ COMC-CONSTR:
     Targetable:
         TargetTypes: GroundActor, Structure, Defense
     TransformOnCapture:
-        IntoActor: comc
+        IntoActor: command-center
         # TODO: Max Health when done "constructing"
         ForceHealthPercentage: 100
         SkipMakeAnims: false

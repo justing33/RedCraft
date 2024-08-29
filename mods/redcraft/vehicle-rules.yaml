@@ -6,7 +6,7 @@ SCV:
         Queue: Ship
         BuildPaletteOrder: 10
         BuildDuration: 900
-        Prerequisites: comc
+        Prerequisites: command-center
         Description: TBD
     Valued:
         Cost: 50

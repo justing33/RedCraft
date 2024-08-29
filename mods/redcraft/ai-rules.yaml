@@ -1,14 +1,14 @@
 Player:
     BaseBuilderBotModule@normal:
-        ConstructionYardTypes: comc
-        RefineryTypes: comc
-        BarracksTypes: barracks_, comc
+        ConstructionYardTypes: command-center
+        RefineryTypes: command-center
+        BarracksTypes: barracks_, command-center
         VehiclesFactoryTypes: factory
-        ProductionTypes: comc, barracks_, factory, starport, engineeringbay, ghostacademy
-        DefenseTypes: comc
-        NavalProductionTypes: comc
+        ProductionTypes: command-center, barracks_, factory, starport, engineeringbay, ghostacademy
+        DefenseTypes: command-center
+        NavalProductionTypes: command-center
         BuildingLimits:
-            comc: 0
+            command-center: 0
         BuildingFractions:
             barracks_: 40
             factory: 40
@@ -22,11 +22,11 @@ Player:
         SquadSize: 15
         NavalUnitsTypes: scv
         ExcludeFromSquadsTypes: harv, mcv, dog, badr.bomber, u2, scv
-        ConstructionYardTypes: comc
-        NavalProductionTypes: comc
+        ConstructionYardTypes: command-center
+        NavalProductionTypes: command-center
         AirUnitsTypes: mig, yak, heli, hind, mh60, viking, banshee, medivac
         AircraftTargetType: AirborneActor
-        ProtectionTypes: scv, comc, barracks_, factory, starport, engineeringbay, ghostacademy, bunker, missileturret, marine, marauder, reaper, medic, ghost, firebat, hellion, hellbat, cyclone, siegetank, siegetank-sm, widowmine, viking, viking-am, banshee, medivac
+        ProtectionTypes: scv, command-center, barracks_, factory, starport, engineeringbay, ghostacademy, bunker, missileturret, marine, marauder, reaper, medic, ghost, firebat, hellion, hellbat, cyclone, siegetank, siegetank-sm, widowmine, viking, viking-am, banshee, medivac
         #IgnoredEnemyTargetTypes: AirborneActor
     UnitBuilderBotModule@normal:
         UnitsToBuild:
@@ -44,4 +44,4 @@ Player:
             medivac: 15
             viking: 30
     #McvManagerBotModule:
-    #    McvTypes: siegetank, comc
+    #    McvTypes: siegetank, command-center

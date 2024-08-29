@@ -237,7 +237,7 @@ World:
         Class: none
         ClassName: options-starting-units.mcv-only
         Factions: allies, england, france, germany, soviet, russia, ukraine
-        BaseActor: comc
+        BaseActor: command-center
         SupportActors: scv, scv, scv, scv, scv
     StartingUnits@lightallies:
         Class: light

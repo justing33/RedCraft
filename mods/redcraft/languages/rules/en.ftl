@@ -502,25 +502,25 @@ notification-satellite-launched = Satellite launched.
 notification-credits-stolen = Credits stolen.
 notifcation-spy-plane-ready = Spy plane ready.
 
-actor-comc =
+actor-command-center =
    .description = Main base building to train SCVs
     Can be lifted off to relocate
     Collects Gems for credits
    .name = Command Center
 
-actor-comc-air =
+actor-command-center-air =
    .description = Main base building to train SCVs
     Can be lifted off to relocate
     Collects Gems for credits
    .name = Command Center (Lifted off)
 
-actor-comc-plan =
+actor-command-center-planetaryfortress =
    .description = Anti-ground static defense upgrade for the Command Center
     Cannot be lifted off
     Collects Gems for credits
    .name = Planetary Fortress
 
-actor-comc-orb =
+actor-command-center-orbital =
    .description = An upgrade for the Command Center
     Provides abilities: Scanner Sweep, Calldown: MULE, and Calldown: Extra Supplies
     Cannot be lifted off

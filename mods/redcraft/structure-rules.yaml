@@ -1381,3 +1381,174 @@ FACF:
     -Buildable:
     Tooltip:
         Name: Fake Construction Yard
+
+#NEXUS:
+#    Inherits: ^Building
+#    #Inherits@PRIMARY: ^PrimaryBuilding
+#    #Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDown
+#    Buildable:
+#        #Prerequisites: research_centre, ~techlevel.high
+#        Queue: Building
+#        BuildPaletteOrder: 620
+#        BuildDuration: 937
+#        BuildDurationModifier: 100
+#        Description: actor-palace.description
+#    Selectable:
+#        Bounds: 3072, 3072
+#    Valued:
+#        Cost: 1600
+#    Tooltip:
+#        Name: actor-palace.name
+#    RallyPoint:
+#    CommandBarBlacklist:
+#        DisableStop: false
+#    D2kBuilding:
+#        Footprint: xx= xxx =xx
+#        Dimensions: 3,3
+#    Encyclopedia:
+#        Description: actor-palace.encyclopedia
+#        Category: Buildings
+#        Order: 150
+#    Health:
+#        HP: 40000
+#    HitShape:
+#        Type: Rectangle
+#            TopLeft: -1536, -512
+#            BottomRight: 1536, 512
+#    HitShape@TOP:
+#        Type: Rectangle
+#            TopLeft: -1536, -1536
+#            BottomRight: 512, -512
+#    HitShape@BOTTOM:
+#        Type: Rectangle
+#            TopLeft: -512, 512
+#            BottomRight: 1536, 1536
+#    Armor:
+#        Type: heavy
+#    RevealsShroud:
+#        Range: 4c768
+#    RenderSprites:
+#        Image: palace.ordos
+#        FactionImages:
+#            atreides: palace.atreides
+#            fremen: palace.atreides
+#            harkonnen: palace.harkonnen
+#            corrino: palace.corrino
+#    WithBuildingBib:
+#        HasMinibib: True
+#    WithSupportPowerActivationOverlay:
+#        RequiresCondition: !build-incomplete && !launchpad-damaged && harkonnen
+#    GrantConditionOnDamageState@LAUNCHPADDAMAGED:
+#        Condition: launchpad-damaged
+#    Power:
+#        Amount: -200
+#    ProvidesPrerequisite@nuke:
+#        Prerequisite: palace.nuke
+#        Factions: harkonnen
+#    ProvidesPrerequisite@fremen:
+#        Prerequisite: palace.fremen
+#        Factions: atreides
+#    ProvidesPrerequisite@saboteur:
+#        Prerequisite: palace.saboteur
+#        Factions: ordos
+#    ProvidesPrerequisite@sardaukar:
+#        Prerequisite: palace.sardaukar
+#        Factions: corrino
+#    PrimaryBuilding:
+#        RequiresCondition: atreides || ordos
+#    WithTextDecoration@primary:
+#        RequiresCondition: primary && (atreides || ordos)
+#    NukePower:
+#        Cursor: nuke
+#        Icon: deathhand
+#        PauseOnCondition: disabled
+#        RequiresCondition: harkonnen
+#        Prerequisites: ~techlevel.superweapons, ~palace.nuke
+#        ChargeInterval: 7500
+#        Name: actor-palace.nukepower-name
+#        Description: actor-palace.nukepower-description
+#        BeginChargeSpeechNotification: DeathHandMissilePrepping
+#        EndChargeSpeechNotification: DeathHandMissileReady
+#        IncomingSpeechNotification: MissileLaunchDetected
+#        BeginChargeTextNotification: notification-death-hand-missile-prepping
+#        EndChargeTextNotification: notification-death-hand-missile-ready
+#        IncomingTextNotification: notifciation-missile-launch-detected
+#        SelectTargetTextNotification: notification-select-target
+#        MissileWeapon: deathhand
+#        MissileImage: deathhand
+#        MissileDelay: 18
+#        SpawnOffset: 32,816,0
+#        DetonationAltitude: 3c0
+#        RemoveMissileOnDetonation: False
+#        DisplayBeacon: True
+#        DisplayRadarPing: True
+#        CameraRange: 10c0
+#        CameraRemoveDelay: 60
+#        ArrowSequence: arrow
+#        CircleSequence: circles
+#        FlightVelocity: 384
+#        TrailInterval: 0
+#        TrailImage: large_trail
+#        TrailSequences: idle
+#        SupportPowerPaletteOrder: 40
+#    ProduceActorPower@fremen:
+#        Name: actor-palace.produceactorpower-fremen-name
+#        Description: actor-palace.produceactorpower-fremen-description
+#        Icon: fremen
+#        PauseOnCondition: disabled
+#        RequiresCondition: atreides
+#        Prerequisites: ~techlevel.superweapons, ~palace.fremen
+#        Actors: fremen, fremen
+#        Type: Fremen
+#        ChargeInterval: 2250
+#        EndChargeTextNotification: notification-fremen-ready
+#        ReadyAudio: Reinforce
+#        ReadyTextNotification: notification-reinforcements-have-arrived
+#        BlockedAudio: NoRoom
+#        BlockedTextNotification: notification-no-room-for-new-units
+#        OrderName: ProduceActorPower.Fremen
+#        SupportPowerPaletteOrder: 20
+#    ProduceActorPower@saboteur:
+#        Name: actor-palace.produceactorpower-saboteur-name
+#        Description: actor-palace.produceactorpower-saboteur-description
+#        Icon: saboteur
+#        PauseOnCondition: disabled
+#        RequiresCondition: ordos
+#        Prerequisites: ~techlevel.superweapons, ~palace.saboteur
+#        Actors: saboteur
+#        Type: Saboteur
+#        ChargeInterval: 2250
+#        EndChargeTextNotification: notification-saboteur-ready
+#        ReadyAudio: Reinforce
+#        ReadyTextNotification: notification-reinforcements-have-arrived
+#        BlockedAudio: NoRoom
+#        BlockedTextNotification: notification-no-room-for-new-units
+#        OrderName: ProduceActorPower.Saboteur
+#        SupportPowerPaletteOrder: 30
+#    Exit@1:
+#        SpawnOffset: -704,768,0
+#        ExitCell: -1,2
+#    Exit@2:
+#        SpawnOffset: -704,768,0
+#        ExitCell: -1,3
+#    Exit@3:
+#        SpawnOffset: -704,768,0
+#        ExitCell: 0,3
+#    Production@Atreides:
+#        Produces: Fremen
+#        RequiresCondition: atreides
+#    Production@Ordos:
+#        Produces: Saboteur
+#        RequiresCondition: ordos
+#    GrantConditionOnFaction@Atreides:
+#        Condition: atreides
+#        Factions: atreides, fremen
+#    GrantConditionOnFaction@Harkonnen:
+#        Condition: harkonnen
+#        Factions: harkonnen
+#    GrantConditionOnFaction@Ordos:
+#        Condition: ordos
+#        Factions: ordos, mercenary, smuggler
+#    SupportPowerChargeBar:
+#        RequiresCondition: atreides || harkonnen || ordos
+#    ProvidesPrerequisite@buildingname:

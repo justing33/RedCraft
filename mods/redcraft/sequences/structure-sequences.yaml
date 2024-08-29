@@ -378,3 +378,45 @@ tent:
     bib:
     icon:
     fake-icon:
+
+#nexus:
+#    idle:
+#        Filename: DATA.R16
+#        Start: 2924
+#        Offset: -48,48
+#        Remap: 54F94B
+#    active:
+#        Filename: DATA.R16
+#        Start: 2924
+#        Offset: -48,48
+#    make:
+#        Filename: DATA.R16
+#        Start: 4677
+#        Length: 13
+#        Offset: -48,48
+#        Remap: 54F94B
+#    crumble-overlay:
+#        Filename: DATA.R16
+#        Start: 4690
+#        Length: 10
+#        Offset: -48,48
+#        Tick: 100
+#    damaged-idle:
+#        Filename: DATA.R16
+#        Start: 2925
+#        Offset: -48,48
+#        Remap: 54F94B
+#    bib:
+#        Filename: BLOXBASE.R16
+#        Frames: 631, 632, 633
+#        Length: 3
+#        Offset: -16,-16
+#    bib-Concrete:
+#        Filename: BLOXBASE.R16
+#        Frames: 663, 664, 665
+#        Length: 3
+#        Offset: -16,-16
+#    icon:
+#        Filename: DATA.R16
+#        Start: 4366
+#        Offset: -30,-24

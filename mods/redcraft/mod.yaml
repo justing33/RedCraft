@@ -40,6 +40,21 @@ Packages:
 	ra|scripts
 	common|scripts
 	ra|uibits
+    # DUNE 2K #######
+    #~^SupportDir|Content/d2k/v3/
+    #~^SupportDir|Content/d2k/v3/GAMESFX
+    #~^SupportDir|Content/d2k/v3/Movies
+    #~^SupportDir|Content/d2k/v3/Music
+    #^EngineDir
+    #$d2k: d2k
+    #^EngineDir|mods/common: common
+
+    #~SOUND.RS
+    #d2k|bits
+    #d2k|scripts
+    #common|scripts
+    #d2k|uibits
+    ###############
 
 MapFolders:
 	ra|maps: System
@@ -62,6 +77,21 @@ Rules:
 	ra|rules/aircraft.yaml
 	ra|rules/ships.yaml
 	ra|rules/fakes.yaml
+    #D2K #####
+    #    d2k|rules/misc.yaml
+    #    d2k|rules/ai.yaml
+    #    d2k|rules/player.yaml
+    #    d2k|rules/world.yaml
+    #    d2k|rules/palettes.yaml
+    #    d2k|rules/defaults.yaml
+    #    d2k|rules/infantry.yaml
+    #    d2k|rules/vehicles.yaml
+    #    d2k|rules/aircraft.yaml
+    #    d2k|rules/structures.yaml
+    #    d2k|rules/starport.yaml
+    #    d2k|rules/husks.yaml
+    #    d2k|rules/arrakis.yaml
+    #########
 	# Custom Overrides for RedCraft modifications
 	redcraft|defaults.yaml #Overall rules that don't fall into below categories
 	redcraft|world-rules.yaml
@@ -93,6 +123,7 @@ TileSets:
 	ra|tilesets/interior.yaml
 	ra|tilesets/temperat.yaml
 	ra|tilesets/desert.yaml
+	#d2k|tilesets/arrakis.yaml
 
 Cursors:
 	ra|cursors.yaml
@@ -104,6 +135,8 @@ Chrome:
 Assemblies:
 	^BinDir|OpenRA.Mods.Common.dll
 	^BinDir|OpenRA.Mods.Cnc.dll
+	# D2K - Pulls in the assets from mirror sites (trys but seemingly fails?)
+	#^BinDir|OpenRA.Mods.D2k.dll
 
 ChromeLayout:
 	common|chrome/ingame.yaml
@@ -265,18 +298,21 @@ SupportsMapsFrom: ra
 
 SoundFormats: Aud, Wav
 
-SpriteFormats: ShpD2, ShpTD, TmpRA, TmpTD, ShpTS
+#D2K: R8 PngSheet from D2k
+SpriteFormats: ShpD2, ShpTD, TmpRA, TmpTD, ShpTS #, R8, PngSheet
 
 VideoFormats: Vqa, Wsa
 
 TerrainFormat: DefaultTerrain
 
 SpriteSequenceFormat: ClassicTilesetSpecificSpriteSequence
+#SpriteSequenceFormat: D2kSpriteSequence
 
 # ModelSequenceFormat: PlaceholderModelSequence
 
+#D2K: .r8, .r16, .png
 AssetBrowser:
-	SpriteExtensions: .shp, .tmp, .tem, .des, .sno, .int
+	SpriteExtensions: .shp, .tmp, .tem, .des, .sno, .int #, .r8, .r16, .png
 	AudioExtensions: .aud, .wav, .r00, .r01, .r02, .r03, .v00, .v01, .v02, .v03
 	VideoExtensions: .vqa, .wsa
 
@@ -317,10 +353,22 @@ ModContent:
 		ContentPackage@base:
 			Title: Base Game Files
 			Identifier: base
+            # D2K: ^SupportDir|Content/d2k/v3/BLOXBASE.R16, ^SupportDir|Content/d2k/v3/BLOXBAT.R16, ^SupportDir|Content/d2k/v3/BLOXBGBS.R16, ^SupportDir|Content/d2k/v3/BLOXICE.R16, ^SupportDir|Content/d2k/v3/BLOXTREE.R16, ^SupportDir|Content/d2k/v3/BLOXWAST.R16, ^SupportDir|Content/d2k/v3/SOUND.RS, ^SupportDir|Content/d2k/v3/PALETTE.BIN
 			TestFiles: ^SupportDir|Content/ra/v2/allies.mix, ^SupportDir|Content/ra/v2/conquer.mix, ^SupportDir|Content/ra/v2/interior.mix, ^SupportDir|Content/ra/v2/hires.mix, ^SupportDir|Content/ra/v2/lores.mix, ^SupportDir|Content/ra/v2/local.mix, ^SupportDir|Content/ra/v2/speech.mix, ^SupportDir|Content/ra/v2/russian.mix, ^SupportDir|Content/ra/v2/snow.mix, ^SupportDir|Content/ra/v2/sounds.mix, ^SupportDir|Content/ra/v2/temperat.mix
+            #, ^SupportDir|Content/d2k/v3/BLOXBASE.R16, ^SupportDir|Content/d2k/v3/BLOXBAT.R16, ^SupportDir|Content/d2k/v3/BLOXBGBS.R16, ^SupportDir|Content/d2k/v3/BLOXICE.R16, ^SupportDir|Content/d2k/v3/BLOXTREE.R16, ^SupportDir|Content/d2k/v3/BLOXWAST.R16, ^SupportDir|Content/d2k/v3/SOUND.RS, ^SupportDir|Content/d2k/v3/PALETTE.BIN
+			#D2K: d2k, gruntmods
 			Sources: allied, soviet, tfd, ra-origin, cncr-steam, cncr-origin
+            #, d2k, gruntmods
 			Required: true
 			Download: basefiles
+        #D2K ContentPackage@patch
+        #ContentPackage@patch:
+        #    Title: 1.06 Patch Content
+        #    Identifier: patch
+        #    TestFiles: ^SupportDir|Content/d2k/v3/DATA.R16
+        #    Sources: gruntmods
+        #    Required: true
+        #    Download: patch106
 		ContentPackage@aftermathbase:
 			Title: Aftermath Expansion Files
 			Identifier: aftermathbase

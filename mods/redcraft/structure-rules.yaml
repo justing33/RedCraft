@@ -12,6 +12,10 @@ COMC:
         LocalCenterOffset: 0,-512,0
     WithMakeAnimation:
         Condition: under-construction
+    #Note: Comes out after a small delay after construction is complete
+    FreeActor:
+        Actor: scv
+        RequiresCondition: !under-construction
     ProvidesRadar:
     Valued:
         Cost: 400

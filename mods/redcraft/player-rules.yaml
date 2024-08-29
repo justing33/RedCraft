@@ -5,8 +5,8 @@
         SelectableCash: 50, 1000, 2500, 5000, 7500, 10000, 20000
         DefaultCash: 50
         ResourceValues:
-            Minerals: 5
-            Gold: 7
+            Ore: 5
+            Gems: 7
 
 Player:
     Shroud:

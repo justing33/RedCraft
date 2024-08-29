@@ -19,7 +19,7 @@
             Rough: 89
             Road: 111
             Bridge: 111
-            #Ore: 89
+            Ore: 89
             Gems: 89
             Beach: 89
     Locomotor@WHEELED:
@@ -30,7 +30,7 @@
             Rough: 50
             Road: 125
             Bridge: 125
-            #Ore: 88
+            Ore: 88
             Gems: 88
             Beach: 50
     Locomotor@HEAVYWHEELED:
@@ -41,7 +41,7 @@
             Rough: 50
             Road: 125
             Bridge: 125
-            #Ore: 88
+            Ore: 88
             Gems: 88
             Beach: 50
     Locomotor@LIGHTTRACKED:
@@ -52,7 +52,7 @@
             Rough: 88
             Road: 125
             Bridge: 125
-            #Ore: 88
+            Ore: 88
             Gems: 88
             Beach: 88
     Locomotor@TRACKED:
@@ -63,7 +63,7 @@
             Rough: 88
             Road: 125
             Bridge: 125
-            #Ore: 88
+            Ore: 88
             Gems: 88
             Beach: 88
     Locomotor@HEAVYTRACKED:
@@ -74,7 +74,7 @@
             Rough: 88
             Road: 125
             Bridge: 125
-            #Ore: 88
+            Ore: 88
             Gems: 88
             Beach: 88
     Locomotor@NAVAL:
@@ -166,6 +166,16 @@
         RandomFactionMembers: russia, ukraine
         Side: Random
         Description: faction-randomsoviet.description
+    ResourceRenderer:
+        ResourceTypes:
+            Ore:
+                Sequences: gem01
+                Palette: player
+                Name: Minerals
+            Gems:
+                Sequences: gem03
+                Palette: player
+                Name: Gold
 
 World:
     Inherits: ^BaseWorld
@@ -311,6 +321,16 @@ EditorWorld:
     EditorResourceLayer:
         RecalculateResourceDensity: true
         ResourceTypes:
+            Ore:
+                ResourceIndex: 1
+                TerrainType: Gems
+                AllowedTerrainTypes: Clear, Road
+                MaxDensity: 1200
+            Gems:
+                ResourceIndex: 2
+                TerrainType: Gems
+                AllowedTerrainTypes: Clear, Road
+                MaxDensity: 1200
     EditorSelectionLayer:
     LoadWidgetAtGameStart:
     EditorActionManager:

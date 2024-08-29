@@ -26,7 +26,7 @@ SCV:
     CaptureManager:
     Harvester:
         Type: Unload
-        Resources: Gems, Gold
+        Resources: Ore, Gems
         BaleLoadDelay: 80
         BaleUnloadDelay: 0
         BaleUnloadAmount: 99
@@ -39,7 +39,7 @@ SCV:
         EmptyCondition: no-ore
     StoresResources:
         Capacity: 1
-        Resources: Gems, Gold
+        Resources: Ore, Gems
     DockClientManager:
         SearchForDockDelay: 1
     Health:
@@ -103,7 +103,7 @@ MULE:
         DecorationBounds: 800, 1000, 0, -300
     Harvester:
         Type: Unload
-        Resources: Gems, Gold
+        Resources: Ore, Gems
         #Half of what the SCV has to compensate for same mining times
         BaleLoadDelay: 40
         BaleUnloadDelay: 0
@@ -116,12 +116,12 @@ MULE:
         HarvestFacings: 8
         EmptyCondition: no-ore
     StoresResources:
+        # NOTES ON RESOURCES:
         # 2x the capacity of a normal SCV means 2x more value
-        # 1 Load of Gems is $5 so 2x = $10
-        # TODO: Add Gold
-        # 1 Load of Gold is $7 so 2x = $14
+        # 1 Load of Ore/Minerals is $5 so 2x = $10
+        # 1 Load of Gems/Gold is $7 so 2x = $14
         Capacity: 2
-        Resources: Gems, Gold
+        Resources: Ore, Gems
     DockClientManager:
         SearchForDockDelay: 1
     Health:

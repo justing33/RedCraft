@@ -231,8 +231,7 @@ COMMAND-CENTER:
         UnitTypes: MULE-DROP-POD
         CameraActor: camera
     BaseProvider:
-        PauseOnCondition: being-captured
-        Range: 16c0
+        Range: 900c0
     RenderSprites:
     # Note: Buildings don't list AirborneActor as targetable,
     #       but the weapon can be configured to shoot buildings
@@ -1594,7 +1593,6 @@ COMMAND-CENTER-CONSTRUCTION-BLDG:
     CaptureManager:
         CapturingCondition: capturing-under-construction
         BeingCapturedCondition: being-captured-under-construction
-        #TODO: Test this -> Do I need to declare this as this wont be an enemy structure?
         PreventsAutoTarget: true
     Capturable:
         Types: building

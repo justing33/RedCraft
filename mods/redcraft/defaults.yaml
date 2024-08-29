@@ -1,3 +1,9 @@
+^BasicBuilding:
+    RequiresBuildableArea:
+        AreaTypes: building
+        # Build anywhere as Terran
+        # TODO: Make a custom BasicBuilding for Terran only so Zerg/Protoss have build radius
+        Adjacent: 9999999
 ^Building:
     -Sellable:
     #-RepairableBuilding:

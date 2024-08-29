@@ -15,6 +15,15 @@ SCV:
         Name: SCV
     Selectable:
         DecorationBounds: 800, 1000, 0, -300
+    Captures:
+        CaptureTypes: building
+        #Explicit
+        ConsumedByCapture: true
+        #Explicit
+        PlayerExperience: 0
+        ValidRelationships: Ally
+        EnterCursor: enter
+    CaptureManager:
     Harvester:
         Type: Unload
         Resources: Gems, Gold

@@ -63,7 +63,10 @@ comc:
     make:
         Filename: domemake.shp
         Length: *
-        Offset: 0,-4
+        # TODO: Does this remove the offset jumping?
+        #Offset: 0,-4
+        # "Construction time"
+        Tick: 4800
     bib:
         Filename: bib2.tem
         TilesetFilenames:
@@ -420,3 +423,31 @@ tent:
 #        Filename: DATA.R16
 #        Start: 4366
 #        Offset: -30,-24
+
+###############################
+# BUILDING INITIAL STRUCTURES #
+###############################
+
+comc-constr:
+    Defaults:
+        Filename: dome.shp
+    # Construction initial sprite for structure
+    idle:
+        Filename: domemake.shp
+        Start: 5
+        Length: 1
+        Offset: 0,-4
+    damaged-idle:
+        Start: 1
+        Offset: 0,-4
+    dead:
+        Filename: powrdead.shp
+        Tick: 800
+    make:
+        Filename: domemake.shp
+        Length: *
+        Offset: 0,-4
+        # Super fast make animation, 1 Tick to finish animation
+        Tick: 1
+    icon:
+        Filename: domeicon.shp

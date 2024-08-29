@@ -220,6 +220,7 @@ Voices:
 
 Notifications:
 	ra|audio/notifications.yaml
+	redcraft|audio/notifications.yaml
 
 Music:
 	ra|audio/music.yaml

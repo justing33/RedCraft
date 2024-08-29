@@ -5,17 +5,13 @@ COMC:
     Inherits@AUTOTARGET: ^AutoTargetGround
     Selectable:
         Bounds: 3072, 3072
+    #TODO: Cleanup the === from Bib?
     Building:
         Footprint: xxX xxx XxX ===
         Dimensions: 3,4
         LocalCenterOffset: 0,-512,0
-    Buildable:
-        Queue: Building
-        # 75 * SC2 Seconds = Build Duration
-        BuildDuration: 4800
-        BuildPaletteOrder: 10
-        Prerequisites: scv
-        Description: actor-comc.description
+    WithMakeAnimation:
+        Condition: under-construction
     ProvidesRadar:
     Valued:
         Cost: 400
@@ -42,26 +38,31 @@ COMC:
         DockAngle: 256
         DockOffset: -2c1, 0, 0
         MaxQueueLength: 1
+        RequiresCondition: !under-construction
     DockHost@LEFTCENTERANDUP1:
         Type: Unload
         DockAngle: 256
         DockOffset: -2c1, -1c1, 0
         MaxQueueLength: 1
+        RequiresCondition: !under-construction
     DockHost@LEFTCENTERANDUP2:
         Type: Unload
         DockAngle: 256
         DockOffset: -1c1, -2c1, 0
         MaxQueueLength: 1
+        RequiresCondition: !under-construction
     DockHost@LEFTCENTERANDDOWN1:
         Type: Unload
         DockAngle: 256
         DockOffset: -2c1, 1c1, 0
         MaxQueueLength: 1
+        RequiresCondition: !under-construction
     DockHost@LEFTCENTERANDDOWN2:
         Type: Unload
         DockAngle: 256
         DockOffset: -1c1, 2c1, 0
         MaxQueueLength: 1
+        RequiresCondition: !under-construction
     # Right Side Docks
     DockHost@RIGHTCENTER:
         Type: Unload
@@ -69,26 +70,31 @@ COMC:
         DockAngle: 256
         DockOffset: 2c1, 0, 0
         MaxQueueLength: 1
+        RequiresCondition: !under-construction
     DockHost@RIGHTCENTERANDUP1:
         Type: Unload
         DockAngle: 256
         DockOffset: 2c1, -1c1, 0
         MaxQueueLength: 1
+        RequiresCondition: !under-construction
     DockHost@RIGHTCENTERANDUP2:
         Type: Unload
         DockAngle: 256
         DockOffset: 1c1, -2c1, 0
         MaxQueueLength: 1
+        RequiresCondition: !under-construction
     DockHost@RIGHTCENTERANDDOWN1:
         Type: Unload
         DockAngle: 256
         DockOffset: 2c1, 1c1, 0
         MaxQueueLength: 1
+        RequiresCondition: !under-construction
     DockHost@RIGHTCENTERANDDOWN2:
         Type: Unload
         DockAngle: 256
         DockOffset: 1c1, 2c1, 0
         MaxQueueLength: 1
+        RequiresCondition: !under-construction
     StoresResources:
         Capacity: 2000
     Armor:
@@ -106,6 +112,7 @@ COMC:
     # Note: Need to keep Upgrade production defined above SCV production or upgrades seem to break
     Production@UPGRADES:
         Produces: Defense
+        PauseOnCondition: under-construction
         RequiresCondition: !orbitalcommandupgraded && !planetaryfortressupgraded
     ProductionQueue@UPGRADES:
         Type: Defense
@@ -113,6 +120,7 @@ COMC:
         ItemLimit: 1
     Production@SCV:
         Produces: Ship
+        PauseOnCondition: under-construction
     ProductionQueue@SCV:
         Type: Ship
     GrantConditionOnProduction@PlanetaryFortress:
@@ -216,20 +224,23 @@ COMC:
     BaseProvider:
         PauseOnCondition: being-captured
         Range: 16c0
-    WithBuildingBib:
     RenderSprites:
     # Note: Buildings don't list AirborneActor as targetable,
     #       but the weapon can be configured to shoot buildings
     Targetable:
         TargetTypes: GroundActor, Structure, Defense
-    Transforms:
-        PauseOnCondition: being-demolished || build-incomplete
-        IntoActor: comc-air
-        Offset: 1,1
-        Facing: 384
-        RequiresCondition: !planetaryfortressupgraded && !orbitalcommandupgraded
-    TransformsIntoAircraft:
-        DockActors:
+    #
+    #TODO: Disabling until can figure out how to have Transforms with a separate 'Make' sequence
+    # with the new SCV building (capturing) feature
+    #
+    #Transforms:
+    #    PauseOnCondition: being-demolished || build-incomplete
+    #    IntoActor: comc-air
+    #    Offset: 1,1
+    #    Facing: 384
+    #    RequiresCondition: !planetaryfortressupgraded && !orbitalcommandupgraded
+    #TransformsIntoAircraft:
+    #    DockActors:
     WithDeathAnimation:
         DeathSequence: dead
         UseDeathTypeSuffix: false
@@ -1552,3 +1563,54 @@ FACF:
 #    SupportPowerChargeBar:
 #        RequiresCondition: atreides || harkonnen || ordos
 #    ProvidesPrerequisite@buildingname:
+
+###############################
+# BUILDING INITIAL STRUCTURES #
+###############################
+
+COMC-CONSTR:
+    Inherits: ^Building
+    Selectable:
+        Bounds: 3072, 3072
+    Building:
+        Footprint: xxX xxx XxX ===
+        Dimensions: 3,4
+        LocalCenterOffset: 0,-512,0
+    Buildable:
+        Queue: Building
+        BuildDuration: 0
+        BuildPaletteOrder: 10
+        Prerequisites: scv
+        Description: actor-comc.description
+    CaptureManager:
+        CapturingCondition: capturing-under-construction
+        BeingCapturedCondition: being-captured-under-construction
+        #TODO: Test this -> Do I need to declare this as this wont be an enemy structure?
+        PreventsAutoTarget: true
+    Capturable:
+        Types: building
+    # TODO: Only take this out if I cant get the Health Regen to mimic the health of the building/built progress
+    #CapturableProgressBar:
+    ProvidesRadar:
+    Health:
+        HP: 100
+    Tooltip:
+        Name: actor-comc.name
+    RevealsShroud:
+        Range: 11c0
+        RevealGeneratedShroud: true
+    RenderSprites:
+    Targetable:
+        TargetTypes: GroundActor, Structure, Defense
+    TransformOnCapture:
+        IntoActor: comc
+        # TODO: Max Health when done "constructing"
+        ForceHealthPercentage: 100
+        SkipMakeAnims: false
+    HitShape:
+        TargetableOffsets: 1273,939,0, -980,-640,0, -980,640,0
+        Type: Rectangle
+            TopLeft: -1536, -1536
+            BottomRight: 1536, 1536
+    MustBeDestroyed:
+        RequiredForShortGame: true

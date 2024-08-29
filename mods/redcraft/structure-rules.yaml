@@ -10,14 +10,21 @@ COMMAND-CENTER:
         Footprint: xxX xxx XxX ===
         Dimensions: 3,4
         LocalCenterOffset: 0,-512,0
+    ProvidesRadar:
+    # TODO: Provides 15 initial supply
     WithMakeAnimation:
         Condition: under-construction
     #Note: Comes out after a small delay after construction is complete
     FreeActor:
         Actor: scv
         RequiresCondition: !under-construction
-    ProvidesRadar:
-        # TODO: Provides 15 initial supply
+    ChangesHealth:
+        Step: 0
+        # 15 HP per 21 Ticks in 1 Step (71.43)
+        PercentageStep: 1
+        Delay: 21
+        StartIfBelow: 100
+        RequiresCondition: under-construction
     Health:
         HP: 1500
     Armor:
@@ -1580,7 +1587,7 @@ COMMAND-CENTER-CONSTRUCTION-BLDG:
         LocalCenterOffset: 0,-512,0
     Buildable:
         Queue: Building
-        BuildDuration: 0
+        BuildDuration: 1
         BuildPaletteOrder: 10
         Prerequisites: scv
         Description: actor-command-center.description
@@ -1591,8 +1598,6 @@ COMMAND-CENTER-CONSTRUCTION-BLDG:
         PreventsAutoTarget: true
     Capturable:
         Types: building
-    # TODO: Only take this out if I cant get the Health Regen to mimic the health of the building/built progress
-    #CapturableProgressBar:
     ProvidesRadar:
     Valued:
         Cost: 400
@@ -1608,8 +1613,8 @@ COMMAND-CENTER-CONSTRUCTION-BLDG:
         TargetTypes: GroundActor, Structure, Defense
     TransformOnCapture:
         IntoActor: command-center
-        # TODO: Max Health when done "constructing"
-        ForceHealthPercentage: 100
+        # Start at low health to then "heal" as construction occurs
+        ForceHealthPercentage: 1
         SkipMakeAnims: false
     HitShape:
         TargetableOffsets: 1273,939,0, -980,-640,0, -980,640,0

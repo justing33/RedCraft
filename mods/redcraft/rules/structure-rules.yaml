@@ -195,8 +195,8 @@ COMMAND-CENTER:
         # Allow multiple instances of this support power
         AllowMultiple: true
         ChargeInterval: 3750
-        Name: Scanner Sweep
-        Description: Reveals an area of the map.
+        Name: actor-command-center-scanner-sweep.name
+        Description: actor-command-center-scanner-sweep.description
         SelectTargetSpeechNotification: SelectTarget
         EndChargeSpeechNotification: SpyPlaneReady
         SelectTargetTextNotification: Select target.
@@ -221,8 +221,8 @@ COMMAND-CENTER:
         RequiresCondition: orbitalcommandupgraded
         AllowMultiple: true
         Icon: droppods
-        Name: actor-gaplug.droppodspower-name
-        Description: actor-gaplug.droppodspower-description
+        Name: actor-command-center-calldown-mules.name
+        Description: actor-command-center-calldown-mules.description
         Drops: 3,3
         SelectTargetSpeechNotification: SelectTarget
         SelectTargetTextNotification: notification-select-target

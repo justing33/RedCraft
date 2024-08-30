@@ -527,6 +527,16 @@ actor-command-center-orbital =
     Collects Gems for credits
    .name = Orbital Command
 
+actor-command-center-scanner-sweep =
+   .description = Reveals an area of the map and reveals cloaked units
+   .name = Scanner Sweep
+
+actor-command-center-calldown-mules =
+   .description = Calls down 3 M.U.L.E.'s via drop pods
+   Mules gather double the amount of Minerals compared to an SCV
+   Lasts for 64 seconds
+   .name = Calldown: MULEs
+
 actor-barracks_ =
    .description = Infantry production building
     Can be lifted off to relocate

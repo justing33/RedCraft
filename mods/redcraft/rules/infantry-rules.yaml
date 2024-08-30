@@ -1,4 +1,3 @@
-# Rifle Infantry
 MARINE:
     Inherits: ^Soldier
     AutoTarget:
@@ -67,8 +66,6 @@ MARINE:
 		CargoType: Infantry
 		Weight: 1
 
-
-# Rocket Soldier
 MARAUDER:
 	Inherits: ^Soldier
     AutoTarget:
@@ -141,7 +138,6 @@ MARAUDER:
         CargoType: Infantry
         Weight: 2
 
-# Grenadier
 REAPER:
     Inherits: ^Soldier
     AutoTarget:
@@ -211,7 +207,6 @@ REAPER:
         CargoType: Infantry
         Weight: 1
 
-# Flamethrower
 FIREBAT:
     Inherits: ^Soldier
     AutoTarget:
@@ -285,7 +280,6 @@ FIREBAT:
         CargoType: Infantry
         Weight: 2
 
-# Medic
 MEDIC_:
     Inherits: ^Soldier
     Buildable:
@@ -334,7 +328,6 @@ MEDIC_:
         CargoType: Infantry
         Weight: 1
 
-# Tanya
 GHOST:
     Inherits: ^Soldier
     AutoTarget:

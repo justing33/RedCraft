@@ -1,5 +1,3 @@
-# Construction Yard
-# Command Center
 COMMAND-CENTER:
     Inherits: ^Building
     Inherits@AUTOTARGET: ^AutoTargetGround
@@ -230,8 +228,6 @@ COMMAND-CENTER:
         ChargeInterval: 2625
         UnitTypes: MULE-DROP-POD
         CameraActor: camera
-    BaseProvider:
-        Range: 900c0
     RenderSprites:
     # Note: Buildings don't list AirborneActor as targetable,
     #       but the weapon can be configured to shoot buildings
@@ -260,69 +256,63 @@ COMMAND-CENTER:
     MustBeDestroyed:
         RequiredForShortGame: true
 
-# Chinook
-# Command Center (Lifted Off)
-#COMMAND-CENTER-AIR:
-#    Inherits: ^Helicopter
-#    # TODO: Fix bug listed below
-#    # Inherits@CARGOPIPS: ^CargoPips
-#    ProvidesRadar:
-#    Selectable:
-#        DecorationBounds: 1706, 1536
-#    Tooltip:
-#        Name: actor-command-center-air.name
-#    UpdatesPlayerStatistics:
-#        AddToArmyValue: true
-#    Health:
-#        HP: 1500
-#    RevealsShroud:
-#        Range: 8c0
-#        Type: CenterPosition
-#        RevealGeneratedShroud: true
-#    RevealsShroud@GAPGEN:
-#        Range: 8c0
-#        Type: GroundPosition
-#    Aircraft:
-#        TurnSpeed: 20
-#        Speed: 40
-#        AltitudeVelocity: 0c58
-#    # TODO: Fix bug where game crashes when landing a command center with scv inside
-#    # Cargo:
-#    #     Types: Vehicle
-#    #     # TODO: Consider future upgrade to 10 capacity
-#    #     MaxWeight: 5
-#    #     # Instant unload and movement
-#    #     BeforeUnloadDelay: 0
-#    #     AfterUnloadDelay: 0
-#    #     # TODO: Would be nice to show appropriate cursor between cargo loading and landing
-#    #     # UnloadCursor: repair
-#    #     # UnloadBlockedCursor: repair-blocked
-#    Transforms:
-#        # TODO: Fix landing offset
-#        IntoActor: command-center
-#        TransformSounds: placbldg.aud, build5.aud
-#        NoTransformNotification: BuildingCannotPlaceAudio
-#        NoTransformTextNotification: Cannot deploy here.
-#        # TODO: Would be nice to show appropriate cursor between cargo loading and landing
-#        # DeployCursor: deploy
-#        # DeployBlockedCursor: deploy-blocked
-#    BaseBuilding:
-#    #SpawnActorOnDeath:
-#    #    Actor:
-#    MustBeDestroyed:
-#        RequiredForShortGame: true
-
-# TODO: Implement this as oil ref
-# Ore Refinery
-# Oil Refinery
-PROC:
-    -Buildable:
+BUNKER:
+    Inherits: ^Defense
+    Inherits@AUTOTARGET: ^AutoTargetAll
+    Inherits@CARGOPIPS: ^CargoPips
     Tooltip:
-        Name: Oil Refinery
-    -FreeActor:
+        Name: actor-bunker.name
+    Building:
+    Buildable:
+        Queue: Building
+        BuildDuration: 2000
+        BuildPaletteOrder: 40
+        Prerequisites: scv, barracks_
+        Description: actor-bunker.description
+    ProvidesRadar:
+    Valued:
+        Cost: 100
+    # TODO: Implement sellable bunker
+    #CustomSellValue:
+    #    Value: 50
+    Health:
+        HP: 400
+    Armor:
+        Type: Heavy
+    RevealsShroud:
+        Range: 10c0
+        RevealGeneratedShroud: true
+    RevealsShroud@GAPGEN:
+        Range: 10c0
+    WithBuildingBib:
+        HasMinibib: true
+    Turreted:
+        TurnSpeed: 512
+    BodyOrientation:
+        QuantizedFacings: 8
+    InstantlyRepairable:
+        RequiresCondition: damaged
+    GrantConditionOnDamageState@DAMAGED:
+        Condition: damaged
+        ValidDamageStates: Light, Medium, Heavy, Critical
+    Cargo:
+        Types: Infantry
+        MaxWeight: 4
+    AttackGarrisoned:
+        PauseOnCondition: build-incomplete
+        Armaments: garrisoned
+        PortOffsets: 384,0,128, 224,-341,128, -224,-341,128, -384,0,128, -224,341,128, 224,341,128
+        PortYaws: 0, 176, 341, 512, 682, 853
+        PortCones: 88, 88, 88, 88, 88, 88
+    RenderRangeCircle:
+        FallbackRange: 6c0
+    Power:
+        Amount: -0
+    Targetable:
+        TargetTypes: GroundActor, Structure, Defense
+    MustBeDestroyed:
+        RequiredForShortGame: true
 
-# Soviet Barracks
-# Barracks
 BARRACKS_:
     Inherits: ^Building
     Inherits@shape: ^2x2Shape
@@ -337,6 +327,9 @@ BARRACKS_:
         BuildPaletteOrder: 20
         Prerequisites: scv
         Description: actor-barracks_.description
+    # TODO: Testing
+    #RequiresBuildableArea:
+    #    AreaTypes: building
     ProvidesRadar:
     Valued:
         Cost: 150
@@ -396,95 +389,16 @@ BARRACKS_:
         Amount: -0
     Targetable:
         TargetTypes: GroundActor, Structure, Defense
-    Transforms:
-        PauseOnCondition: being-demolished || build-incomplete
-        IntoActor: barracks-air
-    TransformsIntoAircraft:
-        DockActors:
-    TransferTimedExternalConditionOnTransform:
-        Condition: invulnerability
+    #Transforms:
+    #    PauseOnCondition: being-demolished || build-incomplete
+    #    IntoActor: barracks-air
+    #TransformsIntoAircraft:
+    #    DockActors:
+    #TransferTimedExternalConditionOnTransform:
+    #    Condition: invulnerability
     MustBeDestroyed:
         RequiredForShortGame: true
 
-BARRACKS-AIR:
-    Inherits: ^Helicopter
-    ProvidesRadar:
-    Selectable:
-        Bounds: 2048, 2048
-    HitShape:
-        UseTargetableCellsOffsets: false
-        TargetableOffsets: 0,0,0, 490,-470,0, 355,512,0, -355,-512,0, -630,512,0
-    Tooltip:
-        Name: actor-barracks-air.name
-    Health:
-        HP: 1000
-    Armor:
-        Type: Wood
-    RevealsShroud:
-        Range: 9c0
-        Type: CenterPosition
-        RevealGeneratedShroud: true
-    RevealsShroud@GAPGEN:
-        Range: 9c0
-    Aircraft:
-        TurnSpeed: 20
-        Speed: 40
-        AltitudeVelocity: 0c58
-    ProvidesPrerequisite:
-        Prerequisite: barracks
-    Power:
-        Amount: -0
-    ProvidesPrerequisite@buildingname:
-    Transforms:
-        IntoActor: barracks_
-        TransformSounds: placbldg.aud, build5.aud
-        NoTransformNotification: BuildingCannotPlaceAudio
-        NoTransformTextNotification: Cannot deploy here.
-    #SpawnActorOnDeath:
-    #    Actor:
-    MustBeDestroyed:
-        RequiredForShortGame: true
-
-# Silo
-# Supply Depot
-# TODO: Implement this, but this also means that we are adding a new constraint/feature to the engine
-# SUPPLYDEPOT:
-#     Inherits: ^Building
-#     Selectable:
-#         Bounds: 1024, 1024
-#     Buildable:
-#         Queue: Building
-#         BuildPaletteOrder: 35
-#         Prerequisites: scv
-#         Description: TBD
-#     Valued:
-#         Cost: 150
-#     Tooltip:
-#         Name: Supply Depot
-#     -GivesBuildableArea:
-#     -MustBeDestroyed:
-#     Health:
-#         HP: 30000
-#     Armor:
-#         Type: Wood
-#     RevealsShroud:
-#         Range: 4c0
-#     WithBuildingBib:
-#         HasMinibib: true
-#     -WithSpriteBody:
-#     WithResourceLevelSpriteBody:
-#         Sequence: stages
-#     -SpawnActorsOnSell:
-#     Power:
-#         Amount: -0
-#     Targetable:
-#         TargetTypes: GroundActor, Structure, Defense
-#     Explodes:
-#         Weapon: SmallBuildingExplode
-#         EmptyWeapon: SmallBuildingExplode
-
-# War Factory
-# Factory
 FACTORY:
     Inherits: ^Building
     Inherits@shape: ^3x2Shape
@@ -540,118 +454,16 @@ FACTORY:
         Amount: -0
     Targetable:
         TargetTypes: GroundActor, Structure, Defense
-    Transforms:
-        PauseOnCondition: being-demolished || build-incomplete
-        IntoActor: factory-air
-    TransformsIntoAircraft:
-        DockActors:
-    TransferTimedExternalConditionOnTransform:
-        Condition: invulnerability
+    #Transforms:
+    #    PauseOnCondition: being-demolished || build-incomplete
+    #    IntoActor: factory-air
+    #TransformsIntoAircraft:
+    #    DockActors:
+    #TransferTimedExternalConditionOnTransform:
+    #    Condition: invulnerability
     MustBeDestroyed:
         RequiredForShortGame: true
 
-# Factory (Lifted Off)
-FACTORY-AIR:
-    Inherits: ^Helicopter
-    ProvidesRadar:
-    Selectable:
-        Bounds: 3072, 2048
-    Tooltip:
-        Name: actor-factory-air.name
-    Health:
-        HP: 1250
-    Armor:
-        Type: Wood
-    RevealsShroud:
-        Range: 9c0
-        Type: CenterPosition
-        RevealGeneratedShroud: true
-    RevealsShroud@GAPGEN:
-        Range: 9c0
-    Aircraft:
-        TurnSpeed: 20
-        Speed: 40
-        AltitudeVelocity: 0c58
-    # Cannot be a building but need garage door overlay so draw idle overlay on top
-    WithIdleOverlay@PRODUCTIONDOORTOP:
-        Sequence: build-top
-    Power:
-        Amount: -0
-    ProvidesPrerequisite@buildingname:
-    Transforms:
-        IntoActor: factory
-        TransformSounds: placbldg.aud, build5.aud
-        NoTransformNotification: BuildingCannotPlaceAudio
-        NoTransformTextNotification: Cannot deploy here.
-    #SpawnActorOnDeath:
-    #    Actor:
-    SequencePlaceBuildingPreview:
-        Sequence: place
-        SequenceAlpha: 0.65
-    MustBeDestroyed:
-        RequiredForShortGame: true
-
-# Pillbox
-# Bunker - custom structure as Pillbox wouldn't let me override InitialUnits
-BUNKER:
-    Inherits: ^Defense
-    Inherits@AUTOTARGET: ^AutoTargetAll
-    Inherits@CARGOPIPS: ^CargoPips
-    Tooltip:
-        Name: actor-bunker.name
-    Building:
-    Buildable:
-        Queue: Building
-        BuildDuration: 2000
-        BuildPaletteOrder: 40
-        Prerequisites: scv, barracks_
-        Description: actor-bunker.description
-    ProvidesRadar:
-    Valued:
-        Cost: 100
-    # TODO: Implement sellable bunker
-    #CustomSellValue:
-    #    Value: 50
-    Health:
-        HP: 400
-    Armor:
-        Type: Heavy
-    RevealsShroud:
-        Range: 10c0
-        RevealGeneratedShroud: true
-    RevealsShroud@GAPGEN:
-        Range: 10c0
-    WithBuildingBib:
-        HasMinibib: true
-    Turreted:
-        TurnSpeed: 512
-    BodyOrientation:
-        QuantizedFacings: 8
-    InstantlyRepairable:
-        RequiresCondition: damaged
-    GrantConditionOnDamageState@DAMAGED:
-        Condition: damaged
-        ValidDamageStates: Light, Medium, Heavy, Critical
-    Cargo:
-        Types: Infantry
-        MaxWeight: 4
-    AttackGarrisoned:
-        PauseOnCondition: build-incomplete
-        Armaments: garrisoned
-        PortOffsets: 384,0,128, 224,-341,128, -224,-341,128, -384,0,128, -224,341,128, 224,341,128
-        PortYaws: 0, 176, 341, 512, 682, 853
-        PortCones: 88, 88, 88, 88, 88, 88
-    RenderRangeCircle:
-        FallbackRange: 6c0
-    Power:
-        Amount: -0
-    Targetable:
-        TargetTypes: GroundActor, Structure, Defense
-    MustBeDestroyed:
-        RequiredForShortGame: true
-
-# Soviet Airfield
-# Starport
 STARPORT:
     Inherits: ^Building
     Inherits@shape: ^3x2Shape
@@ -707,55 +519,16 @@ STARPORT:
         Prerequisite: starport
     Targetable:
         TargetTypes: GroundActor, Structure, Defense
-    Transforms:
-        PauseOnCondition: being-demolished || build-incomplete
-        IntoActor: starport-air
-    TransformsIntoAircraft:
-        DockActors:
-    TransferTimedExternalConditionOnTransform:
-        Condition: invulnerability
+    #Transforms:
+    #    PauseOnCondition: being-demolished || build-incomplete
+    #    IntoActor: starport-air
+    #TransformsIntoAircraft:
+    #    DockActors:
+    #TransferTimedExternalConditionOnTransform:
+    #    Condition: invulnerability
     MustBeDestroyed:
         RequiredForShortGame: true
 
-# Starport
-STARPORT-AIR:
-    Inherits: ^Helicopter
-    ProvidesRadar:
-    Selectable:
-        Class: afld
-        Bounds: 3072, 2048
-    Tooltip:
-        Name: actor-starport-air.name
-    Health:
-        HP: 1300
-    Armor:
-        Type: Wood
-    RevealsShroud:
-        Range: 9c0
-        Type: CenterPosition
-        RevealGeneratedShroud: true
-    RevealsShroud@GAPGEN:
-        Range: 9c0
-    Aircraft:
-        TurnSpeed: 20
-        Speed: 40
-        AltitudeVelocity: 0c58
-    Power:
-        Amount: -0
-    ProvidesPrerequisite@buildingname:
-        Prerequisite: afld
-    Transforms:
-        IntoActor: starport
-        TransformSounds: placbldg.aud, build5.aud
-        NoTransformNotification: BuildingCannotPlaceAudio
-        NoTransformTextNotification: Cannot deploy here.
-    #SpawnActorOnDeath:
-    #    Actor:
-    MustBeDestroyed:
-        RequiredForShortGame: true
-
-#Sam Site
-# Missile Turret
 MISSILETURRET:
     Inherits: ^Building
     Inherits@AUTOTARGET: ^AutoTargetAir
@@ -818,8 +591,54 @@ MISSILETURRET:
     MustBeDestroyed:
         RequiredForShortGame: true
 
-# Allied Tech Center
-# Ghost Academy
+ENGINEERINGBAY:
+    Inherits: ^Building
+    Inherits@shape: ^3x2Shape
+    Selectable:
+        Bounds: 3072, 2048
+    HitShape:
+        TargetableOffsets: 420,-768,0, 420,768,0, -770,-768,0, -770,768,0
+    Buildable:
+        Queue: Building
+        BuildDuration: 1700
+        BuildPaletteOrder: 150
+        Prerequisites: scv, command-center
+        Description: actor-engineeringbay.description
+    Valued:
+        Cost: 125
+    Tooltip:
+        Name: actor-engineeringbay.name
+    ProvidesPrerequisite:
+        Prerequisite: engineeringbay
+    Building:
+        Footprint: XxX XxX ===
+        Dimensions: 3,3
+        LocalCenterOffset: 0,-512,0
+    Health:
+        HP: 1250
+    Armor:
+        Type: Wood
+    RevealsShroud:
+        MinRange: 4c0
+        Range: 5c0
+        RevealGeneratedShroud: False
+    RevealsShroud@GAPGEN:
+        Range: 4c0
+    WithBuildingBib:
+    Production@UPGRADES:
+        Produces: EngineeringBayUpgrades
+        RequiresCondition: !siege-mode-researched
+    ProductionQueue@UPGRADES:
+        Type: EngineeringBayUpgrades
+        QueueLimit: 1
+        ItemLimit: 1
+    GrantExternalConditionToProduced:
+        Condition: produced
+    Power:
+        Amount: -0
+    MustBeDestroyed:
+        RequiredForShortGame: true
+
 GHOSTACADEMY:
     Inherits: ^ScienceBuilding
     Inherits@shape: ^2x2Shape
@@ -871,6 +690,8 @@ GHOSTACADEMY:
     MustBeDestroyed:
         RequiredForShortGame: true
 
+##### ABILITIES #####
+
 # TACTICAL NUKE (BUILT)
 TACTICAL-NUKE:
     Buildable:
@@ -919,58 +740,6 @@ TACTICAL-NUKE:
         ClockSequence: clock
         CircleSequence: circles
         SupportPowerPaletteOrder: 70
-
-# Soviet Tech Center
-# Engineering Bay
-ENGINEERINGBAY:
-    Inherits: ^Building
-    Inherits@shape: ^3x2Shape
-    Selectable:
-        Bounds: 3072, 2048
-    HitShape:
-        TargetableOffsets: 420,-768,0, 420,768,0, -770,-768,0, -770,768,0
-    Buildable:
-        Queue: Building
-        BuildDuration: 1700
-        BuildPaletteOrder: 150
-        Prerequisites: scv, command-center
-        Description: actor-engineeringbay.description
-    Valued:
-        Cost: 125
-    Tooltip:
-        Name: actor-engineeringbay.name
-    ProvidesPrerequisite:
-        Prerequisite: engineeringbay
-    Building:
-        Footprint: XxX XxX ===
-        Dimensions: 3,3
-        LocalCenterOffset: 0,-512,0
-    Health:
-        HP: 1250
-    Armor:
-        Type: Wood
-    RevealsShroud:
-        MinRange: 4c0
-        Range: 5c0
-        RevealGeneratedShroud: False
-    RevealsShroud@GAPGEN:
-        Range: 4c0
-    WithBuildingBib:
-    Production@UPGRADES:
-        Produces: EngineeringBayUpgrades
-        RequiresCondition: !siege-mode-researched
-    ProductionQueue@UPGRADES:
-        Type: EngineeringBayUpgrades
-        QueueLimit: 1
-        ItemLimit: 1
-    GrantExternalConditionToProduced:
-        Condition: produced
-    Power:
-        Amount: -0
-    MustBeDestroyed:
-        RequiredForShortGame: true
-
-##### ABILITIES #####
 
 #AUTO-TURRET:
 #    Inherits: ^Building
@@ -1027,7 +796,6 @@ ENGINEERINGBAY:
 
 ##### UPGRADES #####
 
-# Planetary Fortress
 COMMAND-CENTER-PLANETARYFORTRESS:
     Buildable:
         BuildPaletteOrder: 30
@@ -1049,7 +817,6 @@ COMMAND-CENTER-PLANETARYFORTRESS:
     MustBeDestroyed:
         RequiredForShortGame: true
 
-# Orbital Command
 COMMAND-CENTER-ORBITAL:
     Buildable:
         BuildPaletteOrder: 20
@@ -1109,12 +876,222 @@ STIMPACK-UPGRADE:
     AlwaysVisible:
     RenderSprites:
 
-# TODO: Impl this
-# Gap Generator
+###########################
+# TODO: TO BE IMPLEMENTED #
+###########################
+
+# Gap Generator - rename to SENSOR-TOWER later
 GAP:
     -Buildable:
     Tooltip:
         Name: Sensor Tower
+
+# Oil Refinery - rename to OIL-REFINERY later
+PROC:
+    -Buildable:
+    Tooltip:
+        Name: Oil Refinery
+    -FreeActor:
+
+# SUPPLYDEPOT:
+#     Inherits: ^Building
+#     Selectable:
+#         Bounds: 1024, 1024
+#     Buildable:
+#         Queue: Building
+#         BuildPaletteOrder: 35
+#         Prerequisites: scv
+#         Description: TBD
+#     Valued:
+#         Cost: 150
+#     Tooltip:
+#         Name: Supply Depot
+#     -GivesBuildableArea:
+#     -MustBeDestroyed:
+#     Health:
+#         HP: 30000
+#     Armor:
+#         Type: Wood
+#     RevealsShroud:
+#         Range: 4c0
+#     WithBuildingBib:
+#         HasMinibib: true
+#     -WithSpriteBody:
+#     WithResourceLevelSpriteBody:
+#         Sequence: stages
+#     -SpawnActorsOnSell:
+#     Power:
+#         Amount: -0
+#     Targetable:
+#         TargetTypes: GroundActor, Structure, Defense
+#     Explodes:
+#         Weapon: SmallBuildingExplode
+#         EmptyWeapon: SmallBuildingExplode
+
+#COMMAND-CENTER-AIR:
+#    Inherits: ^Helicopter
+#    # TODO: Fix bug listed below
+#    # Inherits@CARGOPIPS: ^CargoPips
+#    ProvidesRadar:
+#    Selectable:
+#        DecorationBounds: 1706, 1536
+#    Tooltip:
+#        Name: actor-command-center-air.name
+#    UpdatesPlayerStatistics:
+#        AddToArmyValue: true
+#    Health:
+#        HP: 1500
+#    RevealsShroud:
+#        Range: 8c0
+#        Type: CenterPosition
+#        RevealGeneratedShroud: true
+#    RevealsShroud@GAPGEN:
+#        Range: 8c0
+#        Type: GroundPosition
+#    Aircraft:
+#        TurnSpeed: 20
+#        Speed: 40
+#        AltitudeVelocity: 0c58
+#    # TODO: Fix bug where game crashes when landing a command center with scv inside
+#    # Cargo:
+#    #     Types: Vehicle
+#    #     # TODO: Consider future upgrade to 10 capacity
+#    #     MaxWeight: 5
+#    #     # Instant unload and movement
+#    #     BeforeUnloadDelay: 0
+#    #     AfterUnloadDelay: 0
+#    #     # TODO: Would be nice to show appropriate cursor between cargo loading and landing
+#    #     # UnloadCursor: repair
+#    #     # UnloadBlockedCursor: repair-blocked
+#    Transforms:
+#        # TODO: Fix landing offset
+#        IntoActor: command-center
+#        TransformSounds: placbldg.aud, build5.aud
+#        NoTransformNotification: BuildingCannotPlaceAudio
+#        NoTransformTextNotification: Cannot deploy here.
+#        # TODO: Would be nice to show appropriate cursor between cargo loading and landing
+#        # DeployCursor: deploy
+#        # DeployBlockedCursor: deploy-blocked
+#    BaseBuilding:
+#    #SpawnActorOnDeath:
+#    #    Actor:
+#    MustBeDestroyed:
+#        RequiredForShortGame: true
+
+#BARRACKS-AIR:
+#    Inherits: ^Helicopter
+#    ProvidesRadar:
+#    Selectable:
+#        Bounds: 2048, 2048
+#    HitShape:
+#        UseTargetableCellsOffsets: false
+#        TargetableOffsets: 0,0,0, 490,-470,0, 355,512,0, -355,-512,0, -630,512,0
+#    Tooltip:
+#        Name: actor-barracks-air.name
+#    Health:
+#        HP: 1000
+#    Armor:
+#        Type: Wood
+#    RevealsShroud:
+#        Range: 9c0
+#        Type: CenterPosition
+#        RevealGeneratedShroud: true
+#    RevealsShroud@GAPGEN:
+#        Range: 9c0
+#    Aircraft:
+#        TurnSpeed: 20
+#        Speed: 40
+#        AltitudeVelocity: 0c58
+#    ProvidesPrerequisite:
+#        Prerequisite: barracks
+#    Power:
+#        Amount: -0
+#    ProvidesPrerequisite@buildingname:
+#    Transforms:
+#        IntoActor: barracks_
+#        TransformSounds: placbldg.aud, build5.aud
+#        NoTransformNotification: BuildingCannotPlaceAudio
+#        NoTransformTextNotification: Cannot deploy here.
+#    #SpawnActorOnDeath:
+#    #    Actor:
+#    MustBeDestroyed:
+#        RequiredForShortGame: true
+
+#FACTORY-AIR:
+#    Inherits: ^Helicopter
+#    ProvidesRadar:
+#    Selectable:
+#        Bounds: 3072, 2048
+#    Tooltip:
+#        Name: actor-factory-air.name
+#    Health:
+#        HP: 1250
+#    Armor:
+#        Type: Wood
+#    RevealsShroud:
+#        Range: 9c0
+#        Type: CenterPosition
+#        RevealGeneratedShroud: true
+#    RevealsShroud@GAPGEN:
+#        Range: 9c0
+#    Aircraft:
+#        TurnSpeed: 20
+#        Speed: 40
+#        AltitudeVelocity: 0c58
+#    # Cannot be a building but need garage door overlay so draw idle overlay on top
+#    WithIdleOverlay@PRODUCTIONDOORTOP:
+#        Sequence: build-top
+#    Power:
+#        Amount: -0
+#    ProvidesPrerequisite@buildingname:
+#    Transforms:
+#        IntoActor: factory
+#        TransformSounds: placbldg.aud, build5.aud
+#        NoTransformNotification: BuildingCannotPlaceAudio
+#        NoTransformTextNotification: Cannot deploy here.
+#    #SpawnActorOnDeath:
+#    #    Actor:
+#    SequencePlaceBuildingPreview:
+#        Sequence: place
+#        SequenceAlpha: 0.65
+#    MustBeDestroyed:
+#        RequiredForShortGame: true
+
+#STARPORT-AIR:
+#    Inherits: ^Helicopter
+#    ProvidesRadar:
+#    Selectable:
+#        Class: afld
+#        Bounds: 3072, 2048
+#    Tooltip:
+#        Name: actor-starport-air.name
+#    Health:
+#        HP: 1300
+#    Armor:
+#        Type: Wood
+#    RevealsShroud:
+#        Range: 9c0
+#        Type: CenterPosition
+#        RevealGeneratedShroud: true
+#    RevealsShroud@GAPGEN:
+#        Range: 9c0
+#    Aircraft:
+#        TurnSpeed: 20
+#        Speed: 40
+#        AltitudeVelocity: 0c58
+#    Power:
+#        Amount: -0
+#    ProvidesPrerequisite@buildingname:
+#        Prerequisite: afld
+#    Transforms:
+#        IntoActor: starport
+#        TransformSounds: placbldg.aud, build5.aud
+#        NoTransformNotification: BuildingCannotPlaceAudio
+#        NoTransformTextNotification: Cannot deploy here.
+#    #SpawnActorOnDeath:
+#    #    Actor:
+#    MustBeDestroyed:
+#        RequiredForShortGame: true
 
 ################################
 # Common Structure Definitions #

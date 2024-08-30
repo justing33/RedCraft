@@ -125,9 +125,9 @@ barracks_:
         Filename: barricon.shp
 
 # Barracks (Lifted Off)
-barracks-air:
-    idle:
-        Filename: barr.shp
+#barracks-air:
+#    idle:
+#        Filename: barr.shp
 
 # Factory
 factory:
@@ -191,12 +191,12 @@ factory:
 #         Filename: siloicon.shp
 
 # Factory (Lifted Off)
-factory-air:
-    idle:
-        Filename: weap.shp
-    build-top:
-        Filename: weap3.shp
-        Length: 1
+#factory-air:
+#    idle:
+#        Filename: weap.shp
+#    build-top:
+#        Filename: weap3.shp
+#        Length: 1
 
 # Starport
 starport:
@@ -234,13 +234,13 @@ starport:
         Filename: afldicon.shp
 
 # Starport (Lifted Off)
-starport-air:
-    idle:
-        Filename: afldidle.shp
-        Length: 8
-        Tick: 160
-        ZOffset: -1023
-        Offset: 0,-4
+#starport-air:
+#    idle:
+#        Filename: afldidle.shp
+#        Length: 8
+#        Tick: 160
+#        ZOffset: -1023
+#        Offset: 0,-4
 
 #MISSILETURRET
 missileturret:

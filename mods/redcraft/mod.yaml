@@ -77,31 +77,16 @@ Rules:
 	ra|rules/aircraft.yaml
 	ra|rules/ships.yaml
 	ra|rules/fakes.yaml
-    #D2K #####
-    #    d2k|rules/misc.yaml
-    #    d2k|rules/ai.yaml
-    #    d2k|rules/player.yaml
-    #    d2k|rules/world.yaml
-    #    d2k|rules/palettes.yaml
-    #    d2k|rules/defaults.yaml
-    #    d2k|rules/infantry.yaml
-    #    d2k|rules/vehicles.yaml
-    #    d2k|rules/aircraft.yaml
-    #    d2k|rules/structures.yaml
-    #    d2k|rules/starport.yaml
-    #    d2k|rules/husks.yaml
-    #    d2k|rules/arrakis.yaml
-    #########
 	# Custom Overrides for RedCraft modifications
-	redcraft|defaults.yaml #Overall rules that don't fall into below categories
-	redcraft|world-rules.yaml
-	redcraft|player-rules.yaml
-	redcraft|structure-rules.yaml
-	redcraft|infantry-rules.yaml
-	redcraft|vehicle-rules.yaml
-	redcraft|aircraft-rules.yaml
-	redcraft|ships-rules.yaml
-	redcraft|ai-rules.yaml
+	redcraft|rules/defaults-rules.yaml #Overall rules that don't fall into below categories
+	redcraft|rules/world-rules.yaml
+	redcraft|rules/player-rules.yaml
+	redcraft|rules/structure-rules.yaml
+	redcraft|rules/infantry-rules.yaml
+	redcraft|rules/vehicle-rules.yaml
+	redcraft|rules/aircraft-rules.yaml
+	redcraft|rules/ships-rules.yaml
+	redcraft|rules/ai-rules.yaml
 
 Sequences:
 	ra|sequences/ships.yaml

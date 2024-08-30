@@ -65,6 +65,10 @@ SCV:
         FacingTolerance: 0
     AttackMove:
     # PRODUCTION #
+    BaseProvider:
+        Range: 3c0
+    GivesBuildableArea:
+        AreaTypes: building
     Production@BUILDINGS:
         Produces: Building, Defense
     ProductionQueue@BUILDINGS:

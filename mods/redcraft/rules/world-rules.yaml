@@ -234,7 +234,7 @@ World:
     MapBuildRadius:
         AllyBuildRadiusCheckboxDisplayOrder: 4
         BuildRadiusCheckboxDisplayOrder: 5
-        BuildRadiusCheckboxEnabled: false
+        BuildRadiusCheckboxEnabled: true
         BuildRadiusCheckboxLocked: true
     MapOptions:
         ShortGameCheckboxDisplayOrder: 2

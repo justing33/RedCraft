@@ -304,8 +304,6 @@ TACTICAL-NUKE-SUPERWEAPON:
             Heavy: 100
             Concrete: 100
         DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
-    Warhead@2Res_impact: DestroyResource
-        Size: 1
     Warhead@3Smu_impact: LeaveSmudge
         SmudgeType: Scorch
         ValidTargets: Ground, Infantry
@@ -329,9 +327,6 @@ TACTICAL-NUKE-SUPERWEAPON:
             Heavy: 100
             Concrete: 100
         DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
-    Warhead@6Res_areanuke1: DestroyResource
-        Size: 2
-        Delay: 5
     Warhead@7Smu_areanuke1: LeaveSmudge
         SmudgeType: Scorch
         ValidTargets: Ground, Infantry
@@ -355,9 +350,6 @@ TACTICAL-NUKE-SUPERWEAPON:
             Heavy: 100
             Concrete: 100
         DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
-    Warhead@11Res_areanuke2: DestroyResource
-        Size: 3
-        Delay: 10
     Warhead@12Smu_areanuke2: LeaveSmudge
         SmudgeType: Scorch
         ValidTargets: Ground, Infantry
@@ -377,9 +369,6 @@ TACTICAL-NUKE-SUPERWEAPON:
             Heavy: 100
             Concrete: 100
         DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
-    Warhead@15Res_areanuke3: DestroyResource
-        Size: 4
-        Delay: 15
     Warhead@16Smu_areanuke3: LeaveSmudge
         SmudgeType: Scorch
         ValidTargets: Ground, Infantry
@@ -399,9 +388,6 @@ TACTICAL-NUKE-SUPERWEAPON:
             Heavy: 100
             Concrete: 100
         DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
-    Warhead@19Res_areanuke4: DestroyResource
-        Size: 5
-        Delay: 20
     Warhead@20Smu_areanuke4: LeaveSmudge
         SmudgeType: Scorch
         ValidTargets: Ground, Infantry

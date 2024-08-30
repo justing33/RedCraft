@@ -47,23 +47,22 @@ MedicHeal:
         ValidTargets: Heal
         DebugOverlayColor: 00FF00
 
-
 HellionFlamethrower:
     ValidTargets: Ground, Building, Structure, Infantry, Vehicle
     InvalidTargets: Air, AirborneActor
     ReloadDelay: 44
     Range: 5c0
-    Burst: 15
+    Burst: 8
     BurstDelays: 1
     Projectile: Bullet
-        Speed: 300
+        Speed: 600
         TrailImage: fb4
         Image: fb3
         LaunchAngle: 0
         Inaccuracy: 0
     Warhead@1Dam: SpreadDamage
-        Spread: 341
-        Damage: 8
+        Damage: 1
+        Falloff: 100, 100, 100, 100, 100
         ValidTargets: Ground, Building, Structure, Infantry, Vehicle
         InvalidTargets: Air, AirborneActor
         Versus:

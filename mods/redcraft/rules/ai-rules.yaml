@@ -1,22 +1,22 @@
 Player:
     BaseBuilderBotModule@normal:
-        ConstructionYardTypes: command-center
-        RefineryTypes: command-center
-        BarracksTypes: barracks_, command-center
-        VehiclesFactoryTypes: factory
-        ProductionTypes: command-center, barracks_, factory, starport, engineeringbay, ghostacademy
-        DefenseTypes: command-center
-        NavalProductionTypes: command-center
+        ConstructionYardTypes: command-center-construction-bldg
+        RefineryTypes: command-center-construction-bldg
+        BarracksTypes: barracks_-construction-bldg, command-center-construction-bldg
+        VehiclesFactoryTypes: factory-construction-bldg
+        ProductionTypes: command-center-construction-bldg, barracks_-construction-bldg, factory-construction-bldg, starport-construction-bldg, engineeringbay-construction-bldg, ghostacademy-construction-bldg
+        DefenseTypes: command-center-construction-bldg
+        NavalProductionTypes: command-center-construction-bldg
         BuildingLimits:
-            command-center: 0
+            command-center-construction-bldg: 0
         BuildingFractions:
-            barracks_: 40
-            factory: 40
-            starport: 40
-            bunker: 30
-            missileturret: 40
-            engineeringbay: 15
-            ghostacademy: 15
+            barracks_-construction-bldg: 40
+            factory-construction-bldg: 40
+            starport-construction-bldg: 40
+            bunker-construction-bldg: 30
+            missileturret-construction-bldg: 40
+            engineeringbay-construction-bldg: 15
+            ghostacademy-construction-bldg: 15
     SquadManagerBotModule@normal:
         RequiresCondition: enable-normal-ai
         SquadSize: 15
@@ -43,5 +43,9 @@ Player:
             banshee: 30
             medivac: 15
             viking: 30
+    CaptureManagerBotModule:
+        CapturingActorTypes: scv
+        CapturableActorTypes: command-center-construction-bldg, barracks_-construction-bldg, bunker-construction-bldg, factory-construction-bldg, starport-construction-bldg, engineeringbay-construction-bldg, ghostacademy-construction-bldg, missileturret-construction-bldg
+        CapturableRelationships: Ally
     #McvManagerBotModule:
     #    McvTypes: siegetank, command-center

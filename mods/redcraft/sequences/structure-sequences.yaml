@@ -1,28 +1,32 @@
-# Bunker
-# Based on Pill Box
-bunker:
+command-center:
     Defaults:
-        Filename: pbox.shp
+        Filename: dome.shp
     idle:
+        Offset: 0,-4
     damaged-idle:
         Start: 1
+        Offset: 0,-4
+    dead:
+        Filename: powrdead.shp
+        Tick: 800
     make:
-        Filename: pboxmake.shp
+        Filename: domemake.shp
         Length: *
-    muzzle:
-        Filename: minigun.shp
-        Length: 6
-        Facings: 8
-    bib:
-        TilesetFilenames:
-            SNOW: mbPBOX.sno
-            INTERIOR: mbPBOX.int
-            TEMPERAT: mbPBOX.tem
-            DESERT: mbPBOX.des
-        Length: *
-        Offset: 0,-2
+        # TODO: Does this remove the offset jumping?
+        Offset: 0,-4
+        # "Construction time"
+        Tick: 4800
     icon:
-        Filename: pboxicon.shp
+        Filename: domeicon.shp
+    turret:
+        Filename: gun.shp
+        Facings: 32
+    muzzle:
+        Filename: gunfire2.shp
+        Length: 5
+    command-center-orbital:
+        # Uses this to draw the orbital upgrade building extension
+        Filename: carr.shp
 
 scv:
     Defaults:
@@ -48,43 +52,6 @@ scv:
         Filename: e6icon.shp
         Start: 0
 
-# Command Center
-command-center:
-    Defaults:
-        Filename: dome.shp
-    idle:
-        Offset: 0,-4
-    damaged-idle:
-        Start: 1
-        Offset: 0,-4
-    dead:
-        Filename: powrdead.shp
-        Tick: 800
-    make:
-        Filename: domemake.shp
-        Length: *
-        # TODO: Does this remove the offset jumping?
-        #Offset: 0,-4
-        # "Construction time"
-        Tick: 4800
-    bib:
-        Filename: bib2.tem
-        TilesetFilenames:
-            SNOW: bib2.sno
-            DESERT: bib2.des
-        Length: *
-    icon:
-        Filename: domeicon.shp
-    turret:
-        Filename: gun.shp
-        Facings: 32
-    muzzle:
-        Filename: gunfire2.shp
-        Length: 5
-    command-center-orbital:
-        # Uses this to draw the orbital upgrade building extension
-        Filename: carr.shp
-
 # Command Center (Lifted Off)
 #command-center-air:
 #    idle:
@@ -100,7 +67,6 @@ command-center-orbital:
     icon:
         Filename: gpssicon.shp
 
-# Barracks
 barracks_:
     Defaults:
         Filename: barr.shp
@@ -115,21 +81,32 @@ barracks_:
         Filename: barrmake.shp
         Length: *
         Offset: 0,-6
-    bib:
-        Filename: bib3.tem
-        TilesetFilenames:
-            SNOW: bib3.sno
-            DESERT: bib3.des
-        Length: *
+        Tick: 3100
     icon:
         Filename: barricon.shp
+
+bunker:
+    Defaults:
+        Filename: pbox.shp
+    idle:
+    damaged-idle:
+        Start: 1
+    make:
+        Filename: pboxmake.shp
+        Length: *
+        Tick: 2000
+    muzzle:
+        Filename: minigun.shp
+        Length: 6
+        Facings: 8
+    icon:
+        Filename: pboxicon.shp
 
 # Barracks (Lifted Off)
 #barracks-air:
 #    idle:
 #        Filename: barr.shp
 
-# Factory
 factory:
     Defaults:
         Filename: weap.shp
@@ -142,6 +119,7 @@ factory:
     make:
         Filename: weapmake.shp
         Length: *
+        Tick: 2900
     build-top:
         Filename: weap3.shp
         Length: 10
@@ -149,12 +127,6 @@ factory:
         Filename: weap2.shp
         Start: 4
         Length: 4
-    bib:
-        Filename: bib2.tem
-        TilesetFilenames:
-            SNOW: bib2.sno
-            DESERT: bib2.des
-        Length: *
     icon:
         Filename: weapicon.shp
 
@@ -180,13 +152,6 @@ factory:
 #         Filename: silomake.shp
 #         Length: *
 #         Offset: 0,-1
-#     bib:
-#         TilesetFilenames:
-#             SNOW: mbSILO.sno
-#             INTERIOR: mbSILO.int
-#             TEMPERAT: mbSILO.tem
-#             DESERT: mbSILO.des
-#         Length: *
 #     icon:
 #         Filename: siloicon.shp
 
@@ -198,7 +163,6 @@ factory:
 #        Filename: weap3.shp
 #        Length: 1
 
-# Starport
 starport:
     Defaults:
         Filename: afld.shp
@@ -230,6 +194,7 @@ starport:
         Filename: afldmake.shp
         Length: *
         Offset: 0,-4
+        Tick: 2450
     icon:
         Filename: afldicon.shp
 
@@ -242,7 +207,6 @@ starport:
 #        ZOffset: -1023
 #        Offset: 0,-4
 
-#MISSILETURRET
 missileturret:
     idle: # Empty first frame (sammake has no empty frames). We need WithSpriteBody for the make anim, and WSB needs at least a placeholder default sequence to work
         Filename: gunmake.shp
@@ -261,50 +225,14 @@ missileturret:
         Filename: sammake.shp
         Length: *
         Offset: -1,-2
+        Tick: 1250
     muzzle:
         Filename: samfire.shp
         Length: 18
         Facings: 8
         Offset: -1,6
-    bib:
-        TilesetFilenames:
-            SNOW: mbSAM.sno
-            INTERIOR: mbSAM.int
-            TEMPERAT: mbSAM.tem
-            DESERT: mbSAM.des
-        Length: *
-        Offset: 0,1
     icon:
         Filename: samicon.shp
-
-ghostacademy:
-    Defaults:
-        Filename: atek.shp
-    idle:
-    damaged-idle:
-        Start: 1
-    make:
-        Filename: atekmake.shp
-        Length: *
-    active:
-        Filename: sputdoor.shp
-        Length: *
-        Offset: -4,0
-    bib:
-        Filename: bib3.tem
-        TilesetFilenames:
-            SNOW: bib3.sno
-            DESERT: bib3.des
-        Length: *
-    icon:
-        Filename: atekicon.shp
-    fake-icon:
-        Filename: ateficon.shp
-
-# Tactical Nuke (Built)
-tactical-nuke:
-    icon:
-        Filename: atomicon.shp
 
 engineeringbay:
     Defaults:
@@ -315,14 +243,33 @@ engineeringbay:
     make:
         Filename: stekmake.shp
         Length: *
-    bib:
-        Filename: bib2.tem
-        TilesetFilenames:
-            SNOW: bib2.sno
-            DESERT: bib2.des
-        Length: *
+        Tick: 1700
     icon:
         Filename: stekicon.shp
+
+ghostacademy:
+    Defaults:
+        Filename: atek.shp
+    idle:
+    damaged-idle:
+        Start: 1
+    make:
+        Filename: atekmake.shp
+        Length: *
+        Tick: 1975
+    active:
+        Filename: sputdoor.shp
+        Length: *
+        Offset: -4,0
+    icon:
+        Filename: atekicon.shp
+    fake-icon:
+        Filename: ateficon.shp
+
+# Tactical Nuke (Built)
+tactical-nuke:
+    icon:
+        Filename: atomicon.shp
 
 auto-turret:
     Defaults:
@@ -451,3 +398,164 @@ command-center-construction-bldg:
         Tick: 1
     icon:
         Filename: domeicon.shp
+
+bunker-construction-bldg:
+    Defaults:
+        Filename: pbox.shp
+    idle:
+        Filename: pboxmake.shp
+        Start: 3
+        Length: 1
+        Offset: 0,-4
+    damaged-idle:
+        Start: 1
+    make:
+        Filename: pboxmake.shp
+        Length: *
+        Tick: 1
+    icon:
+        Filename: pboxicon.shp
+
+barracks_-construction-bldg:
+    Defaults:
+        Filename: barr.shp
+    idle:
+        Filename: barrmake.shp
+        Start: 4
+        Length: 1
+        Offset: 0,-6
+    damaged-idle:
+        Start: 10
+        Length: 10
+        Offset: 0,-6
+    make:
+        Filename: barrmake.shp
+        Length: *
+        Offset: 0,-6
+        Tick: 1
+    icon:
+        Filename: barricon.shp
+
+factory-construction-bldg:
+    Defaults:
+        Filename: weap.shp
+    idle:
+        Filename: weapmake.shp
+        Start: 1
+        Length: 1
+    damaged-idle:
+        Start: 1
+    place:
+        Filename: weapmake.shp
+        Start: 14
+    make:
+        Filename: weapmake.shp
+        Length: *
+        Tick: 1
+    #    build-top:
+    #        Filename: weap3.shp
+    #        Length: 10
+    #    damaged-build-top:
+    #        Filename: weap2.shp
+    #        Start: 4
+    #        Length: 4
+    icon:
+        Filename: weapicon.shp
+
+starport-construction-bldg:
+    Defaults:
+        Filename: afld.shp
+    idle:
+        Filename: afldmake.shp
+        Start: 1
+        Length: 1
+        Tick: 160
+        ZOffset: -1023
+        Offset: 0,-4
+    damaged-idle:
+        Filename: afldidle.shp
+        Start: 8
+        Length: 8
+        Tick: 160
+        ZOffset: -1023
+        Offset: 0,-4
+    active:
+        Length: 8
+        Tick: 160
+        ZOffset: -1023
+        Offset: 0,-4
+    damaged-active:
+        Start: 8
+        Length: 8
+        Tick: 160
+        ZOffset: -1023
+        Offset: 0,-4
+    make:
+        Filename: afldmake.shp
+        Length: *
+        Offset: 0,-4
+        Tick: 1
+    icon:
+        Filename: afldicon.shp
+
+missileturret-construction-bldg:
+    idle: # Empty first frame (sammake has no empty frames). We need WithSpriteBody for the make anim, and WSB needs at least a placeholder default sequence to work
+        Filename: sammake.shp
+        Start: 6
+        Length: 1
+    #    turret:
+    #        Filename: sam2.shp
+    #        Facings: 32
+    #        UseClassicFacings: True
+    #        Offset: -1,-2
+    #    damaged-turret:
+    #        Filename: sam2.shp
+    #        Start: 34
+    #        Facings: 32
+    #        UseClassicFacings: True
+    #        Offset: -1,-2
+    make:
+        Filename: sammake.shp
+        Length: *
+        Offset: -1,-2
+        Tick: 1
+    icon:
+        Filename: samicon.shp
+
+engineeringbay-construction-bldg:
+    Defaults:
+        Filename: stek.shp
+    idle:
+        Filename: stekmake.shp
+        Start: 4
+        Length: 1
+    damaged-idle:
+        Start: 1
+    make:
+        Filename: stekmake.shp
+        Length: *
+        Tick: 1
+    icon:
+        Filename: stekicon.shp
+
+ghostacademy-construction-bldg:
+    Defaults:
+        Filename: atek.shp
+    idle:
+        Filename: atekmake.shp
+        Start: 5
+        Length: 1
+    damaged-idle:
+        Start: 1
+    make:
+        Filename: atekmake.shp
+        Length: *
+        Tick: 1
+    active:
+        Filename: sputdoor.shp
+        Length: *
+        Offset: -4,0
+    icon:
+        Filename: atekicon.shp
+    fake-icon:
+        Filename: ateficon.shp

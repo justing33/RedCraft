@@ -192,9 +192,9 @@ WidowMineSentinelMissile:
     TargetActorCenter: true
     Projectile: Bullet
         ContrailLength: 30
-        Speed: 300
+        Speed: 600
         Blockable: false
-        LaunchAngle: 62
+        LaunchAngle: 0
         Inaccuracy: 0c0
     Warhead@1Dam: SpreadDamage
         Spread: 426

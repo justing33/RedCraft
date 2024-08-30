@@ -325,12 +325,12 @@ EditorWorld:
                 ResourceIndex: 1
                 TerrainType: Gems
                 AllowedTerrainTypes: Clear, Road
-                MaxDensity: 1200
+                MaxDensity: 750
             Gems:
                 ResourceIndex: 2
                 TerrainType: Gems
                 AllowedTerrainTypes: Clear, Road
-                MaxDensity: 1200
+                MaxDensity: 750
     EditorSelectionLayer:
     LoadWidgetAtGameStart:
     EditorActionManager:

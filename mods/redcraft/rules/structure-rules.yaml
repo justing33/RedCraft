@@ -233,14 +233,8 @@ COMMAND-CENTER:
         UnitTypes: MULE-DROP-POD
         CameraActor: camera
     RenderSprites:
-    # Note: Buildings don't list AirborneActor as targetable,
-    #       but the weapon can be configured to shoot buildings
-    Targetable:
-        TargetTypes: GroundActor, Structure, Defense
-    #
     #TODO: Disabling until can figure out how to have Transforms with a separate 'Make' sequence
     # with the new SCV building (capturing) feature
-    #
     #Transforms:
     #    PauseOnCondition: being-demolished || build-incomplete
     #    IntoActor: command-center-air
@@ -341,8 +335,6 @@ BARRACKS_:
         RequiresCondition: !under-construction
     Power:
         Amount: -0
-    Targetable:
-        TargetTypes: GroundActor, Structure, Defense
     #Transforms:
     #    PauseOnCondition: being-demolished || build-incomplete
     #    IntoActor: barracks-air
@@ -409,8 +401,6 @@ BUNKER:
         FallbackRange: 6c0
     Power:
         Amount: -0
-    Targetable:
-        TargetTypes: GroundActor, Structure, Defense
     MustBeDestroyed:
         RequiredForShortGame: true
 
@@ -479,8 +469,6 @@ FACTORY:
         RequiresCondition: !under-construction
     Power:
         Amount: -0
-    Targetable:
-        TargetTypes: GroundActor, Structure, Defense
     #Transforms:
     #    PauseOnCondition: being-demolished || build-incomplete
     #    IntoActor: factory-air
@@ -551,8 +539,6 @@ STARPORT:
     ProvidesPrerequisite:
         Prerequisite: starport
         RequiresCondition: !under-construction
-    Targetable:
-        TargetTypes: GroundActor, Structure, Defense
     #Transforms:
     #    PauseOnCondition: being-demolished || build-incomplete
     #    IntoActor: starport-air
@@ -736,8 +722,6 @@ GHOSTACADEMY:
         Type: Ship
         PayUpFront: true
     SupportPowerChargeBar:
-    Targetable:
-        TargetTypes: GroundActor, Infantry, Vehicle, AirborneActor, Structure, Defense
     Power:
         Amount: -0
     ProvidesPrerequisite@buildingname:
@@ -842,8 +826,6 @@ AUTO-TURRET:
     Power:
         Amount: -0
     -MustBeDestroyed:
-    Targetable:
-        TargetTypes: GroundActor, Structure, Defense
 
 ##### UPGRADES #####
 
@@ -1220,13 +1202,13 @@ WEAP:
 STEK:
     -Buildable:
     Tooltip:
-        Name: Engineering Bay
+        Name: Soviet Tech Center
 
 # Allied Tech Center
 ATEK:
     -Buildable:
     Tooltip:
-        Name: Ghost Academy
+        Name: Allied Tech Center
 
 # Soviet Airfield
 AFLD:
@@ -1629,8 +1611,6 @@ COMMAND-CENTER-CONSTRUCTION-BLDG:
         Range: 11c0
         RevealGeneratedShroud: true
     RenderSprites:
-    Targetable:
-        TargetTypes: GroundActor, Structure, Defense
     TransformOnCapture:
         IntoActor: command-center
         # Start at low health to then "heal" as construction occurs
@@ -1716,8 +1696,6 @@ BARRACKS_-CONSTRUCTION-BLDG:
         AllowMultiple: false
     Power:
         Amount: -0
-    Targetable:
-        TargetTypes: GroundActor, Structure, Defense
     #Transforms:
     #    PauseOnCondition: being-demolished || build-incomplete
     #    IntoActor: barracks-air
@@ -1760,8 +1738,6 @@ BUNKER-CONSTRUCTION-BLDG:
     RevealsShroud:
         Range: 10c0
         RevealGeneratedShroud: true
-    Targetable:
-        TargetTypes: GroundActor, Structure, Defense
     MustBeDestroyed:
         RequiredForShortGame: true
     TransformOnCapture:
@@ -1810,8 +1786,6 @@ FACTORY-CONSTRUCTION-BLDG:
     #    Sequence: build-top
     CommandBarBlacklist:
         DisableStop: false
-    Targetable:
-        TargetTypes: GroundActor, Structure, Defense
     #Transforms:
     #    PauseOnCondition: being-demolished || build-incomplete
     #    IntoActor: factory-air
@@ -1867,8 +1841,6 @@ STARPORT-CONSTRUCTION-BLDG:
         RevealGeneratedShroud: true
     CommandBarBlacklist:
         DisableStop: false
-    Targetable:
-        TargetTypes: GroundActor, Structure, Defense
     #Transforms:
     #    PauseOnCondition: being-demolished || build-incomplete
     #    IntoActor: starport-air
@@ -2035,8 +2007,6 @@ GHOSTACADEMY-CONSTRUCTION-BLDG:
         Type: Ship
         PayUpFront: true
     SupportPowerChargeBar:
-    Targetable:
-        TargetTypes: GroundActor, Infantry, Vehicle, AirborneActor, Structure, Defense
     Power:
         Amount: -0
     MustBeDestroyed:

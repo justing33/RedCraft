@@ -557,8 +557,6 @@ WIDOWMINE:
         RevealGeneratedShroud: False
     RevealsShroud@GAPGEN:
         Range: 4c0
-    Targetable:
-        TargetTypes: Ground, Infantry, Vehicle, Air, AirborneActor
     Passenger:
         Weight: 2
 

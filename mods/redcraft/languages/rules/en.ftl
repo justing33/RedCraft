@@ -577,6 +577,10 @@ actor-missileturret =
    Detects cloaked units
    .name = Missile Turret
 
+actor-engineeringbay =
+   .description = Research center for upgrades
+   .name = Engineering Bay
+
 actor-ghostacademy =
    .description = Provides Ghost unit to Barracks
    Research upgrades for Ghosts and build Nukes
@@ -587,9 +591,10 @@ actor-tactical-nuke =
    .description = A devastating nuclear strike dealing large area of effect damage
     Individual nuke instances can be built and used independently
 
-actor-engineeringbay =
-   .description = Research center for upgrades
-   .name = Engineering Bay
+actor-auto-turret =
+   .name = Auto Turret (Raven)
+   .description = Temporary immobile defensive structure deployed by Raven
+   Automatically attacks ground and air units and structures within range
 
 actor-mslo =
    .name = Missile Silo

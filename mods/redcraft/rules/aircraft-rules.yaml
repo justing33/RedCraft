@@ -292,33 +292,34 @@ RAVEN:
         Color: 0000FF80
     Selectable:
         DecorationBounds: 1621, 1365
-    #GivesBuildableArea:
-    #    AreaTypes: building
-    #Production:
-    #    Produces: Raven
-    #    RequiresCondition: auto-turret-enabled
-    #ProductionQueue:
-    #    Type: Raven
-    #    # TODO: Figure out how to limit the amount of turrets to be built later
-    #    # Deciding to for now make the ability to place turrets a time limited thing
-    #    # so it isn't totally overpowered ability
-    #    #ItemLimit: 3
-    #    #QueueLimit: 1
-    #ProductionBar:
-    #    ProductionType: Raven
-    #GrantPrerequisiteChargeDrainPower:
-    #    Name: AutoTurret
-    #    Description: TBD
-    #    ChargeInterval: 100
-    #    DischargeModifier: 50
-    #    Prerequisite: deploy-auto-turret
-    #    Icon: auto-turret
-    #    #AllowMultiple: true
-    #ProvidesPrerequisite:
-    #    Prerequisite: raven
-    #GrantConditionOnPrerequisite:
-    #    Condition: auto-turret-enabled
-    #    Prerequisites: deploy-auto-turret
+    # TODO: Figure out how to limit the amount of turrets to be built later
+    # Deciding to for now make the ability to place turrets a time limited thing
+    # so it isn't totally overpowered ability
+    BaseProvider:
+        Range: 5c0
+    GivesBuildableArea:
+        AreaTypes: building
+    Production:
+        Produces: Raven
+        RequiresCondition: auto-turret-enabled
+    ProductionQueue:
+        Type: Raven
+    ProductionBar:
+        ProductionType: Raven
+    GrantPrerequisiteChargeDrainPower:
+        Name: actor-auto-turret.name
+        Description: actor-auto-turret.description
+        ChargeInterval: 100
+        DischargeModifier: 50
+        Prerequisite: deploy-auto-turret
+        Icon: auto-turret
+        # Consider adding back in for one ability per Raven if not micro-intensive to deal with
+        #AllowMultiple: true
+    ProvidesPrerequisite:
+        Prerequisite: raven
+    GrantConditionOnPrerequisite:
+        Condition: auto-turret-enabled
+        Prerequisites: deploy-auto-turret
 
 BATTLECRUISER:
     Inherits: ^Helicopter

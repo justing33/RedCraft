@@ -415,7 +415,29 @@ TACTICAL-NUKE-SUPERWEAPON:
         Duration: 20
         FlashType: Nuke
 
-#Note: Needed for Drop Pods
+AUTO-TURRET-12MM-GAUSSCANNON:
+    ReloadDelay: 15
+    Range: 6c0
+    Report: gun13.aud
+    ValidTargets: Ground, GroundActor, Building, Structure, Air, AirborneActor
+    Projectile: InstantHit
+        Blockable: false
+    Warhead@1Dam: SpreadDamage
+        Spread: 128
+        Damage: 18
+        ValidTargets: Ground, GroundActor, Building, Structure, Air, AirborneActor
+        Versus:
+            None: 100
+            Wood: 100
+            Light: 100
+            Heavy: 100
+            Concrete: 100
+        DamageTypes: Prone50Percent, TriggerProne, BulletDeath
+    Warhead@2Eff: CreateEffect
+        Explosions: piffs
+        ValidTargets: Ground, GroundActor, Building
+
+#Note: Needed for Drop Pods but not used otherwise
 Vulcan2:
     ValidTargets: Ground, Building, Structure, Infantry, Vehicle
     InvalidTargets: Air, AirborneActor

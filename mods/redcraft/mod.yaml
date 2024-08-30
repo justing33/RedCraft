@@ -115,6 +115,7 @@ Cursors:
 
 Chrome:
 	ra|chrome.yaml
+    # TODO: Add back in later once figured out
 	#redcraft|chrome.yaml
 
 Assemblies:

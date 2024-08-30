@@ -31,7 +31,7 @@ SCV:
         BaleUnloadDelay: 0
         BaleUnloadAmount: 99
         SearchForDeliveryBuildingDelay: 0
-        SearchFromProcRadius: 200
+        SearchFromProcRadius: 20
         SearchFromHarvesterRadius: 100
         WaitDuration: 0
         FullyLoadedSpeed: 100
@@ -66,7 +66,7 @@ SCV:
     AttackMove:
     # PRODUCTION #
     BaseProvider:
-        Range: 3c0
+        Range: 5c0
     GivesBuildableArea:
         AreaTypes: building
     Production@BUILDINGS:
@@ -113,7 +113,7 @@ MULE:
         BaleUnloadDelay: 0
         BaleUnloadAmount: 99
         SearchForDeliveryBuildingDelay: 0
-        SearchFromProcRadius: 200
+        SearchFromProcRadius: 20
         SearchFromHarvesterRadius: 100
         WaitDuration: 0
         FullyLoadedSpeed: 100

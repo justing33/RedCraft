@@ -139,6 +139,8 @@ COMMAND-CENTER:
         Actors: COMMAND-CENTER-ORBITAL
     GrantExternalConditionToProduced:
         Condition: produced
+    RallyPoint:
+        ForceSetType: Ship
     BaseBuilding:
     Exit@1:
         ExitCell: 0,0

@@ -35,6 +35,14 @@ options-starting-units =
 resource-minerals = Valuable Minerals
 
 ## Faction
+faction-terran =
+    .name = Terran
+    .description = Terran: Human faction specializing in defensive structures TBD
+
+faction-protoss =
+    .name = Protoss
+    .description = Protoss: Robotic Aliens TBD
+
 faction-allies =
     .name = Allies
 

@@ -113,59 +113,6 @@
         FogVariants: shroud
         Index: 255, 16, 32, 48, 64, 80, 96, 112, 128, 144, 160, 176, 192, 208, 224, 240, 20, 40, 56, 65, 97, 130, 148, 194, 24, 33, 66, 132, 28, 41, 67, 134, 1, 2, 4, 8, 3, 6, 12, 9, 7, 14, 13, 11, 5, 10, 15, 255
         UseExtendedIndex: true
-    Faction@allies:
-        Name: faction-allies.name
-        InternalName: allies
-        Side: Allies
-        Selectable: False
-    Faction@england:
-        Name: faction-england.name
-        InternalName: england
-        Side: Allies
-        Description: faction-england.description
-    Faction@france:
-        Name: faction-france.name
-        InternalName: france
-        Side: Allies
-        Description: faction-france.description
-    Faction@germany:
-        Name: faction-germany.name
-        InternalName: germany
-        Side: Allies
-        Description: faction-germany.description
-    Faction@soviet:
-        Name: faction-soviet.name
-        InternalName: soviet
-        Side: Soviet
-        Selectable: False
-    Faction@russia:
-        Name: faction-russia.name
-        InternalName: russia
-        Side: Soviet
-        Description: faction-russia.description
-    Faction@ukraine:
-        Name: faction-ukraine.name
-        InternalName: ukraine
-        Side: Soviet
-        Description: faction-ukraine.description
-    Faction@random:
-        Name: faction-random.name
-        InternalName: Random
-        RandomFactionMembers: RandomAllies, RandomSoviet
-        Side: Random
-        Description: faction-random.description
-    Faction@randomallies:
-        Name: faction-randomallies.name
-        InternalName: RandomAllies
-        RandomFactionMembers: england, france, germany
-        Side: Random
-        Description: faction-randomallies.description
-    Faction@randomsoviet:
-        Name: faction-randomsoviet.name
-        InternalName: RandomSoviet
-        RandomFactionMembers: russia, ukraine
-        Side: Random
-        Description: faction-randomsoviet.description
     ResourceRenderer:
         ResourceTypes:
             Ore:
@@ -243,44 +190,6 @@ World:
         ShortGameCheckboxEnabled: false
         ShortGameCheckboxLocked: true
     CreateMapPlayers:
-    StartingUnits@mcvonly:
-        Class: none
-        ClassName: options-starting-units.mcv-only
-        Factions: allies, england, france, germany, soviet, russia, ukraine
-        BaseActor: command-center
-        SupportActors: scv, scv, scv, scv, scv
-    StartingUnits@lightallies:
-        Class: light
-        ClassName: options-starting-units.light-support
-        Factions: allies, england, france, germany
-        BaseActor: mcv
-        SupportActors: e1,e1,e1,e3,e3,jeep,1tnk
-        InnerSupportRadius: 3
-        OuterSupportRadius: 5
-    StartingUnits@lightsoviet:
-        Class: light
-        ClassName: options-starting-units.light-support
-        Factions: soviet, russia, ukraine
-        BaseActor: mcv
-        SupportActors: e1,e1,e1,e3,e3,apc,ftrk
-        InnerSupportRadius: 3
-        OuterSupportRadius: 5
-    StartingUnits@heavyallies:
-        Class: heavy
-        ClassName: options-starting-units.heavy-support
-        Factions: allies, england, france, germany
-        BaseActor: mcv
-        SupportActors: e1,e1,e1,e3,e3,jeep,1tnk,2tnk,2tnk,2tnk
-        InnerSupportRadius: 3
-        OuterSupportRadius: 5
-    StartingUnits@heavysoviet:
-        Class: heavy
-        ClassName: options-starting-units.heavy-support
-        Factions: soviet, russia, ukraine
-        BaseActor: mcv
-        SupportActors: e1,e1,e1,e3,e3,apc,ftrk,3tnk,3tnk
-        InnerSupportRadius: 3
-        OuterSupportRadius: 5
     MapStartingLocations:
         SeparateTeamSpawnsCheckboxDisplayOrder: 6
     SpawnStartingUnits:

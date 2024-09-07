@@ -81,12 +81,24 @@ Rules:
 	redcraft|rules/defaults-rules.yaml #Overall rules that don't fall into below categories
 	redcraft|rules/world-rules.yaml
 	redcraft|rules/player-rules.yaml
-	redcraft|rules/structure-rules.yaml
-	redcraft|rules/infantry-rules.yaml
-	redcraft|rules/vehicle-rules.yaml
-	redcraft|rules/aircraft-rules.yaml
-	redcraft|rules/ships-rules.yaml
 	redcraft|rules/ai-rules.yaml
+	redcraft|rules/structure-rules.yaml
+	redcraft|rules/aircraft-rules.yaml
+	redcraft|rules/vehicle-rules.yaml
+	redcraft|rules/infantry-rules.yaml
+	redcraft|rules/ships-rules.yaml
+    # TERRAN
+	redcraft|rules/terran/terran-structures.yaml
+	redcraft|rules/terran/terran-aircraft.yaml
+	redcraft|rules/terran/terran-vehicles.yaml
+	redcraft|rules/terran/terran-infantry.yaml
+	redcraft|rules/terran/terran-upgrades.yaml
+    # PROTOSS
+	redcraft|rules/protoss/protoss-structures.yaml
+	redcraft|rules/protoss/protoss-aircraft.yaml
+	redcraft|rules/protoss/protoss-vehicles.yaml
+	redcraft|rules/protoss/protoss-infantry.yaml
+	redcraft|rules/protoss/protoss-upgrades.yaml
 
 Sequences:
 	ra|sequences/ships.yaml

@@ -326,48 +326,6 @@ tent:
     icon:
     fake-icon:
 
-#nexus:
-#    idle:
-#        Filename: DATA.R16
-#        Start: 2924
-#        Offset: -48,48
-#        Remap: 54F94B
-#    active:
-#        Filename: DATA.R16
-#        Start: 2924
-#        Offset: -48,48
-#    make:
-#        Filename: DATA.R16
-#        Start: 4677
-#        Length: 13
-#        Offset: -48,48
-#        Remap: 54F94B
-#    crumble-overlay:
-#        Filename: DATA.R16
-#        Start: 4690
-#        Length: 10
-#        Offset: -48,48
-#        Tick: 100
-#    damaged-idle:
-#        Filename: DATA.R16
-#        Start: 2925
-#        Offset: -48,48
-#        Remap: 54F94B
-#    bib:
-#        Filename: BLOXBASE.R16
-#        Frames: 631, 632, 633
-#        Length: 3
-#        Offset: -16,-16
-#    bib-Concrete:
-#        Filename: BLOXBASE.R16
-#        Frames: 663, 664, 665
-#        Length: 3
-#        Offset: -16,-16
-#    icon:
-#        Filename: DATA.R16
-#        Start: 4366
-#        Offset: -30,-24
-
 ###############################
 # BUILDING INITIAL STRUCTURES #
 ###############################
@@ -583,3 +541,59 @@ ghostacademy-construction-bldg:
         Filename: atekicon.shp
     fake-icon:
         Filename: ateficon.shp
+
+#### PROTOSSS ####
+nexus:
+    Defaults:
+        Filename: spen.shp
+    idle:
+        Offset: 0,2
+    damaged-idle:
+        Start: 1
+        Offset: 0,2
+    make:
+        Filename: stealth2.shp
+        Length: *
+        Offset: 0,2
+        Tick: 4800
+    icon:
+        Filename: spenicon.shp
+    fake-icon:
+        Filename: speficon.shp
+
+nexus-construction-bldg:
+    Defaults:
+        Filename: spen.shp
+    idle:
+        Filename: spenmake.shp
+        Offset: 0,2
+        Start: 5
+        Length: 1
+    damaged-idle:
+        Start: 1
+        Offset: 0,2
+    make:
+        Filename: spenmake.shp
+        Length: *
+        Offset: 0,2
+        Tick: 1
+    icon:
+        Filename: spenicon.shp
+    fake-icon:
+        Filename: speficon.shp
+
+probe:
+    idle:
+        Filename: ftnk.shp
+        Facings: 32
+        UseClassicFacings: True
+    icon:
+        Filename: speficon.shp
+    stand:
+        Filename: ftnk.shp
+        Facings: 32
+        UseClassicFacings: True
+    run:
+        Filename: ftnk.shp
+        Facings: 32
+        UseClassicFacings: True

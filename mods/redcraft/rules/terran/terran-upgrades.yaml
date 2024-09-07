@@ -1,0 +1,81 @@
+##### UPGRADES #####
+
+COMMAND-CENTER-PLANETARYFORTRESS:
+    Buildable:
+        BuildPaletteOrder: 30
+        Prerequisites: engineeringbay
+        Queue: Defense
+        BuildDuration: 1500
+        Description: actor-command-center-planetaryfortress.description
+    Valued:
+        # Cost: 150
+        Cost: 300
+        # Oil: 150
+    Interactable:
+    AlwaysVisible:
+    RenderSprites:
+    Tooltip:
+        Name: actor-command-center-planetaryfortress.name
+    KillsSelf:
+        RemoveInstead: true
+    MustBeDestroyed:
+        RequiredForShortGame: true
+
+COMMAND-CENTER-ORBITAL:
+    Buildable:
+        BuildPaletteOrder: 20
+        Prerequisites: barracks_
+        Queue: Defense
+        BuildDuration: 1025
+        Description: actor-command-center-orbital.description
+    Valued:
+        Cost: 150
+    Interactable:
+    AlwaysVisible:
+    RenderSprites:
+    Tooltip:
+        Name: actor-command-center-orbital.name
+    KillsSelf:
+        RemoveInstead: true
+    MustBeDestroyed:
+        RequiredForShortGame: true
+
+SIEGE-MODE-UPGRADE:
+    Buildable:
+        BuildPaletteOrder: 50
+        Prerequisites: factory
+        Queue: EngineeringBayUpgrades
+        BuildDuration: 3300
+        Description: Research Siege Mode for Siege Tanks
+        BuildLimit: 1
+    ProvidesPrerequisite:
+        Prerequisite: can-siege
+    Valued:
+        # Cost: 150
+        Cost: 300
+        # Oil: 150
+    Tooltip:
+        Name: Siege Mode Research Item
+    Interactable:
+    AlwaysVisible:
+    RenderSprites:
+
+STIMPACK-UPGRADE:
+    Buildable:
+        BuildPaletteOrder: 30
+        Prerequisites: barracks_, engineeringbay
+        Queue: EngineeringBayUpgrades
+        BuildDuration: 4150
+        Description: Research Stimpack for Infantry Units
+        BuildLimit: 1
+    ProvidesPrerequisite:
+        Prerequisite: can-stimpack
+    Valued:
+        # Cost: 100
+        Cost: 200
+        # Oil: 100
+    Tooltip:
+        Name: Stimpack Research Item
+    Interactable:
+    AlwaysVisible:
+    RenderSprites:

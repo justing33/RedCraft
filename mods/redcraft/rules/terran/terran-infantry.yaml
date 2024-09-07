@@ -1,0 +1,397 @@
+MARINE:
+    Inherits: ^Soldier
+    AutoTarget:
+    AutoTargetPriority@ATTACKGROUNDUNITSFIRST:
+        Priority: 2
+        ValidTargets: Infantry, Vehicle, Air, AirborneActor, Building
+        InvalidTargets: NoAutoTarget
+    AutoTargetPriority@ATTACKBUILDINGSSECOND:
+        Priority: 1
+        ValidTargets: Structure
+        InvalidTargets: NoAutoTarget
+    Buildable:
+        Queue: Infantry
+        BuildDuration: 750
+        BuildAtProductionType: Soldier
+        BuildPaletteOrder: 10
+        Prerequisites: barracks_
+        Description: actor-marine.description
+    Valued:
+        Cost: 50
+        # Supply: 1
+    Tooltip:
+        Name: actor-marine.name
+    UpdatesPlayerStatistics:
+        AddToArmyValue: true
+    RevealsShroud:
+        Range: 9c0
+    Mobile:
+        Speed: 78
+        AlwaysTurnInPlace: true
+        Locomotor: foot
+    Health:
+        HP: 45
+    Armor:
+        Type: Biological
+    Armament@PRIMARY:
+        Weapon: MarineC14GaussRifle
+    Armament@GARRISONED:
+        Name: garrisoned
+        Weapon: MarineC14GaussRifle
+        MuzzleSequence: garrison-muzzle
+            # 50% movement speed increase
+            SpeedMultiplier:
+                Modifier: 150
+                RequiresCondition: stimmed
+            # 50% damage increase
+            FirepowerMultiplier:
+                Modifier: 150
+                RequiresCondition: stimmed
+            ChangesHealth:
+                # 11 seconds cooldown, to match the length of time stimpack is active so each stim causes damage to units
+                DamageCooldown: 275
+                # Always reduce HP
+                StartIfBelow: 200
+                RequiresCondition: stimmed
+                # 10 HP health reduced on stimpack use
+                Step: -10
+                PercentageStep: -1
+            GrantConditionOnPrerequisite:
+                Condition: stimmed
+                Prerequisites: stimpack-activated
+    WithInfantryBody:
+        DefaultAttackSequence: shoot
+        RequiresCondition: !parachute
+    Passenger:
+        CargoType: Infantry
+        Weight: 1
+
+MARAUDER:
+    Inherits: ^Soldier
+        AutoTarget:
+        AutoTargetPriority@ATTACKGROUNDUNITSFIRST:
+            Priority: 2
+            ValidTargets: Infantry, Vehicle, Building
+            InvalidTargets: NoAutoTarget
+        AutoTargetPriority@ATTACKBUILDINGSSECOND:
+            Priority: 1
+            ValidTargets: Structure
+            InvalidTargets: NoAutoTarget
+    Buildable:
+        Queue: Infantry
+        BuildDuration: 850
+        BuildAtProductionType: Soldier
+        BuildPaletteOrder: 30
+        Prerequisites: barracks_
+        Description: actor-marauder.description
+    Selectable:
+        Class: E3
+    Valued:
+        # Cost: 100
+        Cost: 125
+          # Oil: 25
+        # Supply: 2
+    Tooltip:
+        Name: actor-marauder.name
+    UpdatesPlayerStatistics:
+        AddToArmyValue: true
+            RevealsShroud:
+                Range: 10c0
+            Mobile:
+                Speed: 78
+                AlwaysTurnInPlace: true
+                Locomotor: foot
+    Health:
+        HP: 125
+    Armament@PRIMARY:
+        Weapon: MarauderPunisherGrenade
+        LocalOffset: 0,0,555
+    Armament@GARRISONED:
+        Name: garrisoned
+        Weapon: MarauderPunisherGrenade
+            # 50% movement speed increase
+            SpeedMultiplier:
+                Modifier: 150
+                RequiresCondition: stimmed
+            # 50% damage increase
+            FirepowerMultiplier:
+                Modifier: 150
+                RequiresCondition: stimmed
+            ChangesHealth:
+                # 11 seconds cooldown, to match the length of time stimpack is active so each stim causes damage to units
+                DamageCooldown: 275
+                # Always reduce HP
+                StartIfBelow: 200
+                RequiresCondition: stimmed
+                # 10 HP health reduced on stimpack use
+                Step: -10
+                PercentageStep: -1
+            GrantConditionOnPrerequisite:
+                Condition: stimmed
+                Prerequisites: stimpack-activated
+    WithInfantryBody:
+        DefaultAttackSequence: shoot
+        RequiresCondition: !parachute
+    AutoTarget:
+        ScanRadius: 5
+            Passenger:
+                CargoType: Infantry
+                Weight: 2
+
+REAPER:
+    Inherits: ^Soldier
+    AutoTarget:
+    AutoTargetPriority@ATTACKGROUNDUNITSFIRST:
+        Priority: 2
+        ValidTargets: Infantry, Vehicle, Building
+        InvalidTargets: NoAutoTarget
+    AutoTargetPriority@ATTACKBUILDINGSSECOND:
+        Priority: 1
+        ValidTargets: Structure
+        InvalidTargets: NoAutoTarget
+    Buildable:
+        Queue: Infantry
+        BuildDuration: 1325
+        BuildAtProductionType: Soldier
+        BuildPaletteOrder: 40
+        Prerequisites: barracks_
+        Description: actor-reaper.description
+    Valued:
+        # Cost: 50
+        Cost: 100
+        # Oil: 50
+        # Supply: 1
+    Tooltip:
+        Name: actor-reaper.name
+    UpdatesPlayerStatistics:
+        AddToArmyValue: true
+    Health:
+        HP: 60
+    ChangesHealth:
+        Step: 1
+        # Time to wait inbetween ticks
+        Delay: 50
+        StartIfBelow: 100
+        # Wait time in ticks after taking damage
+        DamageCooldown: 250
+    Mobile:
+        Speed: 131
+        AlwaysTurnInPlace: true
+    #    Locomotor: jumpjet
+    #    Hovers:
+    #        #BobDistance: 3c0
+    #        #Ticks: 25
+    #        FallTicks: 75
+    #        RiseTicks: 75
+    #        InitialHeight: 2c0
+    #        #RequiresCondition: airborne
+    #    GrantConditionOnJumpjetLayer:
+    #        Condition: airborne
+    # TODO: Make reapers jump cliffs
+    RevealsShroud:
+        Range: 9c0
+    # TODO: Add grenade AOE attack
+    Armament@PRIMARY:
+        Weapon: ReaperP45GaussPistol
+        LocalOffset: 0,0,555
+        FireDelay: 5
+    # TODO: Add KD8 Charge Grenade ability
+    Armament@GARRISONED:
+        Name: garrisoned
+        Weapon: ReaperP45GaussPistol
+        FireDelay: 5
+    WithInfantryBody:
+        DefaultAttackSequence: throw
+        RequiresCondition: !parachute
+    Passenger:
+        CargoType: Infantry
+        Weight: 1
+
+FIREBAT:
+    Inherits: ^Soldier
+    AutoTarget:
+    AutoTargetPriority@ATTACKGROUNDUNITSFIRST:
+        Priority: 2
+        ValidTargets: Infantry, Vehicle, Building
+        InvalidTargets: NoAutoTarget
+    AutoTargetPriority@ATTACKBUILDINGSSECOND:
+        Priority: 1
+        ValidTargets: Structure
+        InvalidTargets: NoAutoTarget
+    Buildable:
+        Queue: Infantry
+        BuildDuration: 1225
+        BuildAtProductionType: Soldier
+        BuildPaletteOrder: 70
+        Prerequisites: barracks_
+        Description: actor-firebat.description
+    Valued:
+        # Cost: 100
+        Cost: 125
+        # Oil: 25
+        # Supply: 1
+    Tooltip:
+        Name: actor-firebat.name
+    UpdatesPlayerStatistics:
+        AddToArmyValue: true
+    Health:
+        HP: 100
+    Mobile:
+        Speed: 57
+        AlwaysTurnInPlace: true
+        Locomotor: foot
+    RevealsShroud:
+        Range: 9c0
+    Armament@PRIMARY:
+        Weapon: FirebatFlamer
+        LocalOffset: 700,0,500
+        FireDelay: 8
+    Armament@GARRISONED:
+        Name: garrisoned
+        Weapon: FirebatFlamer
+    # 50% movement speed increase
+    SpeedMultiplier:
+        Modifier: 150
+        RequiresCondition: stimmed
+    # 50% damage increase
+    FirepowerMultiplier:
+        Modifier: 150
+        RequiresCondition: stimmed
+    ChangesHealth:
+        # 11 seconds cooldown, to match the length of time stimpack is active so each stim causes damage to units
+        DamageCooldown: 275
+        # Always reduce HP
+        StartIfBelow: 200
+        RequiresCondition: stimmed
+        # 10 HP health reduced on stimpack use
+        Step: -10
+        PercentageStep: -1
+    GrantConditionOnPrerequisite:
+        Condition: stimmed
+        Prerequisites: stimpack-activated
+    Explodes:
+        Weapon: VisualExplode
+        EmptyWeapon: VisualExplode
+        Chance: 50
+    WithInfantryBody:
+        DefaultAttackSequence: shoot
+        RequiresCondition: !parachute
+    Passenger:
+        CargoType: Infantry
+        Weight: 2
+
+MEDIC_:
+    Inherits: ^Soldier
+    Buildable:
+        Queue: Infantry
+        BuildDuration: 725
+        BuildAtProductionType: Soldier
+        BuildPaletteOrder: 40
+        Prerequisites: barracks_, engineeringbay
+        Description: actor-medic_.description
+    Valued:
+        # Cost: 50
+        Cost: 75
+        # Supply: 1
+        # Oil: 25
+    Tooltip:
+        Name: actor-medic_.name
+    UpdatesPlayerStatistics:
+        AddToArmyValue: true
+    Health:
+        HP: 60
+    Mobile:
+        Speed: 78
+        AlwaysTurnInPlace: true
+        Locomotor: foot
+    RevealsShroud:
+        Range: 9c0
+    Passenger:
+        CustomPipType: blue
+    Armament:
+        Weapon: MedicHeal
+        Cursor: heal
+        OutsideRangeCursor: heal
+        TargetRelationships: Ally
+        ForceTargetRelationships: None
+    WithInfantryBody:
+        IdleSequences: idle
+        StandSequences: stand
+        DefaultAttackSequence: heal
+        RequiresCondition: !parachute
+    Voiced:
+        VoiceSet: MedicVoice
+    AutoTarget:
+    AutoTargetPriority@DEFAULT:
+        ValidTargets: Infantry
+    Passenger:
+        CargoType: Infantry
+        Weight: 1
+
+GHOST:
+    Inherits: ^Soldier
+    AutoTarget:
+    AutoTargetPriority@ATTACKGROUNDUNITSFIRST:
+        Priority: 2
+        ValidTargets: Infantry, Vehicle, Air, AirborneActor, Building
+        InvalidTargets: NoAutoTarget
+    AutoTargetPriority@ATTACKBUILDINGSSECOND:
+        Priority: 1
+        ValidTargets: Structure
+        InvalidTargets: NoAutoTarget
+    Buildable:
+        Queue: Infantry
+        BuildDuration: 1300
+        BuildAtProductionType: Soldier
+        BuildPaletteOrder: 120
+        Prerequisites: barracks_, ghostacademy
+        Description: actor-ghost.description
+    Valued:
+        # Cost: 150
+        Cost: 175
+        # Supply: 2
+        # Oil: 125
+    Tooltip:
+        Name: actor-ghost.name
+    UpdatesPlayerStatistics:
+        AddToArmyValue: true
+    Health:
+        HP: 100
+    Mobile:
+        Speed: 98
+        Voice: Move
+    Cloak:
+        InitialDelay: 0
+        CloakDelay: 50
+        CloakSound: appear1.aud
+        UncloakSound: appear1.aud
+        IsPlayerPalette: true
+        UncloakOn: Move
+        PauseOnCondition: cloak-force-disabled
+    Guard:
+        Voice: Move
+    RevealsShroud:
+        Range: 11c0
+    Armament@PRIMARY:
+        Weapon: GhostC10CanisterRifle
+        LocalOffset: 0,0,0, 0,0,0
+    Armament@GARRISONED:
+        Name: garrisoned
+        Weapon: GhostC10CanisterRifle
+        MuzzleSequence: garrison-muzzle
+    WithInfantryBody:
+        AttackSequences:
+            primary: shoot-left, shoot-right
+        StandSequences: stand
+        RequiresCondition: !parachute
+    ExternalCondition@PRODUCED:
+        Condition: produced
+    VoiceAnnouncement:
+        RequiresCondition: produced
+        Voice: Build
+    AnnounceOnKill:
+    Voiced:
+        VoiceSet: TanyaVoice
+    Passenger:
+        CargoType: Infantry
+        Weight: 2

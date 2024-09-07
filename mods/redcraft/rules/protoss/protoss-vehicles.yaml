@@ -1,0 +1,81 @@
+PROBE:
+    Inherits: ^Infantry
+    Inherits@selection: ^SelectableEconomicUnit
+    Buildable:
+        Queue: Ship
+        BuildPaletteOrder: 10
+        BuildDuration: 1
+        Prerequisites: ~nexus, ~protoss.workers
+        Description: TBD
+        ForceFaction: protoss
+    Captures:
+        CaptureTypes: building
+        #Explicit
+        ConsumedByCapture: false
+        #Explicit
+        PlayerExperience: 0
+        ValidRelationships: Ally
+        EnterCursor: enter
+    CaptureManager:
+    Production@BUILDINGS:
+        Produces: Building, Defense
+    ProductionQueue@BUILDINGS:
+        Type: Building
+        QueueLimit: 1
+        ItemLimit: 1
+        Factions: protoss
+    GrantExternalConditionToProduced:
+        Condition: produced
+    ProvidesPrerequisite@Probe:
+        Prerequisite: probe
+    Harvester:
+        Type: Unload
+        Resources: Ore, Gems
+        BaleLoadDelay: 80
+        BaleUnloadDelay: 0
+        BaleUnloadAmount: 99
+        SearchForDeliveryBuildingDelay: 0
+        SearchFromProcRadius: 20
+        SearchFromHarvesterRadius: 100
+        WaitDuration: 0
+        FullyLoadedSpeed: 100
+        HarvestFacings: 8
+        EmptyCondition: no-ore
+    StoresResources:
+        Capacity: 1
+        Resources: Ore, Gems
+    DockClientManager:
+        SearchForDockDelay: 1
+    Valued:
+        Cost: 50
+    Tooltip:
+        Name: PROBE TBD
+    UpdatesPlayerStatistics:
+        AddToArmyValue: true
+    Mobile:
+        #TurnSpeed: 28
+        Speed: 92
+    Health:
+        HP: 75
+    Armor:
+        Type: Light
+    RevealsShroud:
+        Range: 6c0
+    Armament@PRIMARY:
+        Weapon: SCVFusionCutter
+        LocalOffset: 427,0,341
+    AttackFrontal:
+        FacingTolerance: 0
+    AttackMove:
+    WithMuzzleOverlay:
+    WithStoresResourcesPipsDecoration:
+        Position: BottomLeft
+        Margin: 4, 3
+        RequiresSelection: true
+        PipCount: 7
+        ResourceSequences:
+            Gems: pip-blue
+    # TODO: Allow to be loaded into lifted off Command Center
+    Passenger:
+        CargoType: Vehicle
+        Weight: 1

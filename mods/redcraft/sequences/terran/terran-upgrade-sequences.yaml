@@ -1,0 +1,12 @@
+tactical-nuke:
+    icon:
+        Filename: atomicon.shp
+
+siege-mode-upgrade:
+    icon:
+        Filename: 4tnkicon.shp
+
+stimpack-upgrade:
+    icon:
+        Filename: e1icon.shp
+

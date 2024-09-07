@@ -109,11 +109,18 @@ Sequences:
 	ra|sequences/misc.yaml
 	ra|sequences/decorations.yaml
 	# Custom Overrides
-	redcraft|sequences/infantry-sequences.yaml
-	redcraft|sequences/aircraft-sequences.yaml
-	redcraft|sequences/vehicle-sequences.yaml
-	redcraft|sequences/structure-sequences.yaml
+	redcraft|sequences/terran/terran-structure-sequences.yaml
+	redcraft|sequences/terran/terran-aircraft-sequences.yaml
+	redcraft|sequences/terran/terran-vehicle-sequences.yaml
+	redcraft|sequences/terran/terran-infantry-sequences.yaml
+	redcraft|sequences/terran/terran-upgrade-sequences.yaml
+    redcraft|sequences/protoss/protoss-structure-sequences.yaml
+    redcraft|sequences/protoss/protoss-aircraft-sequences.yaml
+    redcraft|sequences/protoss/protoss-vehicle-sequences.yaml
+    redcraft|sequences/protoss/protoss-infantry-sequences.yaml
+    redcraft|sequences/protoss/protoss-upgrade-sequences.yaml
 	redcraft|sequences/misc-sequences.yaml
+	#redcraft|sequences/voxels.yaml
 
 TileSets:
 	ra|tilesets/snow.yaml

@@ -1,0 +1,15 @@
+probe:
+    idle:
+        Filename: ftnk.shp
+        Facings: 32
+        UseClassicFacings: True
+    icon:
+        Filename: speficon.shp
+    stand:
+        Filename: ftnk.shp
+        Facings: 32
+        UseClassicFacings: True
+    run:
+        Filename: ftnk.shp
+        Facings: 32
+        UseClassicFacings: True

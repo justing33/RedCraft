@@ -1,0 +1,40 @@
+nexus-construction-bldg:
+    Defaults:
+        Filename: spen.shp
+    idle:
+        Filename: spenmake.shp
+        Offset: 0,2
+        Start: 5
+        Length: 1
+    damaged-idle:
+        Start: 1
+        Offset: 0,2
+    make:
+        Filename: spenmake.shp
+        Length: *
+        Offset: 0,2
+        Tick: 1
+    icon:
+        Filename: spenicon.shp
+    fake-icon:
+        Filename: speficon.shp
+
+####################################
+
+nexus:
+    Defaults:
+        Filename: spen.shp
+    idle:
+        Offset: 0,2
+    damaged-idle:
+        Start: 1
+        Offset: 0,2
+    make:
+        Filename: stealth2.shp
+        Length: *
+        Offset: 0,2
+        Tick: 4800
+    icon:
+        Filename: spenicon.shp
+    fake-icon:
+        Filename: speficon.shp

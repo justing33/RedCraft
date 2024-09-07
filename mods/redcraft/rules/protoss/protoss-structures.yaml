@@ -11,7 +11,9 @@ NEXUS-CONSTRUCTION-BLDG:
     Buildable:
         Queue: Building
         BuildDuration: 1
+        BuildPaletteOrder: 10
         Prerequisites: ~probe
+        Description: actor-nexus.description
     CaptureManager:
         PreventsAutoTarget: true
     Capturable:
@@ -27,7 +29,7 @@ NEXUS-CONSTRUCTION-BLDG:
         Type: Steel
     Tooltip:
         # TODO:
-        Name: NEXUS
+        Name: actor-nexus.name
     RevealsShroud:
         Range: 11c0
         RevealGeneratedShroud: true

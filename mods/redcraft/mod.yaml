@@ -40,21 +40,6 @@ Packages:
 	ra|scripts
 	common|scripts
 	ra|uibits
-    # DUNE 2K #######
-    #~^SupportDir|Content/d2k/v3/
-    #~^SupportDir|Content/d2k/v3/GAMESFX
-    #~^SupportDir|Content/d2k/v3/Movies
-    #~^SupportDir|Content/d2k/v3/Music
-    #^EngineDir
-    #$d2k: d2k
-    #^EngineDir|mods/common: common
-
-    #~SOUND.RS
-    #d2k|bits
-    #d2k|scripts
-    #common|scripts
-    #d2k|uibits
-    ###############
 
 MapFolders:
 	ra|maps: System

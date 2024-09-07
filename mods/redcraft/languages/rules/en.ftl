@@ -294,129 +294,6 @@ actor-dog =
    .name = Attack Dog
    .generic-name = Dog
 
-
-## TERRAN UNITS
-
-actor-scv =
-   .description = Terran worker unit
-   Harvests resources and constructs buildings
-   .name = SCV
-
-actor-mule =
-   .name = M.U.L.E.
-
-actor-mule-drop-pod =
-   .name = M.U.L.E. Drop Pod
-
-actor-marine =
-   .description = All-purpose infantry equipped with C14 Gauss Rifle
-   Can use researched Stimpack upgrade
-   Attacks ground and air
-   .name = Marine
-
-actor-marauder =
-   .description = Heavy infantry equipped with Punisher Grenade Missiles
-   Can use researched Stimpack upgrade
-   Attacks ground
-   .name = Marauder
-
-actor-reaper =
-   .description = Light scouting infantry equipped with P45 Gauss Pistol
-   Heals itself over time
-   Attacks ground
-   .name = Reaper
-
-actor-firebat =
-   .description = Flamethrower equipped infantry
-   Can use researched Stimpack upgrade
-   Attacks ground
-   .name = Firebat
-
-actor-medic_ =
-   .description = Heals close-by infantry automatically
-   Does not attack
-   .name = Medic
-
-actor-ghost =
-   .description = Specialized cloaked infantry
-   Can launch tactical nukes from Ghost Academy
-   .name = Ghost
-
-actor-hellion =
-   .description = Fast scouting and raiding unit
-   Can transform into Hellbat
-   Attacks ground only
-   .name = Hellion
-
-actor-hellbat =
-   .description = Tough melee-ranged unit
-   Can transform into Hellion
-   Attacks ground only
-   .name = Hellbat
-
-actor-siege-tank =
-   .description = Long ranged attack unit with high damage
-   Can transform to siege mode to increase attack damage and range
-   Attacks ground only
-   .name = Siege Tank
-
-actor-siege-tank-sieged =
-   .name = Siege Tank (Sieged)
-
-actor-widow-mine =
-   .description = Light unit with splash damage attack
-   Cloaks when not moving
-   Attacks air and ground
-   .name = Widow Mine
-
-actor-viking-assault-mode =
-   .name = Viking (Landed)
-
-actor-cyclone =
-   .description = Fast light unit
-   (TODO: Can use Lock On ability to increase attack range)
-   Attacks air and ground
-   .name = Cyclone
-
-actor-viking =
-   .description = Anti-air fighter unit
-   Can transform into a ground attacking assault walker
-   Attacks air
-   .name = Viking
-
-actor-medivac =
-   .description = Dual purpose support unit
-   Can transport and heal units
-   Uses Ignite Afterburners to increase movement speed (TODO: Bug, Use Stimpack to activate)
-   Does not attack
-   .name = Medivac
-
-actor-banshee =
-   .description = Strong air-to-ground attack unit
-   Cloaks when not moving
-   Attacks ground only
-   .name = Banshee
-
-actor-raven =
-   .description = Flying support unit
-      Detects cloaked units
-      Deploys Auto Turrets
-      Does not attack
-   .name = Raven
-
-actor-battlecruiser =
-   .description = Heavily armored unit
-      Can use Tactical Jump to warp to a target location
-      Attacks ground and air
-   .name = Battlecruiser
-
-## PROTOSS UNITS
-
-actor-probe =
-   .description = Protoss worker unit
-   Harvests resources and warps in buildings
-   .name = Probe
-
 actor-e1 =
    .description = General-purpose infantry.
       Strong vs Infantry
@@ -598,108 +475,6 @@ notification-chronosphere-ready = Chronosphere ready.
 notification-satellite-launched = Satellite launched.
 notification-credits-stolen = Credits stolen.
 notifcation-spy-plane-ready = Spy plane ready.
-
-actor-command-center =
-   .description = Main base building to train SCVs
-    Can be lifted off to relocate
-    Collects Gems for credits
-   .name = Command Center
-
-actor-command-center-air =
-   .description = Main base building to train SCVs
-    Can be lifted off to relocate
-    Collects Gems for credits
-   .name = Command Center (Lifted off)
-
-actor-command-center-planetary-fortress =
-   .description = Anti-ground static defense upgrade for the Command Center
-    Cannot be lifted off
-    Collects Gems for credits
-   .name = Planetary Fortress
-
-actor-command-center-orbital =
-   .description = An upgrade for the Command Center
-    Provides abilities: Scanner Sweep, Calldown: MULE, and Calldown: Extra Supplies
-    Cannot be lifted off
-    Collects Gems for credits
-   .name = Orbital Command
-
-actor-command-center-scanner-sweep =
-   .description = Reveals an area of the map and reveals cloaked units
-   .name = Scanner Sweep
-
-actor-command-center-calldown-mules =
-   .description = Calls down 3 M.U.L.E.'s via drop pods
-   Mules gather double the amount of Minerals compared to an SCV
-   Lasts for 64 seconds
-   .name = Calldown: MULEs
-
-actor-siege-mode-upgrade =
-   .description = Research Siege Mode for Siege Tanks
-   .name = Siege Mode Research Item
-
-actor-stimpack-upgrade =
-   .description = Research Stimpack for Infantry units
-   .name = Stimpack Research Item
-
-actor-barracks_ =
-   .description = Infantry production building
-    Can be lifted off to relocate
-   .name = Barracks
-
-actor-barracks-air =
-   .description = Infantry production building
-    Can be lifted off to relocate
-   .name = Barracks (Lifted Off)
-
-actor-factory =
-   .description = Vehicle production building
-    Can be lifted off to relocate
-   .name = Factory
-
-actor-factory-air =
-   .description = Vehicle production building
-    Can be lifted off to relocate
-   .name = Factory (Lifted Off)
-
-actor-bunker =
-   .description = Static defense building to garrison units
-   Can attack ground and air units based on garrisoned units
-   .name = Bunker
-
-actor-starport =
-   .description = Aircraft production building
-   Can be lifted off to relocate
-   .name = Starport
-
-actor-starport-air =
-   .description = Aircraft production building
-   Can be lifted off to relocate
-   .name = Starport (Lifted Off)
-
-actor-missileturret =
-   .description = Anti-air static defense building
-   Detects cloaked units
-   .name = Missile Turret
-
-actor-engineering-bay =
-   .description = Research center for upgrades
-   .name = Engineering Bay
-
-actor-ghost-academy =
-   .description = Provides Ghost unit to Barracks
-   Research upgrades for Ghosts and build Nukes
-   .name = Ghost Academy
-
-actor-tactical-nuke =
-   .name = Tactical Nuke
-   .description = A devastating nuclear strike dealing large area of effect damage
-    Individual nuke instances can be built and used independently
-
-actor-auto-turret =
-   .name = Auto Turret (Raven)
-   .description = Temporary immobile defensive structure deployed by Raven
-   Automatically attacks ground and air units and structures within range
 
 actor-mslo =
    .name = Missile Silo
@@ -1083,3 +858,237 @@ actor-powerproxy-paratroopers =
    .name = Paratroopers
    .description = A Badger drops a squad of infantry
     anywhere on the map.
+
+## TERRAN STRUCTURES
+
+actor-command-center =
+   .description = Main building of Terran to train SCVs
+    Can be lifted off to relocate
+    Collects Gems for credits
+   .name = Command Center
+
+actor-command-center-air =
+   .description = Main base building to train SCVs
+    Can be lifted off to relocate
+    Collects Gems for credits
+   .name = Command Center (Lifted off)
+
+actor-command-center-planetary-fortress =
+   .description = Anti-ground static defense upgrade for the Command Center
+    Cannot be lifted off
+    Collects Gems for credits
+   .name = Planetary Fortress
+
+actor-command-center-orbital =
+   .description = An upgrade for the Command Center
+    Provides abilities: Scanner Sweep, Calldown: MULE, and Calldown: Extra Supplies
+    Cannot be lifted off
+    Collects Gems for credits
+   .name = Orbital Command
+
+actor-command-center-scanner-sweep =
+   .description = Reveals an area of the map and reveals cloaked units
+   .name = Scanner Sweep
+
+actor-command-center-calldown-mules =
+   .description = Calls down 3 M.U.L.E.'s via drop pods
+   Mules gather double the amount of Minerals compared to an SCV
+   Lasts for 64 seconds
+   .name = Calldown: MULEs
+
+actor-siege-mode-upgrade =
+   .description = Research Siege Mode for Siege Tanks
+   .name = Siege Mode Research Item
+
+actor-stimpack-upgrade =
+   .description = Research Stimpack for Infantry units
+   .name = Stimpack Research Item
+
+actor-barracks_ =
+   .description = Infantry production building
+    Can be lifted off to relocate
+   .name = Barracks
+
+actor-barracks-air =
+   .description = Infantry production building
+    Can be lifted off to relocate
+   .name = Barracks (Lifted Off)
+
+actor-factory =
+   .description = Vehicle production building
+    Can be lifted off to relocate
+   .name = Factory
+
+actor-factory-air =
+   .description = Vehicle production building
+    Can be lifted off to relocate
+   .name = Factory (Lifted Off)
+
+actor-bunker =
+   .description = Static defense building to garrison units
+   Can attack ground and air units based on garrisoned units
+   .name = Bunker
+
+actor-starport =
+   .description = Aircraft production building
+   Can be lifted off to relocate
+   .name = Starport
+
+actor-starport-air =
+   .description = Aircraft production building
+   Can be lifted off to relocate
+   .name = Starport (Lifted Off)
+
+actor-missileturret =
+   .description = Anti-air static defense building
+   Detects cloaked units
+   .name = Missile Turret
+
+actor-engineering-bay =
+   .description = Research center for upgrades
+   .name = Engineering Bay
+
+actor-ghost-academy =
+   .description = Provides Ghost unit to Barracks
+   Research upgrades for Ghosts and build Nukes
+   .name = Ghost Academy
+
+actor-tactical-nuke =
+   .name = Tactical Nuke
+   .description = A devastating nuclear strike dealing large area of effect damage
+    Individual nuke instances can be built and used independently
+
+actor-auto-turret =
+   .name = Auto Turret (Raven)
+   .description = Temporary immobile defensive structure deployed by Raven
+   Automatically attacks ground and air units and structures within range
+
+## TERRAN UNITS
+
+actor-scv =
+   .description = Terran worker unit
+   Harvests resources and constructs buildings
+   .name = SCV
+
+actor-mule =
+   .name = M.U.L.E.
+
+actor-mule-drop-pod =
+   .name = M.U.L.E. Drop Pod
+
+actor-marine =
+   .description = All-purpose infantry equipped with C14 Gauss Rifle
+   Can use researched Stimpack upgrade
+   Attacks ground and air
+   .name = Marine
+
+actor-marauder =
+   .description = Heavy infantry equipped with Punisher Grenade Missiles
+   Can use researched Stimpack upgrade
+   Attacks ground
+   .name = Marauder
+
+actor-reaper =
+   .description = Light scouting infantry equipped with P45 Gauss Pistol
+   Heals itself over time
+   Attacks ground
+   .name = Reaper
+
+actor-firebat =
+   .description = Flamethrower equipped infantry
+   Can use researched Stimpack upgrade
+   Attacks ground
+   .name = Firebat
+
+actor-medic_ =
+   .description = Heals close-by infantry automatically
+   Does not attack
+   .name = Medic
+
+actor-ghost =
+   .description = Specialized cloaked infantry
+   Can launch tactical nukes from Ghost Academy
+   .name = Ghost
+
+actor-hellion =
+   .description = Fast scouting and raiding unit
+   Can transform into Hellbat
+   Attacks ground only
+   .name = Hellion
+
+actor-hellbat =
+   .description = Tough melee-ranged unit
+   Can transform into Hellion
+   Attacks ground only
+   .name = Hellbat
+
+actor-siege-tank =
+   .description = Long ranged attack unit with high damage
+   Can transform to siege mode to increase attack damage and range
+   Attacks ground only
+   .name = Siege Tank
+
+actor-siege-tank-sieged =
+   .name = Siege Tank (Sieged)
+
+actor-widow-mine =
+   .description = Light unit with splash damage attack
+   Cloaks when not moving
+   Attacks air and ground
+   .name = Widow Mine
+
+actor-viking-assault-mode =
+   .name = Viking (Landed)
+
+actor-cyclone =
+   .description = Fast light unit
+   (TODO: Can use Lock On ability to increase attack range)
+   Attacks air and ground
+   .name = Cyclone
+
+actor-viking =
+   .description = Anti-air fighter unit
+   Can transform into a ground attacking assault walker
+   Attacks air
+   .name = Viking
+
+actor-medivac =
+   .description = Dual purpose support unit
+   Can transport and heal units
+   Uses Ignite Afterburners to increase movement speed (TODO: Bug, Use Stimpack to activate)
+   Does not attack
+   .name = Medivac
+
+actor-banshee =
+   .description = Strong air-to-ground attack unit
+   Cloaks when not moving
+   Attacks ground only
+   .name = Banshee
+
+actor-raven =
+   .description = Flying support unit
+      Detects cloaked units
+      Deploys Auto Turrets
+      Does not attack
+   .name = Raven
+
+actor-battlecruiser =
+   .description = Heavily armored unit
+      Can use Tactical Jump to warp to a target location
+      Attacks ground and air
+   .name = Battlecruiser
+
+## PROTOSS STRUCTURES
+
+actor-nexus =
+   .description = Main building of Protoss to train Probes
+    (TODO: Can use Strategic Recall to recall units to the Nexus)
+    Collects Gems for credits
+   .name = Nexus
+
+## PROTOSS UNITS
+
+actor-probe =
+   .description = Protoss worker unit
+   Harvests resources and warps in buildings
+   .name = Probe

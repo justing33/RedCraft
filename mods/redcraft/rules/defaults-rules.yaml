@@ -10,6 +10,14 @@
 
 ^Infantry:
     -Crushable:
+    -ChangesHealth@HOSPITAL:
+    -GrantConditionOnPrerequisite@HOSPITAL:
+    -GrantConditionOnDamageState@HOSPITAL:
+    -GrantCondition@HOSPITAL:
+    -WithDecoration@REDCROSS:
+    -Parachutable:
+    -Cloneable:
+    -WithParachute:
 
 ^Soldier:
     -TakeCover:

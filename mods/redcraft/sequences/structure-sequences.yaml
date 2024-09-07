@@ -67,6 +67,28 @@ command-center-orbital:
     icon:
         Filename: gpssicon.shp
 
+supplydepot:
+    idle:
+        Filename: silo2.shp
+        Offset: 0,-1
+    damaged-idle:
+        Filename: silo2.shp
+        Start: 9
+        Offset: 0,-1
+    open:
+        Filename: silomake.shp
+        Start: 0
+        ZRamp: 1
+        ZOffset: -1024
+        DepthSprite:
+    make:
+        Filename: silomake.shp
+        Length: *
+        Offset: 0,-1
+        Tick: 850
+    icon:
+        Filename: siloicon.shp
+
 barracks_:
     Defaults:
         Filename: barr.shp
@@ -129,31 +151,6 @@ factory:
         Length: 4
     icon:
         Filename: weapicon.shp
-
-# TODO:
-# supplydepot:
-#     idle:
-#         Filename: silo2.shp
-#         Offset: 0,-1
-#     damaged-idle:
-#         Filename: silo2.shp
-#         Start: 9
-#         Offset: 0,-1
-#     stages:
-#         Filename: silo2.shp
-#         Length: 9
-#         Offset: 0,-1
-#     damaged-stages:
-#         Filename: silo2.shp
-#         Start: 9
-#         Length: 9
-#         Offset: 0,-1
-#     make:
-#         Filename: silomake.shp
-#         Length: *
-#         Offset: 0,-1
-#     icon:
-#         Filename: siloicon.shp
 
 # Factory (Lifted Off)
 #factory-air:
@@ -415,6 +412,33 @@ bunker-construction-bldg:
         Tick: 1
     icon:
         Filename: pboxicon.shp
+
+supplydepot-construction-bldg:
+    idle:
+        Filename: silomake.shp
+        Offset: 0,-1
+        Start: 2
+        Length: 1
+    damaged-idle:
+        Filename: silo2.shp
+        Start: 9
+        Offset: 0,-1
+    stages:
+        Filename: silo2.shp
+        Length: 9
+        Offset: 0,-1
+    damaged-stages:
+        Filename: silo2.shp
+        Start: 9
+        Length: 9
+        Offset: 0,-1
+    make:
+        Filename: silomake.shp
+        Length: *
+        Offset: 0,-1
+        Tick: 1
+    icon:
+        Filename: siloicon.shp
 
 barracks_-construction-bldg:
     Defaults:

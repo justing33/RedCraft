@@ -307,7 +307,7 @@ RAVEN:
     ProductionBar:
         ProductionType: Raven
     GrantPrerequisiteChargeDrainPower:
-        Name: actor-auto-turret.name
+        Name: AutoTurret
         Description: actor-auto-turret.description
         ChargeInterval: 100
         DischargeModifier: 50

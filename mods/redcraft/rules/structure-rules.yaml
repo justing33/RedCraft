@@ -254,6 +254,40 @@ COMMAND-CENTER:
     MustBeDestroyed:
         RequiredForShortGame: true
 
+SUPPLYDEPOT:
+    Inherits: ^Building
+    Selectable:
+        Bounds: 1024, 1024
+    WithGateSpriteBody:
+        OpenSequence: open
+        PauseOnCondition: under-construction
+    Gate:
+        PauseOnCondition: under-construction
+    WithMakeAnimation:
+        Condition: under-construction
+    FreeActor:
+        Actor: scv
+        RequiresCondition: !under-construction
+    ChangesHealth:
+        Step: 0
+        PercentageStep: 1
+        Delay: 3
+        StartIfBelow: 100
+        RequiresCondition: under-construction
+    # TODO: Adds 8 supply
+    Tooltip:
+        Name: Supply Depot
+    Health:
+        HP: 400
+    Armor:
+        Type: Wood
+    RevealsShroud:
+        Range: 4c0
+    Power:
+        Amount: -0
+    MustBeDestroyed:
+        RequiredForShortGame: true
+
 BARRACKS_:
     Inherits: ^Building
     Inherits@shape: ^2x2Shape
@@ -391,6 +425,7 @@ BUNKER:
     Cargo:
         Types: Infantry
         MaxWeight: 4
+        EjectOnDeath: true
     AttackGarrisoned:
         PauseOnCondition: build-incomplete
         Armaments: garrisoned
@@ -925,39 +960,6 @@ PROC:
     Tooltip:
         Name: Oil Refinery
     -FreeActor:
-
-# SUPPLYDEPOT:
-#     Inherits: ^Building
-#     Selectable:
-#         Bounds: 1024, 1024
-#     Buildable:
-#         Queue: Building
-#         BuildPaletteOrder: 35
-#         Prerequisites: scv
-#         Description: TBD
-#     Valued:
-#         Cost: 150
-#     Tooltip:
-#         Name: Supply Depot
-#     -GivesBuildableArea:
-#     -MustBeDestroyed:
-#     Health:
-#         HP: 30000
-#     Armor:
-#         Type: Wood
-#     RevealsShroud:
-#         Range: 4c0
-#     -WithSpriteBody:
-#     WithResourceLevelSpriteBody:
-#         Sequence: stages
-#     -SpawnActorsOnSell:
-#     Power:
-#         Amount: -0
-#     Targetable:
-#         TargetTypes: GroundActor, Structure, Defense
-#     Explodes:
-#         Weapon: SmallBuildingExplode
-#         EmptyWeapon: SmallBuildingExplode
 
 #COMMAND-CENTER-AIR:
 #    Inherits: ^Helicopter
@@ -1624,6 +1626,40 @@ COMMAND-CENTER-CONSTRUCTION-BLDG:
     MustBeDestroyed:
         RequiredForShortGame: true
 
+SUPPLYDEPOT-CONSTRUCTION-BLDG:
+    Inherits: ^Building
+    ProvidesRadar:
+    Selectable:
+        Bounds: 1024, 1024
+    Buildable:
+        Queue: Building
+        BuildDuration: 1
+        BuildPaletteOrder: 25
+        Prerequisites: scv
+        Description: TBD
+    CaptureManager:
+        PreventsAutoTarget: true
+    Capturable:
+        Types: building
+    Valued:
+        Cost: 100
+    Tooltip:
+        Name: Supply Depot
+    Health:
+        HP: 100
+    Armor:
+        Type: Wood
+    RevealsShroud:
+        Range: 4c0
+    Power:
+        Amount: -0
+    TransformOnCapture:
+        IntoActor: supplydepot
+        ForceHealthPercentage: 1
+        SkipMakeAnims: false
+    MustBeDestroyed:
+        RequiredForShortGame: true
+
 BARRACKS_-CONSTRUCTION-BLDG:
     Inherits: ^Building
     Inherits@shape: ^2x2Shape
@@ -1658,42 +1694,8 @@ BARRACKS_-CONSTRUCTION-BLDG:
     RevealsShroud:
         Range: 9c0
         RevealGeneratedShroud: true
-    RallyPoint:
-        ForceSetType: Infantry
     CommandBarBlacklist:
         DisableStop: false
-    Exit@1:
-        RequiresCondition: !being-captured
-        SpawnOffset: -170,810,0
-        ExitCell: 1,2
-        ProductionTypes: Soldier, Infantry
-    Exit@2:
-        RequiresCondition: !being-captured
-        SpawnOffset: -725,640,0
-        ExitCell: 0,2
-        ProductionTypes: Soldier, Infantry
-    Production:
-        Produces: Infantry, Soldier
-        PauseOnCondition: under-construction
-    ProductionQueue:
-        Type: Infantry
-        PayUpFront: true
-    ProductionBar:
-        ProductionType: Infantry
-    GrantExternalConditionToProduced:
-        Condition: produced
-    GrantPrerequisiteChargeDrainPower:
-        Name: Stimpack
-        Description: Stimpack
-        StartFullyCharged: true
-        ChargeInterval: 50
-        # Roughly 11 seconds of duration
-        DischargeModifier: 22
-        Prerequisite: stimpack-activated
-        # Required pre-req to use Power
-        Prerequisites: can-stimpack
-        Icon: stimpack
-        AllowMultiple: false
     Power:
         Amount: -0
     #Transforms:
@@ -1934,22 +1936,8 @@ ENGINEERINGBAY-CONSTRUCTION-BLDG:
     Armor:
         Type: Wood
     RevealsShroud:
-        MinRange: 4c0
         Range: 5c0
         RevealGeneratedShroud: False
-    RevealsShroud@GAPGEN:
-        Range: 4c0
-    Production@UPGRADES:
-        Produces: EngineeringBayUpgrades
-        RequiresCondition: !siege-mode-researched
-        PauseOnCondition: under-construction
-    ProductionQueue@UPGRADES:
-        Type: EngineeringBayUpgrades
-        QueueLimit: 1
-        ItemLimit: 1
-        PayUpFront: true
-    GrantExternalConditionToProduced:
-        Condition: produced
     Power:
         Amount: -0
     MustBeDestroyed:
@@ -1993,20 +1981,8 @@ GHOSTACADEMY-CONSTRUCTION-BLDG:
     Armor:
         Type: Wood
     RevealsShroud:
-        MinRange: 4c0
         Range: 5c0
         RevealGeneratedShroud: False
-    RevealsShroud@GAPGEN:
-        Range: 4c0
-    Production@TACTICALNUKE:
-        # Temp queue name
-        Produces: Ship
-        PauseOnCondition: under-construction
-    ProductionQueue@TACTICALNUKE:
-        # Temp until I can change the production tab on sidebar in chrome.yaml
-        Type: Ship
-        PayUpFront: true
-    SupportPowerChargeBar:
     Power:
         Amount: -0
     MustBeDestroyed:

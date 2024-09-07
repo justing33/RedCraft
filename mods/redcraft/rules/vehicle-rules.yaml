@@ -667,6 +667,60 @@ CYCLONE:
     Passenger:
         Weight: 4
 
+#^VoxelActor:
+#    BodyOrientation:
+#        QuantizedFacings: 0
+#    RenderVoxels:
+#    WithVoxelBody:
+#
+#HMEC:
+#    Inherits: ^Vehicle
+#    Inherits@VOXELS: ^VoxelActor
+#    Inherits@EXPERIENCE: ^GainsExperience
+#    Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+#    Valued:
+#        Cost: 3000
+#    Tooltip:
+#        Name: actor-hmec.name
+#    UpdatesPlayerStatistics:
+#        AddToArmyValue: true
+#    Buildable:
+#        Queue: Vehicle
+#        BuildPaletteOrder: 140
+#        Prerequisites: ~gaweap, gatech, ~techlevel.high
+#        BuildLimit: 1
+#        Description: actor-hmec.description
+#    Mobile:
+#        TurnSpeed: 12
+#        Speed: 42
+#    Health:
+#        HP: 80000
+#    ChangesHealth:
+#        Step: 500
+#    Armor:
+#        Type: Heavy
+#    RevealsShroud:
+#        RequiresCondition: !inside-tunnel
+#        Range: 8c0
+#        MaxHeightDelta: 3
+#    AttackFrontal:
+#        Voice: Attack
+#        PauseOnCondition: empdisable
+#        FacingTolerance: 0
+#    Armament@MISSILES:
+#        Weapon: MammothTusk
+#        LocalOffset: -243,-368,1208, -243,368,1208
+#    Armament@RAILGUN:
+#        Weapon: MechRailgun
+#        LocalOffset: 368,-311,1030, 368,311,1030
+#    -WithVoxelBody:
+#    WithVoxelWalkerBody:
+#        TickRate: 1
+#    Selectable:
+#        Bounds: 1206, 2413, 0, -482
+#    Carryable:
+#        LocalOffset: 0,0,509
+
 #######################
 # NON BUILDABLE UNITS #
 #######################

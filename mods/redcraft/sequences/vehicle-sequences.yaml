@@ -196,3 +196,9 @@ cyclone:
         Length: 2
     icon:
         Filename: ftrkicon.shp
+
+#hmec:
+#    #Inherits: ^VehicleOverlays
+#    idle:
+#    icon:
+#        Filename: ftrkicon.shp

@@ -1,0 +1,132 @@
+VikingMissileAA:
+    ReloadDelay: 50
+    Range: 9c0
+    # MinRange: 2c0
+    Report: missile7.aud
+    Burst: 2
+    BurstDelays: 7
+    ValidTargets: Air, AirborneActor
+    InvalidTargets: Building, Structure, GroundActor, Ground
+    Projectile: Missile
+        Speed: 256
+        Arm: 2
+        Blockable: false
+        ContrailLength: 10
+        Inaccuracy: 316
+        Image: DRAGON
+        Shadow: true
+        HorizontalRateOfTurn: 20
+        CruiseAltitude: 2c0
+        RangeLimit: 14c410
+    Warhead@1Dam: SpreadDamage
+        Spread: 128
+        Damage: 10
+        ValidTargets: Air, AirborneActor
+        InvalidTargets: Building, Structure, GroundActor, Ground
+        Versus:
+            None: 100
+            Wood: 100
+            Light: 100
+            Heavy: 100
+            Concrete: 100
+        DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+
+VIKING-AM-GATLING:
+    ReloadDelay: 35
+    Range: 6c0
+    Report: gun13.aud
+    ValidTargets: Ground, GroundActor, Building
+    Projectile: InstantHit
+        Blockable: false
+    Warhead@1Dam: SpreadDamage
+        Spread: 128
+        Damage: 6
+        ValidTargets: Ground, GroundActor, Building
+        Versus:
+            None: 100
+            Wood: 100
+            Light: 100
+            Heavy: 100
+            Concrete: 100
+        DamageTypes: Prone50Percent, TriggerProne, BulletDeath
+    Warhead@2Eff: CreateEffect
+        Explosions: piffs
+        ValidTargets: Ground, GroundActor, Building
+
+BansheeMissileAG:
+    ReloadDelay: 50
+    Range: 6c0
+    # MinRange: 0c512
+    Report: missile6.aud
+    ValidTargets: Ground, GroundActor, Infantry, Building
+    Projectile: Missile
+        Speed: 250
+        Arm: 2
+        Blockable: false
+        ContrailLength: 10
+        # Inaccuracy: 128
+        Inaccuracy: 0c0
+        Image: DRAGON
+        Shadow: True
+        HorizontalRateOfTurn: 20
+        RangeLimit: 6c0
+        TrailImage: smokey
+    Warhead@1Dam: SpreadDamage
+        Spread: 128
+        Damage: 18
+        ValidTargets: Ground, GroundActor, Infantry, Building
+        Versus:
+            None: 100
+            Wood: 100
+            Light: 100
+            Heavy: 100
+            Concrete: 100
+            Steel: 100
+        DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+    Warhead@2Smu: LeaveSmudge
+        SmudgeType: Crater
+        ValidTargets: Ground, Infantry
+    Warhead@3Eff: CreateEffect
+        Explosions: med_explosion
+        ImpactSounds: kaboom25.aud
+        ValidTargets: Ground, GroundActor
+
+BattlecruiserLaserBattery:
+    ValidTargets: Ground, Building, Structure, Infantry, Vehicle, Air, AirborneActor
+    ReloadDelay: 8
+    Range: 6c0
+    Report: tank6.aud
+    Burst: 1
+    BurstDelays: 0
+    Projectile: InstantHit
+        Inaccuracy: 0c0
+        Blockable: false
+    Warhead@1Dam: SpreadDamage
+        Damage: 8
+        ValidTargets: Ground, Building, Structure, Infantry, Vehicle, Air, AirborneActor
+        Versus:
+            None: 100
+            Wood: 100
+            Light: 100
+            Heavy: 100
+            Concrete: 100
+        DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+    Warhead@2Eff: CreateEffect
+        Explosions: small_explosion
+        ValidTargets: Ground, GroundActor, Building, Structure, Infantry, Air, AirborneActor
+
+MedivacHeal:
+    ReloadDelay: 25
+    Range: 6c0
+    Report: bleep9.aud
+    ValidTargets: Heal
+    Projectile: LaserZap
+        Speed: 1c682
+        # Green beam color
+        Color: 14D000
+    Warhead@1Dam: SpreadDamage
+        Spread: 213
+        Damage: -12
+        ValidRelationships: Ally
+        ValidTargets: Heal
+        DebugOverlayColor: 00FF00

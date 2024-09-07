@@ -62,7 +62,7 @@ PROBE:
     RevealsShroud:
         Range: 6c0
     Armament@PRIMARY:
-        Weapon: SCVFusionCutter
+        Weapon: ProbeParticleBeam
         LocalOffset: 427,0,341
     AttackFrontal:
         FacingTolerance: 0

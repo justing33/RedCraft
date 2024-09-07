@@ -77,8 +77,8 @@ Rules:
 	ra|rules/aircraft.yaml
 	ra|rules/ships.yaml
 	ra|rules/fakes.yaml
-	# Custom Overrides for RedCraft modifications
-	redcraft|rules/defaults-rules.yaml #Overall rules that don't fall into below categories
+	# REDCRAFT
+	redcraft|rules/defaults-rules.yaml
 	redcraft|rules/world-rules.yaml
 	redcraft|rules/player-rules.yaml
 	redcraft|rules/ai-rules.yaml
@@ -100,6 +100,26 @@ Rules:
 	redcraft|rules/protoss/protoss-infantry.yaml
 	redcraft|rules/protoss/protoss-upgrades.yaml
 
+Weapons:
+    ra|weapons/explosions.yaml
+    ra|weapons/ballistics.yaml
+    ra|weapons/missiles.yaml
+    ra|weapons/other.yaml
+    ra|weapons/smallcaliber.yaml
+    ra|weapons/superweapons.yaml
+    # TERRAN
+    redcraft|weapons/terran/terran-structure-weapons.yaml
+    redcraft|weapons/terran/terran-aircraft-weapons.yaml
+    redcraft|weapons/terran/terran-vehicle-weapons.yaml
+    redcraft|weapons/terran/terran-infantry-weapons.yaml
+    redcraft|weapons/terran/terran-power-weapons.yaml
+    # PROTOSS
+    redcraft|weapons/protoss/protoss-structure-weapons.yaml
+    redcraft|weapons/protoss/protoss-aircraft-weapons.yaml
+    redcraft|weapons/protoss/protoss-vehicle-weapons.yaml
+    redcraft|weapons/protoss/protoss-infantry-weapons.yaml
+    redcraft|weapons/protoss/protoss-power-weapons.yaml
+
 Sequences:
 	ra|sequences/ships.yaml
 	ra|sequences/vehicles.yaml
@@ -108,12 +128,13 @@ Sequences:
 	ra|sequences/aircraft.yaml
 	ra|sequences/misc.yaml
 	ra|sequences/decorations.yaml
-	# Custom Overrides
+	# TERRAN
 	redcraft|sequences/terran/terran-structure-sequences.yaml
 	redcraft|sequences/terran/terran-aircraft-sequences.yaml
 	redcraft|sequences/terran/terran-vehicle-sequences.yaml
 	redcraft|sequences/terran/terran-infantry-sequences.yaml
 	redcraft|sequences/terran/terran-upgrade-sequences.yaml
+    # PROTOSS
     redcraft|sequences/protoss/protoss-structure-sequences.yaml
     redcraft|sequences/protoss/protoss-aircraft-sequences.yaml
     redcraft|sequences/protoss/protoss-vehicle-sequences.yaml
@@ -207,18 +228,6 @@ Translations:
 	ra|languages/chrome/en.ftl
 	ra|languages/rules/en.ftl
 	redcraft|languages/rules/en.ftl
-
-Weapons:
-	ra|weapons/explosions.yaml
-	ra|weapons/ballistics.yaml
-	ra|weapons/missiles.yaml
-	ra|weapons/other.yaml
-	ra|weapons/smallcaliber.yaml
-	ra|weapons/superweapons.yaml
-	# Custom overrides
-	redcraft|weapons/smallcaliber-rules.yaml
-	redcraft|weapons/missiles-rules.yaml
-	redcraft|weapons/other-rules.yaml
 
 Voices:
 	ra|audio/voices.yaml

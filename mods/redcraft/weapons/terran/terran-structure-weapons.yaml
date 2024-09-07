@@ -1,0 +1,74 @@
+PlanetaryFortressCannon:
+    Inherits: ^Artillery
+    ReloadDelay: 55
+    Range: 8c0
+    Burst: 1
+    Report: turret1.aud
+    TargetActorCenter: true
+    ValidTargets: Ground, GroundActor, Infantry, Building, Vehicle
+    Projectile: InstantHit
+        ContrailLength: 30
+    Warhead@1Dam: SpreadDamage
+        Damage: 40
+        Versus:
+            None: 100
+            Wood: 100
+            Light: 100
+            Heavy: 100
+            Concrete: 100
+        ValidTargets: Ground, GroundActor, Infantry, Building, Vehicle
+
+MissileTurretMissileAA:
+    ReloadDelay: 25
+    Range: 7c0
+    Report: missile7.aud
+    Burst: 1
+    ValidTargets: Air, AirborneActor
+    InvalidTargets: Building, Structure, Vehicle
+    Projectile: Missile
+        Speed: 512
+        Arm: 2
+        Blockable: false
+        ContrailLength: 10
+        Inaccuracy: 0
+        Image: DRAGON
+        Shadow: true
+        HorizontalRateOfTurn: 20
+        CruiseAltitude: 2c0
+        # Unlimited Fuel
+        RangeLimit: -1
+    Warhead@1Dam: SpreadDamage
+        Spread: 128
+        Damage: 40
+        ValidTargets: Air, AirborneActor
+        InvalidTargets: Building, Structure, Vehicle
+        Versus:
+            None: 100
+            Wood: 100
+            Light: 100
+            Heavy: 100
+            Concrete: 100
+        DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+
+AUTO-TURRET-12MM-GAUSSCANNON:
+    ReloadDelay: 15
+    Range: 6c0
+    Report: gun13.aud
+    ValidTargets: Ground, GroundActor, Building, Structure, Air, AirborneActor
+    Projectile: InstantHit
+        Blockable: false
+    Warhead@1Dam: SpreadDamage
+        Spread: 128
+        Damage: 18
+        ValidTargets: Ground, GroundActor, Building, Structure, Air, AirborneActor
+        Versus:
+            None: 100
+            Wood: 100
+            Light: 100
+            Heavy: 100
+            Concrete: 100
+        DamageTypes: Prone50Percent, TriggerProne, BulletDeath
+    Warhead@2Eff: CreateEffect
+        Explosions: piffs
+        ValidTargets: Ground, GroundActor, Building
+

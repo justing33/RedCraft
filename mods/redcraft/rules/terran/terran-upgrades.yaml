@@ -3,10 +3,10 @@
 COMMAND-CENTER-PLANETARYFORTRESS:
     Buildable:
         BuildPaletteOrder: 30
-        Prerequisites: engineeringbay
+        Prerequisites: engineering-bay
         Queue: Defense
         BuildDuration: 1500
-        Description: actor-command-center-planetaryfortress.description
+        Description: actor-command-center-planetary-fortress.description
     Valued:
         # Cost: 150
         Cost: 300
@@ -15,7 +15,7 @@ COMMAND-CENTER-PLANETARYFORTRESS:
     AlwaysVisible:
     RenderSprites:
     Tooltip:
-        Name: actor-command-center-planetaryfortress.name
+        Name: actor-command-center-planetary-fortress.name
     KillsSelf:
         RemoveInstead: true
     MustBeDestroyed:
@@ -46,7 +46,7 @@ SIEGE-MODE-UPGRADE:
         Prerequisites: factory
         Queue: EngineeringBayUpgrades
         BuildDuration: 3300
-        Description: Research Siege Mode for Siege Tanks
+        Description: actor-siege-mode-upgrade.description
         BuildLimit: 1
     ProvidesPrerequisite:
         Prerequisite: can-siege
@@ -55,7 +55,7 @@ SIEGE-MODE-UPGRADE:
         Cost: 300
         # Oil: 150
     Tooltip:
-        Name: Siege Mode Research Item
+        Name: actor-siege-mode-upgrade.name
     Interactable:
     AlwaysVisible:
     RenderSprites:
@@ -63,10 +63,10 @@ SIEGE-MODE-UPGRADE:
 STIMPACK-UPGRADE:
     Buildable:
         BuildPaletteOrder: 30
-        Prerequisites: barracks_, engineeringbay
+        Prerequisites: barracks_, engineering-bay
         Queue: EngineeringBayUpgrades
         BuildDuration: 4150
-        Description: Research Stimpack for Infantry Units
+        Description: actor-stimpack-upgrade.description
         BuildLimit: 1
     ProvidesPrerequisite:
         Prerequisite: can-stimpack
@@ -75,7 +75,7 @@ STIMPACK-UPGRADE:
         Cost: 200
         # Oil: 100
     Tooltip:
-        Name: Stimpack Research Item
+        Name: actor-stimpack-upgrade.name
     Interactable:
     AlwaysVisible:
     RenderSprites:

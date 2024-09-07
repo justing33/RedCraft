@@ -294,6 +294,20 @@ actor-dog =
    .name = Attack Dog
    .generic-name = Dog
 
+
+## TERRAN UNITS
+
+actor-scv =
+   .description = Terran worker unit
+   Harvests resources and constructs buildings
+   .name = SCV
+
+actor-mule =
+   .name = M.U.L.E.
+
+actor-mule-drop-pod =
+   .name = M.U.L.E. Drop Pod
+
 actor-marine =
    .description = All-purpose infantry equipped with C14 Gauss Rifle
    Can use researched Stimpack upgrade
@@ -327,6 +341,81 @@ actor-ghost =
    .description = Specialized cloaked infantry
    Can launch tactical nukes from Ghost Academy
    .name = Ghost
+
+actor-hellion =
+   .description = Fast scouting and raiding unit
+   Can transform into Hellbat
+   Attacks ground only
+   .name = Hellion
+
+actor-hellbat =
+   .description = Tough melee-ranged unit
+   Can transform into Hellion
+   Attacks ground only
+   .name = Hellbat
+
+actor-siege-tank =
+   .description = Long ranged attack unit with high damage
+   Can transform to siege mode to increase attack damage and range
+   Attacks ground only
+   .name = Siege Tank
+
+actor-siege-tank-sieged =
+   .name = Siege Tank (Sieged)
+
+actor-widow-mine =
+   .description = Light unit with splash damage attack
+   Cloaks when not moving
+   Attacks air and ground
+   .name = Widow Mine
+
+actor-viking-assault-mode =
+   .name = Viking (Landed)
+
+actor-cyclone =
+   .description = Fast light unit
+   (TODO: Can use Lock On ability to increase attack range)
+   Attacks air and ground
+   .name = Cyclone
+
+actor-viking =
+   .description = Anti-air fighter unit
+   Can transform into a ground attacking assault walker
+   Attacks air
+   .name = Viking
+
+actor-medivac =
+   .description = Dual purpose support unit
+   Can transport and heal units
+   Uses Ignite Afterburners to increase movement speed (TODO: Bug, Use Stimpack to activate)
+   Does not attack
+   .name = Medivac
+
+actor-banshee =
+   .description = Strong air-to-ground attack unit
+   Cloaks when not moving
+   Attacks ground only
+   .name = Banshee
+
+actor-raven =
+   .description = Flying support unit
+      Detects cloaked units
+      Deploys Auto Turrets
+      Does not attack
+   .name = Raven
+
+actor-battlecruiser =
+   .description = Heavily armored unit
+      Can use Tactical Jump to warp to a target location
+      Attacks ground and air
+   .name = Battlecruiser
+
+## PROTOSS UNITS
+
+actor-probe =
+   .description = Protoss worker unit
+   Harvests resources and warps in buildings
+   .name = Probe
 
 actor-e1 =
    .description = General-purpose infantry.
@@ -522,7 +611,7 @@ actor-command-center-air =
     Collects Gems for credits
    .name = Command Center (Lifted off)
 
-actor-command-center-planetaryfortress =
+actor-command-center-planetary-fortress =
    .description = Anti-ground static defense upgrade for the Command Center
     Cannot be lifted off
     Collects Gems for credits
@@ -544,6 +633,14 @@ actor-command-center-calldown-mules =
    Mules gather double the amount of Minerals compared to an SCV
    Lasts for 64 seconds
    .name = Calldown: MULEs
+
+actor-siege-mode-upgrade =
+   .description = Research Siege Mode for Siege Tanks
+   .name = Siege Mode Research Item
+
+actor-stimpack-upgrade =
+   .description = Research Stimpack for Infantry units
+   .name = Stimpack Research Item
 
 actor-barracks_ =
    .description = Infantry production building
@@ -585,11 +682,11 @@ actor-missileturret =
    Detects cloaked units
    .name = Missile Turret
 
-actor-engineeringbay =
+actor-engineering-bay =
    .description = Research center for upgrades
    .name = Engineering Bay
 
-actor-ghostacademy =
+actor-ghost-academy =
    .description = Provides Ghost unit to Barracks
    Research upgrades for Ghosts and build Nukes
    .name = Ghost Academy
@@ -813,13 +910,6 @@ actor-techcenter-name = Tech Center
 actor-anypower-name = Any Power Generation
 
 ## vehicles.yaml
-
-actor-raven =
-   .name = Raven
-   .description = Flying support unit
-      Detects cloaked units
-      Deploys Auto Turrets
-      Unarmed
 
 actor-v2rl =
    .description = Long-range rocket artillery.

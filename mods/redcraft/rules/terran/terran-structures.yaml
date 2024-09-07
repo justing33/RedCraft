@@ -290,7 +290,7 @@ MISSILETURRET-CONSTRUCTION-BLDG:
         Queue: Building
         BuildDuration: 1
         BuildPaletteOrder: 100
-        Prerequisites: ~scv, ~engineeringbay
+        Prerequisites: ~scv, ~engineering-bay
         Description: actor-missileturret.description
     CaptureManager:
         #CapturingCondition: capturing-under-construction
@@ -322,7 +322,7 @@ MISSILETURRET-CONSTRUCTION-BLDG:
         ForceHealthPercentage: 1
         SkipMakeAnims: false
 
-ENGINEERINGBAY-CONSTRUCTION-BLDG:
+ENGINEERING-BAY-CONSTRUCTION-BLDG:
     Inherits: ^Building
     Inherits@shape: ^3x2Shape
     Selectable:
@@ -334,7 +334,7 @@ ENGINEERINGBAY-CONSTRUCTION-BLDG:
         BuildDuration: 1
         BuildPaletteOrder: 150
         Prerequisites: ~scv, ~command-center
-        Description: actor-engineeringbay.description
+        Description: actor-engineering-bay.description
     CaptureManager:
         #CapturingCondition: capturing-under-construction
         #BeingCapturedCondition: being-captured-under-construction
@@ -344,7 +344,7 @@ ENGINEERINGBAY-CONSTRUCTION-BLDG:
     Valued:
         Cost: 125
     Tooltip:
-        Name: actor-engineeringbay.name
+        Name: actor-engineering-bay.name
     Building:
         Footprint: XxX XxX ===
         Dimensions: 3,3
@@ -361,12 +361,12 @@ ENGINEERINGBAY-CONSTRUCTION-BLDG:
     MustBeDestroyed:
         RequiredForShortGame: true
     TransformOnCapture:
-        IntoActor: engineeringbay
+        IntoActor: engineering-bay
         # Start at low health to then "heal" as construction occurs
         ForceHealthPercentage: 1
         SkipMakeAnims: false
 
-GHOSTACADEMY-CONSTRUCTION-BLDG:
+GHOST-ACADEMY-CONSTRUCTION-BLDG:
     Inherits: ^Building
     Inherits@shape: ^2x2Shape
     ProvidesRadar:
@@ -377,7 +377,7 @@ GHOSTACADEMY-CONSTRUCTION-BLDG:
         BuildDuration: 1
         BuildPaletteOrder: 140
         Prerequisites: ~scv, ~barracks_
-        Description: actor-ghostacademy.description
+        Description: actor-ghost-academy.description
     CaptureManager:
         #CapturingCondition: capturing-under-construction
         #BeingCapturedCondition: being-captured-under-construction
@@ -389,7 +389,7 @@ GHOSTACADEMY-CONSTRUCTION-BLDG:
         Cost: 200
         # Oil: 50
     Tooltip:
-        Name: actor-ghostacademy.name
+        Name: actor-ghost-academy.name
     Building:
         Footprint: xx xx ==
         Dimensions: 2,3
@@ -406,7 +406,7 @@ GHOSTACADEMY-CONSTRUCTION-BLDG:
     MustBeDestroyed:
         RequiredForShortGame: true
     TransformOnCapture:
-        IntoActor: ghostacademy
+        IntoActor: ghost-academy
         # Start at low health to then "heal" as construction occurs
         ForceHealthPercentage: 1
         SkipMakeAnims: false
@@ -1073,7 +1073,7 @@ MISSILETURRET:
     MustBeDestroyed:
         RequiredForShortGame: true
 
-ENGINEERINGBAY:
+ENGINEERING-BAY:
     Inherits: ^Building
     Inherits@shape: ^3x2Shape
     Selectable:
@@ -1095,9 +1095,9 @@ ENGINEERINGBAY:
     Valued:
         Cost: 125
     Tooltip:
-        Name: actor-engineeringbay.name
+        Name: actor-engineering-bay.name
     ProvidesPrerequisite:
-        Prerequisite: engineeringbay
+        Prerequisite: engineering-bay
         RequiresCondition: !under-construction
     Building:
         Footprint: XxX XxX ===
@@ -1130,7 +1130,7 @@ ENGINEERINGBAY:
     MustBeDestroyed:
         RequiredForShortGame: true
 
-GHOSTACADEMY:
+GHOST-ACADEMY:
     Inherits: ^Building
     Inherits@shape: ^2x2Shape
     ProvidesRadar:
@@ -1153,9 +1153,9 @@ GHOSTACADEMY:
         Cost: 200
         # Oil: 50
     Tooltip:
-        Name: actor-ghostacademy.name
+        Name: actor-ghost-academy.name
     ProvidesPrerequisite:
-        Prerequisite: ghostacademy
+        Prerequisite: ghost-academy
         RequiresCondition: !under-construction
     Building:
         Footprint: xx xx ==
@@ -1193,7 +1193,7 @@ GHOSTACADEMY:
 TACTICAL-NUKE:
     Buildable:
         BuildPaletteOrder: 10
-        Prerequisites: ghostacademy
+        Prerequisites: ghost-academy
         Queue: Defense
         BuildDuration: 1900 # 43
         Description: actor-tactical-nuke.description

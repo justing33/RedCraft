@@ -212,24 +212,24 @@ SiegeTankCrucioShockCannon:
     Shadow: True
     Warhead@1Dam: SpreadDamage
         Spread: 1c0
-            Damage: 37
-            Falloff: 55, 32, 20, 15, 7
-            ValidTargets: Infantry, Vehicle, Building, Structure, Ground, GroundActor
-            Versus:
-                None: 100
-                Biological: 65
-                Wood: 100
-                Light: 100
-                Heavy: 100
-                Concrete: 100
-            DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
-            Warhead@2Smu: LeaveSmudge
-                SmudgeType: Crater
-                ValidTargets: Ground, Infantry
-            Warhead@3Eff: CreateEffect
-                Explosions: small_explosion
-                ImpactSounds: kaboom12.aud
-                ValidTargets: Ground, GroundActor, Building, Infantry
+        Damage: 37
+        Falloff: 55, 32, 20, 15, 7
+        ValidTargets: Infantry, Vehicle, Building, Structure, Ground, GroundActor
+        Versus:
+            None: 100
+            Biological: 65
+            Wood: 100
+            Light: 100
+            Heavy: 100
+            Concrete: 100
+        DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+    Warhead@2Smu: LeaveSmudge
+        SmudgeType: Crater
+        ValidTargets: Ground, Infantry
+    Warhead@3Eff: CreateEffect
+        Explosions: small_explosion
+        ImpactSounds: kaboom12.aud
+        ValidTargets: Ground, GroundActor, Building, Infantry
 
 WidowMineSentinelMissile:
     Range: 5c0

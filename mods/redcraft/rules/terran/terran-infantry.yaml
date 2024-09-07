@@ -287,7 +287,7 @@ MEDIC_:
         BuildDuration: 725
         BuildAtProductionType: Soldier
         BuildPaletteOrder: 40
-        Prerequisites: barracks_, engineeringbay
+        Prerequisites: barracks_, engineering-bay
         Description: actor-medic_.description
     Valued:
         # Cost: 50
@@ -344,7 +344,7 @@ GHOST:
         BuildDuration: 1300
         BuildAtProductionType: Soldier
         BuildPaletteOrder: 120
-        Prerequisites: barracks_, ghostacademy
+        Prerequisites: barracks_, ghost-academy
         Description: actor-ghost.description
     Valued:
         # Cost: 150

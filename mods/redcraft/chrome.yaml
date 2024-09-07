@@ -167,9 +167,9 @@
 #        raven: 204, 68, 16, 16
 #        raven-disabled: 204, 85, 16, 16
 #        raven-alert: 204, 102, 16, 16
-#        engineeringbayupgrades: 221, 68, 16, 16
-#        engineeringbayupgrades-disabled: 221, 85, 16, 16
-#        engineeringbayupgrades-alert: 221, 102, 16, 16
+#        engineering-bayupgrades: 221, 68, 16, 16
+#        engineering-bay-upgrades-disabled: 221, 85, 16, 16
+#        engineering-bay-upgrades-alert: 221, 102, 16, 16
 #        ccupgrades: 238, 68, 16, 16
 #        ccupgrades-disabled: 238, 85, 16, 16
 #        ccupgrades-alert: 238, 102, 16, 16

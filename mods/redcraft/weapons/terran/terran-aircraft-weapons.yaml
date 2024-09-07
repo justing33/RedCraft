@@ -31,7 +31,7 @@ VikingMissileAA:
             Concrete: 100
         DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 
-VIKING-AM-GATLING:
+VIKING-ASSAULT-MODE-GATLING:
     ReloadDelay: 35
     Range: 6c0
     Report: gun13.aud

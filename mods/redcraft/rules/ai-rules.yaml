@@ -4,7 +4,7 @@ Player:
         RefineryTypes: command-center-construction-bldg
         BarracksTypes: barracks_-construction-bldg, command-center-construction-bldg
         VehiclesFactoryTypes: factory-construction-bldg
-        ProductionTypes: command-center-construction-bldg, barracks_-construction-bldg, factory-construction-bldg, starport-construction-bldg, engineeringbay-construction-bldg, ghostacademy-construction-bldg
+        ProductionTypes: command-center-construction-bldg, barracks_-construction-bldg, factory-construction-bldg, starport-construction-bldg, engineering-bay-construction-bldg, ghost-academy-construction-bldg
         DefenseTypes: command-center-construction-bldg
         NavalProductionTypes: command-center-construction-bldg
         BuildingLimits:
@@ -15,8 +15,8 @@ Player:
             starport-construction-bldg: 40
             bunker-construction-bldg: 30
             missileturret-construction-bldg: 40
-            engineeringbay-construction-bldg: 15
-            ghostacademy-construction-bldg: 15
+            engineering-bay-construction-bldg: 15
+            ghost-academy-construction-bldg: 15
     SquadManagerBotModule@normal:
         RequiresCondition: enable-normal-ai
         SquadSize: 15
@@ -26,7 +26,7 @@ Player:
         NavalProductionTypes: command-center
         AirUnitsTypes: mig, yak, heli, hind, mh60, viking, banshee, medivac
         AircraftTargetType: AirborneActor
-        ProtectionTypes: scv, command-center, barracks_, factory, starport, engineeringbay, ghostacademy, bunker, missileturret, marine, marauder, reaper, medic, ghost, firebat, hellion, hellbat, cyclone, siegetank, siegetank-sm, widowmine, viking, viking-am, banshee, medivac
+        ProtectionTypes: scv, command-center, barracks_, factory, starport, engineering-bay, ghost-academy, bunker, missileturret, marine, marauder, reaper, medic, ghost, firebat, hellion, hellbat, cyclone, siege-tank, siege-tank-siege-mode, widow-mine, viking, viking-assault-mode, banshee, medivac
         #IgnoredEnemyTargetTypes: AirborneActor
     UnitBuilderBotModule@normal:
         UnitsToBuild:
@@ -37,7 +37,7 @@ Player:
             reaper: 25
             firebat: 25
             ghost: 20
-            siegetank: 40
+            siege-tank: 40
             cyclone: 30
             hellion: 50
             banshee: 30
@@ -45,7 +45,7 @@ Player:
             viking: 30
     CaptureManagerBotModule:
         CapturingActorTypes: scv
-        CapturableActorTypes: command-center-construction-bldg, barracks_-construction-bldg, bunker-construction-bldg, factory-construction-bldg, starport-construction-bldg, engineeringbay-construction-bldg, ghostacademy-construction-bldg, missileturret-construction-bldg
+        CapturableActorTypes: command-center-construction-bldg, barracks_-construction-bldg, bunker-construction-bldg, factory-construction-bldg, starport-construction-bldg, engineering-bay-construction-bldg, ghost-academy-construction-bldg, missileturret-construction-bldg
         CapturableRelationships: Ally
     #McvManagerBotModule:
-    #    McvTypes: siegetank, command-center
+    #    McvTypes: siege-tank, command-center

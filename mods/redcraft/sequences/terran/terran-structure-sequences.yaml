@@ -172,7 +172,7 @@ missileturret-construction-bldg:
     icon:
         Filename: samicon.shp
 
-engineeringbay-construction-bldg:
+engineering-bay-construction-bldg:
     Defaults:
         Filename: stek.shp
     idle:
@@ -188,7 +188,7 @@ engineeringbay-construction-bldg:
     icon:
         Filename: stekicon.shp
 
-ghostacademy-construction-bldg:
+ghost-academy-construction-bldg:
     Defaults:
         Filename: atek.shp
     idle:
@@ -421,7 +421,7 @@ missileturret:
     icon:
         Filename: samicon.shp
 
-engineeringbay:
+engineering-bay:
     Defaults:
         Filename: stek.shp
     idle:
@@ -434,7 +434,7 @@ engineeringbay:
     icon:
         Filename: stekicon.shp
 
-ghostacademy:
+ghost-academy:
     Defaults:
         Filename: atek.shp
     idle:

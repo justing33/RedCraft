@@ -149,7 +149,7 @@ hellbat:
     icon:
         Filename: artyicon.shp
 
-siegetank:
+siege-tank:
     Defaults:
         Filename: 3tnk.shp
     idle:
@@ -165,7 +165,7 @@ siegetank:
     icon:
         Filename: 3tnkicon.shp
 
-siegetank-sm:
+siege-tank-siege-mode:
     Defaults:
         Filename: 4tnk.shp
     make:
@@ -180,7 +180,7 @@ siegetank-sm:
         Filename: gunfire2.shp
         Length: 5
 
-widowmine:
+widow-mine:
     idle:
         Filename: minv.shp
         Facings: 1
@@ -196,7 +196,7 @@ widowmine:
     icon:
         Filename: jmin.shp
 
-viking-am:
+viking-assault-mode:
     idle:
         Filename: ctnk.shp
         Facings: 32

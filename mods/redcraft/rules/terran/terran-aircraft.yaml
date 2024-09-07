@@ -13,14 +13,14 @@ VIKING:
         BuildDuration: 750
         BuildPaletteOrder: 50
         Prerequisites: starport
-        Description: TBD
+        Description: actor-viking.description
     Valued:
         # Cost: 150
         Cost: 225
         # Oil: 75
         # Supply: 2
     Tooltip:
-        Name: Viking
+        Name: actor-viking.name
     UpdatesPlayerStatistics:
         AddToArmyValue: true
     Health:
@@ -74,7 +74,7 @@ VIKING:
     GrantConditionOnDamageState@SmokeTrail:
         Condition: enable-smoke
     Transforms:
-        IntoActor: viking-am
+        IntoActor: viking-assault-mode
 
 MEDIVAC:
     # TODO: Inherits: ^NonLandableHelicopter
@@ -180,14 +180,14 @@ BANSHEE:
         BuildDuration: 1075
         BuildPaletteOrder: 20
         Prerequisites: starport
-        Description: TBD
+        Description: actor-banshee.description
     Valued:
         # Cost: 150
         Cost: 250
         # Oil: 100
         # Supply: 3
     Tooltip:
-        Name: Banshee
+        Name: actor-banshee.name
     UpdatesPlayerStatistics:
         AddToArmyValue: true
     Health:
@@ -336,14 +336,14 @@ BATTLECRUISER:
         BuildDuration: 2625 #64 sec
         BuildPaletteOrder: 50
         Prerequisites: starport
-        Description: TBD
+        Description: actor-battlecruiser.description
     Valued:
         # Cost: 400
         Cost: 700
         # Oil: 300
         # Supply: 6
     Tooltip:
-        Name: Battlecruiser
+        Name: actor-battlecruiser.name
     UpdatesPlayerStatistics:
         AddToArmyValue: true
     Health:

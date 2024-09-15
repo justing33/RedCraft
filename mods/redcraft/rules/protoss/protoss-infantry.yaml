@@ -1,5 +1,17 @@
+^ProtossUnitShields:
+    ChangesHealth:
+        # 10 seconds after damage start healing
+        DamageCooldown: 250
+        # Always regen
+        StartIfBelow: 200
+        # Regen 1% at a time
+        Step: 0
+        PercentageStep: 1
+        Delay: 30
+
 ZEALOT:
     Inherits: ^Infantry
+    Inherits@UnitShields: ^ProtossUnitShields
     AutoTarget:
     AutoTargetPriority@ATTACKGROUNDUNITSFIRST:
         Priority: 2
@@ -33,7 +45,7 @@ ZEALOT:
         # TODO: Add shields
     Armor:
         Type: Light
-    Armament@Melee:
+    Armament:
         Weapon: ZealotPsiBlades
     AttackMove:
         # TODO: Add later
@@ -51,3 +63,59 @@ ZEALOT:
     Passenger:
         CargoType: Infantry
         Weight: 1
+
+STALKER:
+    Inherits: ^TrackedVehicle
+    Inherits@UnitShields: ^ProtossUnitShields
+    AutoTarget:
+    AutoTargetPriority@ATTACKGROUNDUNITSFIRST:
+        Priority: 2
+        ValidTargets: Infantry, Vehicle, Building, AirborneActor, Air
+        InvalidTargets: NoAutoTarget
+    AutoTargetPriority@ATTACKBUILDINGSSECOND:
+        Priority: 1
+        ValidTargets: Structure
+        InvalidTargets: NoAutoTarget
+    Selectable:
+        DecorationBounds: 1877, 1621, 0, -170
+    Buildable:
+        Queue: Infantry
+        BuildPaletteOrder: 20
+        Prerequisites: ~gateway #, ~cybernetics-core
+        Description: actor-stalker.description
+    Valued:
+        # Cost: 125
+        Cost: 175
+        # Oil: 50
+        # Supply: 2
+    Tooltip:
+        Name: actor-stalker.name
+    UpdatesPlayerStatistics:
+        AddToArmyValue: true
+    Health:
+        # HP: 80
+        # Shields: 80
+        HP: 160
+    Armor:
+        Type: Heavy
+    AttackMove:
+    AttackTurreted:
+    Turreted:
+        TurnSpeed: 300
+    Armament:
+        Weapon: ParticleDisruptors
+    Mobile:
+        RequiresCondition: !deployed
+        PauseOnCondition: being-captured
+        Speed: 103
+        Locomotor: foot
+        TurnSpeed: 300
+    RevealsShroud:
+        Range: 10c0
+        RevealGeneratedShroud: true
+    Targetable:
+        TargetTypes: GroundActor, MADTank, Vehicle
+    Passenger:
+        CargoType: Infantry
+        Weight: 2
+

@@ -1,44 +1,70 @@
 zealot:
     Defaults:
-        Filename: c1.shp
+        Filename: shok.shp
     stand:
         Facings: 8
+    stand2:
+        Start: 8
+        Facings: 8
     run:
-        Start: 56
+        Start: 16
         Length: 6
         Facings: 8
-    #    shoot:
-    #        Start: 205
-    #        Length: 4
-    #        Facings: 8
-    #    cheer:
-    #        Start: 200
-    #        Length: 3
-    #        Facings: 8
-    #        Tick: 120
-    #    die1:
-    #        Start: 329
-    #        Length: 8
-    #        Tick: 80
-    #    die2:
-    #        Start: 337
-    #        Length: 8
-    #        Tick: 80
-    #    die3:
-    #        Start: 337
-    #        Length: 8
-    #        Tick: 80
-    #    die4:
-    #        Start: 345
-    #        Length: 12
-    #        Tick: 80
-    #    die5:
-    #        Start: 357
-    #        Length: 18
-    #        Tick: 80
-    #    die6:
-    #        Start: 182
-    #        Length: 4
-    #        Tick: 80
+        Tick: 120
+    shoot:
+        Start: 64
+        Length: 16
+        Facings: 8
+    idle1:
+        Start: 384
+        Length: 14
+        Tick: 120
+    idle2:
+        Start: 399
+        Length: 16
+        Tick: 120
+    die1:
+        Start: 416
+        Length: 8
+        Tick: 80
+    die2:
+        Start: 424
+        Length: 8
+        Tick: 80
+    die3:
+        Start: 432
+        Length: 8
+        Tick: 80
+    die4:
+        Start: 440
+        Length: 12
+        Tick: 80
+    die5:
+        Start: 452
+        Length: 18
+        Tick: 80
+    die6:
+        Filename: electro.tem
+        TilesetFilenames:
+            SNOW: electro.sno
+        Frames: 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+        Length: *
+        Tick: 80
     icon:
-        Filename: e1icon.shp
+        Filename: shokicon.shp
+
+stalker:
+    Defaults:
+        Filename: qtnk.shp
+    idle:
+        Facings: 32
+        UseClassicFacings: True
+    piston:
+        Start: 32
+        Facings: 8
+        Length: 8
+    icon:
+        Filename: qtnkicon.shp
+explosion:
+    small_frag:
+        Filename: veh-hit3.shp

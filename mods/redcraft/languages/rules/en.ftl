@@ -1101,3 +1101,14 @@ actor-probe =
    .description = Protoss worker unit
    Harvests resources and warps in buildings
    .name = Probe
+
+actor-zealot =
+   .description = Strong melee unit with sharp Psionic Blades
+   Attacks ground only
+   .name = Zealot
+
+actor-stalker =
+   .description = Fast ranged ground unit
+   Can use Blink ability to teleport to a nearby target location
+   Attacks ground and air
+   .name = Stalker

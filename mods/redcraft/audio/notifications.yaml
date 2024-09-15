@@ -1,0 +1,5 @@
+Speech:
+    Notifications:
+        # Only play building notification when scv "captures" a building to start "constructing" it
+        BuildingCaptured: bldgprg1
+        BuildingInProgress:

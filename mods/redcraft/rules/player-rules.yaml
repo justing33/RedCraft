@@ -1,0 +1,34 @@
+^BasePlayer:
+    AlwaysVisible:
+    Shroud:
+    PlayerResources:
+        SelectableCash: 50, 1000, 2500, 5000, 7500, 10000, 20000
+        DefaultCash: 50
+        ResourceValues:
+            Ore: 5
+            Gems: 7
+
+Player:
+    Shroud:
+        ExploredMapCheckboxEnabled: false
+        ExploredMapCheckboxLocked: true
+        FogCheckboxEnabled: true
+        FogCheckboxLocked: true
+    LobbyPrerequisiteCheckbox@REUSABLEENGINEERS:
+        ID: reusable-engineers
+        Label: checkbox-reusable-engineers.label
+        Description: checkbox-reusable-engineers.description
+        Enabled: false
+        Locked: true
+    LobbyPrerequisiteCheckbox@GLOBALFACTUNDEPLOY:
+        ID: factundeploy
+        Label: checkbox-redeployable-mcvs.label
+        Description: checkbox-redeployable-mcvs.description
+        Enabled: false
+        Locked: true
+    LobbyPrerequisiteCheckbox@GLOBALBOUNTY:
+        ID: bounty
+        Label: checkbox-kill-bounties.label
+        Description: checkbox-kill-bounties.description
+        Enabled: false
+        Locked: true

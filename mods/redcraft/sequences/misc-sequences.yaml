@@ -1,9 +1,23 @@
+# Command Center / Scanner Sweep
 icon:
 	scannersweep:
 		Filename: sonricon.shp
+	auto-turret:
+        Filename: hboxicon.shp
+	droppods:
+		Filename: mechicon.shp
+	stimpack:
+		Filename: e1icon.shp
+	medivac-afterburners:
+		Filename: tranicon.shp
 
 beacon:
 	scannersweep-small:
 		Filename: lores|sonricon.shp
 		Length: *
 		Offset: 0,-42
+
+# Tactical Nuke / Ghost Academy
+tacticalnuke:
+	icon:
+		Filename: atomicon.shp

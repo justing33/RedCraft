@@ -1,0 +1,38 @@
+ZealotPsiBlades:
+    ReloadDelay: 21
+    Range: 1c900
+    Report: sandbag2.aud
+    ValidTargets: GroundActor, Infantry, Building, Structure
+    Projectile: InstantHit
+        Blockable: false
+    Warhead@1Dam: SpreadDamage
+        Damage: 6
+        ValidTargets: GroundActor, Infantry, Building, Structure
+        Versus:
+            None: 100
+            Wood: 100
+            Light: 100
+            Heavy: 100
+            Concrete: 100
+    Warhead@2Eff: CreateEffect
+        Explosions: piffs
+        ValidTargets: Ground, GroundActor, Infantry, Building, Structure
+
+ParticleDisruptors:
+    ReloadDelay: 33
+    Range: 6c0
+    Report: bleep12.aud
+    ValidTargets: GroundActor, Infantry, Building, Structure, AirborneActor, Air
+    Projectile: LaserZap
+        Speed: 1c682
+        # Blue beam color
+        Color: 0014D0
+    Warhead@1Dam: SpreadDamage
+        Spread: 213
+        Damage: 13
+        ValidTargets: GroundActor, Infantry, Building, Structure, AirborneActor, Air
+        DebugOverlayColor: 00FF00
+    Warhead@3Eff: CreateEffect
+        Explosions: small_frag
+        ImpactSounds: xplos.aud
+        ImpactActors: false

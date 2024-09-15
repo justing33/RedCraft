@@ -1,0 +1,714 @@
+SCV:
+    Inherits: ^Infantry
+    Inherits@selection: ^SelectableEconomicUnit
+    Buildable:
+        Queue: Ship
+        BuildPaletteOrder: 10
+        BuildDuration: 900
+        Prerequisites: ~command-center
+        Description: actor-scv.description
+    Valued:
+        Cost: 50
+        # Supply: 1
+    Tooltip:
+        Name: actor-scv.name
+    Selectable:
+        DecorationBounds: 800, 1000, 0, -300
+    Captures:
+        CaptureTypes: building
+        #Explicit
+        ConsumedByCapture: true
+        #Explicit
+        PlayerExperience: 0
+        ValidRelationships: Ally
+        EnterCursor: enter
+    CaptureManager:
+    Harvester:
+        Type: Unload
+        Resources: Ore, Gems
+        BaleLoadDelay: 80
+        BaleUnloadDelay: 0
+        BaleUnloadAmount: 99
+        SearchForDeliveryBuildingDelay: 0
+        SearchFromProcRadius: 20
+        SearchFromHarvesterRadius: 100
+        WaitDuration: 0
+        FullyLoadedSpeed: 100
+        HarvestFacings: 8
+        EmptyCondition: no-ore
+    StoresResources:
+        Capacity: 1
+        Resources: Ore, Gems
+    DockClientManager:
+        SearchForDockDelay: 1
+    Health:
+        HP: 45
+    Armor:
+        Type: Heavy
+    Mobile:
+        Speed: 98
+    RevealsShroud:
+        Range: 8c0
+    GpsDot:
+        String: Harvester
+    Armament@PRIMARY:
+        Weapon: SCVFusionCutter
+        LocalOffset: 427,0,341
+    Armament@REPAIRBUILDINGS:
+        Weapon: SCVBuildingHeal
+        Cursor: heal
+        OutsideRangeCursor: heal
+        TargetRelationships: Ally
+        ForceTargetRelationships: None
+    AttackFrontal:
+        FacingTolerance: 0
+    AttackMove:
+    # PRODUCTION #
+    BaseProvider:
+        Range: 5c0
+    GivesBuildableArea:
+        AreaTypes: building
+    Production@BUILDINGS:
+        Produces: Building, Defense
+    ProductionQueue@BUILDINGS:
+        Type: Building
+        QueueLimit: 1
+        ItemLimit: 1
+        Factions: terran
+    GrantExternalConditionToProduced:
+        Condition: produced
+    ProvidesPrerequisite@SCV:
+        Prerequisite: scv
+    #SpawnActorOnDeath:
+    #    Actor: HARV.EmptyHusk
+    #Explodes:
+    #    RequiresCondition: !no-ore
+    #    Weapon: OreExplosion
+    WithStoresResourcesPipsDecoration:
+        Position: BottomLeft
+        Margin: 4, 3
+        RequiresSelection: true
+        PipCount: 7
+        ResourceSequences:
+            Gems: pip-blue
+    # TODO: Allow to be loaded into lifted off Command Center
+    Passenger:
+        CargoType: Vehicle
+        Weight: 1
+    Targetable:
+        TargetTypes: GroundActor, Vehicle, Defense, Structure
+
+MULE:
+    Inherits: ^Infantry
+    Inherits@selection: ^SelectableEconomicUnit
+    Tooltip:
+        Name: actor-mule.name
+    Selectable:
+        DecorationBounds: 800, 1000, 0, -300
+    Harvester:
+        Type: Unload
+        Resources: Ore, Gems
+        #Half of what the SCV has to compensate for same mining times
+        BaleLoadDelay: 40
+        BaleUnloadDelay: 0
+        BaleUnloadAmount: 99
+        SearchForDeliveryBuildingDelay: 0
+        SearchFromProcRadius: 20
+        SearchFromHarvesterRadius: 100
+        WaitDuration: 0
+        FullyLoadedSpeed: 100
+        HarvestFacings: 8
+        EmptyCondition: no-ore
+    StoresResources:
+        # NOTES ON RESOURCES:
+        # 2x the capacity of a normal SCV means 2x more value
+        # 1 Load of Ore/Minerals is $5 so 2x = $10
+        # 1 Load of Gems/Gold is $7 so 2x = $14
+        Capacity: 2
+        Resources: Ore, Gems
+    DockClientManager:
+        SearchForDockDelay: 1
+    Health:
+        HP: 60
+    KillsSelf:
+        Delay: 2625
+        DamageTypes: ExplosionDeath
+    ActorLostNotification:
+        TextNotification: M.U.L.E. expired
+    Armor:
+        Type: Light
+    Mobile:
+        Speed: 98
+    RevealsShroud:
+        Range: 8c0
+    GpsDot:
+        String: Harvester
+    AttackFrontal:
+        FacingTolerance: 0
+    AttackMove:
+    Armament:
+        Weapon: SCVBuildingHeal
+        Cursor: heal
+        OutsideRangeCursor: heal
+        TargetRelationships: Ally
+        ForceTargetRelationships: None
+    WithStoresResourcesPipsDecoration:
+        Position: BottomLeft
+        Margin: 4, 3
+        RequiresSelection: true
+        PipCount: 7
+        ResourceSequences:
+            Gems: pip-blue
+    # TODO: Allow to be loaded into lifted off Command Center
+    Passenger:
+        CargoType: Vehicle
+        Weight: 1
+    Targetable:
+        TargetTypes: GroundActor, Vehicle, Defense, Structure
+
+# TODO: Remove if not used (testing now..)
+#^Aircraft:
+#    Inherits@2: ^ExistsInWorld
+#    Huntable:
+#    OwnerLostAction:
+#        Action: Kill
+#    AppearsOnRadar:
+#        UseLocation: true
+#    Targetable@GROUND:
+#        TargetTypes: Ground, Vehicle
+#        RequiresCondition: !airborne
+#    Targetable@AIRBORNE:
+#        TargetTypes: Air
+#        RequiresCondition: airborne
+#    Repairable:
+#        RepairActors: gadept
+#        Voice: Move
+#    Aircraft:
+#        AirborneCondition: airborne
+#        CruisingCondition: cruising
+#        CruiseAltitude: 4c704
+#        AltitudeVelocity: 96
+#        Voice: Move
+#        IdealSeparation: 853
+#        MaximumPitch: 120
+#        LandableTerrainTypes: Clear, Road, Rail, DirtRoad, Rough, Tiberium, BlueTiberium, Veins
+#        Crushes: crate, infantry
+#        MoveIntoShroud: false
+#        CanHover: true
+#        CanSlide: true
+#        VTOL: true
+#        Pitch: -64
+#        PitchSpeed: 16
+#        Roll: 56
+#        RollSpeed: 14
+#    Voiced:
+#        VoiceSet: Heli
+#    HiddenUnderFog:
+#        Type: GroundPosition
+#    AttackMove:
+#        Voice: Move
+#        MoveIntoShroud: false
+#    ActorLostNotification:
+#        TextNotification: notification-unit-lost
+#    BodyOrientation:
+#        QuantizedFacings: 0
+#        CameraPitch: 85
+#    Guard:
+#        Voice: Move
+#    Guardable:
+#    MustBeDestroyed:
+#    RenderVoxels:
+#    WithVoxelBody:
+#    RevealOnFire:
+#    HitShape:
+#    MapEditorData:
+#        Categories: Aircraft
+#    SpawnActorOnDeath:
+#        RequiresCondition: airborne
+#    Hovers@CRUISING:
+#        RequiresCondition: cruising
+#        BobDistance: -64
+#        InitialHeight: 64
+#    Sellable:
+#        SellSounds: cashturn.aud
+#        Cursor: sell2
+#        Notification: UnitSold
+#        TextNotification: notification-unit-sold
+#        RequiresCondition: unit.sellable
+#    GrantConditionOnClientDock@Sellable:
+#        Condition: unit.sellable
+#        AfterDockDuration: 20
+#        DockHostNames: gadept
+
+MULE-DROP-POD:
+    Inherits@2: ^ExistsInWorld
+    Valued:
+        Cost: 10
+    Tooltip:
+        Name: actor-mule-drop-pod.name
+    Health:
+        HP: 6000
+    Armor:
+        Type: Light
+    Aircraft:
+        TurnSpeed: 20
+        Speed: 300
+        CruiseAltitude: 16c0
+        MaximumPitch: 110
+        LandableTerrainTypes: Clear, Road, Rail, DirtRoad, Rough
+    HiddenUnderFog:
+        Type: CenterPosition
+    BodyOrientation:
+        UseClassicPerspectiveFudge: False
+    RenderSprites:
+        Image: pod
+    WithFacingSpriteBody:
+    QuantizeFacingsFromSequence:
+    HitShape:
+    Interactable:
+    WithShadow:
+    LeavesTrails:
+        Image: largesmoke
+        MovingInterval: 3
+        SpawnAtLastPosition: False
+        Type: CenterPosition
+    FallsToEarth:
+        Explosion: DropPodExplode
+        Moves: true
+        Velocity: 768
+        MaximumSpinSpeed: 0
+    SpawnActorOnDeath:
+        Actor: MULE
+
+HELLION:
+    Inherits: ^Vehicle
+    AutoTarget:
+    AutoTargetPriority@ATTACKGROUNDUNITSFIRST:
+        Priority: 2
+        ValidTargets: Infantry, Vehicle, Building
+        InvalidTargets: NoAutoTarget
+    AutoTargetPriority@ATTACKBUILDINGSSECOND:
+        Priority: 1
+        ValidTargets: Structure
+        InvalidTargets: NoAutoTarget
+    Buildable:
+        Queue: Vehicle
+        BuildDuration: 525
+        BuildPaletteOrder: 10
+        Prerequisites: ~factory
+        Description: actor-hellion.description
+    Valued:
+        Cost: 100
+        # Supply: 2
+    Tooltip:
+        Name: actor-hellion.name
+    UpdatesPlayerStatistics:
+        AddToArmyValue: true
+    Health:
+        HP: 90
+    Armor:
+        Type: Light
+        # Armor: Light, Mechanical
+    Mobile:
+        TurnSpeed: 40
+        Speed: 148
+        PauseOnCondition: notmobile || being-captured
+    RevealsShroud:
+        Range: 10c0
+        RevealGeneratedShroud: False
+    RevealsShroud@GAPGEN:
+        Range: 4c0
+    Turreted:
+        TurnSpeed: 40
+        Offset: 0,0,128
+    Armament:
+        Weapon: HellionFlamethrower
+        LocalOffset: 192,0,176
+        FireDelay: 2
+    Selectable:
+        DecorationBounds: 1194, 1194
+    Transforms:
+        IntoActor: hellbat
+        Offset: 0,0
+        TransformSounds: placbldg.aud, build5.aud
+        NoTransformNotification: BuildingCannotPlaceAudio
+        NoTransformTextNotification: Cannot deploy here.
+    Passenger:
+        Weight: 2
+    AttackTurreted:
+    WithMuzzleOverlay:
+    WithSpriteTurret:
+
+HELLBAT:
+    Inherits: ^Vehicle
+    AutoTarget:
+    AutoTargetPriority@ATTACKGROUNDUNITSFIRST:
+        Priority: 2
+        ValidTargets: Infantry, Vehicle, Building
+        InvalidTargets: NoAutoTarget
+    AutoTargetPriority@ATTACKBUILDINGSSECOND:
+        Priority: 1
+        ValidTargets: Structure
+        InvalidTargets: NoAutoTarget
+    # Supply: 2
+    Tooltip:
+        Name: actor-hellbat.name
+    UpdatesPlayerStatistics:
+        AddToArmyValue: true
+    Health:
+        HP: 135
+    Armor:
+        Type: Light
+    Mobile:
+        Speed: 78
+    RevealsShroud:
+        Range: 10c0
+        RevealGeneratedShroud: False
+    RevealsShroud@GAPGEN:
+        Range: 4c0
+    Armament:
+        Weapon: HellbatFlamethrower
+        LocalOffset: 192,0,176
+        FireDelay: 2
+    AttackFrontal:
+        TargetFrozenActors: True
+        ForceFireIgnoresActors: True
+        FacingTolerance: 0
+    WithMuzzleOverlay:
+    Transforms:
+        IntoActor: hellion
+        Offset: 0,0
+        TransformSounds: placbldg.aud, build5.aud
+    Passenger:
+        Weight: 4
+
+SIEGE-TANK:
+    Inherits: ^TrackedVehicle
+    AutoTarget:
+    AutoTargetPriority@ATTACKGROUNDUNITSFIRST:
+        Priority: 2
+        ValidTargets: Infantry, Vehicle, Building
+        InvalidTargets: NoAutoTarget
+    AutoTargetPriority@ATTACKBUILDINGSSECOND:
+        Priority: 1
+        ValidTargets: Structure
+        InvalidTargets: NoAutoTarget
+    Buildable:
+        Queue: Vehicle
+        BuildDuration: 800
+        BuildPaletteOrder: 20
+        Prerequisites: ~factory
+        Description: actor-siege-tank.description
+    Valued:
+        # Cost: 150
+        Cost: 275
+        # Supply: 3
+        # Oil: 125
+    Tooltip:
+        Name: actor-siege-tank.name
+        GenericName: actor-siege-tank.name
+    UpdatesPlayerStatistics:
+        AddToArmyValue: true
+    Health:
+        HP: 175
+    Armor:
+        Type: Heavy
+    Mobile:
+        Speed: 78
+    RevealsShroud:
+        Range: 11c0
+        RevealGeneratedShroud: False
+    RevealsShroud@GAPGEN:
+        Range: 4c0
+    AttackTurreted:
+    WithMuzzleOverlay:
+    WithSpriteTurret:
+    Turreted:
+        TurnSpeed: 100
+    Armament:
+        Weapon: SiegeTank90mmCannon
+        Recoil: 128
+        RecoilRecovery: 38
+        LocalOffset: 768,85,90, 768,-85,90
+        MuzzleSequence: muzzle
+    GrantConditionOnPrerequisite:
+        Condition: siege-mode-researched
+        Prerequisites: can-siege
+    Transforms:
+        RequiresCondition: siege-mode-researched
+        IntoActor: siege-tank-siege-mode
+        DeployBlockedCursor: deploy-blocked
+    Passenger:
+        Weight: 4
+    Selectable:
+        DecorationBounds: 1194, 1194
+
+SIEGE-TANK-SIEGE-MODE:
+    Inherits: ^Building
+    Inherits@shape: ^1x1Shape
+    # Allows siege tanks to auto attack other siege tanks (Buildings)!
+    AutoTarget:
+    AutoTargetPriority@ATTACKGROUNDUNITSFIRST:
+        Priority: 2
+        ValidTargets: Infantry, Vehicle, Building
+        InvalidTargets: NoAutoTarget
+    AutoTargetPriority@ATTACKBUILDINGSSECOND:
+        Priority: 1
+        ValidTargets: Structure
+        InvalidTargets: NoAutoTarget
+    Selectable:
+        DecorationBounds: 1194, 1194
+    # Supply: 3
+    Tooltip:
+        Name: actor-siege-tank-sieged.name
+        GenericName: actor-siege-tank-sieged.name
+    UpdatesPlayerStatistics:
+        AddToArmyValue: true
+    Health:
+        HP: 175
+    Armor:
+        Type: Heavy
+    Immobile:
+        OccupiesSpace: true
+    RevealsShroud:
+        Range: 11c0
+        RevealGeneratedShroud: False
+    RevealsShroud@GAPGEN:
+        Range: 4c0
+    AttackTurreted:
+    WithMuzzleOverlay:
+    WithSpriteTurret:
+    Turreted:
+        TurnSpeed: 100
+    Armament:
+        Weapon: SiegeTankCrucioShockCannon
+        Recoil: 171
+        RecoilRecovery: 30
+        LocalOffset: 768,85,90, 768,-85,90
+        MuzzleSequence: muzzle
+    RenderRangeCircle:
+        RangeCircleType: siege-radius
+    Transforms:
+        IntoActor: siege-tank
+
+WIDOW-MINE:
+    Inherits: ^Vehicle
+    AutoTarget:
+    AutoTargetPriority@ATTACKGROUNDUNITSFIRST:
+        Priority: 2
+        ValidTargets: Infantry, Vehicle, Building
+        InvalidTargets: NoAutoTarget
+    AutoTargetPriority@ATTACKBUILDINGSSECOND:
+        Priority: 1
+        ValidTargets: Structure
+        InvalidTargets: NoAutoTarget
+    # TODO: Look into selectable priorities later for QOL
+    # Inherits@selection: ^SelectableSupportUnit
+    Buildable:
+        Queue: Vehicle
+        BuildDuration: 525
+        BuildPaletteOrder: 40
+        Prerequisites: ~factory
+        Description: actor-widow-mine.description
+    Valued:
+        # Cost: 75
+        Cost: 100
+        # Supply: 2
+        # Oil: 25
+    Tooltip:
+        Name: actor-widow-mine.name
+    UpdatesPlayerStatistics:
+        AddToArmyValue: true
+    Health:
+        HP: 90
+    Armor:
+        Type: Heavy
+    Mobile:
+        Speed: 98
+    Turreted:
+        TurnSpeed: 300
+        Offset: -298,0,298
+    Armament:
+        Weapon: WidowMineSentinelMissile
+        LocalOffset: 624,-200,0
+        MuzzleSequence: muzzle
+    AttackTurreted:
+    WithMuzzleOverlay:
+    Cloak:
+        InitialDelay: 50
+        CloakDelay: 100
+        CloakSound: appear1.aud
+        UncloakSound: appear1.aud
+        IsPlayerPalette: true
+        UncloakOn: Move
+        PauseOnCondition: cloak-force-disabled
+    # TODO: Look into disabling cloak on Critical
+    # GrantConditionOnDamageState@UNCLOAK:
+    #     Condition: cloak-force-disabled
+    #     ValidDamageStates: Critical
+    RevealsShroud:
+        Range: 7c0
+        RevealGeneratedShroud: False
+    RevealsShroud@GAPGEN:
+        Range: 4c0
+    Passenger:
+        Weight: 2
+
+VIKING-ASSAULT-MODE:
+    Inherits: ^Vehicle
+    AutoTarget:
+    AutoTargetPriority@ATTACKGROUNDUNITSFIRST:
+        Priority: 2
+        ValidTargets: Infantry, Vehicle, Building
+        InvalidTargets: NoAutoTarget
+    AutoTargetPriority@ATTACKBUILDINGSSECOND:
+        Priority: 1
+        ValidTargets: Structure
+        InvalidTargets: NoAutoTarget
+    # Supply: 2
+    Tooltip:
+        Name: actor-viking-assault-mode.name
+        GenericName: actor-viking-assault-mode.name
+    UpdatesPlayerStatistics:
+        AddToArmyValue: true
+    Health:
+        HP: 135
+    Armor:
+        Type: Light
+        # Armor: Armored, Mechanical
+    Mobile:
+        Speed: 78
+        Locomotor: heavywheeled
+    RevealsShroud:
+        Range: 10c0
+        RevealGeneratedShroud: False
+    RevealsShroud@GAPGEN:
+        Range: 4c0
+    Armament@PRIMARY:
+        Weapon: VIKING-ASSAULT-MODE-GATLING
+        MuzzleSequence: muzzle
+        LocalOffset: 128,0,43
+    WithMuzzleOverlay:
+    AttackFrontal:
+        FacingTolerance: 0
+    Selectable:
+        DecorationBounds: 1280, 1280
+    Transforms:
+        IntoActor: viking
+    Passenger:
+        Weight: 2
+
+# TODO: Add Lock-On ability
+CYCLONE:
+    Inherits: ^Vehicle
+    AutoTarget:
+    AutoTargetPriority@ATTACKGROUNDUNITSFIRST:
+        Priority: 2
+        ValidTargets: Infantry, Vehicle, Building, AirborneActor
+        InvalidTargets: NoAutoTarget
+    AutoTargetPriority@ATTACKBUILDINGSSECOND:
+        Priority: 1
+        ValidTargets: Structure
+        InvalidTargets: NoAutoTarget
+    Buildable:
+        Queue: Vehicle
+        BuildDuration: 800
+        BuildPaletteOrder: 30
+        Prerequisites: ~factory
+        Description: actor-cyclone.description
+    Valued:
+        # Cost: 125
+        Cost: 175
+        # Oil: 50
+        # Supply: 2
+    Tooltip:
+        Name: actor-cyclone.name
+    UpdatesPlayerStatistics:
+        AddToArmyValue: true
+    Health:
+        HP: 130
+    Armor:
+        Type: Light
+        # Armor: Armored, Mechanical
+    Mobile:
+        TurnSpeed: 40
+        Speed: 98
+    RevealsShroud:
+        Range: 11c0
+        RevealGeneratedShroud: False
+    RevealsShroud@GAPGEN:
+        Range: 4c0
+    Turreted:
+        TurnSpeed: 40
+        Offset: -298,0,298
+    Armament@AA:
+        Weapon: CycloneMissileAA
+        Recoil: 85
+        LocalOffset: 512,0,192
+        MuzzleSequence: muzzle
+    Armament@AG:
+        Weapon: CycloneMissileAG
+        Recoil: 85
+        LocalOffset: 512,0,192
+        MuzzleSequence: muzzle
+    AttackTurreted:
+    WithMuzzleOverlay:
+    WithSpriteTurret:
+    Selectable:
+        DecorationBounds: 1194, 1194
+    Passenger:
+        Weight: 4
+
+#^VoxelActor:
+#    BodyOrientation:
+#        QuantizedFacings: 0
+#    RenderVoxels:
+#    WithVoxelBody:
+#
+#HMEC:
+#    Inherits: ^Vehicle
+#    Inherits@VOXELS: ^VoxelActor
+#    Inherits@EXPERIENCE: ^GainsExperience
+#    Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+#    Valued:
+#        Cost: 3000
+#    Tooltip:
+#        Name: actor-hmec.name
+#    UpdatesPlayerStatistics:
+#        AddToArmyValue: true
+#    Buildable:
+#        Queue: Vehicle
+#        BuildPaletteOrder: 140
+#        Prerequisites: ~gaweap, gatech, ~techlevel.high
+#        BuildLimit: 1
+#        Description: actor-hmec.description
+#    Mobile:
+#        TurnSpeed: 12
+#        Speed: 42
+#    Health:
+#        HP: 80000
+#    ChangesHealth:
+#        Step: 500
+#    Armor:
+#        Type: Heavy
+#    RevealsShroud:
+#        RequiresCondition: !inside-tunnel
+#        Range: 8c0
+#        MaxHeightDelta: 3
+#    AttackFrontal:
+#        Voice: Attack
+#        PauseOnCondition: empdisable
+#        FacingTolerance: 0
+#    Armament@MISSILES:
+#        Weapon: MammothTusk
+#        LocalOffset: -243,-368,1208, -243,368,1208
+#    Armament@RAILGUN:
+#        Weapon: MechRailgun
+#        LocalOffset: 368,-311,1030, 368,311,1030
+#    -WithVoxelBody:
+#    WithVoxelWalkerBody:
+#        TickRate: 1
+#    Selectable:
+#        Bounds: 1206, 2413, 0, -482
+#    Carryable:
+#        LocalOffset: 0,0,509

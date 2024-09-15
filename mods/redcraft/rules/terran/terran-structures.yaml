@@ -1,0 +1,1491 @@
+#################################
+# TERRAN CONSTRUCTION BUILDINGS #
+#################################
+
+COMMAND-CENTER-CONSTRUCTION-BLDG:
+    Inherits: ^Building
+    Tooltip:
+        Name: actor-command-center.name
+    Selectable:
+        Bounds: 3072, 3072
+    Building:
+        Footprint: xxX xxx XxX ===
+        Dimensions: 3,4
+        LocalCenterOffset: 0,-512,0
+    Buildable:
+        Queue: Building
+        BuildDuration: 1
+        BuildPaletteOrder: 10
+        Prerequisites: ~scv
+        Description: actor-command-center.description
+    CaptureManager:
+        PreventsAutoTarget: true
+    Capturable:
+        Types: building
+    ProvidesRadar:
+    Valued:
+        Cost: 400
+    Health:
+        HP: 100
+    RevealsShroud:
+        Range: 11c0
+        RevealGeneratedShroud: true
+    RenderSprites:
+    TransformOnCapture:
+        IntoActor: command-center
+        # Start at low health to then "heal" as construction occurs
+        ForceHealthPercentage: 1
+        SkipMakeAnims: false
+    HitShape:
+        TargetableOffsets: 1273,939,0, -980,-640,0, -980,640,0
+        Type: Rectangle
+            TopLeft: -1536, -1536
+            BottomRight: 1536, 1536
+    MustBeDestroyed:
+        RequiredForShortGame: true
+
+SUPPLYDEPOT-CONSTRUCTION-BLDG:
+    Inherits: ^Building
+    ProvidesRadar:
+    Selectable:
+        Bounds: 1024, 1024
+    Buildable:
+        Queue: Building
+        BuildDuration: 1
+        BuildPaletteOrder: 25
+        Prerequisites: ~scv
+        Description: TBD
+    CaptureManager:
+        PreventsAutoTarget: true
+    Capturable:
+        Types: building
+    Valued:
+        Cost: 100
+    Tooltip:
+        Name: Supply Depot
+    Health:
+        HP: 100
+    Armor:
+        Type: Wood
+    RevealsShroud:
+        Range: 4c0
+    Power:
+        Amount: -0
+    TransformOnCapture:
+        IntoActor: supplydepot
+        ForceHealthPercentage: 1
+        SkipMakeAnims: false
+    MustBeDestroyed:
+        RequiredForShortGame: true
+
+BARRACKS_-CONSTRUCTION-BLDG:
+    Inherits: ^Building
+    Inherits@shape: ^2x2Shape
+    Selectable:
+        Bounds: 2048, 2048
+    ProvidesRadar:
+    HitShape:
+        UseTargetableCellsOffsets: false
+        TargetableOffsets: 0,0,0, 490,-470,0, 355,512,0, -355,-512,0, -630,512,0
+    Buildable:
+        Queue: Building
+        BuildDuration: 1
+        BuildPaletteOrder: 20
+        Prerequisites: ~scv
+        Description: actor-barracks_.description
+    CaptureManager:
+        PreventsAutoTarget: true
+    Capturable:
+        Types: building
+    Valued:
+        Cost: 150
+    Tooltip:
+        Name: actor-barracks_.name
+    Building:
+        Footprint: xx xx ==
+        Dimensions: 2,3
+        LocalCenterOffset: 0,-512,0
+    Health:
+        HP: 100
+    Armor:
+        Type: Wood
+    RevealsShroud:
+        Range: 9c0
+        RevealGeneratedShroud: true
+    CommandBarBlacklist:
+        DisableStop: false
+    Power:
+        Amount: -0
+    #Transforms:
+    #    PauseOnCondition: being-demolished || build-incomplete
+    #    IntoActor: barracks-air
+    #TransformsIntoAircraft:
+    #    DockActors:
+    #TransferTimedExternalConditionOnTransform:
+    #    Condition: invulnerability
+    TransformOnCapture:
+        IntoActor: barracks_
+        # Start at low health to then "heal" as construction occurs
+        ForceHealthPercentage: 1
+        SkipMakeAnims: false
+    MustBeDestroyed:
+        RequiredForShortGame: true
+
+BUNKER-CONSTRUCTION-BLDG:
+    Inherits: ^Building
+    Tooltip:
+        Name: actor-bunker.name
+    ProvidesRadar:
+    Building:
+    Buildable:
+        Queue: Building
+        BuildDuration: 1
+        BuildPaletteOrder: 40
+        Prerequisites: ~scv, ~barracks_
+        Description: actor-bunker.description
+    CaptureManager:
+        #CapturingCondition: capturing-under-construction
+        #BeingCapturedCondition: being-captured-under-construction
+        PreventsAutoTarget: true
+    Capturable:
+        Types: building
+    Valued:
+        Cost: 100
+    Health:
+        HP: 100
+    Armor:
+        Type: Heavy
+    RevealsShroud:
+        Range: 10c0
+        RevealGeneratedShroud: true
+    MustBeDestroyed:
+        RequiredForShortGame: true
+    TransformOnCapture:
+        IntoActor: bunker
+        # Start at low health to then "heal" as construction occurs
+        ForceHealthPercentage: 1
+        SkipMakeAnims: false
+
+FACTORY-CONSTRUCTION-BLDG:
+    Inherits: ^Building
+    Inherits@shape: ^3x2Shape
+    Selectable:
+        Bounds: 3072, 2048
+    ProvidesRadar:
+    Buildable:
+        Queue: Building
+        BuildDuration: 1
+        BuildPaletteOrder: 30
+        Prerequisites: ~scv, ~barracks_
+        Description: actor-factory.description
+    CaptureManager:
+        #CapturingCondition: capturing-under-construction
+        #BeingCapturedCondition: being-captured-under-construction
+        PreventsAutoTarget: true
+    Capturable:
+        Types: building
+    Valued:
+        # Cost: 150
+        Cost: 250
+        # Oil: 100
+    Tooltip:
+        Name: actor-factory.name
+    Building:
+        Footprint: xxx xxx ===
+        Dimensions: 3,3
+        LocalCenterOffset: 0,-512,0
+    Health:
+        HP: 100
+    Armor:
+        Type: Wood
+    RevealsShroud:
+        Range: 9c0
+        RevealGeneratedShroud: true
+    #WithProductionDoorOverlay:
+    #    RequiresCondition: !build-incomplete
+    #    Sequence: build-top
+    CommandBarBlacklist:
+        DisableStop: false
+    #Transforms:
+    #    PauseOnCondition: being-demolished || build-incomplete
+    #    IntoActor: factory-air
+    #TransformsIntoAircraft:
+    #    DockActors:
+    #TransferTimedExternalConditionOnTransform:
+    #    Condition: invulnerability
+    MustBeDestroyed:
+        RequiredForShortGame: true
+    TransformOnCapture:
+        IntoActor: factory
+        # Start at low health to then "heal" as construction occurs
+        ForceHealthPercentage: 1
+        SkipMakeAnims: false
+
+STARPORT-CONSTRUCTION-BLDG:
+    Inherits: ^Building
+    Inherits@shape: ^3x2Shape
+    Selectable:
+        Class: afld
+        Bounds: 3072, 2048
+    ProvidesRadar:
+    HitShape:
+        UseTargetableCellsOffsets: false
+        TargetableOffsets: 0,0,0, 420,0,0, 420,-1024,0, 420,1024,0, -777,0,0, -777,-1024,0, -777,1024,0
+    Buildable:
+        Queue: Building
+        BuildDuration: 1
+        BuildPaletteOrder: 40
+        Prerequisites: ~scv, ~factory
+        Description: actor-starport.description
+    CaptureManager:
+        #CapturingCondition: capturing-under-construction
+        #BeingCapturedCondition: being-captured-under-construction
+        PreventsAutoTarget: true
+    Capturable:
+        Types: building
+    Valued:
+        # Cost: 150
+        Cost: 250
+        # Oil: 100
+    Tooltip:
+        Name: actor-starport.name
+    Building:
+        Footprint: xxx xxx
+        Dimensions: 3,2
+    Health:
+        HP: 100
+    Armor:
+        Type: Wood
+    RevealsShroud:
+        Range: 9c0
+        RevealGeneratedShroud: true
+    CommandBarBlacklist:
+        DisableStop: false
+    #Transforms:
+    #    PauseOnCondition: being-demolished || build-incomplete
+    #    IntoActor: starport-air
+    #TransformsIntoAircraft:
+    #    DockActors:
+    #TransferTimedExternalConditionOnTransform:
+    #    Condition: invulnerability
+    MustBeDestroyed:
+        RequiredForShortGame: true
+    TransformOnCapture:
+        IntoActor: starport
+        # Start at low health to then "heal" as construction occurs
+        ForceHealthPercentage: 1
+        SkipMakeAnims: false
+
+MISSILETURRET-CONSTRUCTION-BLDG:
+    Inherits: ^Building
+    Inherits@shape: ^2x1Shape
+    ProvidesRadar:
+    Selectable:
+        Bounds: 2048, 1024
+    HitShape:
+        Type: Rectangle
+            TopLeft: -768,-512
+            BottomRight: 768,512
+    Buildable:
+        Queue: Building
+        BuildDuration: 1
+        BuildPaletteOrder: 100
+        Prerequisites: ~scv, ~engineering-bay
+        Description: actor-missileturret.description
+    CaptureManager:
+        #CapturingCondition: capturing-under-construction
+        #BeingCapturedCondition: being-captured-under-construction
+        PreventsAutoTarget: true
+    Capturable:
+        Types: building
+    Valued:
+        Cost: 100
+    Tooltip:
+        Name: actor-missileturret.name
+    Building:
+        Footprint: xx
+        Dimensions: 2,1
+    Health:
+        HP: 100
+    Armor:
+        Type: Heavy
+    RevealsShroud:
+        Range: 11c0
+        RevealGeneratedShroud: true
+    -BodyOrientation:
+    ClassicFacingBodyOrientation:
+    MustBeDestroyed:
+        RequiredForShortGame: true
+    TransformOnCapture:
+        IntoActor: missileturret
+        # Start at low health to then "heal" as construction occurs
+        ForceHealthPercentage: 1
+        SkipMakeAnims: false
+
+ENGINEERING-BAY-CONSTRUCTION-BLDG:
+    Inherits: ^Building
+    Inherits@shape: ^3x2Shape
+    Selectable:
+        Bounds: 3072, 2048
+    HitShape:
+        TargetableOffsets: 420,-768,0, 420,768,0, -770,-768,0, -770,768,0
+    Buildable:
+        Queue: Building
+        BuildDuration: 1
+        BuildPaletteOrder: 150
+        Prerequisites: ~scv, ~command-center
+        Description: actor-engineering-bay.description
+    CaptureManager:
+        #CapturingCondition: capturing-under-construction
+        #BeingCapturedCondition: being-captured-under-construction
+        PreventsAutoTarget: true
+    Capturable:
+        Types: building
+    Valued:
+        Cost: 125
+    Tooltip:
+        Name: actor-engineering-bay.name
+    Building:
+        Footprint: XxX XxX ===
+        Dimensions: 3,3
+        LocalCenterOffset: 0,-512,0
+    Health:
+        HP: 100
+    Armor:
+        Type: Wood
+    RevealsShroud:
+        Range: 5c0
+        RevealGeneratedShroud: False
+    Power:
+        Amount: -0
+    MustBeDestroyed:
+        RequiredForShortGame: true
+    TransformOnCapture:
+        IntoActor: engineering-bay
+        # Start at low health to then "heal" as construction occurs
+        ForceHealthPercentage: 1
+        SkipMakeAnims: false
+
+GHOST-ACADEMY-CONSTRUCTION-BLDG:
+    Inherits: ^Building
+    Inherits@shape: ^2x2Shape
+    ProvidesRadar:
+    Selectable:
+        Bounds: 2048, 2048
+    Buildable:
+        Queue: Building
+        BuildDuration: 1
+        BuildPaletteOrder: 140
+        Prerequisites: ~scv, ~barracks_
+        Description: actor-ghost-academy.description
+    CaptureManager:
+        #CapturingCondition: capturing-under-construction
+        #BeingCapturedCondition: being-captured-under-construction
+        PreventsAutoTarget: true
+    Capturable:
+        Types: building
+    Valued:
+        # Cost: 150
+        Cost: 200
+        # Oil: 50
+    Tooltip:
+        Name: actor-ghost-academy.name
+    Building:
+        Footprint: xx xx ==
+        Dimensions: 2,3
+        LocalCenterOffset: 0,-512,0
+    Health:
+        HP: 1250
+    Armor:
+        Type: Wood
+    RevealsShroud:
+        Range: 5c0
+        RevealGeneratedShroud: False
+    Power:
+        Amount: -0
+    MustBeDestroyed:
+        RequiredForShortGame: true
+    TransformOnCapture:
+        IntoActor: ghost-academy
+        # Start at low health to then "heal" as construction occurs
+        ForceHealthPercentage: 1
+        SkipMakeAnims: false
+
+###########################
+#### TERRAN STRUCTURES ####
+###########################
+
+COMMAND-CENTER:
+    Inherits: ^Building
+    Inherits@AUTOTARGET: ^AutoTargetGround
+    Selectable:
+        Bounds: 3072, 3072
+    #TODO: Cleanup the === from Bib?
+    ProvidesRadar:
+    Building:
+        Footprint: xxX xxx XxX ===
+        Dimensions: 3,4
+        LocalCenterOffset: 0,-512,0
+    # TODO: Provides 15 initial supply
+    WithMakeAnimation:
+        Condition: under-construction
+    FreeActor:
+        Actor: scv
+        RequiresCondition: !under-construction
+    ChangesHealth:
+        Step: 0
+        # 15 HP per 21 Ticks in 1 Step (71.43)
+        PercentageStep: 1
+        Delay: 21
+        StartIfBelow: 100
+        RequiresCondition: under-construction
+    Health:
+        HP: 1500
+    Armor:
+        Type: Steel
+    Tooltip:
+        Name: actor-command-center.name
+        RequiresCondition: !orbitalcommandupgraded
+    Tooltip@ORBITALUPGRADED:
+        Name: actor-command-center-orbital.name
+        RequiresCondition: orbitalcommandupgraded
+    Tooltip@PLANETARYFORTRESSUPGRADED:
+        Name: actor-commandcenter-planetaryfortress.name
+        RequiresCondition: planetaryfortressupgraded
+    Refinery:
+        UseStorage: False
+    # Left Side Docks
+    DockHost@LEFTCENTER:
+        Type: Unload
+        DockWait: 0
+        DockAngle: 256
+        DockOffset: -2c1, 0, 0
+        MaxQueueLength: 1
+        RequiresCondition: !under-construction
+    DockHost@LEFTCENTERANDUP1:
+        Type: Unload
+        DockAngle: 256
+        DockOffset: -2c1, -1c1, 0
+        MaxQueueLength: 1
+        RequiresCondition: !under-construction
+    DockHost@LEFTCENTERANDUP2:
+        Type: Unload
+        DockAngle: 256
+        DockOffset: -1c1, -2c1, 0
+        MaxQueueLength: 1
+        RequiresCondition: !under-construction
+    DockHost@LEFTCENTERANDDOWN1:
+        Type: Unload
+        DockAngle: 256
+        DockOffset: -2c1, 1c1, 0
+        MaxQueueLength: 1
+        RequiresCondition: !under-construction
+    DockHost@LEFTCENTERANDDOWN2:
+        Type: Unload
+        DockAngle: 256
+        DockOffset: -1c1, 2c1, 0
+        MaxQueueLength: 1
+        RequiresCondition: !under-construction
+        # Right Side Docks
+    DockHost@RIGHTCENTER:
+        Type: Unload
+        DockWait: 0
+        DockAngle: 256
+        DockOffset: 2c1, 0, 0
+        MaxQueueLength: 1
+        RequiresCondition: !under-construction
+    DockHost@RIGHTCENTERANDUP1:
+        Type: Unload
+        DockAngle: 256
+        DockOffset: 2c1, -1c1, 0
+        MaxQueueLength: 1
+        RequiresCondition: !under-construction
+    DockHost@RIGHTCENTERANDUP2:
+        Type: Unload
+        DockAngle: 256
+        DockOffset: 1c1, -2c1, 0
+        MaxQueueLength: 1
+        RequiresCondition: !under-construction
+    DockHost@RIGHTCENTERANDDOWN1:
+        Type: Unload
+        DockAngle: 256
+        DockOffset: 2c1, 1c1, 0
+        MaxQueueLength: 1
+        RequiresCondition: !under-construction
+    DockHost@RIGHTCENTERANDDOWN2:
+        Type: Unload
+        DockAngle: 256
+        DockOffset: 1c1, 2c1, 0
+        MaxQueueLength: 1
+        RequiresCondition: !under-construction
+    StoresResources:
+        Capacity: 2000
+    Armor:
+        Type: Wood
+    RevealsShroud:
+        Range: 11c0
+        RevealGeneratedShroud: true
+    RevealsShroud@GAPGEN:
+        Range: 11c0
+    # Historical Info:
+    # Having 'Defense' type prevents duplicate (2) SCVs building simultaneously (Bug)
+    # Adding 'Ship' type allows for Normal AI to build SCVs as Defense must not be a unit production type in engine
+    # Making a decision to roll back to Defense type for now for SCV and stunt AI formidability
+    #
+    # Note: Need to keep Upgrade production defined above SCV production or upgrades seem to break
+    Production@UPGRADES:
+        Produces: Defense
+        PauseOnCondition: under-construction
+        RequiresCondition: !orbitalcommandupgraded && !planetaryfortressupgraded
+    ProductionQueue@UPGRADES:
+        Type: Defense
+        QueueLimit: 1
+        ItemLimit: 1
+        PayUpFront: true
+        Factions: terran
+    Production@SCV:
+        Produces: Ship
+        PauseOnCondition: under-construction
+    ProductionQueue@SCV:
+        Type: Ship
+        PayUpFront: true
+        Factions: terran
+    GrantConditionOnProduction@PlanetaryFortress:
+        Condition: planetaryfortressupgraded
+        Actors: COMMAND-CENTER-PLANETARYFORTRESS
+    GrantConditionOnProduction@OrbitalCommand:
+        Condition: orbitalcommandupgraded
+        Actors: COMMAND-CENTER-ORBITAL
+    GrantExternalConditionToProduced:
+        Condition: produced
+    RallyPoint:
+        ForceSetType: Ship
+    BaseBuilding:
+    Exit@1:
+        ExitCell: 0,0
+        ProductionTypes: Ship
+    # TODO: This is important for some reason regarding building the upgrades
+    ProvidesPrerequisite@command-center:
+        Prerequisite: command-center
+        RequiresCondition: !under-construction
+          # TODO: Fix bug where cc lifts off with cargo inside and lands, and game crashes
+          # Cargo:
+          #     Types: Vehicle
+          #     # TODO: Consider future upgrade to 10 capacity
+          #     MaxWeight: 5
+          #     # Instant unload and movement
+          #     BeforeUnloadDelay: 0
+          #     AfterUnloadDelay: 0
+        # PLANETARY FORTRESS UPGRADED
+    Turreted@PRIMARY:
+        Turret: primary
+        Offset: 0,-64,700
+        TurnSpeed: 75
+        RequiresCondition: planetaryfortressupgraded
+    WithSpriteTurret:
+        Recoils: false
+        RequiresCondition: planetaryfortressupgraded && !build-incomplete
+    Armament@PRIMARY:
+        Turret: primary
+        Weapon: PlanetaryFortressCannon
+        LocalOffset: 480,-100,40, 480,100,40
+        Recoil: 171
+        RecoilRecovery: 34
+        MuzzleSequence: muzzle
+        RequiresCondition: planetaryfortressupgraded
+    AttackTurreted:
+        Turrets: primary
+        OpportunityFire: True
+        TargetFrozenActors: True
+        ForceFireIgnoresActors: True
+        RequiresCondition: planetaryfortressupgraded
+    WithMuzzleOverlay:
+        RequiresCondition: planetaryfortressupgraded
+    WithSpriteTurret@PRIMARY:
+        Turret: primary
+        RequiresCondition: planetaryfortressupgraded
+    # ORBITAL COMMAND UPGRADED
+    WithIdleOverlay@ORBITAL:
+        RequiresCondition: orbitalcommandupgraded && !build-incomplete && !planetaryfortressupgraded
+        Sequence: command-center-orbital
+        # Forward, Right, Up
+        Offset: 0,1500,-450
+    AirstrikePower@spyplane:
+        OrderName: SovietSpyPlane
+        Icon: scannersweep
+        # Allow multiple instances of this support power
+        AllowMultiple: true
+        ChargeInterval: 3750
+        Name: actor-command-center-scanner-sweep.name
+        Description: actor-command-center-scanner-sweep.description
+        SelectTargetSpeechNotification: SelectTarget
+        EndChargeSpeechNotification: SpyPlaneReady
+        SelectTargetTextNotification: Select target.
+        EndChargeTextNotification: Spy plane ready.
+        CameraActor: camera.spyplane
+        CameraRemoveDelay: 150
+        UnitType: u2
+        QuantizedFacings: 8
+        DisplayBeacon: true
+        #TODO: Need to make it Instant scans
+        BeaconDelay: 0
+        BeaconPoster: scannersweep-small
+        ArrowSequence: arrow
+        ClockSequence: clock
+        CircleSequence: circles
+        UseDirectionalTarget: True
+        DirectionArrowAnimation: paradirection
+        SupportPowerPaletteOrder: 60
+        RequiresCondition: orbitalcommandupgraded
+    DropPodsPower:
+        Cursor: chrono-target
+        RequiresCondition: orbitalcommandupgraded
+        AllowMultiple: true
+        Icon: droppods
+        Name: actor-command-center-calldown-mules.name
+        Description: actor-command-center-calldown-mules.description
+        Drops: 3,3
+        SelectTargetSpeechNotification: SelectTarget
+        SelectTargetTextNotification: notification-select-target
+        DisplayRadarPing: true
+        ChargeInterval: 2625
+        UnitTypes: MULE-DROP-POD
+        CameraActor: camera
+    RenderSprites:
+    #TODO: Disabling until can figure out how to have Transforms with a separate 'Make' sequence
+    # with the new SCV building (capturing) feature
+    #Transforms:
+    #    PauseOnCondition: being-demolished || build-incomplete
+    #    IntoActor: command-center-air
+    #    Offset: 1,1
+    #    Facing: 384
+    #    RequiresCondition: !planetaryfortressupgraded && !orbitalcommandupgraded
+    #TransformsIntoAircraft:
+    #    DockActors:
+    WithDeathAnimation:
+        DeathSequence: dead
+        UseDeathTypeSuffix: false
+    HitShape:
+        TargetableOffsets: 1273,939,0, -980,-640,0, -980,640,0
+        Type: Rectangle
+            TopLeft: -1536, -1536
+            BottomRight: 1536, 1536
+    MustBeDestroyed:
+        RequiredForShortGame: true
+
+SUPPLYDEPOT:
+    Inherits: ^Building
+    Selectable:
+        Bounds: 1024, 1024
+    WithGateSpriteBody:
+        OpenSequence: open
+        PauseOnCondition: under-construction
+    Gate:
+        PauseOnCondition: under-construction
+    WithMakeAnimation:
+        Condition: under-construction
+    FreeActor:
+        Actor: scv
+        RequiresCondition: !under-construction
+    ChangesHealth:
+        Step: 0
+        PercentageStep: 1
+        Delay: 3
+        StartIfBelow: 100
+        RequiresCondition: under-construction
+    # TODO: Adds 8 supply
+    Tooltip:
+        Name: Supply Depot
+    Health:
+        HP: 400
+    Armor:
+        Type: Wood
+    RevealsShroud:
+        Range: 4c0
+    Power:
+        Amount: -0
+    MustBeDestroyed:
+        RequiredForShortGame: true
+
+BARRACKS_:
+    Inherits: ^Building
+    Inherits@shape: ^2x2Shape
+    Selectable:
+        Bounds: 2048, 2048
+    ProvidesRadar:
+    HitShape:
+        UseTargetableCellsOffsets: false
+        TargetableOffsets: 0,0,0, 490,-470,0, 355,512,0, -355,-512,0, -630,512,0
+    WithMakeAnimation:
+        Condition: under-construction
+    FreeActor:
+        Actor: scv
+        RequiresCondition: !under-construction
+    ChangesHealth:
+        Step: 0
+        # 15 HP per 21 Ticks in 1 Step (71.43)
+        PercentageStep: 1
+        Delay: 9
+        StartIfBelow: 100
+        RequiresCondition: under-construction
+    Valued:
+        Cost: 150
+    Tooltip:
+        Name: actor-barracks_.name
+    Building:
+        Footprint: xx xx ==
+        Dimensions: 2,3
+        LocalCenterOffset: 0,-512,0
+    Health:
+        HP: 1000
+    Armor:
+        Type: Wood
+    RevealsShroud:
+        Range: 9c0
+        RevealGeneratedShroud: true
+    RevealsShroud@GAPGEN:
+        Range: 4c0
+    RallyPoint:
+        ForceSetType: Infantry
+    CommandBarBlacklist:
+        DisableStop: false
+    Exit@1:
+        ExitCell: 0,0
+        ProductionTypes: Soldier, Infantry
+    Exit@2:
+        ExitCell: 0,4
+        ProductionTypes: Soldier, Infantry
+    Exit@3:
+        ExitCell: 4,0
+        ProductionTypes: Soldier, Infantry
+    Exit@4:
+        ExitCell: 4,4
+        ProductionTypes: Soldier, Infantry
+    Production:
+        Produces: Infantry, Soldier
+        PauseOnCondition: under-construction
+    ProductionQueue:
+        Type: Infantry
+        PayUpFront: true
+        Factions: terran
+    ProductionBar:
+        ProductionType: Infantry
+    GrantExternalConditionToProduced:
+        Condition: produced
+    GrantPrerequisiteChargeDrainPower:
+        Name: Stimpack
+        Description: Stimpack
+        StartFullyCharged: true
+        ChargeInterval: 50
+        # Roughly 11 seconds of duration
+        DischargeModifier: 22
+        Prerequisite: stimpack-activated
+        # Required pre-req to use Power
+        Prerequisites: can-stimpack
+        Icon: stimpack
+        AllowMultiple: false
+    ProvidesPrerequisite:
+        Prerequisite: barracks_
+        RequiresCondition: !under-construction
+    Power:
+        Amount: -0
+    #Transforms:
+    #    PauseOnCondition: being-demolished || build-incomplete
+    #    IntoActor: barracks-air
+    #TransformsIntoAircraft:
+    #    DockActors:
+    #TransferTimedExternalConditionOnTransform:
+    #    Condition: invulnerability
+    MustBeDestroyed:
+        RequiredForShortGame: true
+
+BUNKER:
+    Inherits: ^Building
+    Inherits@AUTOTARGET: ^AutoTargetAll
+    Inherits@CARGOPIPS: ^CargoPips
+    Tooltip:
+        Name: actor-bunker.name
+    ProvidesRadar:
+    Building:
+    WithMakeAnimation:
+        Condition: under-construction
+    FreeActor:
+        Actor: scv
+        RequiresCondition: !under-construction
+    ChangesHealth:
+        Step: 0
+        # 15 HP per 21 Ticks in 1 Step (71.43)
+        PercentageStep: 1
+        Delay: 5
+        StartIfBelow: 100
+        RequiresCondition: under-construction
+    Valued:
+        Cost: 100
+    # TODO: Implement sellable bunker
+    #CustomSellValue:
+    #    Value: 50
+    Health:
+        HP: 400
+    Armor:
+        Type: Heavy
+    RevealsShroud:
+        Range: 10c0
+        RevealGeneratedShroud: true
+    RevealsShroud@GAPGEN:
+        Range: 10c0
+    Turreted:
+        TurnSpeed: 512
+    BodyOrientation:
+        QuantizedFacings: 8
+    InstantlyRepairable:
+        RequiresCondition: damaged
+    GrantConditionOnDamageState@DAMAGED:
+        Condition: damaged
+        ValidDamageStates: Light, Medium, Heavy, Critical
+    Cargo:
+        Types: Infantry
+        MaxWeight: 4
+        EjectOnDeath: true
+    AttackGarrisoned:
+        PauseOnCondition: build-incomplete
+        Armaments: garrisoned
+        PortOffsets: 384,0,128, 224,-341,128, -224,-341,128, -384,0,128, -224,341,128, 224,341,128
+        PortYaws: 0, 176, 341, 512, 682, 853
+        PortCones: 88, 88, 88, 88, 88, 88
+    RenderRangeCircle:
+        FallbackRange: 6c0
+    Power:
+        Amount: -0
+    MustBeDestroyed:
+        RequiredForShortGame: true
+
+FACTORY:
+    Inherits: ^Building
+    Inherits@shape: ^3x2Shape
+    Selectable:
+        Bounds: 3072, 2048
+    ProvidesRadar:
+    WithMakeAnimation:
+        Condition: under-construction
+    FreeActor:
+        Actor: scv
+        RequiresCondition: !under-construction
+    ChangesHealth:
+        Step: 0
+        # 15 HP per 21 Ticks in 1 Step (71.43)
+        PercentageStep: 1
+        Delay: 10
+        StartIfBelow: 100
+        RequiresCondition: under-construction
+    Valued:
+        # Cost: 150
+        Cost: 250
+        # Oil: 100
+    Tooltip:
+        Name: actor-factory.name
+    Building:
+        Footprint: xxx xxx ===
+        Dimensions: 3,3
+        LocalCenterOffset: 0,-512,0
+    Health:
+        HP: 1250
+    Armor:
+        Type: Wood
+    RevealsShroud:
+        Range: 9c0
+        RevealGeneratedShroud: true
+    RevealsShroud@GAPGEN:
+        Range: 9c0
+    WithProductionDoorOverlay:
+        RequiresCondition: !build-incomplete
+        Sequence: build-top
+    RallyPoint:
+        ForceSetType: Vehicle
+    CommandBarBlacklist:
+        DisableStop: false
+    Exit@1:
+        ExitCell: 0,0
+    Exit@2:
+        ExitCell: 0,4
+    Exit@3:
+        ExitCell: 4,0
+    Exit@4:
+        ExitCell: 4,4
+    Production:
+        Produces: Vehicle
+        PauseOnCondition: under-construction
+    ProductionQueue:
+        Type: Vehicle
+        PayUpFront: true
+        Factions: terran
+    ProductionBar:
+        ProductionType: Vehicle
+    ProvidesPrerequisite:
+        Prerequisite: factory
+        RequiresCondition: !under-construction
+    Power:
+        Amount: -0
+    #Transforms:
+    #    PauseOnCondition: being-demolished || build-incomplete
+    #    IntoActor: factory-air
+    #TransformsIntoAircraft:
+    #    DockActors:
+    #TransferTimedExternalConditionOnTransform:
+    #    Condition: invulnerability
+    MustBeDestroyed:
+        RequiredForShortGame: true
+
+STARPORT:
+    Inherits: ^Building
+    Inherits@shape: ^3x2Shape
+    Selectable:
+        Class: afld
+        Bounds: 3072, 2048
+    ProvidesRadar:
+    HitShape:
+        UseTargetableCellsOffsets: false
+        TargetableOffsets: 0,0,0, 420,0,0, 420,-1024,0, 420,1024,0, -777,0,0, -777,-1024,0, -777,1024,0
+    WithMakeAnimation:
+        Condition: under-construction
+    FreeActor:
+        Actor: scv
+        RequiresCondition: !under-construction
+    ChangesHealth:
+        Step: 0
+        # 15 HP per 21 Ticks in 1 Step (71.43)
+        PercentageStep: 1
+        Delay: 6
+        StartIfBelow: 100
+        RequiresCondition: under-construction
+    Valued:
+        # Cost: 150
+        Cost: 250
+        # Oil: 100
+    Tooltip:
+        Name: actor-starport.name
+    Building:
+        Footprint: xxx xxx
+        Dimensions: 3,2
+    Health:
+        HP: 1300
+    Armor:
+        Type: Wood
+    RevealsShroud:
+        Range: 9c0
+        RevealGeneratedShroud: true
+    RevealsShroud@GAPGEN:
+        Range: 9c0
+    Exit@1:
+        ExitCell: 0,0
+    RallyPoint:
+        ForceSetType: Plane
+    CommandBarBlacklist:
+        DisableStop: false
+    Production:
+        Produces: Aircraft, Plane
+        PauseOnCondition: under-construction
+    ProductionQueue:
+        Type: Aircraft
+        PayUpFront: true
+        Factions: terran
+    ProductionBar:
+        ProductionType: Aircraft
+    SupportPowerChargeBar:
+    Power:
+        Amount: -0
+    ProvidesPrerequisite:
+        Prerequisite: starport
+        RequiresCondition: !under-construction
+          #Transforms:
+          #    PauseOnCondition: being-demolished || build-incomplete
+          #    IntoActor: starport-air
+          #TransformsIntoAircraft:
+          #    DockActors:
+          #TransferTimedExternalConditionOnTransform:
+        #    Condition: invulnerability
+    MustBeDestroyed:
+        RequiredForShortGame: true
+
+MISSILETURRET:
+    Inherits: ^Building
+    Inherits@AUTOTARGET: ^AutoTargetAir
+    Inherits@shape: ^2x1Shape
+    ProvidesRadar:
+    Selectable:
+        Bounds: 2048, 1024
+    HitShape:
+        Type: Rectangle
+            TopLeft: -768,-512
+            BottomRight: 768,512
+    WithMakeAnimation:
+        Condition: under-construction
+    FreeActor:
+        Actor: scv
+        RequiresCondition: !under-construction
+    ChangesHealth:
+        Step: 0
+        # 15 HP per 21 Ticks in 1 Step (71.43)
+        PercentageStep: 1
+        Delay: 4
+        StartIfBelow: 100
+        RequiresCondition: under-construction
+    Valued:
+        Cost: 100
+    Tooltip:
+        Name: actor-missileturret.name
+    Building:
+        Footprint: xx
+        Dimensions: 2,1
+    Health:
+        HP: 250
+    Armor:
+        Type: Heavy
+    RevealsShroud:
+        Range: 11c0
+        RevealGeneratedShroud: true
+    RevealsShroud@GAPGEN:
+        Range: 11c0
+    DetectCloaked:
+        DetectionTypes: Cloak, Mine
+        Range: 11c0
+    Turreted:
+        TurnSpeed: 120
+        InitialFacing: 0
+        RealignDelay: -1
+        RequiresCondition: !build-incomplete
+    WithSpriteTurret:
+        RequiresCondition: !build-incomplete
+        Recoils: false
+    Armament:
+        Weapon: MissileTurretMissileAA
+        LocalOffset: 0,0,320
+        MuzzleSequence: muzzle
+        PauseOnCondition: under-construction
+    AttackTurreted:
+        PauseOnCondition: under-construction
+    WithMuzzleOverlay:
+    RenderRangeCircle:
+        RangeCircleType: aa
+    Power:
+        Amount: -0
+    -BodyOrientation:
+    ClassicFacingBodyOrientation:
+    MustBeDestroyed:
+        RequiredForShortGame: true
+
+ENGINEERING-BAY:
+    Inherits: ^Building
+    Inherits@shape: ^3x2Shape
+    Selectable:
+        Bounds: 3072, 2048
+    HitShape:
+        TargetableOffsets: 420,-768,0, 420,768,0, -770,-768,0, -770,768,0
+    WithMakeAnimation:
+        Condition: under-construction
+    FreeActor:
+        Actor: scv
+        RequiresCondition: !under-construction
+    ChangesHealth:
+        Step: 0
+        # 15 HP per 21 Ticks in 1 Step (71.43)
+        PercentageStep: 1
+        Delay: 7
+        StartIfBelow: 100
+        RequiresCondition: under-construction
+    Valued:
+        Cost: 125
+    Tooltip:
+        Name: actor-engineering-bay.name
+    ProvidesPrerequisite:
+        Prerequisite: engineering-bay
+        RequiresCondition: !under-construction
+    Building:
+        Footprint: XxX XxX ===
+        Dimensions: 3,3
+        LocalCenterOffset: 0,-512,0
+    Health:
+        HP: 1250
+    Armor:
+        Type: Wood
+    RevealsShroud:
+        MinRange: 4c0
+        Range: 5c0
+        RevealGeneratedShroud: False
+    RevealsShroud@GAPGEN:
+        Range: 4c0
+    Production@UPGRADES:
+        Produces: EngineeringBayUpgrades
+        RequiresCondition: !siege-mode-researched
+        PauseOnCondition: under-construction
+    ProductionQueue@UPGRADES:
+        Type: EngineeringBayUpgrades
+        QueueLimit: 1
+        ItemLimit: 1
+        PayUpFront: true
+        Factions: terran
+    GrantExternalConditionToProduced:
+        Condition: produced
+    Power:
+        Amount: -0
+    MustBeDestroyed:
+        RequiredForShortGame: true
+
+GHOST-ACADEMY:
+    Inherits: ^Building
+    Inherits@shape: ^2x2Shape
+    ProvidesRadar:
+    Selectable:
+        Bounds: 2048, 2048
+    WithMakeAnimation:
+        Condition: under-construction
+    FreeActor:
+        Actor: scv
+        RequiresCondition: !under-construction
+    ChangesHealth:
+        Step: 0
+        # 15 HP per 21 Ticks in 1 Step (71.43)
+        PercentageStep: 1
+        Delay: 7
+        StartIfBelow: 100
+        RequiresCondition: under-construction
+    Valued:
+        # Cost: 150
+        Cost: 200
+        # Oil: 50
+    Tooltip:
+        Name: actor-ghost-academy.name
+    ProvidesPrerequisite:
+        Prerequisite: ghost-academy
+        RequiresCondition: !under-construction
+    Building:
+        Footprint: xx xx ==
+        Dimensions: 2,3
+        LocalCenterOffset: 0,-512,0
+    Health:
+        HP: 1250
+    Armor:
+        Type: Wood
+    RevealsShroud:
+        MinRange: 4c0
+        Range: 5c0
+        RevealGeneratedShroud: False
+    RevealsShroud@GAPGEN:
+        Range: 4c0
+    Production@TACTICALNUKE:
+        # Temp queue name
+        Produces: Ship
+        PauseOnCondition: under-construction
+    ProductionQueue@TACTICALNUKE:
+        # Temp until I can change the production tab on sidebar in chrome.yaml
+        Type: Ship
+        PayUpFront: true
+        Factions: terran
+    SupportPowerChargeBar:
+    Power:
+        Amount: -0
+    ProvidesPrerequisite@buildingname:
+    MustBeDestroyed:
+        RequiredForShortGame: true
+
+##### ABILITIES #####
+
+# TACTICAL NUKE (BUILT)
+TACTICAL-NUKE:
+    Buildable:
+        BuildPaletteOrder: 10
+        Prerequisites: ghost-academy
+        Queue: Defense
+        BuildDuration: 1900 # 43
+        Description: actor-tactical-nuke.description
+    Valued:
+        # Cost: 100
+        Cost: 200
+        # Oil: 100
+    Tooltip:
+        Name: actor-tactical-nuke.name
+    Interactable:
+    AlwaysVisible:
+    RenderSprites:
+    NukePower:
+        Cursor: nuke
+        Icon: abomb
+        AllowMultiple: true
+        OneShot: true
+        ChargeInterval: 0
+        Name: actor-tactical-nuke.name
+        Description: actor-tactical-nuke.description
+        BeginChargeSpeechNotification: AbombPrepping
+        EndChargeSpeechNotification: AbombReady
+        SelectTargetSpeechNotification: SelectTarget
+        InsufficientPowerSpeechNotification: InsufficientPower
+        IncomingSpeechNotification: AbombLaunchDetected
+        SelectTargetTextNotification: notification-select-target
+        InsufficientPowerTextNotification: notification-insufficient-power
+        BeginChargeTextNotification: notification-abomb-prepping
+        EndChargeTextNotification: notification-abomb-ready
+        IncomingTextNotification: notification-abomb-launch-detected
+        MissileWeapon: tactical-nuke-superweapon
+        MissileImage: atomic
+        MissileDelay: 1
+        SpawnOffset: 1c0,427,0
+        DisplayTimerRelationships: Ally, Neutral, Enemy
+        DisplayBeacon: True
+        DisplayRadarPing: True
+        BeaconPoster: atomicon
+        CameraRange: 10c0
+        ArrowSequence: arrow
+        ClockSequence: clock
+        CircleSequence: circles
+        SupportPowerPaletteOrder: 70
+
+AUTO-TURRET:
+    Inherits: ^Building
+    Inherits@AUTOTARGET: ^AutoTargetAll
+    Tooltip:
+        Name: actor-auto-turret.name
+    Building:
+    Buildable:
+        Queue: Raven
+        BuildDuration: 0
+        BuildPaletteOrder: 50
+        Prerequisites: raven
+        Description: actor-auto-turret.description
+    Valued:
+        Cost: 0
+    Health:
+        HP: 75
+    KillsSelf:
+        Delay: 250
+    Armor:
+        Type: Light
+    RevealsShroud:
+        Range: 7c0
+        RevealGeneratedShroud: true
+    -QuantizeFacingsFromSequence:
+    BodyOrientation:
+        QuantizedFacings: 8
+    InstantlyRepairable:
+        RequiresCondition: damaged
+    GrantConditionOnDamageState@DAMAGED:
+        Condition: damaged
+        ValidDamageStates: Light, Medium, Heavy, Critical
+    -SpawnActorsOnSell:
+    RenderRangeCircle:
+        FallbackRange: 6c0
+    Turreted:
+        TurnSpeed: 512
+        Offset: 0,0,128
+    Armament:
+        Weapon: AUTO-TURRET-12MM-GAUSSCANNON
+        MuzzleSequence: muzzle
+        LocalOffset: 128,0,43
+    AttackTurreted:
+    WithMuzzleOverlay:
+    WithSpriteTurret:
+    Power:
+        Amount: -0
+    -MustBeDestroyed:
+
+#COMMAND-CENTER-AIR:
+#    Inherits: ^Helicopter
+#    # TODO: Fix bug listed below
+#    # Inherits@CARGOPIPS: ^CargoPips
+#    ProvidesRadar:
+#    Selectable:
+#        DecorationBounds: 1706, 1536
+#    Tooltip:
+#        Name: actor-command-center-air.name
+#    UpdatesPlayerStatistics:
+#        AddToArmyValue: true
+#    Health:
+#        HP: 1500
+#    RevealsShroud:
+#        Range: 8c0
+#        Type: CenterPosition
+#        RevealGeneratedShroud: true
+#    RevealsShroud@GAPGEN:
+#        Range: 8c0
+#        Type: GroundPosition
+#    Aircraft:
+#        TurnSpeed: 20
+#        Speed: 40
+#        AltitudeVelocity: 0c58
+#    # TODO: Fix bug where game crashes when landing a command center with scv inside
+#    # Cargo:
+#    #     Types: Vehicle
+#    #     # TODO: Consider future upgrade to 10 capacity
+#    #     MaxWeight: 5
+#    #     # Instant unload and movement
+#    #     BeforeUnloadDelay: 0
+#    #     AfterUnloadDelay: 0
+#    #     # TODO: Would be nice to show appropriate cursor between cargo loading and landing
+#    #     # UnloadCursor: repair
+#    #     # UnloadBlockedCursor: repair-blocked
+#    Transforms:
+#        # TODO: Fix landing offset
+#        IntoActor: command-center
+#        TransformSounds: placbldg.aud, build5.aud
+#        NoTransformNotification: BuildingCannotPlaceAudio
+#        NoTransformTextNotification: Cannot deploy here.
+#        # TODO: Would be nice to show appropriate cursor between cargo loading and landing
+#        # DeployCursor: deploy
+#        # DeployBlockedCursor: deploy-blocked
+#    BaseBuilding:
+#    #SpawnActorOnDeath:
+#    #    Actor:
+#    MustBeDestroyed:
+#        RequiredForShortGame: true
+
+#BARRACKS-AIR:
+#    Inherits: ^Helicopter
+#    ProvidesRadar:
+#    Selectable:
+#        Bounds: 2048, 2048
+#    HitShape:
+#        UseTargetableCellsOffsets: false
+#        TargetableOffsets: 0,0,0, 490,-470,0, 355,512,0, -355,-512,0, -630,512,0
+#    Tooltip:
+#        Name: actor-barracks-air.name
+#    Health:
+#        HP: 1000
+#    Armor:
+#        Type: Wood
+#    RevealsShroud:
+#        Range: 9c0
+#        Type: CenterPosition
+#        RevealGeneratedShroud: true
+#    RevealsShroud@GAPGEN:
+#        Range: 9c0
+#    Aircraft:
+#        TurnSpeed: 20
+#        Speed: 40
+#        AltitudeVelocity: 0c58
+#    ProvidesPrerequisite:
+#        Prerequisite: barracks
+#    Power:
+#        Amount: -0
+#    ProvidesPrerequisite@buildingname:
+#    Transforms:
+#        IntoActor: barracks_
+#        TransformSounds: placbldg.aud, build5.aud
+#        NoTransformNotification: BuildingCannotPlaceAudio
+#        NoTransformTextNotification: Cannot deploy here.
+#    #SpawnActorOnDeath:
+#    #    Actor:
+#    MustBeDestroyed:
+#        RequiredForShortGame: true
+
+#FACTORY-AIR:
+#    Inherits: ^Helicopter
+#    ProvidesRadar:
+#    Selectable:
+#        Bounds: 3072, 2048
+#    Tooltip:
+#        Name: actor-factory-air.name
+#    Health:
+#        HP: 1250
+#    Armor:
+#        Type: Wood
+#    RevealsShroud:
+#        Range: 9c0
+#        Type: CenterPosition
+#        RevealGeneratedShroud: true
+#    RevealsShroud@GAPGEN:
+#        Range: 9c0
+#    Aircraft:
+#        TurnSpeed: 20
+#        Speed: 40
+#        AltitudeVelocity: 0c58
+#    # Cannot be a building but need garage door overlay so draw idle overlay on top
+#    WithIdleOverlay@PRODUCTIONDOORTOP:
+#        Sequence: build-top
+#    Power:
+#        Amount: -0
+#    ProvidesPrerequisite@buildingname:
+#    Transforms:
+#        IntoActor: factory
+#        TransformSounds: placbldg.aud, build5.aud
+#        NoTransformNotification: BuildingCannotPlaceAudio
+#        NoTransformTextNotification: Cannot deploy here.
+#    #SpawnActorOnDeath:
+#    #    Actor:
+#    SequencePlaceBuildingPreview:
+#        Sequence: place
+#        SequenceAlpha: 0.65
+#    MustBeDestroyed:
+#        RequiredForShortGame: true
+
+#STARPORT-AIR:
+#    Inherits: ^Helicopter
+#    ProvidesRadar:
+#    Selectable:
+#        Class: afld
+#        Bounds: 3072, 2048
+#    Tooltip:
+#        Name: actor-starport-air.name
+#    Health:
+#        HP: 1300
+#    Armor:
+#        Type: Wood
+#    RevealsShroud:
+#        Range: 9c0
+#        Type: CenterPosition
+#        RevealGeneratedShroud: true
+#    RevealsShroud@GAPGEN:
+#        Range: 9c0
+#    Aircraft:
+#        TurnSpeed: 20
+#        Speed: 40
+#        AltitudeVelocity: 0c58
+#    Power:
+#        Amount: -0
+#    ProvidesPrerequisite@buildingname:
+#        Prerequisite: afld
+#    Transforms:
+#        IntoActor: starport
+#        TransformSounds: placbldg.aud, build5.aud
+#        NoTransformNotification: BuildingCannotPlaceAudio
+#        NoTransformTextNotification: Cannot deploy here.
+#    #SpawnActorOnDeath:
+#    #    Actor:
+#    MustBeDestroyed:
+#        RequiredForShortGame: true
+
+###########################
+# TODO: TO BE IMPLEMENTED #
+###########################
+
+# Gap Generator - rename to SENSOR-TOWER later
+GAP:
+    -Buildable:
+    Tooltip:
+        Name: Sensor Tower
+
+# Oil Refinery - rename to OIL-REFINERY later
+PROC:
+    -Buildable:
+    Tooltip:
+        Name: Oil Refinery
+    -FreeActor:
+
+################################
+# Common Structure Definitions #
+################################
+
+BARRACKS:
+    AlwaysVisible:
+    Interactable:
+    Tooltip:
+        Name: Infantry Production
+
+TECHCENTER:
+    AlwaysVisible:
+    Interactable:
+    Tooltip:
+        Name: Tech Center
+
+ANYPOWER:
+    AlwaysVisible:
+    Interactable:
+    Tooltip:
+        Name: Any Power Generation

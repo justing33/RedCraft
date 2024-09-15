@@ -1,0 +1,297 @@
+##################################
+# PROTOSS CONSTRUCTION BUILDINGS #
+##################################
+
+NEXUS-CONSTRUCTION-BLDG:
+    Inherits: ^Building
+    #Inherits@AUTOTARGET: ^AutoTargetGround
+    Selectable:
+        Bounds: 3072, 2048
+    ProvidesRadar:
+    Buildable:
+        Queue: Building
+        BuildDuration: 1
+        BuildPaletteOrder: 10
+        Prerequisites: ~probe
+        Description: actor-nexus.description
+    CaptureManager:
+        PreventsAutoTarget: true
+    Capturable:
+        Types: building
+    Building:
+        Footprint: XXX xxx XXX
+        Dimensions: 3,3
+        LocalCenterOffset: 0,-512,0
+    # TODO: Provides 15 initial supply
+    Health:
+        HP: 1500
+    Armor:
+        Type: Steel
+    Tooltip:
+        # TODO:
+        Name: actor-nexus.name
+    RevealsShroud:
+        Range: 11c0
+        RevealGeneratedShroud: true
+    BaseBuilding:
+    RenderSprites:
+    HitShape:
+        Type: Rectangle
+            TopLeft: -1536, -598
+            BottomRight: 1536, 598
+    HitShape@TOPANDBOTTOM:
+        TargetableOffsets: 811,0,0, -811,0,0
+        Type: Rectangle
+            TopLeft: -555, -1110
+            BottomRight: 555, 1110
+    MustBeDestroyed:
+        RequiredForShortGame: true
+    TransformOnCapture:
+        IntoActor: nexus
+        # Start at low health to then "heal" as construction occurs
+        ForceHealthPercentage: 1
+        SkipMakeAnims: false
+
+GATEWAY-CONSTRUCTION-BLDG:
+    Inherits: ^Building
+    Inherits@shape: ^2x2Shape
+    ProvidesRadar:
+    Buildable:
+        Queue: Building
+        BuildDuration: 1
+        BuildPaletteOrder: 10
+        Prerequisites: ~probe
+        Description: actor-nexus.description
+    CaptureManager:
+        PreventsAutoTarget: true
+    Capturable:
+        Types: building
+    Valued:
+        Cost: 150
+    Tooltip:
+        Name: actor-gateway.name
+    Building:
+        Footprint: ++ xx
+        Dimensions: 2,2
+    Selectable:
+        Bounds: 2048, 2133, 0, -170
+    Health:
+        HP: 100
+    Armor:
+        Type: Wood
+    RevealsShroud:
+        Range: 9c0
+        RevealGeneratedShroud: true
+    Power:
+        Amount: -0
+    MustBeDestroyed:
+        RequiredForShortGame: false
+    TransformOnCapture:
+        IntoActor: gateway
+        # Start at low health to then "heal" as construction occurs
+        ForceHealthPercentage: 1
+        SkipMakeAnims: false
+
+############################
+
+^ProtossBuilding:
+    Inherits: ^Building
+    ChangesHealth@AlreadyBuilt:
+        Step: 0
+        PercentageStep: 1
+        Delay: 25
+        StartIfBelow: 50
+        # 10 seconds to start regenerating health
+        #DamageCooldown: 250
+        DamageCooldown: 0
+        #RequiresCondition: !under-construction
+
+NEXUS:
+    Inherits: ^Building
+    # TODO: Overcharge?
+    #Inherits@AUTOTARGET: ^AutoTargetGround
+    Selectable:
+        Bounds: 3072, 2048
+    ProvidesRadar:
+    Building:
+        Footprint: XXX xxx XXX
+        Dimensions: 3,3
+        LocalCenterOffset: 0,-512,0
+    # TODO: Provides 15 initial supply
+    WithMakeAnimation:
+        Condition: under-construction
+    ChangesHealth:
+        Step: 0
+        PercentageStep: 1
+        Delay: 19
+        StartIfBelow: 100
+        RequiresCondition: under-construction
+    Health:
+        HP: 2000
+        # TODO: Shields
+        # 1000 Shields
+        # 1000 HP
+    Armor:
+        Type: Steel
+    Tooltip:
+        Name: actor-nexus.name
+    Refinery:
+        UseStorage: False
+    # Left Side Docks
+    DockHost@LEFTCENTER:
+        Type: Unload
+        DockWait: 0
+        DockAngle: 256
+        DockOffset: -2c1, 0, 0
+        MaxQueueLength: 1
+        RequiresCondition: !under-construction
+    DockHost@LEFTCENTERANDUP1:
+        Type: Unload
+        DockAngle: 256
+        DockOffset: -2c1, -1c1, 0
+        MaxQueueLength: 1
+        RequiresCondition: !under-construction
+    DockHost@LEFTCENTERANDUP2:
+        Type: Unload
+        DockAngle: 256
+        DockOffset: -1c1, -2c1, 0
+        MaxQueueLength: 1
+        RequiresCondition: !under-construction
+    DockHost@LEFTCENTERANDDOWN1:
+        Type: Unload
+        DockAngle: 256
+        DockOffset: -2c1, 1c1, 0
+        MaxQueueLength: 1
+        RequiresCondition: !under-construction
+    DockHost@LEFTCENTERANDDOWN2:
+        Type: Unload
+        DockAngle: 256
+        DockOffset: -1c1, 2c1, 0
+        MaxQueueLength: 1
+        RequiresCondition: !under-construction
+        # Right Side Docks
+    DockHost@RIGHTCENTER:
+        Type: Unload
+        DockWait: 0
+        DockAngle: 256
+        DockOffset: 2c1, 0, 0
+        MaxQueueLength: 1
+        RequiresCondition: !under-construction
+    DockHost@RIGHTCENTERANDUP1:
+        Type: Unload
+        DockAngle: 256
+        DockOffset: 2c1, -1c1, 0
+        MaxQueueLength: 1
+        RequiresCondition: !under-construction
+    DockHost@RIGHTCENTERANDUP2:
+        Type: Unload
+        DockAngle: 256
+        DockOffset: 1c1, -2c1, 0
+        MaxQueueLength: 1
+        RequiresCondition: !under-construction
+    DockHost@RIGHTCENTERANDDOWN1:
+        Type: Unload
+        DockAngle: 256
+        DockOffset: 2c1, 1c1, 0
+        MaxQueueLength: 1
+        RequiresCondition: !under-construction
+    DockHost@RIGHTCENTERANDDOWN2:
+        Type: Unload
+        DockAngle: 256
+        DockOffset: 1c1, 2c1, 0
+        MaxQueueLength: 1
+        RequiresCondition: !under-construction
+    StoresResources:
+        Capacity: 2000
+    Armor:
+        Type: Wood
+    RevealsShroud:
+        Range: 11c0
+        RevealGeneratedShroud: true
+    RevealsShroud@GAPGEN:
+        Range: 11c0
+    Production@Probe:
+        Produces: Ship
+        PauseOnCondition: under-construction
+    ProductionQueue@Probe:
+        Type: Ship
+        PayUpFront: true
+        Factions: protoss
+    GrantExternalConditionToProduced:
+        Condition: produced
+    RallyPoint:
+        ForceSetType: Ship
+    BaseBuilding:
+    Exit@1:
+        ExitCell: 0,0
+        ProductionTypes: Ship
+    # TODO: This is important for some reason regarding building the upgrades
+    ProvidesPrerequisite@nexus:
+        Factions: protoss
+        Prerequisite: nexus
+        RequiresCondition: !under-construction
+    ProvidesPrerequisite@protoss-workers:
+        Factions: protoss
+        Prerequisite: protoss.workers
+    RenderSprites:
+    HitShape:
+        Type: Rectangle
+            TopLeft: -1536, -598
+            BottomRight: 1536, 598
+    HitShape@TOPANDBOTTOM:
+        TargetableOffsets: 811,0,0, -811,0,0
+        Type: Rectangle
+            TopLeft: -555, -1110
+            BottomRight: 555, 1110
+    MustBeDestroyed:
+        RequiredForShortGame: true
+
+GATEWAY:
+    # TODO: Change the way building protoss structures works as they cannot regen shields
+    #Inherits: ^ProtossBuilding
+    Inherits: ^Building
+    Inherits@shape: ^2x2Shape
+    WithMakeAnimation:
+        Condition: under-construction
+    ChangesHealth@Constructing:
+        Step: 0
+        PercentageStep: 1
+        Delay: 19
+        StartIfBelow: 100
+        RequiresCondition: under-construction
+    Valued:
+        Cost: 150
+    Tooltip:
+        Name: actor-gateway.name
+    Building:
+        Footprint: ++ xx
+        Dimensions: 2,2
+    Selectable:
+        Bounds: 2048, 2133, 0, -170
+    Health:
+        HP: 1000
+        # Shields : 500
+        # HP: 500
+    Armor:
+        Type: Wood
+    Production:
+        Produces: Infantry
+        PauseOnCondition: under-construction
+    ProductionQueue:
+        Type: Infantry
+        PayUpFront: true
+        Factions: protoss
+    ProductionBar:
+        ProductionType: Infantry
+    Exit@1:
+        ExitCell: 0,0
+    ProvidesPrerequisite:
+        Factions: protoss
+        Prerequisite: gateway
+        RequiresCondition: !under-construction
+    RevealsShroud:
+        Range: 9c0
+        RevealGeneratedShroud: true
+    # TODO: Warp in units later if we can
+    MustBeDestroyed:
+        RequiredForShortGame: true

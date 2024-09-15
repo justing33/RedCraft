@@ -1,0 +1,154 @@
+MarineC14GaussRifle:
+    ReloadDelay: 15
+    Range: 5c0
+    Report: gun11.aud
+    ValidTargets: Ground, GroundActor, Infantry, Building, Air, AirborneActor
+    Projectile: InstantHit
+        Blockable: false
+    Warhead@1Dam: SpreadDamage
+        Spread: 128
+        Damage: 6
+        ValidTargets: Ground, GroundActor, Infantry, Building, Air, AirborneActor
+        Versus:
+            None: 100
+            Wood: 100
+            Light: 100
+            Heavy: 100
+            Concrete: 28
+        DamageTypes: Prone50Percent, TriggerProne, BulletDeath
+    Warhead@2Eff: CreateEffect
+        Explosions: piffs
+        ValidTargets: Ground, GroundActor, Infantry, Building, Air, AirborneActor
+
+MarauderPunisherGrenade:
+    ReloadDelay: 26
+    Range: 6c0
+    MinRange: 0c512
+    Report: missile6.aud
+    ValidTargets: Ground, GroundActor, Infantry, Building
+    Projectile: Missile
+        Speed: 298
+        Arm: 2
+        Blockable: false
+        ContrailLength: 20
+        Inaccuracy: 0
+        Jammable: false
+        Image: DRAGON
+        Shadow: True
+        HorizontalRateOfTurn: 80
+        # Negative is unlimited fuel / distance (always want to hit)
+        RangeLimit: -0c0
+    Warhead@1Dam: SpreadDamage
+        Spread: 128
+        Damage: 10
+        ValidTargets: Ground, GroundActor, Infantry, Building
+        Versus:
+            None: 100
+            Wood: 100
+            Light: 100
+            Heavy: 100
+            Concrete: 100
+        DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+    Warhead@2Smu: LeaveSmudge
+        SmudgeType: Crater
+        ValidTargets: Ground, Infantry
+    Warhead@3Eff: CreateEffect
+        Explosions: med_explosion
+        ImpactSounds: kaboom25.aud
+        ValidTargets: Ground, GroundActor, Infantry, Building
+
+MedicHeal:
+    ReloadDelay: 80
+    Range: 2c0
+    Report: heal2.aud
+    ValidTargets: Heal
+    Projectile: LaserZap
+        Speed: 1c682
+        # Green beam color
+        Color: 14D000
+    Warhead@1Dam: SpreadDamage
+        Spread: 213
+        Damage: -20
+        ValidRelationships: Ally
+        ValidTargets: Heal
+        DebugOverlayColor: 00FF00
+
+FirebatFlamer:
+    ValidTargets: Ground, Building, Structure, Infantry, Vehicle
+    InvalidTargets: Air, AirborneActor
+    ReloadDelay: 70
+    Range: 2c0
+    Burst: 3
+    BurstDelays: 1
+    Projectile: Bullet
+        Speed: 170
+        TrailImage: fb4
+        Image: fb3
+        LaunchAngle: 62
+        Inaccuracy: 853
+    Warhead@1Dam: SpreadDamage
+        Spread: 213
+        Damage: 8
+        ValidTargets: Ground, Building, Structure, Infantry, Vehicle
+        InvalidTargets: Air, AirborneActor
+        Versus:
+            None: 100
+            Wood: 100
+            Tree: 100
+            Light: 100
+            Heavy: 100
+            Concrete: 100
+        DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
+    Warhead@2Smu: LeaveSmudge
+        SmudgeType: Scorch
+        InvalidTargets: Structure, Wall
+    Warhead@3Eff: CreateEffect
+        Explosions: small_napalm
+        ImpactSounds: firebl3.aud
+        ImpactActors: false
+        ValidTargets: Ground, Building, Structure, Infantry, Vehicle
+        InvalidTargets: Air, AirborneActor
+
+ReaperP45GaussPistol:
+    ReloadDelay: 25
+    Range: 5c0
+    Report: gun5.aud
+    ValidTargets: Ground, GroundActor, Infantry, Building
+    Projectile: InstantHit
+        Blockable: false
+    Warhead@1Dam: SpreadDamage
+        Spread: 42
+        Damage: 8
+        ValidTargets: Ground, GroundActor, Infantry, Building
+        Versus:
+            None: 100
+            Wood: 100
+            Light: 100
+            Heavy: 100
+            Concrete: 100
+        DamageTypes: Prone50Percent, TriggerProne, DefaultDeath
+    Warhead@2Eff: CreateEffect
+        Explosions: piff
+        ValidTargets: Ground, GroundActor, Infantry, Building
+
+GhostC10CanisterRifle:
+    ReloadDelay: 26
+    Range: 6c0
+    Report: silppk.aud
+    ValidTargets: Ground, GroundActor, Building, Structure, Infantry, Air, AirborneActor
+    Projectile: InstantHit
+        Blockable: false
+    Warhead@1Dam: SpreadDamage
+        Spread: 42
+        Damage: 10
+        Versus:
+            None: 100
+            Wood: 100
+            Light: 100
+            Heavy: 100
+            Concrete: 100
+        ValidTargets: Ground, GroundActor, Building, Structure, Infantry, Air, AirborneActor
+        DamageTypes: Prone50Percent, TriggerProne, DefaultDeath
+    Warhead@2Eff: CreateEffect
+        Explosions: piff
+        ValidTargets: Ground, GroundActor, Building, Structure, Infantry, Air, AirborneActor

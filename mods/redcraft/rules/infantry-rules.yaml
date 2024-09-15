@@ -1,0 +1,90 @@
+##########################
+# NON BUILDABLE INFANTRY #
+##########################
+
+#E1R1:
+#    #-Buildable:
+#    #     Queue: DOESNT_EXIST
+#    -RenderSprites:
+#    -ProducibleWithLevel:
+#    -UpdatesPlayerStatistics:
+#    -WithProductionIconOverlay:
+
+#E3R1:
+#    #-Buildable:
+#    #     Queue: DOESNT_EXIST
+#    -RenderSprites:
+#    -ProducibleWithLevel:
+#    -UpdatesPlayerStatistics:
+#    -WithProductionIconOverlay:
+
+# Rifle Infantry
+E1:
+    -Buildable:
+
+# Grenadier
+E2:
+    -Buildable:
+
+# Rocket Soldier
+E3:
+    -Buildable:
+
+# Flamethrower
+E4:
+    -Buildable:
+
+# Engineer
+E6:
+    -Buildable:
+
+# Tanya
+E7:
+    -Buildable:
+
+# Field Medic
+MEDI:
+    -Buildable:
+
+# Attack Dog
+DOG:
+    -Buildable:
+
+# Shock Trooper
+SHOK:
+    -Buildable:
+
+# Spy
+SPY:
+    -Buildable:
+
+SPY.England:
+    -Buildable:
+
+# Mechanic
+MECH:
+    -Buildable:
+
+# Thief
+THF:
+    -Buildable:
+
+# Zombie
+Zombie:
+    -Buildable:
+
+# Ants
+Ant:
+    -Buildable:
+
+# Fire Ant
+FireAnt:
+    -Buildable:
+
+# Scout Ant
+ScoutAnt:
+    -Buildable:
+
+# Warrior Ant
+WarriorAnt:
+    -Buildable:

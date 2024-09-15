@@ -1,0 +1,51 @@
+Player:
+    BaseBuilderBotModule@normal:
+        ConstructionYardTypes: command-center-construction-bldg
+        RefineryTypes: command-center-construction-bldg
+        BarracksTypes: barracks_-construction-bldg, command-center-construction-bldg
+        VehiclesFactoryTypes: factory-construction-bldg
+        ProductionTypes: command-center-construction-bldg, barracks_-construction-bldg, factory-construction-bldg, starport-construction-bldg, engineering-bay-construction-bldg, ghost-academy-construction-bldg
+        DefenseTypes: command-center-construction-bldg
+        NavalProductionTypes: command-center-construction-bldg
+        BuildingLimits:
+            command-center-construction-bldg: 0
+        BuildingFractions:
+            barracks_-construction-bldg: 40
+            factory-construction-bldg: 40
+            starport-construction-bldg: 40
+            bunker-construction-bldg: 30
+            missileturret-construction-bldg: 40
+            engineering-bay-construction-bldg: 15
+            ghost-academy-construction-bldg: 15
+    SquadManagerBotModule@normal:
+        RequiresCondition: enable-normal-ai
+        SquadSize: 15
+        NavalUnitsTypes: scv
+        ExcludeFromSquadsTypes: harv, mcv, dog, badr.bomber, u2, scv
+        ConstructionYardTypes: command-center
+        NavalProductionTypes: command-center
+        AirUnitsTypes: mig, yak, heli, hind, mh60, viking, banshee, medivac
+        AircraftTargetType: AirborneActor
+        ProtectionTypes: scv, command-center, barracks_, factory, starport, engineering-bay, ghost-academy, bunker, missileturret, marine, marauder, reaper, medic, ghost, firebat, hellion, hellbat, cyclone, siege-tank, siege-tank-siege-mode, widow-mine, viking, viking-assault-mode, banshee, medivac
+        #IgnoredEnemyTargetTypes: AirborneActor
+    UnitBuilderBotModule@normal:
+        UnitsToBuild:
+            scv: 40
+            marine: 45
+            marauder: 45
+            medic: 20
+            reaper: 25
+            firebat: 25
+            ghost: 20
+            siege-tank: 40
+            cyclone: 30
+            hellion: 50
+            banshee: 30
+            medivac: 15
+            viking: 30
+    CaptureManagerBotModule:
+        CapturingActorTypes: scv
+        CapturableActorTypes: command-center-construction-bldg, barracks_-construction-bldg, bunker-construction-bldg, factory-construction-bldg, starport-construction-bldg, engineering-bay-construction-bldg, ghost-academy-construction-bldg, missileturret-construction-bldg
+        CapturableRelationships: Ally
+    #McvManagerBotModule:
+    #    McvTypes: siege-tank, command-center

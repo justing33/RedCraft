@@ -1,0 +1,374 @@
+CycloneMissileAG:
+    ReloadDelay: 50
+    Range: 6c0
+    # MinRange: 2c0
+    Report: missile7.aud
+    Burst: 2
+    BurstDelays: 7
+    ValidTargets: Ground, GroundActor, Building, Infantry
+    Projectile: Missile
+        Speed: 256
+        Arm: 2
+        Blockable: false
+        ContrailLength: 10
+        Inaccuracy: 316
+        Image: DRAGON
+        Shadow: true
+        HorizontalRateOfTurn: 20
+        CruiseAltitude: 2c0
+        RangeLimit: 14c410
+    Warhead@1Dam: SpreadDamage
+        Spread: 128
+        Damage: 11
+        ValidTargets: Ground, GroundActor, Building, Infantry
+        Versus:
+            None: 100
+            Wood: 100
+            Light: 100
+            Heavy: 100
+            Concrete: 100
+        DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+
+CycloneMissileAA:
+    ReloadDelay: 50
+    Range: 6c0
+    # MinRange: 2c0
+    Report: missile7.aud
+    Burst: 2
+    BurstDelays: 7
+    ValidTargets: Air, AirborneActor
+    Projectile: Missile
+        Speed: 256
+        Arm: 2
+        Blockable: false
+        ContrailLength: 10
+        Inaccuracy: 316
+        Image: DRAGON
+        Shadow: true
+        HorizontalRateOfTurn: 20
+        CruiseAltitude: 2c0
+        RangeLimit: 14c410
+    Warhead@1Dam: SpreadDamage
+        Spread: 128
+        Damage: 11
+        ValidTargets: Air, AirborneActor
+        Versus:
+            None: 100
+            Wood: 100
+            Light: 100
+            Heavy: 100
+            Concrete: 100
+        DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+
+SCVFusionCutter:
+    ReloadDelay: 25
+    Range: 1c256
+    Report: tesla1.aud
+    Projectile: TeslaZap
+    ValidTargets: Ground, GroundActor, Infantry, Building
+    Warhead@1Dam: SpreadDamage
+        Damage: 5
+        Spread: 42
+        ValidTargets: Ground, GroundActor, Infantry, Building
+        Versus:
+            None: 100
+            Wood: 100
+            Light: 100
+            Heavy: 100
+            Concrete: 100
+        DamageTypes: Prone50Percent, TriggerProne, ElectricityDeath
+
+# TODO: Make this cost resources
+SCVBuildingHeal:
+    ReloadDelay: 50
+    Range: 1c256
+    Report: fixit1.aud
+    ValidTargets: Building, Structure, Vehicle, AirborneActor, Air
+    Projectile: LaserZap
+        Speed: 1c682
+        # Green beam color
+        Color: 14D000
+    Warhead@1Dam: SpreadDamage
+        Spread: 213
+        Damage: -5
+        ValidRelationships: Ally
+        ValidTargets: Building, Structure, Vehicle, AirborneActor, Air
+        DebugOverlayColor: 00FF00
+
+HellionFlamethrower:
+    ValidTargets: Ground, Building, Structure, Infantry, Vehicle
+    InvalidTargets: Air, AirborneActor
+    ReloadDelay: 44
+    Range: 5c0
+    Burst: 8
+    BurstDelays: 1
+    Projectile: Bullet
+        Speed: 600
+        TrailImage: fb4
+        Image: fb3
+        LaunchAngle: 0
+        Inaccuracy: 0
+    Warhead@1Dam: SpreadDamage
+        Damage: 1
+        Falloff: 100, 100, 100, 100, 100
+        ValidTargets: Ground, Building, Structure, Infantry, Vehicle
+        InvalidTargets: Air, AirborneActor
+        Versus:
+            None: 100
+            Wood: 100
+            Tree: 100
+            Light: 100
+            Heavy: 100
+            Concrete: 100
+    DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
+    Warhead@2Smu: LeaveSmudge
+        SmudgeType: Scorch
+        InvalidTargets: Structure, Wall
+    Warhead@3Eff: CreateEffect
+        Explosions: small_napalm
+        ImpactSounds: firebl3.aud
+        ImpactActors: false
+        ValidTargets: Ground, Building, Structure, Infantry, Vehicle
+        InvalidTargets: Air, AirborneActor
+
+HellbatFlamethrower:
+    ValidTargets: Ground, Building, Structure, Infantry, Vehicle
+    InvalidTargets: Air, AirborneActor
+    ReloadDelay: 35
+    Range: 2c0
+    Burst: 15
+    BurstDelays: 1
+    Projectile: Bullet
+        Speed: 170
+        TrailImage: fb4
+        Image: fb3
+        LaunchAngle: 62
+        Inaccuracy: 853
+    Warhead@1Dam: SpreadDamage
+        Spread: 341
+        Damage: 18
+        ValidTargets: Ground, Building, Structure, Infantry, Vehicle
+        InvalidTargets: Air, AirborneActor
+        Versus:
+            None: 100
+            Wood: 100
+            Tree: 100
+            Light: 100
+            Heavy: 100
+            Concrete: 100
+    DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
+    Warhead@2Smu: LeaveSmudge
+        SmudgeType: Scorch
+        InvalidTargets: Structure, Wall
+    Warhead@3Eff: CreateEffect
+        Explosions: small_napalm
+        ImpactSounds: firebl3.aud
+        ImpactActors: false
+        ValidTargets: Ground, Building, Structure, Infantry, Vehicle
+        InvalidTargets: Air, AirborneActor
+
+SiegeTank90mmCannon:
+    ReloadDelay: 18
+    Burst: 1
+    Range: 7c0
+    Report: cannon1.aud
+    ValidTargets: Ground, GroundActor, Building, Infantry
+    Projectile: InstantHit
+        Speed: 682
+        Image: 120MM
+        Shadow: True
+    Warhead@1Dam: SpreadDamage
+        Spread: 128
+        Damage: 15
+        ValidTargets: Ground, GroundActor, Building, Infantry
+        Versus:
+            None: 100
+            Wood: 100
+            Light: 100
+            Heavy: 100
+            Concrete: 100
+        DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+    Warhead@2Smu: LeaveSmudge
+        SmudgeType: Crater
+        ValidTargets: Ground, Infantry
+    Warhead@3Eff: CreateEffect
+        Explosions: small_explosion
+        ImpactSounds: kaboom12.aud
+        ValidTargets: Ground, GroundActor, Building, Infantry
+
+SiegeTankCrucioShockCannon:
+    ReloadDelay: 80
+    Burst: 1
+    MinRange: 3c0
+    Range: 8c0
+    Report: cannon1.aud
+    # Structure and Building are NOT synonomous
+    # Structure is a building in the game
+    # A SIEGED tank is a Building
+    ValidTargets: Infantry, Vehicle, Building, Structure, Ground, GroundActor
+    Projectile: InstantHit
+    Speed: 682
+    Image: 120MM
+    Shadow: True
+    Warhead@1Dam: SpreadDamage
+        Spread: 1c0
+        Damage: 37
+        Falloff: 55, 32, 20, 15, 7
+        ValidTargets: Infantry, Vehicle, Building, Structure, Ground, GroundActor
+        Versus:
+            None: 100
+            Biological: 65
+            Wood: 100
+            Light: 100
+            Heavy: 100
+            Concrete: 100
+        DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+    Warhead@2Smu: LeaveSmudge
+        SmudgeType: Crater
+        ValidTargets: Ground, Infantry
+    Warhead@3Eff: CreateEffect
+        Explosions: small_explosion
+        ImpactSounds: kaboom12.aud
+        ValidTargets: Ground, GroundActor, Building, Infantry
+
+WidowMineSentinelMissile:
+    Range: 5c0
+    ReloadDelay: 400
+    Report: cannon1.aud
+    ValidTargets: Ground, Infantry, Vehicle, Air, AirborneActor, Building, Structure
+    TargetActorCenter: true
+    Projectile: Bullet
+        ContrailLength: 30
+        Speed: 600
+        Blockable: false
+        LaunchAngle: 0
+        Inaccuracy: 0c0
+    Warhead@1Dam: SpreadDamage
+        Spread: 426
+        Damage: 125
+        ValidTargets: Ground, Infantry, Vehicle, Air, AirborneActor, Building, Structure
+        Versus:
+            None: 100
+            Wood: 100
+            Light: 100
+            Heavy: 100
+            Concrete: 100
+        DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+    Warhead@2Smu: LeaveSmudge
+        SmudgeType: Crater
+        ValidTargets: Ground, Infantry
+    Warhead@3Eff: CreateEffect
+        Explosions: small_explosion
+        ImpactSounds: kaboom12.aud
+        ValidTargets: Ground, Infantry, Vehicle, Air, AirborneActor, Building, Structure
+
+# TODO: Thor weapons -> MK2
+#^Railgun:
+#    ReloadDelay: 60
+#    Range: 6c0
+#    Report: bigggun1.aud
+#    Projectile: Railgun
+#        Duration: 15
+#        Blockable: true
+#        DamageActorsInLine: true
+#        BeamColor: 0080FFC8
+#    Warhead@1Dam: SpreadDamage
+#        Range: 0, 32
+#        Falloff: 100, 100
+#        Damage: 15000
+#        AffectsParent: false
+#        Versus:
+#            None: 100
+#            Wood: 130
+#            Light: 150
+#            Heavy: 110
+#            Concrete: 5
+#        DamageTypes: Prone100Percent, TriggerProne, ExplosionDeath
+#
+#MechRailgun:
+#    Inherits: ^Railgun
+#    Range: 8c0
+#    Report: railuse5.aud
+#    Projectile: Railgun
+#        BeamColor: 00FFFFC8
+#    Warhead@1Dam: SpreadDamage
+#        Damage: 20000
+#        Versus:
+#            None: 200
+#            Wood: 175
+#            Light: 160
+#            Heavy: 100
+#            Concrete: 25
+#
+#^DefaultMissile:
+#    ReloadDelay: 60
+#    Range: 6c0
+#    MinRange: 0c512
+#    ValidTargets: Ground, Air
+#    Projectile: Missile
+#        MaximumLaunchSpeed: 96
+#        Blockable: false
+#        Shadow: true
+#        Inaccuracy: 128
+#        Image: DRAGON
+#        TrailImage: small_smoke_trail
+#        HorizontalRateOfTurn: 100
+#        RangeLimit: 15c0
+#        Palette: ra
+#        MinimumLaunchSpeed: 75
+#        Speed: 216
+#        Acceleration: 96
+#        MinimumLaunchAngle: 128
+#        MaximumLaunchAngle: 192
+#        VerticalRateOfTurn: 100
+#        CruiseAltitude: 5c512
+#        AllowSnapping: true
+#        TerrainHeightAware: true
+#    Warhead@1Dam: SpreadDamage
+#        Spread: 108
+#        Falloff: 100, 50, 25, 12, 6, 3, 0
+#        Damage: 2500
+#        ValidTargets: Ground, Air
+#        Versus:
+#            None: 25
+#            Wood: 65
+#            Light: 75
+#            Heavy: 100
+#            Concrete: 60
+#        DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+#    Warhead@2Eff: CreateEffect
+#        Explosions: small_clsn
+#        ImpactSounds: expnew12.aud
+#        ValidTargets: Ground, Air
+#    Warhead@3EffWater: CreateEffect
+#        Explosions: small_watersplash
+#        ExplosionPalette: player
+#        ImpactSounds: ssplash3.aud
+#        ValidTargets: Water
+#        InvalidTargets: Vehicle
+#    Warhead@Smu: LeaveSmudge
+#        SmudgeType: SmallCrater
+#        InvalidTargets: Vehicle, Building, Wall
+#
+#MammothTusk:
+#    Inherits: ^DefaultMissile
+#    ReloadDelay: 80
+#    Report: misl1.aud
+#    ValidTargets: Air
+#    Burst: 2
+#    Warhead@1Dam: SpreadDamage
+#        Spread: 144
+#        Damage: 4000
+#        ValidTargets: Air
+#        Versus:
+#            None: 100
+#            Wood: 85
+#            Light: 70
+#            Heavy: 35
+#            Concrete: 28
+#        DamageTypes: Explosion
+#    Warhead@2Eff: CreateEffect
+#        ImpactActors: false
+#        Explosions: medium_twlt
+#        ImpactSounds: expnew07.aud
+#    -Warhead@3EffWater:

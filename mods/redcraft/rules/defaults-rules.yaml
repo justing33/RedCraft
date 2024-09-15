@@ -1,0 +1,34 @@
+^BasicBuilding:
+    RequiresBuildableArea:
+        AreaTypes: building
+        # Build anywhere as Terran
+        # TODO: Make a custom BasicBuilding for Terran only so Zerg/Protoss have build radius
+        Adjacent: 9999999
+^Building:
+    -Sellable:
+    #-RepairableBuilding:
+
+^Infantry:
+    -Crushable:
+    -ChangesHealth@HOSPITAL:
+    -GrantConditionOnPrerequisite@HOSPITAL:
+    -GrantConditionOnDamageState@HOSPITAL:
+    -GrantCondition@HOSPITAL:
+    -WithDecoration@REDCROSS:
+    -Parachutable:
+    -Cloneable:
+    -WithParachute:
+
+^Soldier:
+    -TakeCover:
+    #-MustBeDestroyed:
+
+^Vehicle:
+    -Explodes:
+    #-MustBeDestroyed:
+
+^NeutralPlane:
+    -Explodes:
+    -EjectOnDeath:
+    -SpawnActorOnDeath:
+    #-MustBeDestroyed:

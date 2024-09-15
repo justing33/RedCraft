@@ -1,0 +1,99 @@
+##########################
+# Non-Buildable Aircraft #
+##########################
+
+# Spy Plane
+U2:
+    Inherits: ^NeutralPlane
+    Health:
+        HP: 200000
+    Tooltip:
+        Name: Spy Plane
+    DetectCloaked:
+        DetectionTypes: Cloak, Mine
+        Range: 75c0
+    WithRangeCircle:
+        Range: 13c0
+        Color: 0000FF80
+    Aircraft:
+        CruiseAltitude: 2560
+        TurnSpeed: 28
+        Speed: 225
+        Repulsable: False
+        MaximumPitch: 56
+    AttackBomber:
+        FacingTolerance: 8
+    Contrail@1:
+        Offset: -725,683,0
+        StartColorAlpha: 128
+    Contrail@2:
+        Offset: -725,-683,0
+        StartColorAlpha: 128
+    LeavesTrails:
+        Offsets: -1c43,0,0
+        MovingInterval: 2
+        Image: smokey
+        SpawnAtLastPosition: False
+        Type: CenterPosition
+        RequiresCondition: enable-smoke
+    RejectsOrders:
+    Interactable:
+    GrantConditionOnDamageState@SmokeTrail:
+        Condition: enable-smoke
+
+#SCANNER-SWEEP-ACTOR:
+#    Inherits: ^Helicopter
+#    Tooltip:
+#        Name: SCANNER SWEEP ACTOR
+#    Health:
+#        HP: 140
+#    Armor:
+#        Type: Light
+#    RevealsShroud:
+#        Range: 11c0
+#        Type: GroundPosition
+#    Aircraft:
+#        CruiseAltitude: 2560
+#        Speed: 103
+#        MaximumPitch: 56
+#    WithIdleOverlay@SPINNER:
+#        Sequence: spinner
+#        Offset: -256,0,256
+#    AttackBomber:
+#        FacingTolerance: 8
+#    DetectCloaked:
+#        DetectionTypes: Cloak
+#        Range: 9c0
+#    WithRangeCircle:
+#        Range: 9c0
+#        Color: 0000FF80
+
+# Mig
+MIG:
+    -Buildable:
+
+# Chinook
+TRAN:
+    -Buildable:
+
+# Black Hawk
+MH60:
+    -Buildable:
+
+# Hind
+HIND:
+    -Buildable:
+    Tooltip:
+        Name: Hind
+
+# Longbow
+HELI:
+    -Buildable:
+    Tooltip:
+        Name: Longbow
+
+# Yak Attack Plane
+YAK:
+    -Buildable:
+    Tooltip:
+        Name: Yak Attack Plane

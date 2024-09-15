@@ -1,0 +1,83 @@
+#######################
+# NON BUILDABLE UNITS #
+#######################
+
+# MCV
+MCV:
+    -Buildable:
+
+# Ore Truck
+HARV:
+    -Buildable:
+
+# Jeep is replaced by the light tank
+JEEP:
+    -Buildable:
+
+# Light Tank
+1TNK:
+    -Buildable:
+
+# Medium tank
+2TNK:
+    -Buildable:
+
+# Heavy Tank
+3TNK:
+    -Buildable:
+
+# Mammoth Tank
+4TNK:
+    -Buildable:
+
+# Artillery
+ARTY:
+    -Buildable:
+
+# Mine Layer
+MNLY:
+    -Buildable:
+
+# Chrono Tank
+CTNK:
+    -Buildable:
+
+# Mobile Flak
+FTRK:
+    -Buildable:
+
+# Phase Transport
+STNK:
+    -Buildable:
+
+# V2 Rocket
+V2RL:
+    -Buildable:
+
+# APC
+APC:
+    -Buildable:
+
+# Supply Truck
+TRUK:
+    -Buildable:
+
+# Mobile Gap Generator
+MGG:
+    -Buildable:
+
+# Mobile Radar Jammer
+MRJ:
+    -Buildable:
+
+# Tesla Tank
+TTNK:
+    -Buildable:
+
+# Demolition Truck
+DTRK:
+    -Buildable:
+
+# Mad Tank
+QTNK:
+    -Buildable:

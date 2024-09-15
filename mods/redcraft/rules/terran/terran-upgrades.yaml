@@ -1,0 +1,81 @@
+##### UPGRADES #####
+
+COMMAND-CENTER-PLANETARYFORTRESS:
+    Buildable:
+        BuildPaletteOrder: 30
+        Prerequisites: engineering-bay
+        Queue: Defense
+        BuildDuration: 1500
+        Description: actor-command-center-planetary-fortress.description
+    Valued:
+        # Cost: 150
+        Cost: 300
+        # Oil: 150
+    Interactable:
+    AlwaysVisible:
+    RenderSprites:
+    Tooltip:
+        Name: actor-command-center-planetary-fortress.name
+    KillsSelf:
+        RemoveInstead: true
+    MustBeDestroyed:
+        RequiredForShortGame: true
+
+COMMAND-CENTER-ORBITAL:
+    Buildable:
+        BuildPaletteOrder: 20
+        Prerequisites: barracks_
+        Queue: Defense
+        BuildDuration: 1025
+        Description: actor-command-center-orbital.description
+    Valued:
+        Cost: 150
+    Interactable:
+    AlwaysVisible:
+    RenderSprites:
+    Tooltip:
+        Name: actor-command-center-orbital.name
+    KillsSelf:
+        RemoveInstead: true
+    MustBeDestroyed:
+        RequiredForShortGame: true
+
+SIEGE-MODE-UPGRADE:
+    Buildable:
+        BuildPaletteOrder: 50
+        Prerequisites: factory
+        Queue: EngineeringBayUpgrades
+        BuildDuration: 3300
+        Description: actor-siege-mode-upgrade.description
+        BuildLimit: 1
+    ProvidesPrerequisite:
+        Prerequisite: can-siege
+    Valued:
+        # Cost: 150
+        Cost: 300
+        # Oil: 150
+    Tooltip:
+        Name: actor-siege-mode-upgrade.name
+    Interactable:
+    AlwaysVisible:
+    RenderSprites:
+
+STIMPACK-UPGRADE:
+    Buildable:
+        BuildPaletteOrder: 30
+        Prerequisites: barracks_, engineering-bay
+        Queue: EngineeringBayUpgrades
+        BuildDuration: 4150
+        Description: actor-stimpack-upgrade.description
+        BuildLimit: 1
+    ProvidesPrerequisite:
+        Prerequisite: can-stimpack
+    Valued:
+        # Cost: 100
+        Cost: 200
+        # Oil: 100
+    Tooltip:
+        Name: actor-stimpack-upgrade.name
+    Interactable:
+    AlwaysVisible:
+    RenderSprites:

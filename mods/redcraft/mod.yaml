@@ -1,7 +1,7 @@
 # TODO: Adjust title and website/icon32 info later
 Metadata:
 	Title: RedCraft
-	Version: release-20231010
+	Version: 05ed9d9
 	Website: https://www.openra.net
 	WebIcon32: https://www.openra.net/images/icons/ra_32x32.png
 	WindowTitle: OpenRA - RedCraft
@@ -43,6 +43,7 @@ Packages:
 
 MapFolders:
 	ra|maps: System
+	redcraft|maps: System
 	~^SupportDir|maps/ra/release-20231010: User
 
 Rules:
@@ -61,14 +62,48 @@ Rules:
 	ra|rules/aircraft.yaml
 	ra|rules/ships.yaml
 	ra|rules/fakes.yaml
-	# Custom Overrides for RedCraft modifications
-	redcraft|defaults.yaml #Overall rules that don't fall into below categories
-	redcraft|world-rules.yaml
-	redcraft|structure-rules.yaml
-	redcraft|infantry-rules.yaml
-	redcraft|vehicle-rules.yaml
-	redcraft|aircraft-rules.yaml
-	redcraft|ships-rules.yaml
+	# REDCRAFT
+	redcraft|rules/defaults-rules.yaml
+	redcraft|rules/world-rules.yaml
+	redcraft|rules/player-rules.yaml
+	redcraft|rules/ai-rules.yaml
+	redcraft|rules/structure-rules.yaml
+	redcraft|rules/aircraft-rules.yaml
+	redcraft|rules/vehicle-rules.yaml
+	redcraft|rules/infantry-rules.yaml
+	redcraft|rules/ships-rules.yaml
+    # TERRAN
+	redcraft|rules/terran/terran-structures.yaml
+	redcraft|rules/terran/terran-aircraft.yaml
+	redcraft|rules/terran/terran-vehicles.yaml
+	redcraft|rules/terran/terran-infantry.yaml
+	redcraft|rules/terran/terran-upgrades.yaml
+    # PROTOSS
+	redcraft|rules/protoss/protoss-structures.yaml
+	redcraft|rules/protoss/protoss-aircraft.yaml
+	redcraft|rules/protoss/protoss-vehicles.yaml
+	redcraft|rules/protoss/protoss-infantry.yaml
+	redcraft|rules/protoss/protoss-upgrades.yaml
+
+Weapons:
+    ra|weapons/explosions.yaml
+    ra|weapons/ballistics.yaml
+    ra|weapons/missiles.yaml
+    ra|weapons/other.yaml
+    ra|weapons/smallcaliber.yaml
+    ra|weapons/superweapons.yaml
+    # TERRAN
+    redcraft|weapons/terran/terran-structure-weapons.yaml
+    redcraft|weapons/terran/terran-aircraft-weapons.yaml
+    redcraft|weapons/terran/terran-vehicle-weapons.yaml
+    redcraft|weapons/terran/terran-infantry-weapons.yaml
+    redcraft|weapons/terran/terran-power-weapons.yaml
+    # PROTOSS
+    redcraft|weapons/protoss/protoss-structure-weapons.yaml
+    redcraft|weapons/protoss/protoss-aircraft-weapons.yaml
+    redcraft|weapons/protoss/protoss-vehicle-weapons.yaml
+    redcraft|weapons/protoss/protoss-infantry-weapons.yaml
+    redcraft|weapons/protoss/protoss-power-weapons.yaml
 
 Sequences:
 	ra|sequences/ships.yaml
@@ -78,29 +113,41 @@ Sequences:
 	ra|sequences/aircraft.yaml
 	ra|sequences/misc.yaml
 	ra|sequences/decorations.yaml
-	# Custom Overrides
-	redcraft|sequences/infantry-sequences.yaml
-	redcraft|sequences/aircraft-sequences.yaml
-	redcraft|sequences/vehicle-sequences.yaml
-	redcraft|sequences/structure-sequences.yaml
+	# TERRAN
+	redcraft|sequences/terran/terran-structure-sequences.yaml
+	redcraft|sequences/terran/terran-aircraft-sequences.yaml
+	redcraft|sequences/terran/terran-vehicle-sequences.yaml
+	redcraft|sequences/terran/terran-infantry-sequences.yaml
+	redcraft|sequences/terran/terran-upgrade-sequences.yaml
+    # PROTOSS
+    redcraft|sequences/protoss/protoss-structure-sequences.yaml
+    redcraft|sequences/protoss/protoss-aircraft-sequences.yaml
+    redcraft|sequences/protoss/protoss-vehicle-sequences.yaml
+    redcraft|sequences/protoss/protoss-infantry-sequences.yaml
+    redcraft|sequences/protoss/protoss-upgrade-sequences.yaml
 	redcraft|sequences/misc-sequences.yaml
+	#redcraft|sequences/voxels.yaml
 
 TileSets:
 	ra|tilesets/snow.yaml
 	ra|tilesets/interior.yaml
 	ra|tilesets/temperat.yaml
 	ra|tilesets/desert.yaml
+	#d2k|tilesets/arrakis.yaml
 
 Cursors:
 	ra|cursors.yaml
 
 Chrome:
 	ra|chrome.yaml
+    # TODO: Add back in later once figured out
 	#redcraft|chrome.yaml
 
 Assemblies:
 	^BinDir|OpenRA.Mods.Common.dll
 	^BinDir|OpenRA.Mods.Cnc.dll
+	# D2K - Pulls in the assets from mirror sites (trys but seemingly fails?)
+	#^BinDir|OpenRA.Mods.D2k.dll
 
 ChromeLayout:
 	common|chrome/ingame.yaml
@@ -161,26 +208,18 @@ ChromeLayout:
 
 Translations:
 	common|languages/en.ftl
+	common|languages/chrome/en.ftl
 	common|languages/rules/en.ftl
+	ra|languages/chrome/en.ftl
 	ra|languages/rules/en.ftl
-
-Weapons:
-	ra|weapons/explosions.yaml
-	ra|weapons/ballistics.yaml
-	ra|weapons/missiles.yaml
-	ra|weapons/other.yaml
-	ra|weapons/smallcaliber.yaml
-	ra|weapons/superweapons.yaml
-	# Custom overrides
-	redcraft|weapons/smallcaliber-rules.yaml
-	redcraft|weapons/missiles-rules.yaml
-	redcraft|weapons/other-rules.yaml
+	redcraft|languages/rules/en.ftl
 
 Voices:
 	ra|audio/voices.yaml
 
 Notifications:
 	ra|audio/notifications.yaml
+	redcraft|audio/notifications.yaml
 
 Music:
 	ra|audio/music.yaml
@@ -259,18 +298,21 @@ SupportsMapsFrom: ra
 
 SoundFormats: Aud, Wav
 
-SpriteFormats: ShpD2, ShpTD, TmpRA, TmpTD, ShpTS
+#D2K: R8 PngSheet from D2k
+SpriteFormats: ShpD2, ShpTD, TmpRA, TmpTD, ShpTS #, R8, PngSheet
 
 VideoFormats: Vqa, Wsa
 
 TerrainFormat: DefaultTerrain
 
 SpriteSequenceFormat: ClassicTilesetSpecificSpriteSequence
+#SpriteSequenceFormat: D2kSpriteSequence
 
-ModelSequenceFormat: PlaceholderModelSequence
+# ModelSequenceFormat: PlaceholderModelSequence
 
+#D2K: .r8, .r16, .png
 AssetBrowser:
-	SpriteExtensions: .shp, .tmp, .tem, .des, .sno, .int
+	SpriteExtensions: .shp, .tmp, .tem, .des, .sno, .int #, .r8, .r16, .png
 	AudioExtensions: .aud, .wav, .r00, .r01, .r02, .r03, .v00, .v01, .v02, .v03
 	VideoExtensions: .vqa, .wsa
 
@@ -311,10 +353,22 @@ ModContent:
 		ContentPackage@base:
 			Title: Base Game Files
 			Identifier: base
+            # D2K: ^SupportDir|Content/d2k/v3/BLOXBASE.R16, ^SupportDir|Content/d2k/v3/BLOXBAT.R16, ^SupportDir|Content/d2k/v3/BLOXBGBS.R16, ^SupportDir|Content/d2k/v3/BLOXICE.R16, ^SupportDir|Content/d2k/v3/BLOXTREE.R16, ^SupportDir|Content/d2k/v3/BLOXWAST.R16, ^SupportDir|Content/d2k/v3/SOUND.RS, ^SupportDir|Content/d2k/v3/PALETTE.BIN
 			TestFiles: ^SupportDir|Content/ra/v2/allies.mix, ^SupportDir|Content/ra/v2/conquer.mix, ^SupportDir|Content/ra/v2/interior.mix, ^SupportDir|Content/ra/v2/hires.mix, ^SupportDir|Content/ra/v2/lores.mix, ^SupportDir|Content/ra/v2/local.mix, ^SupportDir|Content/ra/v2/speech.mix, ^SupportDir|Content/ra/v2/russian.mix, ^SupportDir|Content/ra/v2/snow.mix, ^SupportDir|Content/ra/v2/sounds.mix, ^SupportDir|Content/ra/v2/temperat.mix
+            #, ^SupportDir|Content/d2k/v3/BLOXBASE.R16, ^SupportDir|Content/d2k/v3/BLOXBAT.R16, ^SupportDir|Content/d2k/v3/BLOXBGBS.R16, ^SupportDir|Content/d2k/v3/BLOXICE.R16, ^SupportDir|Content/d2k/v3/BLOXTREE.R16, ^SupportDir|Content/d2k/v3/BLOXWAST.R16, ^SupportDir|Content/d2k/v3/SOUND.RS, ^SupportDir|Content/d2k/v3/PALETTE.BIN
+			#D2K: d2k, gruntmods
 			Sources: allied, soviet, tfd, ra-origin, cncr-steam, cncr-origin
+            #, d2k, gruntmods
 			Required: true
 			Download: basefiles
+        #D2K ContentPackage@patch
+        #ContentPackage@patch:
+        #    Title: 1.06 Patch Content
+        #    Identifier: patch
+        #    TestFiles: ^SupportDir|Content/d2k/v3/DATA.R16
+        #    Sources: gruntmods
+        #    Required: true
+        #    Download: patch106
 		ContentPackage@aftermathbase:
 			Title: Aftermath Expansion Files
 			Identifier: aftermathbase

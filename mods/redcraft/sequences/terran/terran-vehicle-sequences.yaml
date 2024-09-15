@@ -1,0 +1,228 @@
+#scv:
+#    Defaults:
+#        Filename: e6.shp
+#    idle:
+#        Filename: e6.shp
+#        Facings: 32
+#        UseClassicFacings: True
+#    harvest:
+#        Filename: e6.shp
+#        Start: 32
+#        Length: 8
+#        Facings: 8
+#    dock:
+#        Filename: e6.shp
+#        Start: 96
+#        Length: 1
+#    dock-loop:
+#        Filename: e6.shp
+#        Start: 104
+#        Length: 1
+#    icon:
+#        Filename: e6icon.shp
+#        Start: 0
+
+scv:
+    Defaults:
+        Filename: e6.shp
+    stand:
+        Facings: 8
+    stand2:
+        Start: 8
+        Facings: 8
+    run:
+        Start: 16
+        Length: 6
+        Facings: 8
+        Tick: 100
+    idle1:
+        Start: 121
+        Length: 8
+        Tick: 120
+    idle2:
+        Start: 130
+        Length: 14
+        Tick: 120
+    die1:
+        Start: 146
+        Length: 8
+        Tick: 80
+    die2:
+        Start: 154
+        Length: 8
+        Tick: 80
+    die3:
+        Start: 162
+        Length: 8
+        Tick: 80
+    die4:
+        Start: 170
+        Length: 12
+        Tick: 80
+    die5:
+        Start: 182
+        Length: 18
+        Tick: 80
+    die6:
+        Filename: electro.tem
+        TilesetFilenames:
+            SNOW: electro.sno
+        Frames: 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+        Length: *
+        Tick: 80
+    heal:
+        Start: 56
+        Length: 58
+        Tick: 120
+    icon:
+        Filename: e6icon.shp
+
+mule:
+    Defaults:
+        Filename: mech.shp
+    stand:
+        Facings: 8
+    run:
+        Start: 8
+        Length: 6
+        Facings: 8
+        Tick: 100
+    idle:
+        Start: 178
+        Length: 14
+        Tick: 120
+    die1:
+        Start: 193
+        Length: 8
+        Tick: 80
+    die2:
+        Start: 201
+        Length: 8
+        Tick: 80
+    die3:
+        Start: 209
+        Length: 8
+        Tick: 80
+    die4:
+        Start: 217
+        Length: 12
+        Tick: 80
+    die5:
+        Start: 229
+        Length: 18
+        Tick: 80
+    die6:
+        Filename: electro.tem
+        TilesetFilenames:
+            SNOW: electro.sno
+        Frames: 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+        Length: *
+        Tick: 80
+    icon:
+        Filename: mechicon.shp
+
+hellion:
+    Defaults:
+        Filename: jeep.shp
+    idle:
+        Facings: 32
+        UseClassicFacings: True
+    turret:
+        Start: 32
+        Facings: 32
+        UseClassicFacings: True
+    muzzle:
+        Filename: minigun.shp
+        Length: 6
+        Facings: 8
+    icon:
+        Filename: jeepicon.shp
+
+hellbat:
+    idle:
+        Filename: stnk.shp
+        Facings: 32
+        UseClassicFacings: True
+    muzzle:
+        Filename: gunfire2.shp
+        Length: 5
+    icon:
+        Filename: artyicon.shp
+
+siege-tank:
+    Defaults:
+        Filename: 3tnk.shp
+    idle:
+        Facings: 32
+        UseClassicFacings: True
+    turret:
+        Start: 32
+        Facings: 32
+        UseClassicFacings: True
+    muzzle:
+        Filename: gunfire2.shp
+        Length: 5
+    icon:
+        Filename: 3tnkicon.shp
+
+siege-tank-siege-mode:
+    Defaults:
+        Filename: 4tnk.shp
+    make:
+    idle:
+        Facings: 32
+        UseClassicFacings: True
+    turret:
+        Start: 32
+        Facings: 32
+        UseClassicFacings: True
+    muzzle:
+        Filename: gunfire2.shp
+        Length: 5
+
+widow-mine:
+    idle:
+        Filename: minv.shp
+        Facings: 1
+        UseClassicFacings: False
+    turret:
+        Filename: stnk.shp
+        Start: 1
+        Facings: 32
+        UseClassicFacings: True
+    muzzle:
+        Filename: gunfire2.shp
+        Length: 2
+    icon:
+        Filename: jmin.shp
+
+viking-assault-mode:
+    idle:
+        Filename: ctnk.shp
+        Facings: 32
+        UseClassicFacings: True
+    muzzle:
+        Filename: gunfire2.shp
+        Length: 5
+
+cyclone:
+    Defaults:
+        Filename: ftrk.shp
+    idle:
+        Facings: 32
+        UseClassicFacings: True
+    turret:
+        Start: 32
+        Facings: 32
+        UseClassicFacings: True
+    muzzle:
+        Filename: gunfire2.shp
+        Length: 2
+    icon:
+        Filename: ftrkicon.shp
+
+#hmec:
+#    #Inherits: ^VehicleOverlays
+#    idle:
+#    icon:
+#        Filename: ftrkicon.shp

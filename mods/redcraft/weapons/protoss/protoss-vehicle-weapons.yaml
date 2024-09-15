@@ -1,0 +1,17 @@
+ProbeParticleBeam:
+    ReloadDelay: 25
+    Range: 1c256
+    Report: tesla1.aud
+    Projectile: TeslaZap
+    ValidTargets: Ground, GroundActor, Infantry, Building
+    Warhead@1Dam: SpreadDamage
+        Damage: 5
+        Spread: 42
+        ValidTargets: Ground, GroundActor, Infantry, Building
+        Versus:
+            None: 100
+            Wood: 100
+            Light: 100
+            Heavy: 100
+            Concrete: 100
+        DamageTypes: Prone50Percent, TriggerProne, ElectricityDeath

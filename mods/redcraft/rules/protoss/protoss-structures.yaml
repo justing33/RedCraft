@@ -52,9 +52,59 @@ NEXUS-CONSTRUCTION-BLDG:
         ForceHealthPercentage: 1
         SkipMakeAnims: false
 
+GATEWAY-CONSTRUCTION-BLDG:
+    Inherits: ^Building
+    Inherits@shape: ^2x2Shape
+    ProvidesRadar:
+    Buildable:
+        Queue: Building
+        BuildDuration: 1
+        BuildPaletteOrder: 10
+        Prerequisites: ~probe
+        Description: actor-nexus.description
+    CaptureManager:
+        PreventsAutoTarget: true
+    Capturable:
+        Types: building
+    Valued:
+        Cost: 150
+    Tooltip:
+        Name: actor-gateway.name
+    Building:
+        Footprint: ++ xx
+        Dimensions: 2,2
+    Selectable:
+        Bounds: 2048, 2133, 0, -170
+    Health:
+        HP: 100
+    Armor:
+        Type: Wood
+    RevealsShroud:
+        Range: 9c0
+        RevealGeneratedShroud: true
+    Power:
+        Amount: -0
+    MustBeDestroyed:
+        RequiredForShortGame: false
+    TransformOnCapture:
+        IntoActor: gateway
+        # Start at low health to then "heal" as construction occurs
+        ForceHealthPercentage: 1
+        SkipMakeAnims: false
+
 ############################
-#### PROTOSS STRUCTURES ####
-############################
+
+^ProtossBuilding:
+    Inherits: ^Building
+    ChangesHealth@AlreadyBuilt:
+        Step: 0
+        PercentageStep: 1
+        Delay: 25
+        StartIfBelow: 50
+        # 10 seconds to start regenerating health
+        #DamageCooldown: 250
+        DamageCooldown: 0
+        #RequiresCondition: !under-construction
 
 NEXUS:
     Inherits: ^Building
@@ -84,7 +134,7 @@ NEXUS:
     Armor:
         Type: Steel
     Tooltip:
-        Name: NEXUS TBD
+        Name: actor-nexus.name
     Refinery:
         UseStorage: False
     # Left Side Docks
@@ -193,5 +243,53 @@ NEXUS:
         Type: Rectangle
             TopLeft: -555, -1110
             BottomRight: 555, 1110
+    MustBeDestroyed:
+        RequiredForShortGame: true
+
+GATEWAY:
+    # TODO: Change the way building protoss structures works as they cannot regen shields
+    #Inherits: ^ProtossBuilding
+    Inherits: ^Building
+    Inherits@shape: ^2x2Shape
+    WithMakeAnimation:
+        Condition: under-construction
+    ChangesHealth@Constructing:
+        Step: 0
+        PercentageStep: 1
+        Delay: 19
+        StartIfBelow: 100
+        RequiresCondition: under-construction
+    Valued:
+        Cost: 150
+    Tooltip:
+        Name: actor-gateway.name
+    Building:
+        Footprint: ++ xx
+        Dimensions: 2,2
+    Selectable:
+        Bounds: 2048, 2133, 0, -170
+    Health:
+        HP: 1000
+        # Shields : 500
+        # HP: 500
+    Armor:
+        Type: Wood
+    Production:
+        Produces: Infantry
+        PauseOnCondition: under-construction
+    ProductionQueue:
+        Type: Infantry
+        PayUpFront: true
+        Factions: protoss
+    ProductionBar:
+        ProductionType: Infantry
+    Exit@1:
+        ExitCell: 0,0
+    RevealsShroud:
+        Range: 9c0
+        RevealGeneratedShroud: true
+    # TODO: Warp in units later if we can
+    Power:
+        Amount: -0
     MustBeDestroyed:
         RequiredForShortGame: true

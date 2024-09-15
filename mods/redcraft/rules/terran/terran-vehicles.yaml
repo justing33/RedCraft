@@ -295,7 +295,7 @@ HELLION:
         Queue: Vehicle
         BuildDuration: 525
         BuildPaletteOrder: 10
-        Prerequisites: factory
+        Prerequisites: ~factory
         Description: actor-hellion.description
     Valued:
         Cost: 100
@@ -397,7 +397,7 @@ SIEGE-TANK:
         Queue: Vehicle
         BuildDuration: 800
         BuildPaletteOrder: 20
-        Prerequisites: factory
+        Prerequisites: ~factory
         Description: actor-siege-tank.description
     Valued:
         # Cost: 150
@@ -508,7 +508,7 @@ WIDOW-MINE:
         Queue: Vehicle
         BuildDuration: 525
         BuildPaletteOrder: 40
-        Prerequisites: factory
+        Prerequisites: ~factory
         Description: actor-widow-mine.description
     Valued:
         # Cost: 75
@@ -614,7 +614,7 @@ CYCLONE:
         Queue: Vehicle
         BuildDuration: 800
         BuildPaletteOrder: 30
-        Prerequisites: factory
+        Prerequisites: ~factory
         Description: actor-cyclone.description
     Valued:
         # Cost: 125

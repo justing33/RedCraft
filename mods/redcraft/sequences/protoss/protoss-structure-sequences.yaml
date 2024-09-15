@@ -19,6 +19,32 @@ nexus-construction-bldg:
     fake-icon:
         Filename: speficon.shp
 
+gateway-construction-bldg:
+    Defaults:
+        Filename: iron.shp
+    idle:
+        Filename: ironmake.shp
+        Offset: 0,-4
+        Start: 2
+        Length: 1
+    active:
+        Length: 11
+        Offset: 0,-4
+    damaged-idle:
+        Start: 11
+        Offset: 0,-4
+    damaged-active:
+        Start: 11
+        Length: 11
+        Offset: 0,-4
+    make:
+        Filename: ironmake.shp
+        Length: *
+        Offset: 0,-4
+        Tick: 1
+    icon:
+        Filename: ironicon.shp
+
 ####################################
 
 nexus:
@@ -38,3 +64,26 @@ nexus:
         Filename: spenicon.shp
     fake-icon:
         Filename: speficon.shp
+
+gateway:
+    Defaults:
+        Filename: iron.shp
+    idle:
+        Offset: 0,-4
+    active:
+        Length: 11
+        Offset: 0,-4
+    damaged-idle:
+        Start: 11
+        Offset: 0,-4
+    damaged-active:
+        Start: 11
+        Length: 11
+        Offset: 0,-4
+    make:
+        Filename: stealth2.shp
+        Length: *
+        Offset: 0,-4
+        Tick: 1900
+    icon:
+        Filename: ironicon.shp

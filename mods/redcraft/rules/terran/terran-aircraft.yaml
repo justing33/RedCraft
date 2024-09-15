@@ -12,7 +12,7 @@ VIKING:
         BuildAtProductionType: Plane
         BuildDuration: 750
         BuildPaletteOrder: 50
-        Prerequisites: starport
+        Prerequisites: ~starport
         Description: actor-viking.description
     Valued:
         # Cost: 150
@@ -85,7 +85,7 @@ MEDIVAC:
         BuildAtProductionType: Plane
         BuildPaletteOrder: 10
         BuildDuration: 750
-        Prerequisites: starport
+        Prerequisites: ~starport
         Description: TBD
     Valued:
         # Cost: 100
@@ -167,7 +167,6 @@ MEDIVAC:
     AttackFrontal:
         FacingTolerance: 0
 
-# Black Hawk
 BANSHEE:
     Inherits: ^Helicopter
     Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
@@ -179,7 +178,7 @@ BANSHEE:
         # 43 * 25 = 1075 ticks
         BuildDuration: 1075
         BuildPaletteOrder: 20
-        Prerequisites: starport
+        Prerequisites: ~starport
         Description: actor-banshee.description
     Valued:
         # Cost: 150
@@ -258,7 +257,7 @@ RAVEN:
         Queue: Aircraft
         BuildDuration: 1350 #34
         BuildPaletteOrder: 320
-        Prerequisites: starport #,tech lab
+        Prerequisites: ~starport #TODO: tech lab
         Description: actor-raven.description
     Valued:
         # Cost: 100
@@ -335,7 +334,7 @@ BATTLECRUISER:
         BuildAtProductionType: Plane
         BuildDuration: 2625 #64 sec
         BuildPaletteOrder: 50
-        Prerequisites: starport
+        Prerequisites: ~starport
         Description: actor-battlecruiser.description
     Valued:
         # Cost: 400

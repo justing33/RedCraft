@@ -1,0 +1,20 @@
+ZealotPsiBlades:
+    ReloadDelay: 21
+    Range: 1c900
+    Report: sandbag2.aud
+    ValidTargets: GroundActor, Infantry, Building, Structure
+    Projectile: InstantHit
+        Blockable: false
+    Warhead@1Dam: SpreadDamage
+        Damage: 6
+        ValidTargets: GroundActor, Infantry, Building, Structure
+        Versus:
+            None: 100
+            Wood: 100
+            Light: 100
+            Heavy: 100
+            Concrete: 100
+    Warhead@2Eff: CreateEffect
+        Explosions: piffs
+        ValidTargets: Ground, GroundActor, Infantry, Building, Structure
+

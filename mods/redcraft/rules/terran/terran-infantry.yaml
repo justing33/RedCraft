@@ -14,7 +14,7 @@ MARINE:
         BuildDuration: 750
         BuildAtProductionType: Soldier
         BuildPaletteOrder: 10
-        Prerequisites: barracks_
+        Prerequisites: ~barracks_
         Description: actor-marine.description
     Valued:
         Cost: 50
@@ -39,26 +39,26 @@ MARINE:
         Name: garrisoned
         Weapon: MarineC14GaussRifle
         MuzzleSequence: garrison-muzzle
-            # 50% movement speed increase
-            SpeedMultiplier:
-                Modifier: 150
-                RequiresCondition: stimmed
-            # 50% damage increase
-            FirepowerMultiplier:
-                Modifier: 150
-                RequiresCondition: stimmed
-            ChangesHealth:
-                # 11 seconds cooldown, to match the length of time stimpack is active so each stim causes damage to units
-                DamageCooldown: 275
-                # Always reduce HP
-                StartIfBelow: 200
-                RequiresCondition: stimmed
-                # 10 HP health reduced on stimpack use
-                Step: -10
-                PercentageStep: -1
-            GrantConditionOnPrerequisite:
-                Condition: stimmed
-                Prerequisites: stimpack-activated
+    # 50% movement speed increase
+    SpeedMultiplier:
+        Modifier: 150
+        RequiresCondition: stimmed
+    # 50% damage increase
+    FirepowerMultiplier:
+        Modifier: 150
+        RequiresCondition: stimmed
+    ChangesHealth:
+        # 11 seconds cooldown, to match the length of time stimpack is active so each stim causes damage to units
+        DamageCooldown: 275
+        # Always reduce HP
+        StartIfBelow: 200
+        RequiresCondition: stimmed
+        # 10 HP health reduced on stimpack use
+        Step: -10
+        PercentageStep: -1
+    GrantConditionOnPrerequisite:
+        Condition: stimmed
+        Prerequisites: stimpack-activated
     WithInfantryBody:
         DefaultAttackSequence: shoot
         RequiresCondition: !parachute
@@ -68,21 +68,21 @@ MARINE:
 
 MARAUDER:
     Inherits: ^Soldier
-        AutoTarget:
-        AutoTargetPriority@ATTACKGROUNDUNITSFIRST:
-            Priority: 2
-            ValidTargets: Infantry, Vehicle, Building
-            InvalidTargets: NoAutoTarget
-        AutoTargetPriority@ATTACKBUILDINGSSECOND:
-            Priority: 1
-            ValidTargets: Structure
-            InvalidTargets: NoAutoTarget
+    AutoTarget:
+    AutoTargetPriority@ATTACKGROUNDUNITSFIRST:
+        Priority: 2
+        ValidTargets: Infantry, Vehicle, Building
+        InvalidTargets: NoAutoTarget
+    AutoTargetPriority@ATTACKBUILDINGSSECOND:
+        Priority: 1
+        ValidTargets: Structure
+        InvalidTargets: NoAutoTarget
     Buildable:
         Queue: Infantry
         BuildDuration: 850
         BuildAtProductionType: Soldier
         BuildPaletteOrder: 30
-        Prerequisites: barracks_
+        Prerequisites: ~barracks_
         Description: actor-marauder.description
     Selectable:
         Class: E3
@@ -95,12 +95,12 @@ MARAUDER:
         Name: actor-marauder.name
     UpdatesPlayerStatistics:
         AddToArmyValue: true
-            RevealsShroud:
-                Range: 10c0
-            Mobile:
-                Speed: 78
-                AlwaysTurnInPlace: true
-                Locomotor: foot
+    RevealsShroud:
+        Range: 10c0
+    Mobile:
+        Speed: 78
+        AlwaysTurnInPlace: true
+        Locomotor: foot
     Health:
         HP: 125
     Armament@PRIMARY:
@@ -109,34 +109,34 @@ MARAUDER:
     Armament@GARRISONED:
         Name: garrisoned
         Weapon: MarauderPunisherGrenade
-            # 50% movement speed increase
-            SpeedMultiplier:
-                Modifier: 150
-                RequiresCondition: stimmed
-            # 50% damage increase
-            FirepowerMultiplier:
-                Modifier: 150
-                RequiresCondition: stimmed
-            ChangesHealth:
-                # 11 seconds cooldown, to match the length of time stimpack is active so each stim causes damage to units
-                DamageCooldown: 275
-                # Always reduce HP
-                StartIfBelow: 200
-                RequiresCondition: stimmed
-                # 10 HP health reduced on stimpack use
-                Step: -10
-                PercentageStep: -1
-            GrantConditionOnPrerequisite:
-                Condition: stimmed
-                Prerequisites: stimpack-activated
+    # 50% movement speed increase
+    SpeedMultiplier:
+        Modifier: 150
+        RequiresCondition: stimmed
+    # 50% damage increase
+    FirepowerMultiplier:
+        Modifier: 150
+        RequiresCondition: stimmed
+    ChangesHealth:
+        # 11 seconds cooldown, to match the length of time stimpack is active so each stim causes damage to units
+        DamageCooldown: 275
+        # Always reduce HP
+        StartIfBelow: 200
+        RequiresCondition: stimmed
+        # 10 HP health reduced on stimpack use
+        Step: -10
+        PercentageStep: -1
+    GrantConditionOnPrerequisite:
+        Condition: stimmed
+        Prerequisites: stimpack-activated
     WithInfantryBody:
         DefaultAttackSequence: shoot
         RequiresCondition: !parachute
     AutoTarget:
         ScanRadius: 5
-            Passenger:
-                CargoType: Infantry
-                Weight: 2
+    Passenger:
+        CargoType: Infantry
+        Weight: 2
 
 REAPER:
     Inherits: ^Soldier
@@ -154,7 +154,7 @@ REAPER:
         BuildDuration: 1325
         BuildAtProductionType: Soldier
         BuildPaletteOrder: 40
-        Prerequisites: barracks_
+        Prerequisites: ~barracks_
         Description: actor-reaper.description
     Valued:
         # Cost: 50
@@ -223,7 +223,7 @@ FIREBAT:
         BuildDuration: 1225
         BuildAtProductionType: Soldier
         BuildPaletteOrder: 70
-        Prerequisites: barracks_
+        Prerequisites: ~barracks_
         Description: actor-firebat.description
     Valued:
         # Cost: 100
@@ -287,7 +287,7 @@ MEDIC_:
         BuildDuration: 725
         BuildAtProductionType: Soldier
         BuildPaletteOrder: 40
-        Prerequisites: barracks_, engineering-bay
+        Prerequisites: ~barracks_, ~engineering-bay
         Description: actor-medic_.description
     Valued:
         # Cost: 50
@@ -344,7 +344,7 @@ GHOST:
         BuildDuration: 1300
         BuildAtProductionType: Soldier
         BuildPaletteOrder: 120
-        Prerequisites: barracks_, ghost-academy
+        Prerequisites: ~barracks_, ~ghost-academy
         Description: actor-ghost.description
     Valued:
         # Cost: 150

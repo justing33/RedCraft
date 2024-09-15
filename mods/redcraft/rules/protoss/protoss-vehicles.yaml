@@ -75,7 +75,8 @@ PROBE:
         PipCount: 7
         ResourceSequences:
             Gems: pip-blue
-    # TODO: Allow to be loaded into lifted off Command Center
     Passenger:
         CargoType: Vehicle
         Weight: 1
+    Targetable:
+        TargetTypes: GroundActor, Vehicle, Defense, Structure

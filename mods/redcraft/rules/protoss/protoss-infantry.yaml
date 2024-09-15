@@ -1,0 +1,53 @@
+ZEALOT:
+    Inherits: ^Infantry
+    AutoTarget:
+    AutoTargetPriority@ATTACKGROUNDUNITSFIRST:
+        Priority: 2
+        ValidTargets: Infantry, Vehicle, Building
+        InvalidTargets: NoAutoTarget
+    AutoTargetPriority@ATTACKBUILDINGSSECOND:
+        Priority: 1
+        ValidTargets: Structure
+        InvalidTargets: NoAutoTarget
+    Buildable:
+        Queue: Infantry
+        BuildDuration: 750 #27s
+        BuildPaletteOrder: 10
+        Prerequisites: ~gateway
+        Description: actor-zealot.description
+    Valued:
+        Cost: 100
+        # Supply: 1
+    Tooltip:
+        Name: actor-zealot.name
+    UpdatesPlayerStatistics:
+        AddToArmyValue: true
+    RevealsShroud:
+        Range: 9c0
+    Mobile:
+        Speed: 78
+        AlwaysTurnInPlace: true
+        Locomotor: foot
+    Health:
+        HP: 100
+        # TODO: Add shields
+    Armor:
+        Type: Light
+    Armament@Melee:
+        Weapon: ZealotPsiBlades
+    AttackMove:
+        # TODO: Add later
+        #Voice: Attack
+    AttackFrontal:
+        FacingTolerance: 0
+    QuantizeFacingsFromSequence:
+        Sequence: stand
+    RenderSprites:
+    WithInfantryBody:
+        Palette: civilian7
+    WithDeathAnimation:
+        DeathSequencePalette: civilian7
+        DeathPaletteIsPlayerPalette: false
+    Passenger:
+        CargoType: Infantry
+        Weight: 1

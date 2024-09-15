@@ -1,5 +1,5 @@
 MarineC14GaussRifle:
-    ReloadDelay: 35
+    ReloadDelay: 15
     Range: 5c0
     Report: gun11.aud
     ValidTargets: Ground, GroundActor, Infantry, Building, Air, AirborneActor
@@ -134,7 +134,7 @@ ReaperP45GaussPistol:
 GhostC10CanisterRifle:
     ReloadDelay: 26
     Range: 6c0
-    Report: gun5.aud
+    Report: silppk.aud
     ValidTargets: Ground, GroundActor, Building, Structure, Infantry, Air, AirborneActor
     Projectile: InstantHit
         Blockable: false

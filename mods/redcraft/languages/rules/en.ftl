@@ -1086,6 +1086,15 @@ actor-nexus =
     Collects Gems for credits
    .name = Nexus
 
+actor-pylon =
+   .description = Supply building and provides power and a building radius for structures
+   .name = Pylon
+
+actor-gateway =
+   .description = Warps in ground based units
+    Collects Gems for credits
+   .name = Gateway
+
 ## PROTOSS UNITS
 
 actor-probe =
